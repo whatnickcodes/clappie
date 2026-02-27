@@ -10,9 +10,7 @@ That's Clappie. One skill file. Tiny. Hackable. Yours.
 
 ![Displays Preview](media/displays-preview.jpg)
 
-https://github.com/user-attachments/assets/placeholder
-
-https://github.com/whatnickcodes/clappie/raw/main/media/telegram-demo.mp4
+<video src="https://github.com/whatnickcodes/clappie/raw/main/media/telegram-demo.mp4" controls width="100%"></video>
 
 ---
 
