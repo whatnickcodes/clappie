@@ -10,11 +10,18 @@ That's Clappie. One skill file. Tiny. Hackable. Yours.
 
 ![Displays Preview](media/displays-preview.jpg)
 
-https://clappie.ai/img/telegram-demo.mp4
+
+
+https://github.com/user-attachments/assets/0fdd6403-a5a8-40c6-bbd9-9376194e00c5
+
+
+
+https://github.com/user-attachments/assets/bd3a3bff-73e6-4153-ac6a-afbab55d87d4
+
 
 https://clappie.ai/img/slack-demo.mp4
 
-https://clappie.ai/img/parties.mp4
+
 
 ---
 
