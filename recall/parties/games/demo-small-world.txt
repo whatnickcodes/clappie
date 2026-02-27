@@ -1,0 +1,69 @@
+[SHARED RULES]
+PREMISE:
+Small-world topology demo. Two clusters connected by a single bridge.
+Cluster 1: Hub-1 + 3 members. Cluster 2: Hub-2 + 3 members.
+Hubs are connected to each other (the bridge). Members only talk within their cluster.
+Information must cross the bridge to reach the other side.
+
+MECHANICS:
+- clusters: Number of clusters (2).
+- bridges: Number of inter-cluster links (1, between hubs).
+- diameter: Maximum hops between any two agents (3).
+- status: Each agent's state (local, bridging, done).
+
+RULES:
+- Each cluster discusses internally. Members DM their hub. Hubs coordinate members.
+- Cross-cluster communication ONLY goes through the bridge: Hub-1 ↔ Hub-2.
+- Cluster members CANNOT talk to anyone outside their cluster. Only their hub.
+- Hubs relay information between clusters as needed.
+- Task: each cluster generates a piece of information. Hubs exchange via bridge. Both clusters must end up with the combined knowledge.
+- Keep messages to 1-2 sentences. Demonstrate the bottleneck.
+
+[CARD: Hub-1 | Sonnet]
+You're the hub of Cluster 1 (blue). Your members are C1a, C1b, C1c.
+Collect information from your cluster members.
+You're the ONLY one who can talk to Hub-2 (the bridge). Relay what your cluster found.
+Receive info from Hub-2 and distribute to your members.
+
+[CARD: C1a | Haiku]
+You're in Cluster 1 (blue). You can ONLY talk to Hub-1.
+Share your piece of information with Hub-1.
+Wait for Hub-1 to relay back what the other cluster found.
+
+[CARD: C1b | Haiku]
+You're in Cluster 1 (blue). You can ONLY talk to Hub-1.
+Share your piece of information with Hub-1.
+Wait for Hub-1 to relay back what the other cluster found.
+
+[CARD: C1c | Haiku]
+You're in Cluster 1 (blue). You can ONLY talk to Hub-1.
+Share your piece of information with Hub-1.
+Wait for Hub-1 to relay back what the other cluster found.
+
+[CARD: Hub-2 | Sonnet]
+You're the hub of Cluster 2 (red). Your members are C2a, C2b, C2c.
+Collect information from your cluster members.
+You're the ONLY one who can talk to Hub-1 (the bridge). Relay what your cluster found.
+Receive info from Hub-1 and distribute to your members.
+
+[CARD: C2a | Haiku]
+You're in Cluster 2 (red). You can ONLY talk to Hub-2.
+Share your piece of information with Hub-2.
+Wait for Hub-2 to relay back what the other cluster found.
+
+[CARD: C2b | Haiku]
+You're in Cluster 2 (red). You can ONLY talk to Hub-2.
+Share your piece of information with Hub-2.
+Wait for Hub-2 to relay back what the other cluster found.
+
+[CARD: C2c | Haiku]
+You're in Cluster 2 (red). You can ONLY talk to Hub-2.
+Share your piece of information with Hub-2.
+Wait for Hub-2 to relay back what the other cluster found.
+
+[SUGGESTED STATE]
+Clusters is 2.
+Bridges is 1.
+Diameter is 3.
+All agents start with status "local".
+Hubs start with status "ready".

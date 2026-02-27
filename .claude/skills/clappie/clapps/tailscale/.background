@@ -1,0 +1,4 @@
+Tailscale
+status: tailscale status --json 2>/dev/null | grep -q '"BackendState": "Running"'
+start: tmux kill-session -t background-tailscale 2>/dev/null; tmux new-session -d -s background-tailscale "$(dirname "$0")/run.sh" && open -na Ghostty --args -e bash -c 'tmux attach-session -t background-tailscale'
+stop: tailscale down && tmux kill-session -t background-tailscale 2>/dev/null

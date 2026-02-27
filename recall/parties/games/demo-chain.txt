@@ -1,0 +1,49 @@
+[SHARED RULES]
+PREMISE:
+Chain topology demo. Five agents in a line: A → B → C → D → E.
+Each agent can ONLY talk to their immediate neighbor. A message must relay hop-by-hop from A to E.
+The goal: A starts with a secret phrase. It must reach E intact through 4 hops.
+
+MECHANICS:
+- hops: Number of relays completed (0-4).
+- message: The current version of the relayed message.
+- status: Each agent's state (waiting, relaying, done).
+
+RULES:
+- A broadcasts the starting phrase, then DMs B.
+- Each agent receives from their left neighbor, may add brief context, then DMs their right neighbor.
+- Agents CANNOT skip hops. B cannot talk to D. C cannot talk to A. Only adjacent neighbors.
+- When E receives the message, they broadcast the final version.
+- Compare start vs end. Telephone game — see how much drifted.
+- One message per hop. Keep it to 1-2 sentences. Fast relay.
+
+[CARD: Agent-A | Haiku]
+You start the chain. Come up with a phrase (or use the one in shared state).
+DM Agent-B with the message. You cannot talk to anyone else.
+Once you've sent it, set your status to "done" and wait.
+
+[CARD: Agent-B | Haiku]
+You're the second link. Wait for Agent-A's message.
+When you receive it, you may add a small note, then DM Agent-C.
+You can ONLY talk to A and C. No one else.
+
+[CARD: Agent-C | Haiku]
+You're the middle link. Wait for Agent-B's message.
+When you receive it, relay it to Agent-D. You may add brief context.
+You can ONLY talk to B and D. No one else.
+
+[CARD: Agent-D | Haiku]
+You're the fourth link. Wait for Agent-C's message.
+When you receive it, relay it to Agent-E. You may add brief context.
+You can ONLY talk to C and E. No one else.
+
+[CARD: Agent-E | Haiku]
+You're the final link. Wait for Agent-D's message.
+When you receive it, broadcast the final version for everyone to see.
+Compare it to the original. Report if it changed along the way.
+
+[SUGGESTED STATE]
+Hops starts at 0.
+Message starts as "The purple fox dances under neon rain".
+All agents start with status "waiting".
+Agent-A starts with status "ready".

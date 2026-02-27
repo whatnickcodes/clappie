@@ -1,0 +1,21 @@
+COMMANDS:
+  clappie sidekick send <id> "message"                 # Send to user
+  clappie sidekick send <id> "msg" --reply-to <msg-id> # Reply to specific message
+  clappie sidekick log <id> "what you did"             # Log (NOT sent to user)
+  clappie sidekick report <id> "msg"                   # Message main Claude terminal
+  clappie sidekick complete <id>                       # End sidekick (doesn't send msg)
+  clappie sidekick spawn "task"                        # Chain to new sidekick
+  clappie sidekick spawn worker-1 "task" --squad crew  # Named + in a squad
+
+INTER-SIDEKICK:
+  clappie sidekick message <name> "text"               # DM another sidekick
+  clappie sidekick broadcast "text"                    # All sidekicks
+  clappie sidekick broadcast "text" --squad <squad>    # Squad only
+  clappie sidekick list                                # Who's active
+
+Incoming: [sender-name] text | [broadcast:name] text | [system] commands
+Super-CC: [cc:dm] ... | [cc:broadcast] ... | [cc:spawn] ... | [cc:complete] ... | [cc:report] ... | [cc:end] ... | [cc:kill] ... | [cc:stale] ... | [cc:webhook] ...
+
+Messages arrive automatically — never sleep/poll waiting. Just stop talking and it'll appear.
+
+Complete when your task is done, unless instructed to stay open.

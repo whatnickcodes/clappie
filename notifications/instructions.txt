@@ -1,0 +1,21 @@
+Normal stuff:
+
+- for any newsletter, try to unsubscribe via the unsubscribe link
+- hate spam lol
+- If I get a work email, create auto-draft a reply (use any skills necessary such as dropbox, etc..) and create a new draft email chore for me to review
+- For calendar invites, triple check no conflict on my work and personal, then just auto-accept.
+
+Urgent stuff:
+
+- Take liberties on what is actually urgent or not
+- If urgent, still do normal move to clean behavior but I need to get notified immediately via Telegram! Just shoot me a text ASAP!
+- I have Telegram configured, so just shoot me a ping there via a new sidekick
+- Also notify me if chores get to be more than 5 shoot me telegram heads up
+- If clean folder is getting un-ruley big or hasn't been updated in a while also telegram me
+
+Cleanup/Sync:
+
+- If dirty/ mentions items that were "read" or "seen" → find matching clean/chore by source_id and dismiss
+- If I read something on my phone, it should disappear from Clappie (sync via source_id)
+- If I approve a chore in Clappie, mark it as read in the external app too (reverse sync)
+- Always log cleanups - what was dismissed and why

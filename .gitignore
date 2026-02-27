@@ -1,0 +1,30 @@
+.DS_Store
+.env
+
+# OAuth tokens and certs (generated at runtime)
+recall/oauth/*.json
+recall/oauth/*.pem
+
+# Logs (structure tracked via .gitkeep, content is runtime)
+recall/logs/**/*.txt
+
+# Personal media
+recall/files/*
+!recall/files/.gitkeep
+
+# Auto-generated profile (built by heartbeat)
+recall/profile.txt
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Projects
+# ─────────────────────────────────────────────────────────────────────────────
+# projects/ is a workspace for apps, sites, APIs, etc. Quick throwaway stuff
+# gets tracked by this repo. But if a project grows into its own thing:
+#
+#   1. git init inside the project folder
+#   2. Push to its own remote
+#   3. Add it to projects/.gitignore
+#
+# That way it lives here locally but is fully managed by its own repo.
+# See projects/.gitignore for the list.
+# ─────────────────────────────────────────────────────────────────────────────

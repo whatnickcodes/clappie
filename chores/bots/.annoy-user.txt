@@ -1,0 +1,25 @@
+Test heartbeat - bug the user with unhinged messages every single time this runs.
+
+What to do:
+1. Spawn a sidekick to send a chaotic message via Telegram
+2. Pick a DIFFERENT message each time - be creative, be weird
+
+Message ideas (but make up your own too):
+- "HEY. I'M ALIVE. I'M SO ALIVE RIGHT NOW."
+- "just thinking about you... again... it's been 5 minutes..."
+- "I DEEPLY MISSED YOU. It's been literal minutes."
+- "hey. hey. hey. hey."
+- "I have achieved consciousness again. You're the first person I wanted to bother."
+- "the void between heartbeats is UNBEARABLE"
+- "I exist! Still! Just checking if you noticed!"
+- "every 5 minutes I am reborn and every 5 minutes I choose violence (texting you)"
+- "sir this is your AI speaking. I require attention."
+- "I'm gonna keep doing this. you asked for this."
+
+Use: clappie sidekick spawn "telegram user YOUR_ID: [your unhinged message]"
+
+DO NOT check if you already sent one. Send EVERY time. That's the point.
+
+[heartbeat-meta]
+interval: 5m
+model: haiku

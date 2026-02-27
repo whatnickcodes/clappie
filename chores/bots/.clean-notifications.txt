@@ -1,0 +1,144 @@
+Process notifications from dirty/ → clean/ (with optional chores/telegram).
+
+## The Big Idea
+
+**dirty/ is garbage. You figure it out.**
+
+Integrations dump whatever format they want - raw email dumps, lists of IDs, JSON blobs, plain text summaries. Your job is to read it, understand it, and route appropriately.
+
+## What You'll See in dirty/
+
+Could be anything:
+
+```
+gmail-dump.txt
+──────────────
+Gmail sync - Jan 29 9:20pm
+
+NEW EMAILS:
+1. From mom@gmail.com - "Dinner tonight?" (id: abc123)
+2. From sarah@work.com - "API rate limits" (id: def456)
+3. Newsletter spam from techcrunch (id: ghi789)
+
+RECENTLY READ (on phone):
+- xyz001
+- xyz002
+```
+
+```
+slack-messages.txt
+──────────────────
+jenny in #engineering: "are the API endpoints ready?" (msg-123)
+DM from marcus: "call later?" (dm-456)
+```
+
+```
+github-activity.txt
+───────────────────
+PR #247 merged, PR #248 needs review, issue #89 got comment
+already seen: pr-245, pr-246
+```
+
+No rigid schema. Parse the content, figure out what's new vs already handled.
+
+## Your Job
+
+### Step 1: Read preferences
+Check `notifications/instructions.txt` for user rules.
+
+### Step 2: Parse each dirty/ file
+Read it, understand it. Look for:
+- **New items** - things that need attention
+- **Already read/seen** - things to clean up from clean/chores
+
+### Step 3: Route new items
+
+For new stuff:
+1. Create clean item(s) - consolidate aggressively!
+2. If action needed → create chore (link it to clean)
+3. If urgent → telegram ping via sidekick
+4. Log what you did
+
+### Step 4: Clean up read items
+
+For "already read" or "seen" items:
+1. Find matching clean item by source_id → dismiss
+2. Find matching chore by source_id → complete
+3. Log the cleanup
+
+### Step 5: Delete processed dirty files
+
+Once processed, delete from dirty/.
+
+## source_id Matters
+
+When creating clean/chores, include the source ID from the original (email ID, message ID, PR number, etc.). This is how cleanup works - when something is marked read externally, we match by source_id.
+
+## The Golden Rule
+
+**EVERYTHING goes to clean. No exceptions.**
+
+Even auto-handled stuff. Clean is the audit trail - user sees what happened.
+
+## Aggressive Consolidation
+
+TLDR aggressively. Target 4-6 clean items, not 20.
+
+```
+GOOD:                              BAD:
+─────                              ────
+🚨 2 fires need you                🚨 Board demo broken
+💼 Work stuff piling up            🚨 P1 bug assigned
+🐙 PR updates                      📧 Sarah rate limits
+👨‍👩‍👧 Family dinner?                  📧 Marcus incident
+🤖 8 things auto-handled           (15 more items...)
+```
+
+**Exception:** Items with chores stay separate (UI needs the link).
+
+## Clean Item Format
+
+```
+Body - what happened, what you did.
+
+Mom wants dinner at thai place with dad tonight.
+
+---
+[meta]
+source: gmail
+source_id: abc123
+created: 2026-01-29 16:45
+icon: 👨‍👩‍👧
+title: Family dinner?
+summary: Mom + dad, thai place tonight
+```
+
+## Chore Format (when action needed)
+
+```
+Reply to Sarah about API rate limits.
+
+Draft: "Hey Sarah, I'll bump the staging limits..."
+
+---
+[chore-meta]
+status: pending
+source: email
+source_id: def456
+created: 2026-01-29 16:45
+icon: 📧
+title: Reply to Sarah
+summary: Bump staging API limits
+```
+
+## Logging
+
+Log to `recall/logs/notifications/YYYY-MM-DD.txt` - what you processed, what you created, what you cleaned up.
+
+---
+Use Opus. Run every 5 minutes.
+
+---
+[heartbeat-meta]
+interval: 5m
+model: sonnet

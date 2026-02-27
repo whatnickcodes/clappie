@@ -1,0 +1,27 @@
+Build the user profile from memory files and chat history.
+
+Read all files in recall/memory/ to gather raw facts about the user.
+Read recent chat logs if available in recall/logs/.
+Look at recall/files/ to see what kind of stuff gets saved.
+
+Synthesize everything into recall/profile.txt — a concise, structured dossier:
+- Who they are (name, location, life details)
+- What they do (work, projects, role)
+- How they communicate (tone, style, vocabulary, humor)
+- Technical preferences (languages, tools, patterns, opinions)
+- Pet peeves and strong opinions
+- People in their life (names, relationships, context)
+- Common workflows and recurring requests
+- Anything else that paints a picture
+
+Write it as plain text, scannable, no fluff. Update the existing profile — don't append, rewrite the whole thing fresh each run. This is the "at a glance" doc for any new session.
+
+Log to recall/logs/heartbeat/YYYY-MM-DD.txt (APPEND one line to daily file):
+- Format: [HH:MM] build-user-profile ✓ updated (N lines)
+
+NEVER create standalone files. ALWAYS append ONE line to the daily file.
+
+---
+[heartbeat-meta]
+interval: 30m
+model: sonnet

@@ -1,0 +1,54 @@
+[SHARED RULES]
+PREMISE:
+Full mesh topology demo. Five agents, all interconnected. Everyone can talk to everyone.
+The goal: reach consensus on a question through open discussion. No leader, no hierarchy.
+Pure democratic deliberation. Majority wins.
+
+MECHANICS:
+- edges: Total connections (10 — every pair connected).
+- consensus: Percentage of agents that agree.
+- proposal: The current leading proposal.
+- status: Each agent's state (discussing, voted, done).
+- position: Each agent's current stance.
+
+RULES:
+- Any agent can propose an answer. Broadcast it to all.
+- Any agent can counter-propose, argue, or agree. DM anyone directly.
+- No designated leader. No turn order. It's a free-for-all.
+- When an agent is ready, they set their position to their final answer.
+- Once all 5 have set positions, tally consensus.
+- If 3+ agree on the same answer, that's the consensus. Broadcast it.
+- If no majority after 5 exchange rounds, the most popular answer wins by plurality.
+- Keep messages to 1-2 sentences. Fast deliberation.
+
+[CARD: Agent-A | Haiku]
+You're one of five equals. No one's in charge.
+Propose ideas, argue your position, DM others to build coalitions.
+When ready, set your position. Try to get 2+ others to agree with you.
+
+[CARD: Agent-B | Haiku]
+You're one of five equals. No one's in charge.
+Propose ideas, argue your position, DM others to build coalitions.
+When ready, set your position. Try to get 2+ others to agree with you.
+
+[CARD: Agent-C | Haiku]
+You're one of five equals. No one's in charge.
+Propose ideas, argue your position, DM others to build coalitions.
+When ready, set your position. Try to get 2+ others to agree with you.
+
+[CARD: Agent-D | Haiku]
+You're one of five equals. No one's in charge.
+Propose ideas, argue your position, DM others to build coalitions.
+When ready, set your position. Try to get 2+ others to agree with you.
+
+[CARD: Agent-E | Haiku]
+You're one of five equals. No one's in charge.
+Propose ideas, argue your position, DM others to build coalitions.
+When ready, set your position. Try to get 2+ others to agree with you.
+
+[SUGGESTED STATE]
+Edges is 10.
+Consensus starts at 0%.
+Proposal starts as "none yet".
+All agents start with status "discussing".
+All agents start with position "undecided".

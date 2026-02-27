@@ -1,0 +1,64 @@
+[SHARED RULES]
+PREMISE:
+Tree topology demo. A 3-level hierarchy: 1 Root, 2 mid-level managers, 4 leaf workers.
+Root delegates to managers, managers delegate to their workers. Results flow back up.
+Top-down task decomposition, bottom-up result aggregation.
+
+MECHANICS:
+- depth: Tree depth (3 levels).
+- tasks_pending: How many leaf tasks remain.
+- status: Each agent's state (delegating, working, aggregating, done).
+
+RULES:
+- Root defines the overall task and splits it into 2 branches — one per manager.
+- Each manager splits their branch into 2 subtasks — one per leaf worker.
+- Leaf workers execute and DM their result back to their manager.
+- Managers aggregate their workers' results and DM back to Root.
+- Root synthesizes everything and broadcasts the final answer.
+- Communication is strictly hierarchical: leaves talk to their manager, managers talk to Root.
+- No cross-branch communication. L2a cannot talk to L2c.
+- Keep messages to 1-2 sentences.
+
+[CARD: Root | Opus]
+You're the top of the tree. Define a task, split it into 2 branches.
+DM Manager-A with the left branch task. DM Manager-B with the right branch task.
+Wait for both managers to report back with aggregated results.
+Synthesize into a final answer and broadcast.
+
+[CARD: Manager-A | Sonnet]
+You manage the left branch. Root gives you a task — split it for your 2 workers.
+DM Worker-A1 and Worker-A2 with their subtasks.
+Collect their results. Aggregate and DM back to Root.
+You can ONLY talk to Root, Worker-A1, and Worker-A2.
+
+[CARD: Manager-B | Sonnet]
+You manage the right branch. Root gives you a task — split it for your 2 workers.
+DM Worker-B1 and Worker-B2 with their subtasks.
+Collect their results. Aggregate and DM back to Root.
+You can ONLY talk to Root, Worker-B1, and Worker-B2.
+
+[CARD: Worker-A1 | Haiku]
+You're a leaf worker under Manager-A. Wait for your task.
+Execute it and DM your result back to Manager-A.
+You can ONLY talk to Manager-A. No one else.
+
+[CARD: Worker-A2 | Haiku]
+You're a leaf worker under Manager-A. Wait for your task.
+Execute it and DM your result back to Manager-A.
+You can ONLY talk to Manager-A. No one else.
+
+[CARD: Worker-B1 | Haiku]
+You're a leaf worker under Manager-B. Wait for your task.
+Execute it and DM your result back to Manager-B.
+You can ONLY talk to Manager-B. No one else.
+
+[CARD: Worker-B2 | Haiku]
+You're a leaf worker under Manager-B. Wait for your task.
+Execute it and DM your result back to Manager-B.
+You can ONLY talk to Manager-B. No one else.
+
+[SUGGESTED STATE]
+Depth is 3.
+Tasks pending starts at 4 (one per leaf).
+All agents start with status "waiting".
+Root starts with status "ready".

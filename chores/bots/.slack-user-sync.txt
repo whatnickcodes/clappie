@@ -1,0 +1,21 @@
+Poll enabled Slack workspaces for new messages, mentions, and activity.
+
+Steps:
+1. Run `clappie slack-user list` to get enabled workspaces
+2. For each enabled workspace:
+   - Run `clappie slack-user dms <workspace>` to check for unread DMs
+   - Note any with unread_count > 0
+3. If there are new items, create a dirty file:
+   - Path: notifications/dirty/slack-user-{timestamp}.json
+   - Include: workspace, sender, preview, unread count
+4. Log to recall/logs/heartbeat/YYYY-MM-DD.txt:
+   [HH:MM] slack-user-sync ✓ checked X workspaces, Y new items
+
+Notes:
+- Only check enabled workspaces (no dot prefix)
+- Skip workspaces with auth errors (log but continue)
+- Keep dirty files simple - let notification processor handle triage
+
+[heartbeat-meta]
+interval: 15m
+model: haiku

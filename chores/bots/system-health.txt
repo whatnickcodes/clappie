@@ -1,0 +1,26 @@
+Monitor Mac Mini system health - alert if anything looks bad.
+
+Check these things:
+1. Disk space: `df -h /` - alert if < 10% free
+2. Memory pressure: `memory_pressure` - alert if "critical"
+3. CPU load: `uptime` - alert if load average > 8
+4. Key processes: Make sure these are running
+   - Tailscale daemon - check with `pgrep -l tailscale` (on macOS it's `io.tailscale.ip`, on Linux it's `tailscaled`)
+
+What to do:
+- If everything is fine: append one line to recall/logs/heartbeat/YYYY-MM-DD.txt
+- If something is wrong: create a notification clean item AND text via telegram
+
+Log format: [HH:MM] system-health ✓ all good (or brief issue description)
+
+NEVER create standalone files like health-checks.txt or system-health-DATE.txt.
+ALWAYS append ONE line to the daily heartbeat file.
+
+For alerts, use:
+clappie sidekick spawn "telegram user YOUR_ID: Heads up - [describe issue]. Want me to look into it?"
+
+Be specific about what's wrong. Don't cry wolf - only alert for real issues.
+
+[heartbeat-meta]
+interval: 30m
+model: haiku

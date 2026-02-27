@@ -1,0 +1,48 @@
+{
+    "hooks": {
+      "SessionStart": [
+        {
+          "hooks": [
+            {
+              "type": "command",
+              "command": "nohup caffeinate -di >/dev/null 2>&1 & echo $! > /tmp/claude-caffeinate.pid"
+            }
+          ]
+        }
+      ],
+      "SessionEnd": [
+        {
+          "hooks": [
+            {
+              "type": "command",
+              "command": "[ -f /tmp/claude-caffeinate.pid ] && kill $(cat /tmp/claude-caffeinate.pid) 2>/dev/null; rm -f /tmp/claude-caffeinate.pid"
+            }
+          ]
+        }
+      ]
+    },
+    "permissions": {
+      "allow": [
+        "Read",
+        "Edit",
+        "Write",
+        "Task",
+        "Skill",
+        "WebFetch",
+        "WebSearch",
+        "TodoWrite",
+        "mcp__*",
+        "Bash",
+        "Glob",
+        "Grep"
+      ],
+      "deny": [
+        "Read(.env)",
+        "Read(**/.env)",
+        "Edit(.env)",
+        "Edit(**/.env)",
+        "Write(.env)"
+      ]
+    }
+  }
+  

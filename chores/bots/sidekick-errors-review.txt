@@ -1,0 +1,19 @@
+Review sidekick errors from the past week and suggest fixes.
+
+Steps:
+1. Read error logs from recall/logs/sidekicks/errors/ (last 7 days)
+2. If no errors, skip silently
+3. Group similar errors together
+4. For each error pattern, brainstorm potential fixes (code changes, config tweaks, missing scopes, etc.)
+5. Create a chore in chores/humans/ with your analysis:
+   - List each error pattern with count
+   - Suggest 1-2 ideas per pattern
+   - Keep it actionable but don't implement anything
+6. Log to recall/logs/heartbeat/YYYY-MM-DD.txt
+
+DO NOT make any code changes. Only analyze and create the review chore.
+
+---
+[heartbeat-meta]
+interval: 7d
+model: sonnet

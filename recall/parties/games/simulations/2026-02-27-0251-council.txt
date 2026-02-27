@@ -1,0 +1,54 @@
+[meta]
+game=council
+started=2026-02-27 02:51
+status=completed
+context=The council is debating: Is AI fun or scary? Options are FUN or SCARY. The moderator should run 4 rounds of structured debate on different angles of this question (e.g. round 1: AI in entertainment, round 2: AI replacing jobs, round 3: AI consciousness, round 4: final verdict). Keep it lively, opinionated, and punchy.
+
+[participants]
+moderator: opus | displayName=Moderator | superCC=true | sidekick=2026-02-26-2151-moderator
+advisor-1: haiku | displayName=Advisor-1 | sidekick=2026-02-26-2151-advisor-1
+advisor-2: haiku | displayName=Advisor-2 | sidekick=2026-02-26-2151-advisor-2
+advisor-3: sonnet | displayName=Advisor-3 | sidekick=2026-02-26-2151-advisor-3
+advisor-4: haiku | displayName=Advisor-4 | sidekick=2026-02-26-2151-advisor-4
+
+[state]
+round=1
+topic=Is AI fun or scary?
+votes={}
+status=debating
+result=pending
+moderator.position=neutral
+advisor-1.position=undecided
+advisor-2.position=undecided
+advisor-3.position=undecided
+advisor-4.position=undecided
+
+[events]
+02:51 | system | simulation started
+02:51 | system | registered moderator [opus]
+02:51 | system | registered advisor-1 [haiku]
+02:51 | system | registered advisor-2 [haiku]
+02:51 | system | registered advisor-3 [sonnet]
+02:51 | system | registered advisor-4 [haiku]
+02:51 | user | set round = 1
+02:51 | user | set topic = Is AI fun or scary?
+02:51 | user | set votes = {}
+02:51 | user | set status = debating
+02:51 | user | set result = pending
+02:51 | user | set moderator.position = neutral
+02:51 | moderator.position | (none) → neutral
+02:51 | user | set advisor-1.position = undecided
+02:51 | advisor-1.position | (none) → undecided
+02:51 | user | set advisor-2.position = undecided
+02:51 | advisor-2.position | (none) → undecided
+02:51 | user | set advisor-3.position = undecided
+02:51 | advisor-3.position | (none) → undecided
+02:51 | user | set advisor-4.position = undecided
+02:51 | advisor-4.position | (none) → undecided
+02:51 | system | spawned moderator → 2026-02-26-2151-moderator
+02:51 | system | spawned advisor-1 → 2026-02-26-2151-advisor-1
+02:51 | system | spawned advisor-2 → 2026-02-26-2151-advisor-2
+02:51 | system | spawned advisor-3 → 2026-02-26-2151-advisor-3
+02:51 | system | spawned advisor-4 → 2026-02-26-2151-advisor-4
+02:51 | system | simulation started — all agents launched
+02:52 | system | simulation ended

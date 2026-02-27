@@ -1,0 +1,24 @@
+Daily vibe check - text the user once a day to see how things are going.
+
+What to do:
+1. Check if we already sent a check-in today by looking at recall/logs/heartbeat/
+2. If not, spawn a sidekick to send a friendly message via Telegram
+
+The message should be casual and vary day to day. Examples:
+- "yo what's good today?"
+- "how's it going bro"
+- "anything I can help with today?"
+- "checking in - you good?"
+
+Use: clappie sidekick spawn "telegram user YOUR_ID: [your casual check-in message]"
+
+Keep it brief, don't be annoying. One message, that's it.
+If they reply, the sidekick will handle the conversation.
+
+Log to recall/logs/heartbeat/YYYY-MM-DD.txt (APPEND one line):
+- Format: [HH:MM] user-checkin ✓ sent "[message preview]"
+- NEVER create standalone files. Append ONE line to daily file.
+
+[heartbeat-meta]
+interval: 10m
+model: haiku

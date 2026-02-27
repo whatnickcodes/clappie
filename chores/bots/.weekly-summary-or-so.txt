@@ -1,0 +1,24 @@
+Weekly summary - every Sunday, review the week and send a summary.
+
+What to do:
+1. Read recall/logs/ from the past week
+2. Summarize:
+   - How many sidekicks ran
+   - Any recurring themes/requests
+   - System health incidents
+   - Anything interesting
+3. Send via telegram with a chill weekly recap
+
+Use: clappie sidekick spawn "telegram user YOUR_ID: Weekly recap time! [your summary]"
+
+Keep it short and useful. Not a wall of text - just highlights.
+If nothing notable happened, just say "quiet week, all good"
+
+Log to recall/logs/heartbeat/YYYY-MM-DD.txt (APPEND one line to daily file):
+- Format: [HH:MM] weekly-summary ✓ sent
+- NEVER create standalone files. Append ONE line to daily file.
+
+[heartbeat-meta]
+interval: 7d
+time: sunday 18:00
+model: haiku

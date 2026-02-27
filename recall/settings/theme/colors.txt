@@ -1,0 +1,72 @@
+# Clappie Color Overrides
+# Override any color from the default palette here
+# Format: colorName=#rrggbb
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# UI COLORS
+# ═══════════════════════════════════════════════════════════════════════════════
+# background=#f0eee7           - main background (warm cream)
+# primary=#d97757              - coral accent
+# primaryFocused=#d97757       - focused accent
+# text=#2d2a28                 - main text
+# textMuted=#78736e            - dim/disabled text
+# textInverse=#ffffff          - text on colored backgrounds
+# statusText=#8c8782           - status bar text
+# statusAccent=#d97757         - status bar accent
+# border=#b4afaa               - borders
+# borderFocused=#d97757        - focused borders
+# divider=#c8c6c3              - dividers
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# SKY COLORS
+# ═══════════════════════════════════════════════════════════════════════════════
+# sky=#aad2ff                  - soft blue sky background
+# cloudBright=#ffffff          - cloud white highlights
+# cloudMid=#f5faff             - cloud soft white
+# cloudShadow=#e1ebfa          - cloud subtle shadow
+# sunCore=#ffe15a              - warm yellow sun center
+# sunMid=#ffdc50               - sun middle ring
+# sunEdge=#ffd246              - sun outer edge
+# skyTitle=#4682b4             - steel blue title text
+# skyLead=#87b4dc              - sky blue description text
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# GARDEN COLORS
+# ═══════════════════════════════════════════════════════════════════════════════
+# grass1=#225533               - darkest grass (base layer)
+# grass2=#2d6a40               - medium dark grass
+# grass3=#38804d               - medium grass
+# grass4=#489b5f               - lightest grass (highlights)
+# stem=#64b446                 - flower stem green
+# dirt=#5c4033                 - dark dirt
+# dirtLight=#6b5344            - lighter dirt
+# pebble1=#8c827a              - gray pebble
+# pebble2=#a0968c              - light gray pebble
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# FLOWER COLORS
+# ═══════════════════════════════════════════════════════════════════════════════
+# flowerWhite=#fafaf0          - cream white petals
+# flowerWhiteCenter=#ffbe3c    - golden yellow center
+# flowerRed=#e64646            - poppy red petals
+# flowerRedCenter=#ffd250      - yellow center
+# flowerPurple=#aa64d2         - violet petals
+# flowerPurpleCenter=#ffd250   - yellow center
+# flowerBlue=#64aaff           - sky blue petals
+# flowerBlueCenter=#ffe664     - pale yellow center
+# flowerPink=#ff96b4           - soft pink petals
+# flowerPinkCenter=#ffdc50     - yellow center
+# flowerOrange=#ffa046         - warm orange petals
+# flowerOrangeCenter=#b43c1e   - dark rust center
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# SPRITE COLORS
+# ═══════════════════════════════════════════════════════════════════════════════
+# spriteEyes=#000000           - jet black eyes (crab & dog)
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# Example overrides - uncomment to use:
+# ═══════════════════════════════════════════════════════════════════════════════
+# background=#ffffff
+# text=#000000
+# primary=#ff6b35

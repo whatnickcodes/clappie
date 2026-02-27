@@ -1,0 +1,20 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# projects/.gitignore
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# The outer clappie repo tracks projects/ by default. Quick apps, static
+# sites, and one-off builds get committed normally — that's fine.
+#
+# BUT: if a project has its own .git/ (cloned repos, serious standalone
+# projects), it MUST be listed here. Otherwise the outer repo sees it as
+# untracked junk and git operations (especially `git clean`) can destroy it.
+#
+# Rule: if it has its own git, add it here.
+#
+# Example:
+#   my-cloned-repo/
+#   big-serious-project/
+#
+# ─────────────────────────────────────────────────────────────────────────────
+clappie-docs-website/
+oh-zero-website/
