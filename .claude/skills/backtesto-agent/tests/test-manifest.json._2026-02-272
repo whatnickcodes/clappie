@@ -1,0 +1,388 @@
+{
+  "description": "E2E validation manifest for backtesto-agent reports",
+  "version": "1.0.0",
+  "checks": [
+    {
+      "id": "title",
+      "check": "section_exists",
+      "pattern": "^# Backtest Report:",
+      "required": true
+    },
+    {
+      "id": "date",
+      "check": "section_exists",
+      "pattern": "\\*\\*Date\\*\\*:\\s*\\d{4}-\\d{2}-\\d{2}",
+      "required": true
+    },
+    {
+      "id": "source",
+      "check": "section_exists",
+      "pattern": "\\*\\*Source\\*\\*:.*backtes\\.to",
+      "required": true
+    },
+
+    {
+      "id": "allocation-section",
+      "check": "section_exists",
+      "pattern": "^## Portfolio Allocation",
+      "required": true
+    },
+    {
+      "id": "allocation-table",
+      "check": "table_has_columns",
+      "section": "Portfolio Allocation",
+      "columns": ["Asset", "ISIN"],
+      "minRows": 1,
+      "required": true
+    },
+
+    {
+      "id": "settings-section",
+      "check": "section_exists",
+      "pattern": "^## Settings",
+      "required": true
+    },
+    {
+      "id": "settings-fields",
+      "check": "has_bullet_fields",
+      "section": "Settings",
+      "fields": ["Period", "Initial investment", "Recurring", "Rebalancing"],
+      "required": true
+    },
+
+    {
+      "id": "performance-section",
+      "check": "section_exists",
+      "pattern": "^## Performance Summary",
+      "required": true
+    },
+    {
+      "id": "performance-table",
+      "check": "table_has_columns",
+      "section": "Performance Summary",
+      "columns": ["Metric", "Value"],
+      "minRows": 3,
+      "required": true
+    },
+    {
+      "id": "metric-cagr",
+      "check": "metric_exists",
+      "section": "Performance Summary",
+      "metric": "CAGR",
+      "required": true
+    },
+    {
+      "id": "metric-volatility",
+      "check": "metric_exists",
+      "section": "Performance Summary",
+      "metric": "Volatility",
+      "required": true
+    },
+    {
+      "id": "metric-sharpe",
+      "check": "metric_exists",
+      "section": "Performance Summary",
+      "metric": "Sharpe",
+      "required": true
+    },
+    {
+      "id": "metric-max-dd",
+      "check": "metric_exists",
+      "section": "Performance Summary",
+      "metric": "Max Drawdown",
+      "required": false
+    },
+    {
+      "id": "metric-avg-dd",
+      "check": "metric_exists",
+      "section": "Performance Summary",
+      "metric": "Average Drawdown",
+      "required": false
+    },
+    {
+      "id": "metric-dd-duration",
+      "check": "metric_exists",
+      "section": "Performance Summary",
+      "metric": "Max Drawdown Duration",
+      "required": false
+    },
+    {
+      "id": "metric-ulcer",
+      "check": "metric_exists",
+      "section": "Performance Summary",
+      "metric": "Ulcer Index",
+      "required": false
+    },
+
+    {
+      "id": "portfolio-value-section",
+      "check": "section_exists",
+      "pattern": "^## Portfolio Value",
+      "required": true
+    },
+    {
+      "id": "portfolio-value-image",
+      "check": "image_exists",
+      "section": "Portfolio Value",
+      "minSizeKB": 10,
+      "required": true
+    },
+
+    {
+      "id": "yearly-returns-section",
+      "check": "section_exists",
+      "pattern": "^## Yearly Returns",
+      "required": true
+    },
+    {
+      "id": "yearly-returns-image",
+      "check": "image_exists",
+      "section": "Yearly Returns",
+      "minSizeKB": 10,
+      "required": true
+    },
+    {
+      "id": "yearly-returns-table",
+      "check": "table_has_columns",
+      "section": "Yearly Returns",
+      "columns": ["Year", "Return"],
+      "minRows": 1,
+      "required": true
+    },
+
+    {
+      "id": "risk-section",
+      "check": "section_exists",
+      "pattern": "^## Risk Analysis",
+      "required": true
+    },
+    {
+      "id": "risk-image",
+      "check": "image_exists",
+      "section": "Risk Analysis",
+      "minSizeKB": 10,
+      "required": true
+    },
+
+    {
+      "id": "drawdown-section",
+      "check": "section_exists",
+      "pattern": "^## Drawdown Analysis",
+      "required": true
+    },
+    {
+      "id": "drawdown-image",
+      "check": "image_exists",
+      "section": "Drawdown Analysis",
+      "minSizeKB": 10,
+      "required": true
+    },
+
+    {
+      "id": "holdings-section",
+      "check": "section_exists",
+      "pattern": "^## Top 10 Holdings",
+      "required": false
+    },
+    {
+      "id": "holdings-table",
+      "check": "table_has_columns",
+      "section": "Top 10 Holdings",
+      "columns": ["Holding", "Weight"],
+      "minRows": 3,
+      "required": false
+    },
+    {
+      "id": "holdings-image",
+      "check": "image_exists",
+      "section": "Top 10 Holdings",
+      "minSizeKB": 10,
+      "required": false
+    },
+
+    {
+      "id": "composition-section",
+      "check": "section_exists",
+      "pattern": "^## Portfolio Composition",
+      "required": false
+    },
+    {
+      "id": "composition-country",
+      "check": "section_exists",
+      "pattern": "^### Country",
+      "required": false
+    },
+    {
+      "id": "composition-continent",
+      "check": "section_exists",
+      "pattern": "^### Continent",
+      "required": false
+    },
+    {
+      "id": "composition-market-type",
+      "check": "section_exists",
+      "pattern": "^### Market Type",
+      "required": false
+    },
+    {
+      "id": "composition-currency",
+      "check": "section_exists",
+      "pattern": "^### Currency",
+      "required": false
+    },
+    {
+      "id": "composition-sector",
+      "check": "section_exists",
+      "pattern": "^### Sector",
+      "required": false
+    },
+    {
+      "id": "composition-country-emoji",
+      "check": "table_has_emoji",
+      "section": "Country",
+      "required": false
+    },
+    {
+      "id": "composition-continent-emoji",
+      "check": "table_has_emoji",
+      "section": "Continent",
+      "required": false
+    },
+    {
+      "id": "composition-currency-emoji",
+      "check": "table_has_emoji",
+      "section": "Currency",
+      "required": false
+    },
+    {
+      "id": "composition-sector-emoji",
+      "check": "table_has_emoji",
+      "section": "Sector",
+      "required": false
+    },
+
+    {
+      "id": "composition-country-image",
+      "check": "image_exists",
+      "section": "Country",
+      "minSizeKB": 10,
+      "required": false
+    },
+    {
+      "id": "composition-continent-image",
+      "check": "image_exists",
+      "section": "Continent",
+      "minSizeKB": 10,
+      "required": false
+    },
+    {
+      "id": "composition-market-type-image",
+      "check": "image_exists",
+      "section": "Market Type",
+      "minSizeKB": 10,
+      "required": false
+    },
+    {
+      "id": "composition-currency-image",
+      "check": "image_exists",
+      "section": "Currency",
+      "minSizeKB": 10,
+      "required": false
+    },
+    {
+      "id": "composition-sector-image",
+      "check": "image_exists",
+      "section": "Sector",
+      "minSizeKB": 10,
+      "required": false
+    },
+
+    {
+      "id": "benchmark-section",
+      "check": "section_exists",
+      "pattern": "^## Benchmark",
+      "when_benchmark": true,
+      "required": true
+    },
+    {
+      "id": "benchmark-comparison-table",
+      "check": "table_has_columns",
+      "section": "Performance Comparison",
+      "columns": ["Metric", "Portfolio"],
+      "minRows": 3,
+      "when_benchmark": true,
+      "required": true
+    },
+    {
+      "id": "rolling-correlation-image",
+      "check": "image_exists",
+      "section": "Rolling Correlation",
+      "minSizeKB": 10,
+      "when_benchmark": true,
+      "required": true
+    },
+    {
+      "id": "scatter-regression-image",
+      "check": "image_exists",
+      "section": "Return Scatter",
+      "minSizeKB": 10,
+      "when_benchmark": true,
+      "required": true
+    },
+
+    {
+      "id": "rolling-returns-section",
+      "check": "section_exists",
+      "pattern": "^## Rolling Returns",
+      "required": false
+    },
+    {
+      "id": "return-distribution-section",
+      "check": "section_exists",
+      "pattern": "^## Return Distribution",
+      "required": false
+    },
+    {
+      "id": "montecarlo-section",
+      "check": "section_exists",
+      "pattern": "^## Monte Carlo Simulation",
+      "required": false
+    },
+    {
+      "id": "factor-exposure-section",
+      "check": "section_exists",
+      "pattern": "^## Factor Exposure",
+      "required": false
+    },
+    {
+      "id": "expected-return-section",
+      "check": "section_exists",
+      "pattern": "^## Expected Return",
+      "required": false
+    },
+
+    {
+      "id": "manifest-coverage",
+      "check": "manifest_covers_sections",
+      "ignore": [],
+      "required": true
+    },
+
+    {
+      "id": "footer",
+      "check": "has_footer",
+      "pattern": "backtesto-agent",
+      "required": true
+    },
+    {
+      "id": "all-images-exist",
+      "check": "all_referenced_images_exist",
+      "required": true
+    },
+    {
+      "id": "valid-markdown",
+      "check": "valid_markdown",
+      "required": true
+    }
+  ]
+}

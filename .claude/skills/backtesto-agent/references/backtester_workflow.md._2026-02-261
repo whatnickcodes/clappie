@@ -1,0 +1,371 @@
+# Backtester Workflow
+
+Step-by-step browser automation sequences for backtes.to backtester.
+Verified against live site on 2026-02-24.
+
+## Prerequisites
+
+- Tab open on `https://backtes.to/backtester` (or navigate there first)
+- Authentication is NOT required for basic backtesting
+- Authentication IS required for: saving portfolios, some advanced features
+
+## 1. Authentication Check
+
+Authentication state is NOT stored in localStorage. It's detected visually
+via the Account modal.
+
+```
+Step 1: Open Account modal
+Tool: computer
+action: click on `account-button` (top-right, text: "Account")
+
+Step 2: Wait for modal
+Tool: computer
+action: wait 2s
+
+Step 3: Check login state
+Tool: javascript_tool
+Code: (async () => {
+  const modal = document.querySelector('#login-modal');
+  if (!modal) return { status: 'modal_not_found' };
+  const hasLogout = modal.innerText.includes('LOGOUT');
+  const hasUsernameInput = !!modal.querySelector('#username');
+  return { loggedIn: hasLogout, hasLoginForm: hasUsernameInput };
+})()
+
+Step 4: Close modal if already logged in
+Tool: computer
+action: key Escape
+```
+
+## 2. Login Sequence
+
+Only needed when step 1 shows `loggedIn: false`. The Account modal must be open.
+
+```
+Step 1: Click "Accedi" tab (should be default, but ensure it)
+The auth-form has tabs: Accedi / Registrati / Reset Password
+
+Step 2: Enter email
+Tool: form_input
+ref: [ref for #username input]
+value: [email from credentials]
+
+Step 3: Enter password
+Tool: form_input
+ref: [ref for #password input]
+value: [password from credentials]
+
+Step 4: Submit login
+Tool: computer
+action: click on submit/login button within auth-form
+(Look for a submit button - may need read_page to find exact ref)
+
+Step 5: Wait and verify (3-4 seconds)
+Tool: computer
+action: wait 4s
+
+Step 6: Verify login succeeded
+Tool: javascript_tool
+Code: (async () => {
+  const modal = document.querySelector('#login-modal');
+  if (!modal) return { status: 'modal_closed' };
+  return { loggedIn: modal.innerText.includes('LOGOUT') };
+})()
+
+Step 7: Close modal
+Tool: computer
+action: key Escape
+```
+
+## 3. Navigate to Backtester
+
+```
+Tool: navigate
+URL: https://backtes.to/backtester
+
+Tool: computer
+action: wait 3s
+
+Tool: javascript_tool (verify page loaded)
+Code: (async () => {
+  return !!document.querySelector('#etf-dropdown');
+})()
+```
+
+## 4. Clear Existing Portfolio
+
+```
+Tool: javascript_tool
+Code: (async () => {
+  const table = document.querySelector('#portfolio-table');
+  if (!table) return { rows: 0 };
+  // Count data rows (excluding header)
+  const rows = table.querySelectorAll('.rt-tr-group, tbody tr');
+  return { rows: rows.length };
+})()
+```
+
+If rows > 0, click each `x` button in the portfolio table to remove entries.
+The `x` buttons are inside the portfolio-table rows (no specific IDs).
+
+```
+Tool: read_page (find x buttons in portfolio table)
+filter: interactive
+ref_id: [ref for portfolio-table]
+
+Then click each remove/x button found.
+Wait 1s between removals.
+```
+
+## 5. Add ETF to Portfolio
+
+Repeat for each asset:
+
+```
+Step 1: Click on ETF dropdown to focus it
+Tool: computer
+action: click on the etf-dropdown area (the search input inside it)
+
+Step 2: Type search query
+Tool: computer
+action: type [ISIN or ticker]
+(ISIN preferred - gives exact single match)
+
+Step 3: Wait for dropdown results (1.5-2s for Dash callback)
+Tool: computer
+action: wait 2s
+
+Step 4: Screenshot to verify dropdown options appeared
+Tool: computer
+action: screenshot
+
+Step 5: Select the matching result
+Tool: computer
+action: click on the first dropdown option
+(Dropdown option format: "[Name] | [ISIN] | Da [MM/YYYY]")
+
+Step 6: Set allocation percentage (if not 100)
+The percentage-input defaults to 100. Only change if needed.
+Tool: computer
+action: triple_click on percentage-input to select all
+Tool: computer
+action: type [weight as number]
+
+Step 7: Click "Aggiungi" (Add) button
+Tool: computer
+action: click on add-etf-button
+
+Step 8: Wait and verify
+Tool: computer
+action: wait 1.5s
+Tool: javascript_tool
+Code: (async () => {
+  const table = document.querySelector('#portfolio-table');
+  const remaining = document.querySelector('#remaining-percentage');
+  return {
+    tableText: table?.innerText?.substring(0, 200),
+    remaining: remaining?.innerText
+  };
+})()
+```
+
+**Important**: After adding the first ETF, the percentage-input resets to the
+remaining percentage. For multi-ETF portfolios, add ETFs in order and adjust
+percentages accordingly.
+
+## 6. Configure Settings
+
+Settings are accessible via the "Impostazioni Analisi" button OR inline controls.
+
+**Inline settings** (always visible above the action buttons):
+- Investment frequency, amounts, date range are in the settings panel
+
+**Modal settings** (click "Impostazioni Analisi"):
+- Advanced options like tax, inflation, FIRE analysis
+
+```
+Step 1: Set initial investment (if specified)
+Tool: computer
+action: triple_click on #single-investment-amount-input
+Tool: computer
+action: type [amount]
+
+Step 2: Set recurring amount (if specified)
+Tool: computer
+action: triple_click on #recurring-amount-input
+Tool: computer
+action: type [amount]
+
+Step 3: Set frequency (if specified) - react-select dropdown
+Tool: computer
+action: click on #investment-frequency-dropdown
+action: wait 0.5s
+action: type [search term]
+action: wait 1s
+action: click matching option
+
+Step 4: Set custom date range (if specified)
+First enable custom period:
+Tool: computer
+action: click on #custom-period-switch (checkbox)
+
+Then set dropdowns for start-year, start-month, end-year, end-month
+(each is a react-select: click, type, select option)
+```
+
+## 7. Set Benchmark (Optional)
+
+```
+Step 1: Single benchmark (default mode)
+Tool: computer
+action: click on #benchmark-dropdown
+action: type [benchmark name or ISIN]
+action: wait 2s
+action: click matching option
+
+Step 2: Multi-ETF benchmark (toggle first)
+Tool: computer
+action: click on #benchmark-type-switch
+Then use benchmark-etf-dropdown + benchmark-percentage-input + add-benchmark-etf-button
+(Same pattern as adding portfolio ETFs)
+```
+
+## 8. Run Backtest
+
+```
+Step 1: Click "Avvia analisi" (pink button)
+Tool: computer
+action: click on #create-portfolio-button
+
+Step 2: Wait for loading overlay to appear and disappear
+Tool: computer
+action: wait 5s
+
+Step 3: Poll for results (every 3s, max 60s)
+Tool: javascript_tool
+Code: (async () => {
+  const loading = document.querySelector('#backtester-analysis-loading-overlay');
+  const isLoading = loading && loading.style.display !== 'none' && loading.offsetParent !== null;
+  const chart = document.querySelector('#portfolio-value-chart .js-plotly-plot');
+  const tabs = document.querySelector('#backtester-results-tabs');
+  const error = document.querySelector('#portfolio-feedback');
+  const errorText = error?.innerText?.trim();
+  if (errorText) return { status: 'error', message: errorText };
+  if (chart || tabs) return { status: 'ready' };
+  if (isLoading) return { status: 'loading' };
+  return { status: 'unknown' };
+})()
+
+Repeat until status is 'ready' or 'error', or 60s elapsed.
+
+Step 4: Scroll down to results
+Tool: computer
+action: scroll down 8 ticks to reach results area
+```
+
+## 9. Extract Results
+
+### 9a. Get Summary Metrics
+
+```
+Step 1: Get summary metrics from Riassunto tab (default active tab)
+Tool: get_page_text
+Parse for:
+- "Rendimento Annuale" -> CAGR (e.g., "8.8%")
+- "Volatilità" -> Volatility (e.g., "12.9%")
+- "Sharpe Ratio" -> (e.g., "0.68")
+- "Periodo Analisi" -> Date range
+```
+
+### 9b. Export Charts via Plotly.toImage()
+
+For each chart, follow this 3-step pattern: activate tab, export via Plotly, save to disk.
+
+**IMPORTANT**: Use `Plotly.toImage()` instead of `computer` screenshots for all Plotly charts.
+This produces high-resolution exports (~1200px, 35-90 KB) vs low-res screenshots (~480px, 12-17 KB).
+
+#### Plotly Export Pattern (repeat for each chart)
+
+```
+Step A: Click the target result tab and wait for chart to render
+Tool: computer
+action: click on "[Tab Name]" tab in backtester-results-tabs
+action: wait 2s
+
+Step B: Export chart via Plotly.toImage()
+Tool: javascript_tool
+Code: (async () => {
+  const el = document.querySelector('[CHART_SELECTOR] .js-plotly-plot');
+  if (!el) return { error: 'chart not found' };
+  const dpr = window.devicePixelRatio || 1;
+  const w = Math.round(el.offsetWidth / dpr);
+  const h = Math.round(el.offsetHeight / dpr);
+  const dataUrl = await Plotly.toImage(el, {
+    format: 'png', width: w * 2, height: h * 2
+  });
+  return { dataUrl: dataUrl.substring(0, 100) + '...', length: dataUrl.length };
+})()
+
+Step C: Save the base64 PNG to disk
+Strip the "data:image/png;base64," prefix from dataUrl, then write the
+base64-decoded content to: docs/reports/images/[portfolio]-[date]-[chart-name].png
+(Use Bash with echo + base64 decode, or javascript_tool to return full dataUrl
+ and write via Write tool)
+```
+
+**Retina/HiDPI fix**: The width/height are divided by `devicePixelRatio` before
+multiplying by 2 for the export. Do NOT use `scale:2` on Retina displays — it
+re-introduces the same clipping bug (content renders at 1x in top-left, rest blank).
+
+#### Charts to Export
+
+**Riassunto tab** (default active):
+- `#portfolio-value-chart` → summary chart (allocation donut / portfolio value)
+
+**Performance tab**:
+- `#portfolio-value-chart` → portfolio value over time
+- `#rolling-figure` → rolling returns
+- `#yearly-bar-figure` → yearly returns bar chart
+
+**Rischio tab**:
+- `#max-loss-chart` → max loss analysis
+- `#loss-prob-chart` → success/loss probability
+- `#drawdown-chart` → drawdown timeline
+
+**Composizione tab**:
+- `#allocation-types-chart` → allocation breakdown
+- Iterate radio buttons for each breakdown type (Geo, Settore, Asset Class, Valuta, Dimensione)
+- Click each radio button, wait 2s, then export `#allocation-types-chart` again
+
+### 9c. Fallback: computer screenshot
+
+If `Plotly.toImage()` returns an error or the element is not a Plotly plot
+(e.g., Dani Score tab, AI Analysis tab), fall back to `computer` screenshot:
+
+```
+Tool: computer
+action: screenshot
+Save screenshot for report
+```
+
+## Result Tabs Reference
+
+| Tab | Content | Key Charts |
+|-----|---------|------------|
+| Riassunto | Summary metrics + donut allocation chart | CAGR, Volatility, Sharpe |
+| Performance | Rolling returns, yearly bar chart, distribution | `rolling-figure`, `yearly-bar-figure`, `distribution-figure` |
+| Rischio | Max drawdown, success probability, drawdown timeline | `max-loss-chart`, `loss-prob-chart`, `drawdown-chart` |
+| Composizione | Allocation breakdown over time | `allocation-types-chart` |
+| Dani Score | Proprietary scoring | |
+| AI Analysis | AI-generated analysis (requires acceptance of disclaimer) | |
+
+## Timing Notes
+
+- After page navigation: wait 3s for Dash to fully initialize
+- After typing in react-select dropdown: wait 2s for search callback
+- After clicking "Aggiungi" (add ETF): wait 1.5s for table update
+- After clicking "Avvia analisi" (run): poll every 3s, up to 60s
+- After switching result tabs: wait 2s for charts to render
+- If a wait seems insufficient, double it and retry once
+- The `custom-period-switch` must be toggled ON before date dropdowns become active

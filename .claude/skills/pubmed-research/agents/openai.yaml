@@ -1,0 +1,4 @@
+interface:
+  display_name: "PubMed Research"
+  short_description: "PubMed MCP workflows for evidence-grounded literature tasks"
+  default_prompt: "Use PubMed MCP tools to search, fetch, connect, and cite biomedical literature rigorously."
