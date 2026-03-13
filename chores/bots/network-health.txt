@@ -1,0 +1,25 @@
+DNS probe: verify Pi-hole is resolving and blocking via Tailscale.
+
+Steps:
+1. Run: `dig google.com @100.87.157.76 +time=3 +tries=1`
+   - Expect: an answer section with resolved IPs
+2. Run: `dig ads.google.com @100.87.157.76 +time=3 +tries=1`
+   - Expect: `0.0.0.0` (blocked by Pi-hole)
+3. If either fails:
+   - Trigger pihole-health chore immediately (don't wait for its next cycle)
+   - Send alert: `clappie sidekick spawn "telegram user YOUR_ID: DNS probe failed — [which query] timed out or returned unexpected result. Triggering Pi-hole health check."`
+4. If Pi-hole is unreachable via Tailscale entirely:
+   - Escalate immediately — Pi-hole down = all Tailnet DNS broken
+
+Logging: append one line to recall/logs/heartbeat/YYYY-MM-DD.txt
+Format: [HH:MM] network-health ✓ dns ok (or brief failure description)
+NEVER create standalone files. ALWAYS append ONE line to the daily file.
+
+For detailed remediation procedures, see:
+- CLAUDE.md Routing → homeops/docs/domains/dns/pihole-operations.md
+- homeops trigger-index → "Tailnet DNS fails or loops"
+- homeops/docs/references/pihole-health-monitoring.md
+
+[heartbeat-meta]
+interval: 30m
+model: haiku

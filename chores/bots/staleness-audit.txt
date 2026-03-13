@@ -1,0 +1,59 @@
+Compare key operational facts in homeops docs against live system state.
+
+Steps:
+1. Query live Pi-hole config values via SSH:
+   ```
+   ssh pihole-tailscale 'docker exec pihole pihole-FTL --config webserver.api.maxHistory'
+   ssh pihole-tailscale 'docker exec pihole pihole-FTL --config database.maxDBdays'
+   ssh pihole-tailscale 'docker exec pihole pihole-FTL --config dns.dnssec'
+   ssh pihole-tailscale 'docker exec pihole pihole-FTL --config dns.rateLimit.count'
+   ```
+2. Check blocklist count and status:
+   ```
+   ssh pihole-tailscale 'docker exec pihole pihole api lists'
+   ```
+3. Check Docker image tag:
+   ```
+   ssh pihole-tailscale 'docker inspect pihole --format={{.Config.Image}}'
+   ```
+4. Cross-reference all results against homeops reference docs:
+   - homeops/docs/references/known-issues.md (maxHistory, maxDBdays, DNSSEC, rate-limit, blocklists, image tag)
+   - homeops/docs/architecture/pihole-architecture.md (architecture values)
+   - homeops/docs/references/pihole-health-monitoring.md (threshold references)
+5. If ANY doc value doesn't match live reality:
+   a. Write staleness report to washnotes/staleness-report-YYYY-MM-DD.md:
+      ```
+      # Staleness Report — YYYY-MM-DD
+
+      ## Findings
+
+      ### [file path relative to repo root]
+      - **Line/section:** [section name]
+      - **Current doc says:** [quoted]
+      - **Reality (verified):** [live value]
+      - **How verified:** [command run]
+      - **Suggested fix:** [what doc should say]
+
+      ## Summary
+      - X findings across Y files
+      - Priority: [high/medium/low] — [rationale]
+      ```
+   b. Push via `wash/<topic>` branch (auto-merged by GitHub Action)
+   c. If safety-critical mismatch (non-negotiables wrong): also escalate via Telegram
+
+6. Do NOT edit docs directly — write scope is washnotes/ only
+
+Logging: append one line to recall/logs/heartbeat/YYYY-MM-DD.txt
+Format: [HH:MM] staleness-audit ✓ clean (or: ⚠ N mismatches found — report pushed)
+NEVER create standalone files. ALWAYS append ONE line to the daily file.
+
+For detailed remediation procedures, see:
+- CLAUDE.md Routing → all domain docs in homeops
+- homeops trigger-index → full index for cross-referencing
+- homeops/docs/domains/dns/pihole-operations.md
+- homeops/docs/domains/backups/backup-awareness.md
+- homeops/docs/domains/security/security-posture.md
+
+[heartbeat-meta]
+interval: 7d
+model: sonnet

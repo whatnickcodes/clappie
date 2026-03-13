@@ -1,0 +1,41 @@
+Full Pi-hole health check via SSH. Also runs on-demand when network-health probe fails.
+
+Steps:
+1. Run: `ssh pihole-tailscale '/opt/pihole/scripts/health-check.sh'`
+2. Parse the output — follow this decision tree exactly:
+
+   On FAIL:
+   a. Run: `ssh pihole-tailscale 'docker restart pihole'`
+   b. Wait 15 seconds
+   c. Re-run: `ssh pihole-tailscale '/opt/pihole/scripts/health-check.sh'`
+   d. If still FAIL → escalate with full output:
+      `clappie sidekick spawn "telegram user YOUR_ID: Pi-hole health FAIL after container restart. Output: [paste]. Manual investigation required."`
+   e. If now PASS → proceed to step 3
+
+   On WARN:
+   - WARN (disk) → run: `ssh pihole-tailscale '/opt/pihole/scripts/health-check.sh --cleanup'` — log result
+   - WARN (restart loops >3) → escalate via Telegram
+
+3. If this run was triggered by a DNS probe failure (network-health chore):
+   a. Re-run DNS probe: `dig google.com @100.87.157.76 +time=3 +tries=1`
+   b. If DNS passes → done, transient issue
+   c. If DNS still fails → restart container: `ssh pihole-tailscale 'docker restart pihole'`, wait 15s
+   d. Re-run DNS probe again
+   e. If DNS now passes → done
+   f. If DNS still fails → MUST alert:
+      `clappie sidekick spawn "telegram user YOUR_ID: DNS probe failing despite healthy Pi-hole container — likely network/firewall issue blocking DNS path. Health probe passed. Manual investigation required."`
+
+4. On PASS with no DNS trigger → silent. No noise for green checks.
+
+Logging: append one line to recall/logs/heartbeat/YYYY-MM-DD.txt
+Format: [HH:MM] pihole-health ✓ pass (or: ⚡ restarted / ⚠ warn-disk / ✗ fail-escalated)
+NEVER create standalone files. ALWAYS append ONE line to the daily file.
+
+For detailed remediation procedures, see:
+- CLAUDE.md Routing → homeops/docs/references/pihole-health-monitoring.md
+- homeops trigger-index → "Pi-hole container crash loop / OOM / SHM issues"
+- homeops/docs/domains/dns/pihole-operations.md
+
+[heartbeat-meta]
+interval: 1h
+model: sonnet
