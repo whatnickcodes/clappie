@@ -1,5 +1,6 @@
 .DS_Store
 .env
+*._20*
 
 # OAuth tokens and certs (generated at runtime)
 recall/oauth/*.json
