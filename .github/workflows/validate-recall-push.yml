@@ -1,0 +1,55 @@
+name: Validate recall push
+
+on:
+  push:
+    branches: [wash/*]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check-scope:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify changes are within allowed paths
+        run: |
+          BASE="${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || 'origin/main' }}"
+          CHANGED=$(git diff --name-only "$BASE"..HEAD)
+
+          echo "Changed files:"
+          echo "$CHANGED"
+
+          VIOLATIONS=$(echo "$CHANGED" | grep -v '^recall/' || true)
+          if [ -n "$VIOLATIONS" ]; then
+            echo "::error::Changes outside allowed path recall/:"
+            echo "$VIOLATIONS"
+            exit 1
+          fi
+
+          echo "All changes are within recall/ — OK"
+
+  auto-merge:
+    needs: check-scope
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/wash/')
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Merge to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout main
+          git merge --no-ff "${{ github.ref_name }}" -m "auto-merge: recall data from ${{ github.ref_name }}"
+          git push origin main
+
+      - name: Delete source branch
+        run: git push origin --delete "${{ github.ref_name }}"
