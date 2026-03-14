@@ -26,3 +26,5 @@
 [17:43] backup-verify ✓ fresh (0h) — manual backup created after investigation. root cause: systemd units run as root, rclone config missing for root. needs User=wash added to backup-wash.service and cleanup-wash-backups.service
 [17:33] clean-notifications ✓ processed 2 dirty, 2 clean items
 [17:43] clean-notifications ✓ dirty/ empty, nothing to process. clean/ stable (2 items: welcome.txt, backup-root-fix-needed-2026-03-14.txt)
+[18:23] clean-notifications ✓ dirty/ empty, nothing to process
+[18:23] sidekick-cleanup ✓ active: 1, completed: 0, stale: 1 (cleaned)
