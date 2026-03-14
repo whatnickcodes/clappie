@@ -60,3 +60,8 @@
 [20:53] pihole-health ✓ all nominal
 [20:53] ssh-tunnel-monitor ✓ up
 [20:54] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (server ok, /status not found - used /health activeSidekicks=0)
+[21:04] system-health ✓ all good (disk 18%, mem 3181/7730 MB, load 1.61)
+[21:04] network-health ✓ dns ok
+[21:03] clean-notifications ✓ processed: dirty/ empty
+[21:05] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (no cleanup needed)
+[21:03] build-user-profile ✓ updated (151 lines)
