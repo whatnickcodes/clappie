@@ -111,6 +111,7 @@ All secrets: sops bootstrap → `/run/wash/env` → env var. No special cases.
 | `GH_PAT_CLAPPIE_WASH` | `printenv GH_PAT_CLAPPIE_WASH` | Ask operator: `store-clappie-secret.sh GH_PAT_CLAPPIE_WASH` |
 | `GH_PAT_PIHOLE_MANAGEMENT` | `printenv GH_PAT_PIHOLE_MANAGEMENT` | Ask operator: `store-clappie-secret.sh GH_PAT_PIHOLE_MANAGEMENT` |
 | `HA_TOKEN` | `printenv HA_TOKEN` | Ask operator: `store-clappie-secret.sh HA_TOKEN` |
+| `TELEGRAM_WEBHOOK_SECRET` | `printenv TELEGRAM_WEBHOOK_SECRET` | Ask operator: `store-clappie-secret.sh TELEGRAM_WEBHOOK_SECRET` |
 | `SSH_KEY_WASH_HA_TAILSCALE` | `ls /run/wash/ssh/wash-ha-tailscale` | Ask operator: restart service (`inject-clappie-key.sh --restart`) |
 | `SSH_KEY_WASH_PIHOLE_TAILSCALE` | `ls /run/wash/ssh/wash-pihole-tailscale` | Ask operator: restart service (`inject-clappie-key.sh --restart`) |
 
@@ -177,6 +178,20 @@ Common subcommands:
 - `clappie run <clapp>` — run a specific clapp
 
 Always use `clappie <command>` directly. Never use `bun .claude/skills/clappie/clappie.js` as a prefix unless it fails multiple times.
+
+## Tailscale & Funnel
+
+Wash has Tailscale operator rights (`tailscale set --operator=wash`) — can manage `tailscale serve` and `tailscale funnel` without sudo.
+
+**Funnel (public HTTPS ingress):**
+- `tailscale funnel --bg 7777` — exposes port 443 (public) → localhost:7777 (Sidekick HQ)
+- Used for Telegram webhook delivery (`https://zoidberg.sole-fir.ts.net/telegram/webhook`)
+- Verify: `tailscale funnel status`
+
+**If webhook stops working:**
+1. Check funnel is running: `tailscale funnel status`
+2. Check Sidekick HQ is listening on 7777: `lsof -ti :7777`
+3. Re-register webhook: Sidekick HQ does this on startup if `TELEGRAM_WEBHOOK_SECRET` is set
 
 ## Skills
 
