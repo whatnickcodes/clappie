@@ -283,13 +283,13 @@ export async function launchApp(appId, launchArgs = '', daemonCmd = null) {
     // NORMAL MODE: Create new session with Claude Code in first pane
     // -d = detached, -s = session name, -n = window name
     // Read model setting from recall/settings/<appId>/starting-model.txt
-    let claudeArgs = ['claude'];
+    let claudeArgs = ['claude', '--enable-auto-mode'];
     const projectRoot = join(CLAPPS_DIR, '..', '..', '..', '..');
     const modelPath = join(projectRoot, 'recall', 'settings', appId, 'starting-model.txt');
     try {
       if (existsSync(modelPath)) {
         const model = readFileSync(modelPath, 'utf8').trim();
-        if (model) claudeArgs = ['claude', '--model', model];
+        if (model) claudeArgs = ['claude', '--enable-auto-mode', '--model', model];
       }
     } catch {}
     spawnSync('tmux', [

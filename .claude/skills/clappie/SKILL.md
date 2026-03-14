@@ -394,7 +394,7 @@ Users can add this to `~/.zshrc` or `~/.bashrc`:
 ```bash
 clappie() {
   if [[ $# -eq 0 ]]; then
-    cd ~/clappie && tmux new-session -s "clappie-$(date +%s)" "claude --model opus"
+    cd ~/clappie && tmux new-session -s "clappie-$(date +%s)" "claude --enable-auto-mode --model opus"
   elif [[ -z "$TMUX" ]]; then
     echo "Start clappie first: clappie"
   else

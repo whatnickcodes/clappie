@@ -506,7 +506,7 @@ export async function spawnSession(sidekick) {
     await Bun.write(sysFile, systemPrompt);
 
     const modelArg = sidekick.model ? ` --model ${sidekick.model}` : '';
-    const bashScript = `SYSPROMPT=$(cat '${sysFile}') && exec claude${modelArg} --append-system-prompt "$SYSPROMPT"`;
+    const bashScript = `SYSPROMPT=$(cat '${sysFile}') && exec claude --enable-auto-mode${modelArg} --append-system-prompt "$SYSPROMPT"`;
 
     // Use spawnSync for full control over argument passing
     const tmuxArgs = [
@@ -519,7 +519,7 @@ export async function spawnSession(sidekick) {
   } else {
     // ── MESSAGE MODE (default/legacy) ───────────────────────────────────
     // Everything goes as the first user message (current behavior)
-    const claudeCmd = sidekick.model ? ['claude', '--model', sidekick.model] : ['claude'];
+    const claudeCmd = sidekick.model ? ['claude', '--enable-auto-mode', '--model', sidekick.model] : ['claude', '--enable-auto-mode'];
     const result = await $`tmux split-window -t ${target} -h -p 50 -P -F "#{pane_id}" ${envFlagArr} ${claudeCmd}`.text();
     paneId = result.trim();
   }
