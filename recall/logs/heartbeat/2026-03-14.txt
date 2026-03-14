@@ -73,3 +73,7 @@
 [21:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [21:33] clean-notifications ✓ (dirty/ empty, 2 clean items, no new notifications)
 [21:33] build-user-profile ✓ updated (151 lines)
+[21:43] network-health ✓ dns ok
+[21:43] clean-notifications ✓ (dirty/ empty, nothing to process)
+[21:43] system-health ✓ all good
+[21:43] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
