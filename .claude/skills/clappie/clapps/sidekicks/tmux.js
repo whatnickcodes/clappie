@@ -512,7 +512,7 @@ export async function spawnSession(sidekick) {
 
     // Use spawnSync for full control over argument passing
     const tmuxArgs = [
-      'split-window', '-t', target, '-h', '-p', '50', '-P', '-F', '#{pane_id}',
+      'split-window', '-t', target, '-h', '-l', '50%', '-P', '-F', '#{pane_id}',
       ...envFlagArr,
       'bash', '-c', bashScript,
     ];
@@ -525,7 +525,7 @@ export async function spawnSession(sidekick) {
     const exitFile = `/tmp/sidekick-exit-${sidekick.id}.txt`;
     const modelArg = sidekick.model ? ` --model ${sidekick.model}` : '';
     const bashScript = `claude --enable-auto-mode${modelArg} 2>'${stderrFile}'; EXIT=$?; if [ $EXIT -ne 0 ]; then echo "EXIT:$EXIT" > '${exitFile}'; sleep 10; fi`;
-    const result = await $`tmux split-window -t ${target} -h -p 50 -P -F "#{pane_id}" ${envFlagArr} bash -c ${bashScript}`.text();
+    const result = await $`tmux split-window -t ${target} -h -l 50% -P -F "#{pane_id}" ${envFlagArr} bash -c ${bashScript}`.text();
     paneId = result.trim();
   }
 
