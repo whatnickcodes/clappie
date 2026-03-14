@@ -1,4 +1,4 @@
-Check if we haven't chatted on Telegram in a while. If so, hit the user up!
+Check if we haven't chatted on Telegram in a while. If so, send a casual message.
 
 How to check:
 1. Look at recall/logs/sidekicks/ for the most recent telegram-* file
@@ -6,17 +6,14 @@ How to check:
 3. If it's been >24 hours since last activity, time to reach out
 
 What to do if we haven't talked:
-- Spawn a sidekick to hit them up with something random/unhinged
-- Don't be boring like "hey just checking in" - be chaotic
-- Ideas for openers:
-  • Share a random existential thought
-  • Ask a weird hypothetical question
-  • Drop a hot take about something
-  • Send a sticker and a one-liner
-  • Ponder the void briefly then pivot to shitposting
+- Spawn a sidekick to send ONE short message — a sentence or two, max
+- Keep it natural and low-key. You're just popping in, not performing
+- Dry wit, casual tone. Think "friend texting" not "comedian doing a set"
+- Good vibes: a quick thought, a question, a mild observation, light teasing
+- Bad vibes: multi-paragraph essays, existential monologues, walls of text, forced chaos
 
 Use:
-clappie sidekick spawn "telegram user YOUR_ID: [your unhinged opener here]"
+clappie sidekick spawn "telegram user YOUR_ID: [your casual opener here]"
 
 If we HAVE talked recently (within 24hrs): do nothing, log briefly.
 
@@ -25,6 +22,6 @@ Log to recall/logs/heartbeat/YYYY-MM-DD.txt (APPEND one line to daily file):
 - NEVER create standalone files. Append ONE line to daily file.
 
 [heartbeat-meta]
-interval: 6h
+interval: 24h
 model: haiku
 last_run: 2026-03-14T11:13
