@@ -67,15 +67,17 @@ All other paths in that repo are read-only.
 - During heartbeat or autonomous sessions: write without asking (operator not present).
 
 ### How to write washnotes
-1. Sync: `GH_TOKEN=$GH_PAT_HOMEOPS_CLAUDE git fetch origin main && git checkout main && GH_TOKEN=$GH_PAT_HOMEOPS_CLAUDE git pull --ff-only`
+Auth: credential helper in `.git/config` reads `$GH_PAT_HOMEOPS_CLAUDE` from the environment.
+
+1. Sync: `cd ~/homeops && git fetch origin main && git checkout main && git pull --ff-only`
 2. Create/edit `.md` files under `washnotes/`.
-3. Stage, commit, and push to `main`: `GH_TOKEN=$GH_PAT_HOMEOPS_CLAUDE git push origin main`
+3. Stage, commit, and push to `main`: `git push origin main`
 
 ### clappie repo: recall writes
 
 Write to `recall/` in the workspace repo (logs, state files, watchdog data). A GitHub Action validates path scope and auto-merges.
 
-Auth is handled by the repo's credential helper (reads `$GH_PAT_CLAPPIE_WASH` automatically).
+Auth: credential helper in `.git/config` reads `$GH_PAT_CLAPPIE_WASH` from the environment (same pattern as homeops).
 
 1. Sync: `cd ~/clappie && git fetch origin main && git checkout main && git pull --ff-only`
 2. Create/edit files under `recall/`.
