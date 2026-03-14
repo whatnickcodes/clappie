@@ -55,3 +55,8 @@
 [20:33] network-health ✓ dns ok (google.com resolved, ads.google.com blocked)
 [20:33] build-user-profile ✓ updated (151 lines)
 [20:33] clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ 0 active | ssh-tunnel-monitor ✓ up | system-health ✓ all good | network-health ✓ dns ok | build-user-profile ✓ 151 lines
+[20:53] clean-notifications ✓ no dirty files to process
+[20:53] ha-health-check ✓ 200
+[20:53] pihole-health ✓ all nominal
+[20:53] ssh-tunnel-monitor ✓ up
+[20:54] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (server ok, /status not found - used /health activeSidekicks=0)
