@@ -32,3 +32,8 @@
 [18:33] pihole-health ✓ pass — all checks green (DNS, container, disk, Unbound, ad-blocking)
 [18:33] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [18:33] clean-notifications ✓ dirty/ empty, nothing to process. clean/ stable (2 items).
+[18:43] ha-health-check ✓ 200
+[18:43] clean-notifications ✓ dirty/ empty, nothing to process. clean/ stable (2 items).
+[18:43] network-health ✓ dns ok
+[18:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[18:43] build-user-profile ✓ updated (149 lines)
