@@ -3,3 +3,15 @@
 [14:43] network-health ✓ dns ok
 [14:43] system-health ✓ all good
 [14:43] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[16:33] ssh-tunnel-monitor ✓ up
+[16:35] network-health ✓ dns ok
+[16:35] system-health ✓ disk 18%, load 1.32, tailscaled running, mem 1.1Gi free
+[16:33] ha-health-check ✓ 200
+[16:33] pihole-health ✓ pass
+[16:33] clean-notifications ✓ dirty empty
+[16:35] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[16:33] build-user-profile ✓ updated (129 lines)
+[16:43] clean-notifications ✓ dirty empty
+[16:53] ssh-tunnel-monitor ✓ up
+[16:53] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[16:53] clean-notifications ✓ dirty empty
