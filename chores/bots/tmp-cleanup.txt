@@ -1,0 +1,27 @@
+Clean up files older than 30 days in /home/wash/clappie/tmp/.
+
+Steps:
+1. Count files older than 30 days:
+   deleted_count=$(find /home/wash/clappie/tmp -type f -mtime +30 -print | wc -l)
+2. Delete files older than 30 days:
+   find /home/wash/clappie/tmp -type f -mtime +30 -delete
+3. Clean up empty directories left behind (but not tmp/ itself):
+   find /home/wash/clappie/tmp -mindepth 1 -type d -empty -delete
+4. Log results to recall/logs/heartbeat/YYYY-MM-DD.txt (APPEND to daily file):
+   Format: [HH:MM] tmp-cleanup ✓ deleted: N files
+   Example: [06:00] tmp-cleanup ✓ deleted: 3 files
+
+   If no files found: [06:00] tmp-cleanup ✓ deleted: 0 files
+
+   NEVER create standalone log files. ALWAYS append ONE line to the daily heartbeat file.
+
+Agent tips:
+- Use `date +%H:%M` for the timestamp and `date +%Y-%m-%d` for the log filename
+- The tmp/ directory itself should never be deleted, only its contents
+- This is a simple cleanup — no error escalation needed unless the directory is missing entirely
+
+[heartbeat-meta]
+interval: 1d
+time: 06:00
+model: haiku
+last_run: 2026-03-14 06:49

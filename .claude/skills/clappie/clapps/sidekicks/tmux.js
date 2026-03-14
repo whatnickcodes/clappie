@@ -506,7 +506,9 @@ export async function spawnSession(sidekick) {
     await Bun.write(sysFile, systemPrompt);
 
     const modelArg = sidekick.model ? ` --model ${sidekick.model}` : '';
-    const bashScript = `SYSPROMPT=$(cat '${sysFile}') && exec claude --enable-auto-mode${modelArg} --append-system-prompt "$SYSPROMPT"`;
+    const stderrFile = `/tmp/sidekick-stderr-${sidekick.id}.txt`;
+    const exitFile = `/tmp/sidekick-exit-${sidekick.id}.txt`;
+    const bashScript = `SYSPROMPT=$(cat '${sysFile}') && claude --enable-auto-mode${modelArg} --append-system-prompt "$SYSPROMPT" 2>'${stderrFile}'; EXIT=$?; if [ $EXIT -ne 0 ]; then echo "EXIT:$EXIT" > '${exitFile}'; sleep 10; fi`;
 
     // Use spawnSync for full control over argument passing
     const tmuxArgs = [
@@ -519,8 +521,11 @@ export async function spawnSession(sidekick) {
   } else {
     // ── MESSAGE MODE (default/legacy) ───────────────────────────────────
     // Everything goes as the first user message (current behavior)
-    const claudeCmd = sidekick.model ? ['claude', '--enable-auto-mode', '--model', sidekick.model] : ['claude', '--enable-auto-mode'];
-    const result = await $`tmux split-window -t ${target} -h -p 50 -P -F "#{pane_id}" ${envFlagArr} ${claudeCmd}`.text();
+    const stderrFile = `/tmp/sidekick-stderr-${sidekick.id}.txt`;
+    const exitFile = `/tmp/sidekick-exit-${sidekick.id}.txt`;
+    const modelArg = sidekick.model ? ` --model ${sidekick.model}` : '';
+    const bashScript = `claude --enable-auto-mode${modelArg} 2>'${stderrFile}'; EXIT=$?; if [ $EXIT -ne 0 ]; then echo "EXIT:$EXIT" > '${exitFile}'; sleep 10; fi`;
+    const result = await $`tmux split-window -t ${target} -h -p 50 -P -F "#{pane_id}" ${envFlagArr} bash -c ${bashScript}`.text();
     paneId = result.trim();
   }
 
@@ -537,6 +542,19 @@ export async function spawnSession(sidekick) {
   while (waited < maxWait) {
     await new Promise(resolve => setTimeout(resolve, pollInterval));
     waited += pollInterval;
+
+    // Check if pane is still alive — if Claude crashed, detect it early
+    const aliveCheck = spawnSync('tmux', ['display-message', '-t', paneId, '-p', '#{pane_id}'], { encoding: 'utf8' });
+    if (aliveCheck.status !== 0) {
+      // Pane died — try to read captured stderr for diagnostics
+      const stderrFile = `/tmp/sidekick-stderr-${sidekick.id}.txt`;
+      const exitFile = `/tmp/sidekick-exit-${sidekick.id}.txt`;
+      let detail = '';
+      try { detail = await Bun.file(stderrFile).text(); } catch {}
+      try { await $`rm -f ${stderrFile} ${exitFile}`; } catch {}
+      throw new Error(`Claude exited before ready${detail ? ': ' + detail.trim().slice(-500) : ''}`);
+    }
+
     const capture = spawnSync('tmux', ['capture-pane', '-t', paneId, '-p'], { encoding: 'utf8' });
     if (capture.stdout && capture.stdout.includes('~/')) break;
   }
@@ -564,6 +582,8 @@ export async function spawnSession(sidekick) {
     if (useSystemPrompt) {
       await $`rm /tmp/sidekick-sysprompt-${sidekick.id}.txt`;
     }
+    // Clean up error capture files (unused on success)
+    await $`rm -f /tmp/sidekick-stderr-${sidekick.id}.txt /tmp/sidekick-exit-${sidekick.id}.txt`;
   } catch {
     // Ignore cleanup errors
   }

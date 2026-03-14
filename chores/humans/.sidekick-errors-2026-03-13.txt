@@ -1,0 +1,28 @@
+1 error pattern found in sidekick logs for the past 7 days.
+
+== Pattern 1: Telegram Bot Sidekick — Failed with exit code 1 ==
+
+File: recall/logs/sidekicks/2026-03-13-2138-telegram-bot-telegram-user-marco-hypothetically-if.txt
+
+Details:
+- source: telegram-bot
+- chatId: Marco
+- status: failed
+- model: opus
+- promptMode: system
+- error: Failed with exit code 1
+- Message: "hypothetically, if a man gets stuck in a time loop but only *he* remembers the loops, is that a curse or a feature? asking for a friend named me"
+
+The sidekick started (21:38:21) and failed shortly after (21:38:51), suggesting a runtime error during response generation rather than a timeout. The prompt itself is benign — the failure is likely infrastructure or model-related.
+
+Suggested fixes:
+1. Check if the opus model is available and not rate-limited. If quota is tight, consider falling back to sonnet for telegram-bot sidekick invocations.
+2. Review clappie sidekick runner logs around 21:38 UTC on 2026-03-13 for the underlying exit code 1 cause (OOM, API error, missing env var, etc.).
+
+---
+[chore-meta]
+status: pending
+created: 2026-03-13
+icon: 🐛
+title: Sidekick Errors Review
+summary: 1 error pattern found

@@ -30,6 +30,8 @@ export async function sessionExists(sessionName) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export async function openGhosttyForSession(sessionName) {
+  // On Linux (headless/server), skip GUI window — sessions run detached
+  if (process.platform !== 'darwin') return { ok: true };
   // Open a larger Ghostty window attached to the session
   await $`open -na Ghostty --args --window-height=80 --window-width=300 -e bash -c "tmux attach-session -t ${sessionName}"`;
   return { ok: true };
