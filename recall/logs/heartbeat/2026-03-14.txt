@@ -94,3 +94,11 @@
 [22:43] ssh-tunnel-monitor ✓ up
 [22:43] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [22:43] build-user-profile ✓ updated (157 lines)
+[23:13] sidekick-cleanup ✓ active: 0, completed: ?, stale: 0 (cleaned)
+[23:13] ha-health-check ✓ 200
+[23:13] ssh-tunnel-monitor ✓ up
+[23:15] network-health ✓ dns ok (google.com 142.251.140.110, ads.google.com blocked 0.0.0.0)
+[23:13] system-health ✓ all good
+[23:13] pihole-health ✓ pass
+[23:13] clean-notifications ✓ dirty/ empty
+[23:13] build-user-profile ✓ updated (155 lines)
