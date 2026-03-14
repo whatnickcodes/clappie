@@ -1,4 +1,4 @@
 Tailscale
-status: tailscale status --json 2>/dev/null | grep -q '"BackendState": "Running"'
+status: tailscale status --json 2>/dev/null | grep -q '"BackendState": "Running"' && tmux has-session -t background-tailscale 2>/dev/null
 start: tmux kill-session -t background-tailscale 2>/dev/null; tmux new-session -d -s background-tailscale "source /run/wash/env 2>/dev/null; $(dirname "$0")/run.sh"
 stop: tailscale down && tmux kill-session -t background-tailscale 2>/dev/null
