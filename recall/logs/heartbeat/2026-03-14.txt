@@ -90,3 +90,7 @@
 [22:14] network-health ✓ dns ok
 [22:14] system-health ✓ all good
 [22:15] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[22:43] clean-notifications ✓ (no dirty files to process)
+[22:43] ssh-tunnel-monitor ✓ up
+[22:43] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[22:43] build-user-profile ✓ updated (157 lines)
