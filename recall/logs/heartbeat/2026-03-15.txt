@@ -380,3 +380,6 @@
 [18:54] clean-notifications ✓ no dirty files, nothing processed
 [18:54] ssh-tunnel-monitor ✓ up
 [18:54] sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 (cleaned)
+[19:04] network-health ✓ dns ok
+[19:04] system-health ✓ all good
+[19:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
