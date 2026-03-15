@@ -40,3 +40,4 @@
 [15:14] clean-notifications: dirty/ empty, nothing to process
 [15:24] clean-notifications: dirty/ empty, nothing to process
 [15:34] clean-notifications: dirty/ empty, nothing to process
+[15:44] dirty/ was empty — nothing to process
