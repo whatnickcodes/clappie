@@ -146,3 +146,10 @@
 [07:53] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
 [08:03] clean-notifications ✓ (dirty/ empty, nothing to process)
 [08:03] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[08:13] network-health ✓ dns ok (google.com resolved, ads.google.com blocked)
+[08:14] system-health ✓ disk 19%, mem 4.3Gi avail, load 1.29, tailscaled up
+[08:13] ssh-tunnel-monitor ✓ up
+[08:13] clean-notifications ✓ (dirty/ empty, nothing to process)
+[08:13] pihole-health ✓ pass
+[08:13] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[08:13] build-user-profile ✓ updated (136 lines)
