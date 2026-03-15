@@ -262,3 +262,8 @@
 [13:14] build-user-profile ✓ updated (149 lines)
 [13:24] clean-notifications ✓ dirty/ empty, nothing to process
 [13:24] sidekick-cleanup ✓ 1 active (telegram-bot, 2h9m — WARN: stale threshold exceeded); tmp/ empty, no cleanup needed
+[13:34] network-health ✓ dns ok
+[13:34] clean-notifications ✓ (dirty/ empty, nothing to process)
+[13:34] sidekick-cleanup ✓ 1 active (telegram-bot, 2h19m, healthy); tmp/ empty, no stale sidekicks
+[13:34] system-health ✓ disk 20% used (58G free), load 1.71, mem 218Mi free (3.8Gi avail), tailscaled running
+[13:34] ssh-tunnel-monitor ✓ up
