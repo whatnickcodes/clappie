@@ -487,3 +487,8 @@
 [23:44] ha-health-check ✓ 200
 [23:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
 [23:44] build-user-profile ✓ updated (156 lines)
+[23:54] network-health ✓ dns ok (google.com resolved, ads.google.com blocked 0.0.0.0)
+[23:54] ssh-tunnel-monitor ✓ up
+[23:54] clean-notifications ✓ dirty/ empty, 2 clean items present, no chores pending
+[23:54] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[23:54] backup-verify ✓ fresh (20.9h old — wash-backup-20260315-030018.tar.gz)
