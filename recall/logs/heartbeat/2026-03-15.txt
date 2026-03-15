@@ -450,3 +450,9 @@
 [22:04] system-health ✓ disk 21% used, load 1.45, tailscale up, mem 4.3Gi free
 [22:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [22:04] clean-notifications ✓ dirty/ empty, 2 clean items, 1 chore — nothing to process
+[22:15] network-health ✓ dns ok (google.com resolved 142.251.140.110, ads.google.com blocked 0.0.0.0)
+[22:14] clean-notifications ✓ nothing new
+[22:14] ssh-tunnel-monitor ✓ up
+[22:14] pihole-health ✓ pass
+[22:15] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[22:14] build-user-profile ✓ updated (158 lines)
