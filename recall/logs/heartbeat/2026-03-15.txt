@@ -240,3 +240,5 @@
 [12:15] ssh-tunnel-monitor ✓ up
 [12:14] sidekick-cleanup ✓ 1 active (telegram-bot), no zombies
 [12:14] build-user-profile ✓ updated (144 lines)
+[12:25] system-health ✓ all good
+[12:24:04] clean-notifications ✓ empty | sidekick-cleanup ✓ 1 active, 49 stale tmp cleaned | system-health ✓ all good
