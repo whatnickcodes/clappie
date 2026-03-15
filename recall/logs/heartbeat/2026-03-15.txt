@@ -447,3 +447,6 @@
 [21:54] clean-notifications ✓ dirty/ empty, nothing to process
 [21:54] ssh-tunnel-monitor ✓ up
 [21:54] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[22:04] system-health ✓ disk 21% used, load 1.45, tailscale up, mem 4.3Gi free
+[22:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[22:04] clean-notifications ✓ dirty/ empty, 2 clean items, 1 chore — nothing to process
