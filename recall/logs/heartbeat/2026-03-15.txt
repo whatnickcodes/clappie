@@ -43,3 +43,5 @@
 [03:13] pihole-health ✓ pass
 [03:13] build-user-profile ✓ updated (129 lines)
 [03:13] clean-notifications ✓ dirty/ empty | ssh-tunnel-monitor ✓ running | sidekick-cleanup ✓ 0 active | pihole-health ✓ all ok | build-user-profile ✓ refreshed
+[03:23] ha-health-check ✓ 200
+[03:23] ha-health-check ✓ reachable | network-health ✓ dns ok | system-health ✓ all good | clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ 0 active, 0 stale
