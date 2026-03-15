@@ -7,3 +7,7 @@
 [02:43] clean-notifications: no dirty files to process
 [02:53] clean-notifications: dirty/ empty, nothing to process
 2026-03-15T03:03 | clean-notifications | dirty/ empty — nothing to process
+[03:43] clean-notifications run
+  dirty/: 0 files — nothing to process
+  clean/: 2 items (welcome.txt, backup-root-fix-needed-2026-03-14.txt) — no new items, no dismissed items
+  result: no action taken
