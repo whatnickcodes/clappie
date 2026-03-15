@@ -421,3 +421,6 @@
 [20:44] ha-health-check ✓ 200
 [20:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
 [20:44] build-user-profile ✓ updated (152 lines)
+[20:54] ssh-tunnel-monitor ✓ up
+[20:54] clean-notifications ✓ (dirty/ empty, no new notifications)
+[20:55] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
