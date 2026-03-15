@@ -255,3 +255,8 @@
 [12:55] system-health ✓ disk 20% used (58G free), load 1.54, tailscaled running
 [13:04] sidekick-cleanup ✓ 1 active (telegram-bot, 1h49m), tmp/ empty, no stale sidekicks
 [13:04] clean-notifications ✓ dirty/ empty, nothing to process
+[13:14] pihole-health ✓ pass
+[13:14] sidekick-cleanup ✓ (1 active telegram-bot sidekick at ~2h, not yet stale; tmp/ empty)
+[13:14] ssh-tunnel-monitor ✓ up
+[13:14] clean-notifications ✓ (dirty/ empty, nothing to process)
+[13:14] build-user-profile ✓ updated (149 lines)
