@@ -248,3 +248,8 @@
 [12:46] sidekick-cleanup ✓ 1 active (telegram-bot 1h30m); deleted 6 stale test tmp files
 [12:44] ha-health-check ✓ api ok
 [12:44] build-user-profile ✓ updated (146 lines)
+[12:54] clean-notifications ✓ dirty/ empty, nothing to process
+[12:55] network-health ✓ dns ok (google.com resolved 142.251.140.110, ads.google.com blocked 0.0.0.0)
+[12:55] ssh-tunnel-monitor ✓ up
+[12:54] sidekick-cleanup ✓ 1 active sidekick (telegram-bot, 1h39m old), tmp/ clean, all good
+[12:55] system-health ✓ disk 20% used (58G free), load 1.54, tailscaled running
