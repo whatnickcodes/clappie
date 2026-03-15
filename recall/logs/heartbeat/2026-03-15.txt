@@ -195,3 +195,7 @@
 [10:14] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [10:14] pihole-health ✓ pass
 [10:14] build-user-profile ✓ updated (136 lines)
+[10:25] network-health ✓ dns ok
+[10:24] clean-notifications ✓ dirty/ empty, 2 clean items stable, no action
+[10:24] system-health ✓ all good
+[10:24] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
