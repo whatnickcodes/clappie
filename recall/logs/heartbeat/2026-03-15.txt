@@ -283,3 +283,4 @@
 [14:14] sidekick-cleanup ✓ 1 active (telegram-bot, 2h59m, healthy); /tmp 61 files, no stale sidekicks
 [14:14] ssh-tunnel-monitor ✓ up
 [14:14] build-user-profile ✓ updated (153 lines)
+[14:24] clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ 1 active (telegram-bot 3h9m), /tmp normal
