@@ -45,3 +45,6 @@
 [03:13] clean-notifications ✓ dirty/ empty | ssh-tunnel-monitor ✓ running | sidekick-cleanup ✓ 0 active | pihole-health ✓ all ok | build-user-profile ✓ refreshed
 [03:23] ha-health-check ✓ 200
 [03:23] ha-health-check ✓ reachable | network-health ✓ dns ok | system-health ✓ all good | clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ 0 active, 0 stale
+[03:33] clean-notifications ✓ dirty/ empty, nothing to process
+[03:33] ssh-tunnel-monitor ✓ up
+[03:33] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
