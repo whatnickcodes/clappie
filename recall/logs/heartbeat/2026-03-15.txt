@@ -401,3 +401,7 @@
 [19:54] ssh-tunnel-monitor ✓ up
 [19:54] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [19:54] clean-notifications ✓ dirty/ empty, nothing to process
+[20:04] network-health ✓ dns ok
+[20:04] clean-notifications ✓ dirty/ empty, 2 clean items, 1 chore — nothing to process
+[20:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[20:04] system-health ✓ disk 21%, mem 4.2Gi avail, load 1.40, tailscaled running
