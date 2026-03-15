@@ -295,3 +295,8 @@
 [14:44] build-user-profile ✓ updated (147 lines)
 [14:54] clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ 0 stale, /tmp 61 ok | ssh-tunnel-monitor ✓ up
 [15:04] clean-notifications ✓ dirty/ empty | network-health ✓ dns ok | sidekick-cleanup ✓ 0 stale, /tmp 61 ok | system-health ✓ all good (disk 58G free, load 1.47, tailscaled up)
+[15:14] pihole-health ✓ pass
+[15:14] sidekick-cleanup ✓ 0 stale, /tmp ok (66 files, 364M), tmux clean
+[15:14] clean-notifications ✓ dirty/ empty, clean/ stable at 2 items
+[15:14] ssh-tunnel-monitor ✓ up
+[15:14] build-user-profile ✓ updated (144 lines)
