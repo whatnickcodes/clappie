@@ -2,3 +2,12 @@
 [00:03] ssh-tunnel-monitor ✓ Tailscale up, funnel operational
 [00:03] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [00:03] clean-notifications ✓ dirty/ empty, 2 existing clean items, no action
+[01:15] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[01:15] system-health ✓ disk 19%, mem 4.4Gi avail, load 1.53, tailscaled up
+[01:13] ssh-tunnel-monitor ✓ up
+[01:15] network-health ✓ dns ok (google.com resolved, ads.google.com blocked)
+[01:15] ha-health-check ✓ 200
+[01:13] pihole-health ✓ pass
+[01:13] clean-notifications ✓ dirty/ empty
+[01:13] build-user-profile ✓ updated (126 lines)
+[01:23] clean-notifications ✓ dirty/ empty
