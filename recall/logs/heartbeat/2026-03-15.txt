@@ -228,3 +228,8 @@
 [11:44] ha-health-check ✓ api ok[11:45] network-health ✓ dns ok (google.com resolved 142.251.140.110, ads.google.com blocked 0.0.0.0)
 [11:44] sidekick-cleanup ✓ 1 active, all healthy
 [11:44] build-user-profile ✓ updated (142 lines)
+[11:54] clean-notifications ✓ empty
+[11:54] sidekick-cleanup ✓ 1 active, all healthy
+[11:54] ssh-tunnel-monitor ✓ up
+[11:54] system-health ✓ all good
+[11:54] backup-verify ✓ fresh (8h54m old)
