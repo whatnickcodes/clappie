@@ -122,3 +122,6 @@
 [06:55] network-health ✓ dns ok (google.com resolved, ads.google.com blocked)
 [06:53] ssh-tunnel-monitor ✓ up
 [06:53] tmp-cleanup ✓ deleted: 0 files
+[07:03] clean-notifications ✓ dirty: 0, clean: 2 stable, no action needed
+[07:03] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[07:03] system-health ✓ all good (disk 19% used, mem 4.3Gi avail, load 2.04, tailscaled running)
