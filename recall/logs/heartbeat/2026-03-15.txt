@@ -102,3 +102,8 @@
 [06:03] clean-notifications ✓ dirty: 0 processed, clean: 0 created
 [06:03] system-health ✓ all good
 [06:03] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[06:14] ssh-tunnel-monitor ✓ up
+[06:13] clean-notifications ✓ dirty: 0 processed, clean: 0 created
+[06:13] pihole-health ✓ all checks passed
+[06:15] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[06:13] build-user-profile ✓ updated (132 lines)
