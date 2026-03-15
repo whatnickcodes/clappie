@@ -99,3 +99,6 @@
 [05:54] clean-notifications ✓ nothing to process
 [05:54] ssh-tunnel-monitor ✓ up
 [05:54] network-health ✓ dns ok
+[06:03] clean-notifications ✓ dirty: 0 processed, clean: 0 created
+[06:03] system-health ✓ all good
+[06:03] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
