@@ -278,3 +278,8 @@
 [14:04] sidekick-cleanup ✓ 1 sidekick (telegram-bot, 2h49m, not stale); /tmp 61 items, disk 20% used
 [14:04] clean-notifications ✓ dirty/ empty, nothing to process
 [14:04] system-health ✓ all good
+[14:14] clean-notifications ✓ dirty/ empty, nothing to process
+[14:14] pihole-health ✓ pass
+[14:14] sidekick-cleanup ✓ 1 active (telegram-bot, 2h59m, healthy); /tmp 61 files, no stale sidekicks
+[14:14] ssh-tunnel-monitor ✓ up
+[14:14] build-user-profile ✓ updated (153 lines)
