@@ -327,3 +327,7 @@
 [16:34] ssh-tunnel-monitor ✓ up
 [16:35] system-health ✓ all good
 [16:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[16:44] clean-notifications ✓ no dirty files
+[16:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[16:44] ha-health-check ✓ 200
+[16:44] build-user-profile ✓ updated (150 lines)
