@@ -32,3 +32,7 @@
 [02:43] clean-notifications ✓ no dirty files
 [02:43] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
 [02:43] build-user-profile ✓ updated (129 lines)
+[02:54] network-health ✓ dns ok
+[02:54] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[02:55] system-health ✓ all good
+[02:53] ssh-tunnel-monitor ✓ up
