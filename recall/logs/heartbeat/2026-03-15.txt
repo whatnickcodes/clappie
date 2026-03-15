@@ -274,3 +274,7 @@
 [13:54] sidekick-cleanup ✓ 1 active, tmp/ ok (61 files)
 [13:54] ssh-tunnel-monitor ✓ up
 [13:54] clean-notifications ✓ dirty/ empty, nothing to process
+[14:04] network-health ✓ dns ok
+[14:04] sidekick-cleanup ✓ 1 sidekick (telegram-bot, 2h49m, not stale); /tmp 61 items, disk 20% used
+[14:04] clean-notifications ✓ dirty/ empty, nothing to process
+[14:04] system-health ✓ all good
