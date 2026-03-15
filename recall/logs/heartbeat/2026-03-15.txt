@@ -284,3 +284,8 @@
 [14:14] ssh-tunnel-monitor ✓ up
 [14:14] build-user-profile ✓ updated (153 lines)
 [14:24] clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ 1 active (telegram-bot 3h9m), /tmp normal
+[14:34] clean-notifications ✓ (dirty/ empty, nothing to process)
+[14:34] network-health ✓ dns ok
+[14:34] ssh-tunnel-monitor ✓ up
+[14:34] system-health ✓ all good
+[14:34] sidekick-cleanup ✓ (killed 1 stale telegram-bot sidekick running 3h19m; /tmp had 61 files, no cleanup needed)
