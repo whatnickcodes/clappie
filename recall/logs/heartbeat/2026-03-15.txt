@@ -176,3 +176,6 @@
 [09:24] system-health ✓ disk 20% used, load 1.24, mem ok, tailscaled running
 [09:24] clean-notifications ✓ dirty/ empty, 2 clean items unchanged — nothing to process
 [09:24] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[09:34] ssh-tunnel-monitor ✓ up
+[09:34] clean-notifications ✓ (no dirty files; 2 clean items exist, no new items to process)
+[09:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
