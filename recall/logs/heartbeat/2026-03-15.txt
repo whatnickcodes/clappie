@@ -153,3 +153,5 @@
 [08:13] pihole-health ✓ pass
 [08:13] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [08:13] build-user-profile ✓ updated (136 lines)
+[08:23] clean-notifications ✓ dirty: 0 processed, clean: 0 created
+[08:25] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
