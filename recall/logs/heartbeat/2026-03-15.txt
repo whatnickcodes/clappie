@@ -110,3 +110,7 @@
 [06:23] ha-health-check ✓ 200
 [06:23] clean-notifications ✓ nothing to process
 [06:25] network-health ✓ dns ok (google.com resolved, ads.google.com blocked)
+[06:33] ssh-tunnel-monitor ✓ up
+[06:33] clean-notifications ✓ (dirty/ empty, 2 clean items stable, no action needed)
+[06:33] system-health ✓ all good
+[06:33] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
