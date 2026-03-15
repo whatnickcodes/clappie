@@ -32,3 +32,4 @@
 [12:34] clean-notifications: dirty/ empty, nothing to process
 [12:44] clean-notifications: dirty/ empty, nothing to process
 [12:54] clean-notifications: dirty/ empty, nothing to process
+13:04 - clean-notifications run: dirty/ empty, nothing to process. clean/ has 2 items (nominal).
