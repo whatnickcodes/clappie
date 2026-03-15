@@ -155,3 +155,6 @@
 [08:13] build-user-profile ✓ updated (136 lines)
 [08:23] clean-notifications ✓ dirty: 0 processed, clean: 0 created
 [08:25] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[08:33] ssh-tunnel-monitor ✓ up
+[08:33] clean-notifications ✓ dirty/ empty, 2 clean items, 1 chore pending — nothing to process
+[08:33] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
