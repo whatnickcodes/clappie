@@ -188,3 +188,5 @@
 [09:54] system-health ✓ all good
 [09:54] clean-notifications ✓ dirty/ empty, 2 clean items stable, no action
 [09:54] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[10:04] clean-notifications ✓ dirty/ empty, nothing to process
+[10:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
