@@ -405,3 +405,8 @@
 [20:04] clean-notifications ✓ dirty/ empty, 2 clean items, 1 chore — nothing to process
 [20:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [20:04] system-health ✓ disk 21%, mem 4.2Gi avail, load 1.40, tailscaled running
+[20:15] pihole-health ✓ pass
+[20:14] clean-notifications ✓ dirty/ empty, nothing to process
+[20:15] ssh-tunnel-monitor ✓ up
+[20:15] sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 (no cleanup needed)
+[20:14] build-user-profile ✓ updated (150 lines)
