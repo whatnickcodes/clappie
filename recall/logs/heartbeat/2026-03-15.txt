@@ -233,3 +233,4 @@
 [11:54] ssh-tunnel-monitor ✓ up
 [11:54] system-health ✓ all good
 [11:54] backup-verify ✓ fresh (8h54m old)
+[12:04] clean-notifications ✓ empty | sidekick-cleanup ✓ 1 active (telegram-bot), healthy
