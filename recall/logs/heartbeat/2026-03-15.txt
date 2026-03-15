@@ -172,3 +172,7 @@
 [09:14] pihole-health ✓ pass
 [09:15] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [09:14] build-user-profile ✓ updated (141 lines)
+[09:24] network-health ✓ dns ok (google.com resolved, ads.google.com blocked 0.0.0.0)
+[09:24] system-health ✓ disk 20% used, load 1.24, mem ok, tailscaled running
+[09:24] clean-notifications ✓ dirty/ empty, 2 clean items unchanged — nothing to process
+[09:24] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
