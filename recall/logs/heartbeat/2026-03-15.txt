@@ -209,3 +209,6 @@
 [10:54] ssh-tunnel-monitor ✓ tailscale running
 [10:54] system-health ✓ disk 20% cpu 1.39 tailscaled ok
 [10:54] clean-notifications ✓ no dirty files; nothing to process
+[11:04] clean-notifications ✓ (dirty/ empty, no chores created)
+[11:04] sidekick-cleanup ✓ active: 0
+[11:05] network-health ✓ dns ok (google.com resolved 142.251.140.110, ads.google.com blocked 0.0.0.0)
