@@ -289,3 +289,7 @@
 [14:34] ssh-tunnel-monitor ✓ up
 [14:34] system-health ✓ all good
 [14:34] sidekick-cleanup ✓ (killed 1 stale telegram-bot sidekick running 3h19m; /tmp had 61 files, no cleanup needed)
+[14:44] sidekick-cleanup ✓ 0 stale killed, /tmp 61 files ok
+[14:44] ha-health-check ✓ api ok
+[14:44] clean-notifications ✓ dirty/ empty, nothing to process
+[14:44] build-user-profile ✓ updated (147 lines)
