@@ -334,3 +334,7 @@
 [16:54] clean-notifications ✓ no dirty files
 [16:54] ssh-tunnel-monitor ✓ up
 [16:55] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[17:04] network-health ✓ dns ok
+[17:04] clean-notifications ✓ (no dirty files)
+[17:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[17:04] system-health ✓ all good
