@@ -234,3 +234,9 @@
 [11:54] system-health ✓ all good
 [11:54] backup-verify ✓ fresh (8h54m old)
 [12:04] clean-notifications ✓ empty | sidekick-cleanup ✓ 1 active (telegram-bot), healthy
+[12:15] network-health ✓ dns ok
+[12:14] pihole-health ✓ pass
+[12:14] clean-notifications ✓ empty
+[12:15] ssh-tunnel-monitor ✓ up
+[12:14] sidekick-cleanup ✓ 1 active (telegram-bot), no zombies
+[12:14] build-user-profile ✓ updated (144 lines)
