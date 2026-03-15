@@ -267,3 +267,7 @@
 [13:34] sidekick-cleanup ✓ 1 active (telegram-bot, 2h19m, healthy); tmp/ empty, no stale sidekicks
 [13:34] system-health ✓ disk 20% used (58G free), load 1.71, mem 218Mi free (3.8Gi avail), tailscaled running
 [13:34] ssh-tunnel-monitor ✓ up
+[13:44] clean-notifications ✓ dirty/ empty, nothing to process
+[13:44] sidekick-cleanup ✓ 1 active (telegram-bot 2h29m), tmp/ clean
+[13:44] ha-health-check ✓ reachable
+[13:44] build-user-profile ✓ updated (151 lines)
