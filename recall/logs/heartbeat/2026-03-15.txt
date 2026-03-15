@@ -114,3 +114,7 @@
 [06:33] clean-notifications ✓ (dirty/ empty, 2 clean items stable, no action needed)
 [06:33] system-health ✓ all good
 [06:33] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[06:43] clean-notifications ✓ dirty/ empty, 2 clean items stable, no action needed
+[06:45] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[06:43] ha-health-check ✗ 401 — consecutive: 1
+[06:43] build-user-profile ✓ updated (132 lines)
