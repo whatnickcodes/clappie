@@ -38,6 +38,7 @@ Agent tips:
 - Be defensive: handle missing paneId gracefully (shouldn't happen, but log if seen)
 
 [heartbeat-meta]
+last_run = 2026-03-15T08:45
 interval: 10m
 model: haiku
 last_run: 2026-03-15T08:33

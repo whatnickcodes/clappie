@@ -158,3 +158,9 @@
 [08:33] ssh-tunnel-monitor ✓ up
 [08:33] clean-notifications ✓ dirty/ empty, 2 clean items, 1 chore pending — nothing to process
 [08:33] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[08:43] clean-notifications ✓ dirty: 0, created: 0 clean items
+[08:45] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[08:43] ha-health-check ✓ 200
+[08:45] network-health ✓ dns ok
+[08:45] system-health ✓ disk 20%, mem 234Mi free, load 1.59, tailscaled running
+[08:43] build-user-profile ✓ updated (138 lines)
