@@ -301,3 +301,6 @@
 [15:14] ssh-tunnel-monitor ✓ up
 [15:14] build-user-profile ✓ updated (144 lines)
 [15:24] clean-notifications ✓ dirty/ empty, clean/ stable at 2 items | sidekick-cleanup ✓ /tmp 61 entries, disk 20% ok
+[15:34] ssh-tunnel-monitor ✓ up
+[15:34] system-health ✓ all good (disk 20%, mem 4.3G avail, load 1.10, tailscaled running)
+[15:34] clean-notifications ✓ dirty/ empty | network-health ✓ dns ok | sidekick-cleanup ✓ /tmp 61 files, disk 20% | ssh-tunnel-monitor ✓ up | system-health ✓ all good (disk 20%, mem 4.3G free, load 1.10)
