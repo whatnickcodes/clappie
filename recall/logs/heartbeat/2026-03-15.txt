@@ -1,0 +1,4 @@
+[00:03] network-health ✓ dns ok
+[00:03] ssh-tunnel-monitor ✓ Tailscale up, funnel operational
+[00:03] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[00:03] clean-notifications ✓ dirty/ empty, 2 existing clean items, no action
