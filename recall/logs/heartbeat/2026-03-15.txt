@@ -23,3 +23,6 @@
 [02:13] pihole-health ✓ pass
 [02:13] build-user-profile ✓ (128 lines, no new memory data)
 [02:15] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[02:23] ha-health-check ✓ 200
+[02:23] network-health ✓ dns ok
+[02:23] system-health ✓ all good
