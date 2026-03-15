@@ -358,3 +358,7 @@
 [17:54] backup-verify ✓ fresh (14h54m old)
 [17:54] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
 [17:54] ssh-tunnel-monitor ✓ up
+[18:04] clean-notifications ✓ no dirty files
+[18:04] network-health ✓ dns ok
+[18:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[18:04] system-health ✓ all good
