@@ -245,3 +245,6 @@
 [12:34] ssh-tunnel-monitor ✓ up
 [12:34] clean-notifications ✓ dirty/ empty, clean/ stable at 2 items, no action needed
 [12:34] sidekick-cleanup ✓ 1 active (telegram-bot), healthy; 4 stale tmp files deleted (screenshots + jpg from Mar 13)
+[12:46] sidekick-cleanup ✓ 1 active (telegram-bot 1h30m); deleted 6 stale test tmp files
+[12:44] ha-health-check ✓ api ok
+[12:44] build-user-profile ✓ updated (146 lines)
