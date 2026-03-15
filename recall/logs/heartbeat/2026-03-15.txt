@@ -183,3 +183,8 @@
 [09:44] clean-notifications ✓ dirty/ empty, 2 clean items stable, no action
 [09:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [09:44] build-user-profile ✓ updated (143 lines)
+[09:54] ssh-tunnel-monitor ✓ up
+[09:54] network-health ✓ dns ok (google.com resolved, ads.google.com blocked 0.0.0.0)
+[09:54] system-health ✓ all good
+[09:54] clean-notifications ✓ dirty/ empty, 2 clean items stable, no action
+[09:54] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
