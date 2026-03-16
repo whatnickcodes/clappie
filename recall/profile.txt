@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-16T22:24
+Generated: 2026-03-16T22:54
 ================================================================================
 
 WHO THEY ARE
@@ -130,9 +130,8 @@ PENDING FIXES (requires Marco on Phoebe)
   store subcommand fails noisily, push/fetch still work.
   Fix from Phoebe: `git config credential.helper '!f() { ... }; f'`
 - Pi-hole LXC disk space: recurring issue — Marco flagged it again 2026-03-16T05:06.
-  Disk at 13% (Pi-hole LXC) as of 18:14. Needs long-term fix (log rotation, volume sizing,
-  or cleanup automation). FTL database (pihole-FTL.db) historically grows to 2.4GB+ —
-  primary culprit.
+  Disk at 13% (Pi-hole LXC) as of latest check. Needs long-term fix (log rotation, volume
+  sizing, or cleanup automation). FTL database (pihole-FTL.db) historically grows to 2.4GB+.
 - Client 100.101.18.71 DNS flood: misbehaving client spamming dhl.com ANY queries with no
   backoff. Saturated dnsmasq 150-concurrent-query limit. Flood subsided by 09:44.
   Needs Marco to investigate what's running on 100.101.18.71 (Tailscale network IP).
@@ -197,9 +196,6 @@ RECENT NOTABLE EVENTS
   privacy level went live — high engagement, full approval.
 - 2026-03-16T15:04: dns-flood-monitor 248k queries from 0.0.0.0 — confirmed false-positive
   (Pi-hole internal self-queries, not external flood). Monitor updated to filter 0.0.0.0.
-- 2026-03-16T16:14: All systems nominal. Disk 74% free (Zoidberg), Pi-hole LXC disk 13%,
-  load 2.32, HA 200, dns-flood clear (14k queries, VPS 24%). No active sidekicks.
-- 2026-03-16T17:24–22:24: All systems nominal. Heartbeat cycling cleanly every 10 min.
-  dns-flood-monitor running but clear (32k filtered queries at 22:04, vps 27%, disk 13%).
-  Memory files empty — no new user data to integrate. backup-verify fresh (14.9h at 17:54).
-  HA 200 ok (last check 22:14), network dns ok, pihole pass, disk 27%, load 1.79.
+- 2026-03-16T16:14–22:44: All systems nominal. Heartbeat cycling cleanly. dns-flood-monitor
+  running clear (33.8k filtered queries at 22:44, vps 29%, disk 13%). HA 200 ok, network
+  dns ok, pihole pass, disk 27%, load 1.79. No active sidekicks. Memory files empty.
