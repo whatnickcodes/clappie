@@ -122,3 +122,5 @@
 [05:55] ssh-tunnel-monitor ✓ up
 [05:56] sidekick-cleanup ✓ active: 1, completed: 0, stale: 2 (pre-cleaned)
 [05:54] clean-notifications ✓ 2 dirty files processed (disk diagnostics + DNS flood), both to clean/. Urgent DNS flood alert sent via Telegram.
+[06:04] clean-notifications ✓ dirty/ empty, nothing to process
+[06:04] sidekick-cleanup ✓ active: 2, completed: 0, stale: 0
