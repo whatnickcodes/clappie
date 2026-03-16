@@ -299,3 +299,8 @@
 [14:54] build-user-profile ✓ updated (192 lines)
 [15:04] clean-notifications ✓ (dirty/ empty, no notifications to process)
 [15:04] dns-flood-monitor ⚠ warning (queries: 248k from 0.0.0.0 loopback, vps: 0.6%, ftl: 13.5MB, disk: 13%)
+[15:14] ha-health-check ✓ 200
+[15:14] network-health ✓ dns ok (google.com resolved, ads.google.com blocked)
+[15:14] pihole-health ✓ all-checks-passed
+[15:14] system-health ✓ disk 25%, load 1.64, memory 49%, tailscaled running
+[15:14] clean-notifications ✓ (1 dirty file: DNS flood false-positive confirmed via Telegram sidekick, merged into existing clean item, deleted dirty)

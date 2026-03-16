@@ -1,0 +1,17 @@
+DNS Flood Monitor — FALSE POSITIVE
+
+247,748 total queries (threshold: 50k) but 239,909 from 0.0.0.0 with domain "hidden" = internal FTL activity.
+
+Key findings:
+- Spike concentrated 5:50-7:00 AM: 123k queries in 6AM hour, 68k in 7AM hour
+- Dropped to normal ~4-5k/hr after 8AM, currently ~7k/hr
+- 197k were AAAA (IPv6) lookups
+- 76k blocked by gravity, 110k served from cache
+- Container restarted at 13:59 UTC — likely triggered FTL cache rebuild
+- VPS share 0.6%, disk 13%, FTL db 13.5MB — all normal
+- Privacy level 0 (show everything) — "hidden" domain is FTL internal, not privacy masking
+
+Conclusion: Internal Pi-hole/FTL processing, NOT an external flood. No action needed.
+Consider: Adjusting flood detector to exclude 0.0.0.0 client queries from threshold count.
+
+Confirmed via Telegram bot sidekick report at 16:07 UTC — same findings, false positive confirmed.

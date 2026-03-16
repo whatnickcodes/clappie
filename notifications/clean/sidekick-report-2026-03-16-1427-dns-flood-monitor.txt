@@ -1,0 +1,20 @@
+[sidekick:2026-03-16-1427-telegram-bot-telegram-user-dns-flood-monitor] DNS Flood Monitor — Auto Report (13:29 UTC)
+
+Sidekick: dns-flood-monitor
+Triggered: 2026-03-16T13:29:34.879Z
+Source: Telegram bot auto-report
+
+SUMMARY:
+DNS flood monitor sidekick filed an automated report at 13:29 UTC. This is a follow-up
+event to the earlier DNS query overload investigation (see sidekick-report-2026-03-16-0552-dns-query-overload.txt).
+
+The earlier report identified client 100.101.18.71 as the source of a dhl.com ANY-query
+flood that was saturating dnsmasq's 150-concurrent-query limit. This new monitor trigger
+indicates the flood condition may still be ongoing or recurred.
+
+ACTION RECOMMENDED:
+- Check if 100.101.18.71 is still flooding DNS queries
+- If flooding continues: consider rate-limiting or blocking that client at Pi-hole
+- Client investigation from the earlier report may still be pending
+
+No chore created — issue was already noted in earlier clean notification.
