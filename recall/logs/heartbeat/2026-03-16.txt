@@ -233,3 +233,6 @@
 [11:14] telegram-miss-you ✓ skipped, active convo
 [11:14] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
 [11:14] build-user-profile ✓ updated (175 lines)
+[11:24] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[11:24] clean-notifications ✓ dirty/ empty, 4 items in clean, no new routing needed
+[11:24] dns-flood-monitor ✓ clear (queries: unknown via api-mismatch, ftl-db: 13M, disk: 14%, saturation: recovered)
