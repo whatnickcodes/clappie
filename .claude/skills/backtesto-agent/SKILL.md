@@ -204,13 +204,14 @@ Capture all available result data:
     This is faster and more reliable than individual export calls.
   - This produces full-size images (55-85 KB) without the top-left clipping bug
   - Do NOT divide by DPR (produces tiny images) or use `scale:2` (causes clipping)
-  - Use 1400x500 for wide charts, 700x500 for half-width charts
-  - Files download to ~/Downloads — move to `docs/reports/images/` afterward
+  - Use 1400x500 for wide charts, 700x500 for half-width charts, **1400x1000 for matrix heatmaps** (correlation matrix, holdings overlap — axis labels overlap at 500px height)
+  - Files download to ~/Downloads — move to project `docs/images/` afterward
   - Fall back to `computer` screenshot only if Plotly export fails (e.g., non-Plotly content like Dani Score or AI Analysis tabs)
+- **Efficient frontier optimized portfolios**: Extract weights from `customdata[0]` on the `Max Sharpe`, `Min Volatility`, and `Max Return` traces in `#efficient-frontier-plot`. Each entry is an array of weights in portfolio asset order. Include these compositions in the report.
 
 ### 6. Generate Report
 
-Create a Markdown report at `docs/reports/[portfolio-name]-[YYYY-MM-DD].md`.
+Create a Markdown report in the project output directory (default: `~/clappie/projects/backtester/docs/[portfolio-name]-[YYYY-MM-DD].md`).
 
 **MANDATORY**: Follow `references/report_format_spec.md` as the canonical template.
 

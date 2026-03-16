@@ -409,3 +409,7 @@
 [23:44] clean-notifications ✓ (dirty/ empty, nothing to process)
 [23:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [23:44] dns-flood-monitor ✓ clear (queries: 36.7k, vps: 30.3%, disk: 13%, ftl-db: 15.3M)
+[23:54] system-health ✓ disk 29% used, load 2.37, mem 3.4Gi free, tailscaled running
+[23:54] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[23:54] backup-verify ✓ fresh (wash-backup ~21h old, 2026-03-16 03:00)
+[23:54] build-user-profile ✓ updated (202 lines)

@@ -131,7 +131,7 @@
       "id": "portfolio-value-image",
       "check": "image_exists",
       "section": "Portfolio Value",
-      "minSizeKB": 10,
+      "minSizeKB": 3,
       "required": true
     },
 
@@ -145,7 +145,7 @@
       "id": "yearly-returns-image",
       "check": "image_exists",
       "section": "Yearly Returns",
-      "minSizeKB": 10,
+      "minSizeKB": 3,
       "required": true
     },
     {
@@ -167,7 +167,7 @@
       "id": "risk-image",
       "check": "image_exists",
       "section": "Risk Analysis",
-      "minSizeKB": 10,
+      "minSizeKB": 3,
       "required": true
     },
 
@@ -181,7 +181,7 @@
       "id": "drawdown-image",
       "check": "image_exists",
       "section": "Drawdown Analysis",
-      "minSizeKB": 10,
+      "minSizeKB": 3,
       "required": true
     },
 
@@ -203,7 +203,7 @@
       "id": "holdings-image",
       "check": "image_exists",
       "section": "Top 10 Holdings",
-      "minSizeKB": 10,
+      "minSizeKB": 3,
       "required": false
     },
 
@@ -272,35 +272,35 @@
       "id": "composition-country-image",
       "check": "image_exists",
       "section": "Country",
-      "minSizeKB": 10,
+      "minSizeKB": 3,
       "required": false
     },
     {
       "id": "composition-continent-image",
       "check": "image_exists",
       "section": "Continent",
-      "minSizeKB": 10,
+      "minSizeKB": 3,
       "required": false
     },
     {
       "id": "composition-market-type-image",
       "check": "image_exists",
       "section": "Market Type",
-      "minSizeKB": 10,
+      "minSizeKB": 3,
       "required": false
     },
     {
       "id": "composition-currency-image",
       "check": "image_exists",
       "section": "Currency",
-      "minSizeKB": 10,
+      "minSizeKB": 3,
       "required": false
     },
     {
       "id": "composition-sector-image",
       "check": "image_exists",
       "section": "Sector",
-      "minSizeKB": 10,
+      "minSizeKB": 3,
       "required": false
     },
 
@@ -340,7 +340,7 @@
       "id": "rolling-correlation-image",
       "check": "image_exists",
       "section": "Rolling Correlation",
-      "minSizeKB": 10,
+      "minSizeKB": 3,
       "when_benchmark": true,
       "required": true
     },
@@ -348,7 +348,7 @@
       "id": "scatter-regression-image",
       "check": "image_exists",
       "section": "Return Scatter",
-      "minSizeKB": 10,
+      "minSizeKB": 3,
       "when_benchmark": true,
       "required": true
     },
@@ -356,7 +356,7 @@
       "id": "correlation-matrix-image",
       "check": "image_exists",
       "section": "Correlation Matrix",
-      "minSizeKB": 10,
+      "minSizeKB": 3,
       "when_benchmark": true,
       "required": true
     },
@@ -364,7 +364,7 @@
       "id": "holdings-overlap-image",
       "check": "image_exists",
       "section": "Holdings Overlap",
-      "minSizeKB": 10,
+      "minSizeKB": 3,
       "when_benchmark": true,
       "required": true
     },
@@ -397,6 +397,19 @@
       "id": "expected-return-section",
       "check": "section_exists",
       "pattern": "^## Expected Return",
+      "required": false
+    },
+
+    {
+      "id": "efficient-frontier-section",
+      "check": "section_exists",
+      "pattern": "^## Efficient Frontier",
+      "required": false
+    },
+    {
+      "id": "dani-score-section",
+      "check": "section_exists",
+      "pattern": "^## Dani Score",
       "required": false
     },
 

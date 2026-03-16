@@ -8,7 +8,7 @@ Canonical template for backtesto-agent reports. All generated reports MUST follo
 
 1. **Images complement tables — never replace them.** Every chart with extractable numeric data MUST have a corresponding markdown table. Images-only sections are acceptable ONLY for purely visual charts (portfolio value time series, rolling returns, drawdown timeline, return distribution, Monte Carlo).
 2. **Composition tables use emoji flags/icons** (country flags, currency symbols, sector icons).
-3. **All Plotly charts exported via DPR-override technique** at 1400×500 (wide) or 700×500 (half-width).
+3. **All Plotly charts exported via DPR-override technique** at 1400×500 (wide), 700×500 (half-width), or 1400×1000 (matrix heatmaps — correlation matrix and holdings overlap need the extra height for legible axis labels).
 
 ## Image Filename Convention
 
@@ -23,8 +23,10 @@ Canonical template for backtesto-agent reports. All generated reports MUST follo
 
 ### 1. Title + Date + Source
 
+Use a concise title: `{portfolio_name} vs. {benchmark_name} — Report` (or just `{portfolio_name} — Report` if no benchmark). The portfolio name comes from the saved portfolio name or a short descriptor. Do NOT list all weights/tickers in the title.
+
 ```markdown
-# Backtest Report: [weights with tickers, e.g. "20% VWCE / 50% EXUS / 30% EIMI"]
+# My Portfolio vs. VWCE — Report
 **Date**: YYYY-MM-DD
 **Source**: [backtes.to](https://backtes.to/)
 ```
@@ -277,7 +279,42 @@ The holdings overlap matrix (`#unified-matrix-figure` with `#matrix-type-radio` 
 - `[PORTFOLIO]-[DATE]-correlation-matrix.png` (1400×1000)
 - `[PORTFOLIO]-[DATE]-holdings-overlap-matrix.png` (1400×1000)
 
-### 13. Footer
+### 13. Efficient Frontier (optional, when data sufficient)
+
+Chart image FIRST, then a comparison table of the 3 optimized portfolios (Max Sharpe, Min Volatility, Max Return) vs. the current portfolio, followed by detailed composition tables for each.
+
+Extract optimized portfolio weights from `customdata` on the special portfolio traces (`Max Sharpe`, `Min Volatility`, `Max Return`) in the `#efficient-frontier-plot` Plotly chart. Each trace's `customdata[0]` is an array of weights (same order as portfolio assets).
+
+```markdown
+## Efficient Frontier
+
+![Efficient Frontier](images/[PORTFOLIO]-[DATE]-efficient-frontier.png)
+
+### Optimized Portfolios
+
+| Metric | Current | Max Sharpe | Min Volatility | Max Return |
+|--------|---------|------------|----------------|------------|
+| Return | X.X% | X.X% | X.X% | X.X% |
+| Volatility | X.X% | X.X% | X.X% | X.X% |
+| Sharpe | X.XX | X.XX | X.XX | X.XX |
+
+#### Max Sharpe Portfolio
+
+| Asset | Weight |
+|-------|--------|
+| [TICKER] | X.X% |
+| ... | ... |
+
+#### Min Volatility Portfolio
+[same table format]
+
+#### Max Return Portfolio
+[same table format]
+```
+
+Only include assets with weight > 0.1%. Sort by weight descending.
+
+### 14. Footer
 
 ```markdown
 ---

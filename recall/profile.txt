@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-16T23:24
+Generated: 2026-03-16T23:54
 ================================================================================
 
 WHO THEY ARE
@@ -196,6 +196,7 @@ RECENT NOTABLE EVENTS
   privacy level went live — high engagement, full approval.
 - 2026-03-16T15:04: dns-flood-monitor 248k queries from 0.0.0.0 — confirmed false-positive
   (Pi-hole internal self-queries, not external flood). Monitor updated to filter 0.0.0.0.
-- 2026-03-16T16:14–22:44: All systems nominal. Heartbeat cycling cleanly. dns-flood-monitor
-  running clear (33.8k filtered queries at 22:44, vps 29%, disk 13%). HA 200 ok, network
-  dns ok, pihole pass, disk 27%, load 1.79. No active sidekicks. Memory files empty.
+- 2026-03-16T16:14–23:54: All systems nominal. Heartbeat cycling cleanly. dns-flood-monitor
+  running clear (36.7k filtered queries at 23:44, vps: 30.3%, disk: 13%, ftl-db: 15.3M).
+  HA 200 ok, network dns ok, pihole pass, disk 29%, load 2.37. No active sidekicks.
+  ssh-tunnel-monitor confirmed up. Memory files remain empty.
