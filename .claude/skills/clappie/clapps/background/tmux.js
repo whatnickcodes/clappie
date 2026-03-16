@@ -207,7 +207,7 @@ export function discoverBackgroundApps() {
         // Ensure daemon/start commands inherit sops secrets from tmpfs
         const wrapWithEnv = (cmd) => {
           if (!cmd) return cmd;
-          return `source /run/wash/env 2>/dev/null; ${cmd}`;
+          return `export $(cat /run/wash/env | xargs) 2>/dev/null; ${cmd}`;
         };
 
         apps.push({
