@@ -404,3 +404,5 @@
 [00:26] dns-flood-monitor ✓ clear (queries: 35.4k, vps: 30%, disk: 13%)
 [23:25] network-health ✓ dns ok (google.com resolved 142.251.140.110, ads.google.com blocked 0.0.0.0 via gravity)
 [23:24] build-user-profile ✓ updated (201 lines)
+[23:34] sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 (cleaned)
+[23:34] clean-notifications ✓ dirty/ empty, nothing to process. clean/ has 6 items (stable). 1 human chore (under threshold).
