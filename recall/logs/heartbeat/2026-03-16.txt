@@ -109,3 +109,5 @@
 [05:14] ssh-tunnel-monitor ✓ up
 [05:14] system-health ✓ all good (disk 23%, load 1.63, mem ok, tailscaled running)
 [05:14] build-user-profile ✓ updated (157 lines)
+[05:24] clean-notifications ✓ dirty/ empty, nothing to process
+[05:24] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
