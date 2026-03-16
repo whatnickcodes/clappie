@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-16T09:14
+Generated: 2026-03-16T09:44
 ================================================================================
 
 WHO THEY ARE
@@ -167,6 +167,6 @@ RECENT NOTABLE EVENTS
 - 2026-03-16T05:40: Marco messaged again via Telegram ("Hey wash") — sidekick failed (exit code 1).
   Sidekick failures at 05:06 and 05:40 suggest telegram-bot sidekick issue around that time.
 - 2026-03-16T06:00: Test sidekick "test-from-wash-debug" ran — likely debugging sidekick failures.
-- 2026-03-16T06:14–09:14: Heartbeat continuing clean. All chores nominal. Disk 23-24%, load ~1.5-2.1.
+- 2026-03-16T06:14–09:44: Heartbeat continuing clean. All chores nominal. Disk 23-24%, load ~1.5-2.1.
   Sidekick activity wound down. No new user data to integrate. Memory files still empty.
   HA health check 200 throughout. SSH tunnel up. All systems nominal.

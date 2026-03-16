@@ -191,3 +191,7 @@
 [09:34] system-health ✓ disk 24% used (55G free), mem 4.2G/7.5G used, load 1.45, tailscaled running
 [09:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [09:34] clean-notifications ✓ dirty/ empty, 4 items in clean/ (no new processing needed)
+[09:44] clean-notifications ✓ (dirty/ empty, nothing to process)
+[09:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[09:44] dns-flood-monitor ✓ clear (queries: 644, vps: 5%, disk: 14%, ftl-db: 12M) — yesterday's flood subsided
+[09:44] build-user-profile ✓ updated (172 lines)
