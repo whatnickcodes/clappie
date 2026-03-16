@@ -31,11 +31,21 @@ SSH to Pi-hole and gather these 4 metrics:
    df -h / | awk 'NR==2 {print $5}'
    ```
 
+## Step 1b: Filter Internal Queries
+
+Queries from `0.0.0.0` with domain `hidden` are internal FTL activity (cache rebuilds, gravity processing) — NOT real DNS traffic. Exclude them from the query count:
+
+```
+sqlite3 /var/lib/docker/volumes/pihole_pihole_data/_data/pihole-FTL.db "SELECT COUNT(*) FROM queries WHERE timestamp >= $(date -d 'today 00:00' +%s) AND client != '0.0.0.0';"
+```
+
+Use this **filtered count** (not the raw total) for threshold evaluation. If the raw total is high but the filtered count is normal, note it in the log as "internal FTL activity" and do NOT escalate.
+
 ## Step 2: Evaluate Thresholds
 
 | Metric | Normal | Warning | Critical |
 |--------|--------|---------|----------|
-| Queries/day | 5-15k | >50k | >50k + another metric |
+| Queries/day (filtered, excl 0.0.0.0) | 5-15k | >50k | >50k + another metric |
 | VPS query share | 30-60% | >80% | >80% + another metric |
 | FTL db size | <500 MB | >1 GB | >1 GB + disk pressure |
 | Disk usage | <40% | >60% | >80% |
@@ -115,4 +125,4 @@ NEVER create standalone files. ALWAYS append ONE line to the daily file.
 [heartbeat-meta]
 interval: 15m
 model: haiku
-last_run: 2026-03-16T15:04
+last_run: 2026-03-16T15:24

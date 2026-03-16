@@ -304,3 +304,6 @@
 [15:14] pihole-health ✓ all-checks-passed
 [15:14] system-health ✓ disk 25%, load 1.64, memory 49%, tailscaled running
 [15:14] clean-notifications ✓ (1 dirty file: DNS flood false-positive confirmed via Telegram sidekick, merged into existing clean item, deleted dirty)
+[15:24] clean-notifications ✓ dirty/ empty, nothing to process. clean/ has 6 items (stable). 1 human chore (under threshold).
+[15:24] dns-flood-monitor ✓ clear (queries: 9k, vps: 25%, disk: 13%)
+[15:24] build-user-profile ✓ updated (199 lines)
