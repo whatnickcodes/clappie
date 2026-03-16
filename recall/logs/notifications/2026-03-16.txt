@@ -41,3 +41,4 @@
 - dirty/ empty (no unprocessed files)
 - clean/ has 6 items
 - no processing needed
+[2026-03-16 20:15:54] clean-notifications: dirty/ empty — nothing to process
