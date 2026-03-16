@@ -51,3 +51,8 @@
 [02:16] sidekick-cleanup ✓ active: 0 completed: 1 stale: 0 (cleaned)
 [02:14] build-user-profile ✓ updated (148 lines)
 [02:24] clean-notifications ✓ (dirty/ empty, clean/ stable with 2 items, 1 human chore)
+[02:34] ssh-tunnel-monitor ✓ up
+[02:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[02:34] system-health ✓ all good (disk 22%, mem 55% avail, load 1.47, tailscaled running)
+[02:34] network-health ✓ dns ok
+[02:34] clean-notifications ✓ dirty/ empty, nothing to process

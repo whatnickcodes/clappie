@@ -59,3 +59,4 @@
 [22:14] clean-notifications: nothing to process (dirty/ empty, 2 items in clean/)
 [22:44] clean-notifications: dirty/ empty, nothing to process
 clean-notifications: nothing to process
+[23:44] clean-notifications run: dirty/ was empty, nothing to process. clean/ has 2 items, humans/ has 1 chore.
