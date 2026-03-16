@@ -355,3 +355,5 @@
 [18:56] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [17:54] build-user-profile ✓ updated (210 lines)
 [17:54] backup-verify ✓ fresh (14.9h old)
+[18:04] clean-notifications ✓ (empty)
+[18:04] dns-flood-monitor ✓ clear (queries: 21.7k filtered/261k raw-internal, vps: 21%, ftl-db: 14.4M, disk: 13%)
