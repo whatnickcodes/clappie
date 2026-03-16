@@ -45,3 +45,8 @@
 [02:05] system-health ✓ disk 22%, load 1.51, tailscale ok
 [02:05] network-health ✓ dns ok
 [02:05] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[02:14] clean-notifications ✓ (dirty/ empty, nothing to process)
+[02:15] ssh-tunnel-monitor ✓ up
+[02:14] pihole-health ✓ pass
+[02:16] sidekick-cleanup ✓ active: 0 completed: 1 stale: 0 (cleaned)
+[02:14] build-user-profile ✓ updated (148 lines)
