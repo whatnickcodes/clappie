@@ -264,3 +264,8 @@
 [12:47] dns-flood-monitor ✓ clear (queries: 4.7k, vps: n/a privacy-lvl2, ftl-db: 12.6M, disk: 14%)
 [12:54] ssh-tunnel-monitor ✓ up
 [13:04] dns-flood-monitor ✓ clear (queries: 5k, vps: n/a, disk: 14%)
+[13:14] ha-health-check ✓ 200
+[13:14] network-health ✓ dns ok
+[13:14] pihole-health ✓ pass
+[13:14] ssh-tunnel-monitor ✓ up
+[13:14] system-health ✓ all good
