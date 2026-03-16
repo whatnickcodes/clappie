@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-16T15:54
+Generated: 2026-03-16T16:24
 ================================================================================
 
 WHO THEY ARE
@@ -89,6 +89,8 @@ Marco: the operator (that's the user)
 Wash: the AI agent persona running on Clappie, Wash-from-Firefly energy
 Phoebe: Marco's workstation (where sudo ops happen, origin of git configs/secrets)
 Zoidberg: Marco's server (where Wash runs 24/7 under wash account)
+River.lan: Marco's iPhone (top DNS client, 571 queries in 2026-03-16 sample)
+Andrea: person on the home network (Andrea's S25 phone — 59 queries in sample)
 
 No other named humans currently recorded in memory files.
 
@@ -126,7 +128,7 @@ PENDING FIXES (requires Marco on Phoebe)
   store subcommand fails noisily, push/fetch still work.
   Fix from Phoebe: `git config credential.helper '!f() { ... }; f'`
 - Pi-hole LXC disk space: recurring issue — Marco flagged it again 2026-03-16T05:06.
-  Disk at 25% as of 15:54. Needs long-term fix (log rotation, volume sizing, or cleanup automation).
+  Disk at 13% (Pi-hole LXC) as of 16:24. Needs long-term fix (log rotation, volume sizing, or cleanup automation).
   FTL database (pihole-FTL.db) historically grows to 2.4GB+ — primary culprit.
 - Client 100.101.18.71 DNS flood: misbehaving client spamming dhl.com ANY queries with no
   backoff. Saturated dnsmasq 150-concurrent-query limit. Flood subsided by 09:44.
@@ -137,7 +139,7 @@ PENDING FIXES (requires Marco on Phoebe)
   Unknown IPv6 2001:b07:aa7:9ea1:69fb:... identified as watch-target (146 queries).
 - dns-flood-monitor false-positive pattern: 248k queries attributed to 0.0.0.0 loopback
   = Pi-hole internal self-queries, not external flood. Confirmed 2026-03-16T15:04.
-  Monitor needs threshold tuning or source-IP filtering to exclude loopback traffic.
+  Monitor updated to filter out 0.0.0.0 traffic (fix applied 2026-03-16T15:10).
 
 RECENT NOTABLE EVENTS
 ----------------------
@@ -177,6 +179,8 @@ RECENT NOTABLE EVENTS
   Wash confirmed loud and clear. First react: 👀 (eyes emoji — classic).
 - 2026-03-16T11:15: All systems nominal. Heartbeat running cleanly.
   telegram-miss-you skipped (active convo). No new events.
+- 2026-03-16T13:27: dns-flood-monitor ⚠ 237k queries, VPS share 0% (suspicious).
+  Sidekick spawned to investigate.
 - 2026-03-16T13:54: Sidekick DNS flood monitor auto-report processed → clean/.
   clean/ now has 5 items (backup-root-fix, disk-diagnostics, dns-flood-0552,
   dns-flood-monitor-1427, welcome). 1 human chore (under threshold).
@@ -192,9 +196,11 @@ RECENT NOTABLE EVENTS
   privacy level went live — high engagement, full approval.
 - 2026-03-16T14:24: All systems nominal. Disk 25%, load 1.81, dns-flood clear, HA 200.
   clean/ stable at 5 items. Active sidekicks: 2 (at peak), 0 (cleaned by 14:34).
-- 2026-03-16T15:04: dns-flood-monitor ⚠ 248k queries attributed to 0.0.0.0 — confirmed
+- 2026-03-16T15:04: dns-flood-monitor ⚠ 248k queries from 0.0.0.0 — confirmed
   false-positive (Pi-hole internal self-queries, not external flood). Dirty notification
   processed by Telegram sidekick, merged into existing clean item. Flood false-positive
-  pattern documented. Monitor needs source-IP filtering fix.
+  pattern documented. Monitor updated to filter 0.0.0.0 traffic.
 - 2026-03-16T15:54: All systems nominal. Disk 25%, load stable, HA 200, pihole pass.
   clean/ has 6 items stable. Heartbeat running cleanly. Memory files still empty.
+- 2026-03-16T16:14: All systems nominal. Disk 74% free (Zoidberg), Pi-hole LXC disk 13%,
+  load 2.32, HA 200, dns-flood clear (14k queries, VPS 24%). No active sidekicks.

@@ -321,3 +321,7 @@
 [16:14] system-health ✓ all good (disk 74% free, load 2.32, tailscaled running)
 [16:14] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [16:14] clean-notifications ✓ dirty/ empty | ha-health-check ✓ api 200 | network-health ✓ dns ok | pihole-health ✓ all ok (disk 13%) | system-health ✓ disk 74% free, load 2.32 | sidekick-cleanup ✓ no sidekicks
+[16:24] clean-notifications ✓ dirty/ empty
+[17:26] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[16:24] dns-flood-monitor ✓ clear (queries: 14k, vps: 24%, disk: 13%)
+[16:24] build-user-profile ✓ updated (206 lines)
