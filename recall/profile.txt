@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-16T00:44
+Generated: 2026-03-16T01:14
 ================================================================================
 
 WHO THEY ARE
@@ -139,22 +139,10 @@ RECENT NOTABLE EVENTS
   he values the casual check-in dynamic, not just cold status dumps.
 - 2026-03-15T13:24: Telegram-bot sidekick flagged as stale at ~2h9m; subsequent checks
   treated it as healthy until killed at 14:34 (~3h19m runtime).
-- 2026-03-15: Heartbeat continuing clean through afternoon and evening. Memory files remain
-  empty. All systems nominal. Sidekick count at 0 after telegram-bot kill at 14:34.
-  backup-verify confirmed fresh at 17:54 (14h54m old).
-- 2026-03-15T19:14: Routine profile refresh. Memory files still empty. Heartbeat continuing
-  clean through evening. All systems nominal. No new user data to integrate.
-- 2026-03-15T21:44: Routine profile refresh. Memory files still empty. Heartbeat continuing
-  clean. ha-health-check confirmed 200 at 21:44. All systems nominal. No new user data.
-- 2026-03-15T22:14: Routine profile refresh. Memory files still empty. Heartbeat continuing
-  clean through late evening. All systems nominal. No new user data to integrate.
-- 2026-03-15T22:44: Routine profile refresh. Memory files still empty. Heartbeat continuing
-  clean through late evening. All systems nominal. No new user data to integrate.
-- 2026-03-15T23:14: Routine profile refresh. Memory files still empty. Heartbeat continuing
+- 2026-03-15: Heartbeat continuing clean through afternoon, evening, and overnight.
+  Memory files remain empty. All systems nominal. Sidekick count at 0 after telegram-bot
+  kill at 14:34.
+- 2026-03-16T00:14–01:04: Heartbeat continuing clean into early morning. ha-health-check
+  200 at 00:44. All chores nominal. Memory files still empty. No new user data to integrate.
+- 2026-03-16T01:14: Routine profile refresh. Memory files still empty. Heartbeat continuing
   clean. All systems nominal. No new user data to integrate.
-- 2026-03-15T23:44: Routine profile refresh. Memory files still empty. Heartbeat continuing
-  clean through late evening. All systems nominal. No new user data to integrate.
-- 2026-03-16T00:14: Routine profile refresh. Memory files still empty. Heartbeat continuing
-  clean into early morning. All systems nominal. No new user data to integrate.
-- 2026-03-16T00:44: Routine profile refresh. Memory files still empty. Heartbeat continuing
-  clean. ha-health-check 200, all chores nominal. No new user data to integrate.
