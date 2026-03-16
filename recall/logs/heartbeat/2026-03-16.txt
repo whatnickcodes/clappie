@@ -183,3 +183,6 @@
 [09:14] ssh-tunnel-monitor ✓ up
 [09:14] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [09:14] build-user-profile ✓ updated (172 lines)
+[09:24] clean-notifications ✓ (dirty/ empty, 4 items in clean/, no action needed)
+[09:24] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[09:24] dns-flood-monitor ⚠ warning (queries: 219k, vps: unknown/hidden privacy-lvl2, ftl-db: 11.6MB, disk: 15%) — spike at 06:00-07:00 UTC (123k/hr peak), now subsided (~1.5k/hr)
