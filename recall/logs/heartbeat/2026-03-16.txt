@@ -338,3 +338,9 @@
 [17:04] clean-notifications ✓ (dirty/ empty, clean/ 6 items stable)
 [17:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [17:04] dns-flood-monitor ✓ clear (queries: 17.8k, vps: 24%, disk: 13%)
+[17:14] clean-notifications ✓ dirty/ empty
+[17:14] ha-health-check ✓ 200
+[17:14] network-health ✓ dns ok
+[17:14] pihole-health ✓ pass
+[17:14] system-health ✓ all good (disk 26%, mem 3.5/7.5G, load 2.12, tailscaled ok)
+[17:14] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
