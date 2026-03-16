@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-16T21:54
+Generated: 2026-03-16T22:24
 ================================================================================
 
 WHO THEY ARE
@@ -199,7 +199,7 @@ RECENT NOTABLE EVENTS
   (Pi-hole internal self-queries, not external flood). Monitor updated to filter 0.0.0.0.
 - 2026-03-16T16:14: All systems nominal. Disk 74% free (Zoidberg), Pi-hole LXC disk 13%,
   load 2.32, HA 200, dns-flood clear (14k queries, VPS 24%). No active sidekicks.
-- 2026-03-16T17:24–21:44: All systems nominal. Heartbeat cycling cleanly every 10 min.
-  dns-flood-monitor running but clear (19-30k filtered queries, 0.0.0.0 excluded).
+- 2026-03-16T17:24–22:24: All systems nominal. Heartbeat cycling cleanly every 10 min.
+  dns-flood-monitor running but clear (32k filtered queries at 22:04, vps 27%, disk 13%).
   Memory files empty — no new user data to integrate. backup-verify fresh (14.9h at 17:54).
-  HA 200 ok, network dns ok, pihole pass, disk 27%, load 1.79.
+  HA 200 ok (last check 22:14), network dns ok, pihole pass, disk 27%, load 1.79.
