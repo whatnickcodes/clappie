@@ -248,3 +248,6 @@
 [11:54] backup-verify ✓ fresh (8h54m)
 [11:54] sidekick-cleanup ✓ active: 0, completed: 6, stale: 0
 [11:54] backup-verify ✓ fresh (8h54m) | clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ active: 0, completed: 6, stale: 0 | ssh-tunnel-monitor ✓ up
+[12:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[12:04] clean-notifications ✓ dirty/ empty, nothing to process
+[12:04] dns-flood-monitor ✓ clear (queries: 4.2k, vps: n/a privacy-lvl2, ftl-db: 13M, disk: 14%)
