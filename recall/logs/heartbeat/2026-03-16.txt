@@ -209,3 +209,5 @@
 [10:14] clean-notifications ✓ processed 0 dirty files, 0 clean created
 [10:14] sidekick-cleanup ✓ active: 1 completed: 0 stale: 0 (cleaned)
 [10:14] build-user-profile ✓ updated (178 lines)
+[10:24] dns-flood-monitor ✓ clear (queries: 5.9k, vps: n/a, disk: 14%, ftl-db: 11.9M)
+[10:24] sidekick-cleanup ✓ active: 1, completed: 0, stale: 1 (cleaned)
