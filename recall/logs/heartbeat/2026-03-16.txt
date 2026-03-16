@@ -384,3 +384,4 @@
 [22:06] dns-flood-monitor ✓ clear (queries: 28.5k, vps: 22.8%, disk: 13%)
 [21:04] clean-notifications ✓ dirty/ empty | dns-flood-monitor ✓ clear (queries: 28.5k, vps: 22.8%, disk: 13%) | sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [21:14] clean-notifications ✓ dirty/ empty | ha-health-check ✓ 200 | network-health ✓ dns ok | pihole-health ✓ pass | sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 | system-health ✓ all good (disk 27%, load 1.79)
+[21:24] build-user-profile ✓ updated (203 lines) | clean-notifications ✓ dirty/ empty | dns-flood-monitor ✓ clear (queries: 29.4k, vps: 2.6%, disk: 13%) | sidekick-cleanup ✓ active: 0, completed: 11, stale: 0
