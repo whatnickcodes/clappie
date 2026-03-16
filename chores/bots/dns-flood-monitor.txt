@@ -1,0 +1,118 @@
+Monitor Pi-hole for DNS flood activity that bypasses VPS defenses.
+
+SSH: `ssh -i /run/wash/ssh/wash-pihole-tailscale root@100.87.157.76`
+
+## Step 1: Collect Metrics
+
+SSH to Pi-hole and gather these 4 metrics:
+
+1. **Queries today** — run on Pi-hole:
+   ```
+   docker exec pihole pihole-FTL --config dns.queryCount 2>/dev/null || cat /etc/pihole/pihole-FTL.db.info 2>/dev/null
+   ```
+   Fallback: `docker exec pihole pihole -c -e 2>/dev/null | head -5` or query the API:
+   ```
+   curl -s http://localhost/admin/api.php?summary | jq -r '.dns_queries_today'
+   ```
+
+2. **VPS query share** — what % of queries come from the VPS relay (100.101.18.71):
+   ```
+   curl -s http://localhost/admin/api.php?getQuerySources | jq -r '.top_sources["100.101.18.71"]'
+   ```
+   Divide by total queries to get percentage.
+
+3. **FTL database size**:
+   ```
+   du -sh /etc/pihole/pihole-FTL.db
+   ```
+
+4. **Disk usage**:
+   ```
+   df -h / | awk 'NR==2 {print $5}'
+   ```
+
+## Step 2: Evaluate Thresholds
+
+| Metric | Normal | Warning | Critical |
+|--------|--------|---------|----------|
+| Queries/day | 5-15k | >50k | >50k + another metric |
+| VPS query share | 30-60% | >80% | >80% + another metric |
+| FTL db size | <500 MB | >1 GB | >1 GB + disk pressure |
+| Disk usage | <40% | >60% | >80% |
+
+Count how many metrics are at warning or above.
+
+## Step 3: Escalation Ladder
+
+### Info (any single metric at warning)
+Log only. No alert.
+
+### Warning (2+ metrics at warning OR queries >50k)
+Send Telegram alert:
+```
+clappie sidekick spawn "telegram user YOUR_ID: DNS flood monitor warning. Queries: [N], VPS share: [N]%, FTL db: [size], Disk: [N]%. Two or more metrics elevated — possible flood activity bypassing VPS defenses."
+```
+
+### Critical (disk >60% AND (queries >50k OR VPS share >80%))
+Spawn emergency sidekick — see Step 4.
+
+### Emergency (disk >80%)
+Spawn emergency sidekick with immediate purge authority — see Step 4.
+
+## Step 4: Emergency Sidekick (Critical/Emergency only)
+
+Spawn with full context baked in:
+
+```
+clappie sidekick spawn "DNS FLOOD EMERGENCY RESPONSE
+
+You are an emergency responder for a DNS flood hitting the Pi-hole.
+
+Current metrics:
+- Queries today: [N]
+- VPS query share: [N]%
+- FTL db size: [size]
+- Disk usage: [N]%
+
+SSH: ssh -i /run/wash/ssh/wash-pihole-tailscale root@100.87.157.76
+
+STANDING ORDERS:
+1. Send Marco a Telegram alert with all metrics immediately:
+   clappie sidekick send 'DNS flood detected on Pi-hole. Queries: [N], VPS share: [N]%, FTL db: [size], Disk: [N]%. Monitoring and ready to act.'
+
+2. SSH in and monitor query rate over 2-3 minutes — is this sustained or a spike?
+   Run: docker exec pihole pihole -c -e
+   Wait 2 min, run again. Compare.
+
+3. If disk >80%: Purge FTL database immediately (autonomous authority per CLAUDE.md):
+   ssh -i /run/wash/ssh/wash-pihole-tailscale root@100.87.157.76 'docker exec pihole bash -c \"rm /etc/pihole/pihole-FTL.db && pihole restartdns\"'
+   Alert Marco that you purged.
+
+4. If disk <80% but flood confirmed: Alert and wait. Do NOT block the VPS IP unless disk is about to fill.
+
+5. If Marco doesn't respond within 30 min and disk keeps climbing: Purge FTL.db AND reduce maxDBdays to 3:
+   docker exec pihole pihole-FTL --config database.DBdays 3
+   Alert Marco of the emergency measure.
+
+EXIT CRITERIA — complete this sidekick when:
+- Flood subsides (metrics return to normal ranges), OR
+- Marco explicitly says he will take care of it (acknowledgment alone is not enough — replying on Telegram does not mean he can access a laptop to fix), OR
+- Emergency remediation is done and metrics are stabilizing
+
+Re-check metrics every 5 minutes until exit criteria met."
+```
+
+## Step 5: Log
+
+Append ONE line to `recall/logs/heartbeat/YYYY-MM-DD.txt`:
+- `[HH:MM] dns-flood-monitor ✓ clear (queries: Nk, vps: N%, disk: N%)`
+- `[HH:MM] dns-flood-monitor ⚠ warning (queries: Nk, vps: N%, disk: N%)`
+- `[HH:MM] dns-flood-monitor ⚡ critical — emergency sidekick spawned`
+- `[HH:MM] dns-flood-monitor ✗ ssh-failed`
+
+NEVER create standalone files. ALWAYS append ONE line to the daily file.
+
+[heartbeat-meta]
+interval: 15m
+model: haiku
+last_run:
