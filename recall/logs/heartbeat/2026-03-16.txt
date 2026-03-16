@@ -291,3 +291,4 @@
 [14:24] dns-flood-monitor ✓ clear (queries: api-unavailable, ftl-db: 14M, disk: 14%, gravity-db: 71M) — all size metrics normal
 [15:26] sidekick-cleanup ✓ active: 2, completed: 0, stale: 2 (cleaned)
 [14:24] build-user-profile ✓ updated | clean-notifications ✓ dirty/ empty | dns-flood-monitor ✓ clear (ftl-db 14M, disk 14%) | sidekick-cleanup ✓ active: 2, stale: 2 cleaned
+[14:34] clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 | ssh-tunnel-monitor ✓ up
