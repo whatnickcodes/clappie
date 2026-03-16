@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-16T17:54
+Generated: 2026-03-16T18:24
 ================================================================================
 
 WHO THEY ARE
@@ -128,14 +128,14 @@ PENDING FIXES (requires Marco on Phoebe)
   store subcommand fails noisily, push/fetch still work.
   Fix from Phoebe: `git config credential.helper '!f() { ... }; f'`
 - Pi-hole LXC disk space: recurring issue — Marco flagged it again 2026-03-16T05:06.
-  Disk at 13% (Pi-hole LXC) as of 16:24. Needs long-term fix (log rotation, volume sizing, or cleanup automation).
-  FTL database (pihole-FTL.db) historically grows to 2.4GB+ — primary culprit.
+  Disk at 13% (Pi-hole LXC) as of 18:14. Needs long-term fix (log rotation, volume sizing,
+  or cleanup automation). FTL database (pihole-FTL.db) historically grows to 2.4GB+ —
+  primary culprit.
 - Client 100.101.18.71 DNS flood: misbehaving client spamming dhl.com ANY queries with no
   backoff. Saturated dnsmasq 150-concurrent-query limit. Flood subsided by 09:44.
   Needs Marco to investigate what's running on 100.101.18.71 (Tailscale network IP).
 - Pi-hole privacy level: lowered to 0 at Marco's request (2026-03-16T13:56) to expose
-  flooding device. Marco reacted 🤔 then 🫡 then 🔥 ⚡ 👨‍💻 — approves approach.
-  Pending decision: keep at 0 for 24h to catch next spike, or reset to 2 now.
+  flooding device. Pending decision: keep at 0 for 24h to catch next spike, or reset to 2.
   Unknown IPv6 2001:b07:aa7:9ea1:69fb:... identified as watch-target (146 queries).
 - dns-flood-monitor false-positive pattern: 248k queries attributed to 0.0.0.0 loopback
   = Pi-hole internal self-queries, not external flood. Confirmed 2026-03-16T15:04.
@@ -179,11 +179,10 @@ RECENT NOTABLE EVENTS
   Wash confirmed loud and clear. First react: 👀 (eyes emoji — classic).
 - 2026-03-16T11:15: All systems nominal. Heartbeat running cleanly.
   telegram-miss-you skipped (active convo). No new events.
-- 2026-03-16T13:27: dns-flood-monitor ⚠ 237k queries, VPS share 0% (suspicious).
+- 2026-03-16T13:27: dns-flood-monitor warning 237k queries, VPS share 0% (suspicious).
   Sidekick spawned to investigate.
 - 2026-03-16T13:54: Sidekick DNS flood monitor auto-report processed → clean/.
-  clean/ now has 5 items (backup-root-fix, disk-diagnostics, dns-flood-0552,
-  dns-flood-monitor-1427, welcome). 1 human chore (under threshold).
+  clean/ now has 5 items.
 - 2026-03-16T13:56–14:13: Marco sent "Please do that" (context from prior session). Wash
   prompted for clarity. Marco sent screenshot — confirmation to lower Pi-hole privacy level
   to 0 (catch the flooding device). Wash lowered privacy level immediately, recreated
@@ -194,17 +193,13 @@ RECENT NOTABLE EVENTS
   (2001:b07:aa7:9ea1:69fb:...) identified as a watch-target.
   Marco reacted 🤔 to initial question, then 🫡 after Wash committed, then 🔥 ⚡ 👨‍💻 after
   privacy level went live — high engagement, full approval.
-- 2026-03-16T14:24: All systems nominal. Disk 25%, load 1.81, dns-flood clear, HA 200.
-  clean/ stable at 5 items. Active sidekicks: 2 (at peak), 0 (cleaned by 14:34).
-- 2026-03-16T15:04: dns-flood-monitor ⚠ 248k queries from 0.0.0.0 — confirmed
-  false-positive (Pi-hole internal self-queries, not external flood). Dirty notification
-  processed by Telegram sidekick, merged into existing clean item. Flood false-positive
-  pattern documented. Monitor updated to filter 0.0.0.0 traffic.
-- 2026-03-16T15:54: All systems nominal. Disk 25%, load stable, HA 200, pihole pass.
-  clean/ has 6 items stable. Heartbeat running cleanly. Memory files still empty.
+- 2026-03-16T15:04: dns-flood-monitor 248k queries from 0.0.0.0 — confirmed false-positive
+  (Pi-hole internal self-queries, not external flood). Monitor updated to filter 0.0.0.0.
 - 2026-03-16T16:14: All systems nominal. Disk 74% free (Zoidberg), Pi-hole LXC disk 13%,
   load 2.32, HA 200, dns-flood clear (14k queries, VPS 24%). No active sidekicks.
 - 2026-03-16T17:24: All systems nominal. Memory files empty — no new user data to integrate.
-  Profile refreshed with updated timestamp. Heartbeat cycle continuing cleanly.
-- 2026-03-16T17:54: All systems nominal. Memory files still empty — no new user data.
-  Profile refreshed with updated timestamp. Heartbeat cycle continuing cleanly.
+  Profile refreshed. Heartbeat cycle continuing cleanly.
+- 2026-03-16T17:54: All systems nominal. Memory files still empty. Profile refreshed.
+- 2026-03-16T18:04–18:14: All systems nominal. dns-flood clear (21.7k filtered/261k
+  raw-internal, VPS 21%), HA 200, pihole pass, disk 26%, load 1.66. No sidekicks active.
+  clean/ stable at 6 items. Memory files empty — no new user-specific data.
