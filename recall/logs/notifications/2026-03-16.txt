@@ -46,3 +46,7 @@
 2026-03-16T20:54 clean-notifications: dirty/ empty, nothing to process
 [2026-03-16T21:04] clean-notifications: dirty/ empty, nothing to process.
 [2026-03-16T21:24] clean-notifications: dirty/ empty, nothing to process.
+[2026-03-16T21:44] clean-notifications: dirty/ empty, nothing to process. clean/ has 6 items (stable). 1 human chore (under threshold).
+[2026-03-16T22:34] clean-notifications: dirty/ empty, nothing to process. clean/ has 6 items (stable). 1 human chore (under threshold).
+[2026-03-16T22:54] clean-notifications: dirty/ empty, nothing to process
+[2026-03-16T23:04] clean-notifications: dirty/ empty, nothing to process

@@ -398,3 +398,9 @@
 [22:54] build-user-profile ✓ updated (201 lines) | clean-notifications ✓ dirty/ empty | network-health ✓ dns ok | system-health ✓ all good
 [23:04] clean-notifications ✓ dirty/ empty | dns-flood-monitor ✓ clear (queries: 34.7k, vps: 29%, disk: 13%) | sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [23:14] clean-notifications ✓ dirty/ empty | ha-health-check ✓ 200 | pihole-health ✓ pass
+[23:24] clean-notifications ✓ dirty/ empty
+[00:26] sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 (cleaned)
+[00:26] system-health ✓ all good (disk 29%, mem 6.2Gi avail, load 2.18, tailscaled running)
+[00:26] dns-flood-monitor ✓ clear (queries: 35.4k, vps: 30%, disk: 13%)
+[23:25] network-health ✓ dns ok (google.com resolved 142.251.140.110, ads.google.com blocked 0.0.0.0 via gravity)
+[23:24] build-user-profile ✓ updated (201 lines)
