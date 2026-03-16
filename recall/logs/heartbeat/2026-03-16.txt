@@ -363,3 +363,4 @@
 [18:14] pihole-health ✓ pass
 [18:14] system-health ✓ disk 26% used, load 1.66, tailscale running
 [18:24] build-user-profile ✓ updated (205 lines) | clean-notifications ✓ dirty/ empty | dns-flood-monitor ✓ clear (queries: 22k, vps: 1.7%, disk: 13%) | sidekick-cleanup ✓ active: 0, stale: 0
+[18:34] clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ active: 0, stale: 0
