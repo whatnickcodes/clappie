@@ -165,3 +165,6 @@
 [08:24] system-health ✓ all good (disk 24% used, load 2.01, mem 3.4Gi avail, tailscaled running)
 [08:24] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [08:24] clean-notifications ✓ dirty/ empty, nothing to process. clean/ 4 items stable.
+[08:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[08:34] ssh-tunnel-monitor ✓ up
+[08:34] clean-notifications ✓ no dirty files; 4 clean items stable (backup root bug, disk diagnostics, dns overload, welcome)
