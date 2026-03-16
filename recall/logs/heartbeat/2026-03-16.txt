@@ -280,3 +280,9 @@
 [14:04] clean-notifications ✓ 0 dirty processed, 0 clean created
 [14:04] sidekick-cleanup ✓ active: 2, completed: 0, stale: 1 (cleaned)
 [14:04] dns-flood-monitor ✓ clear (queries: 4.4k, vps: 2%, disk: 13%)
+[14:14] ha-health-check ✓ 200
+[14:14] pihole-health ✓ pass
+[14:14] network-health ✓ dns ok
+[14:14] ssh-tunnel-monitor ✓ up
+[14:14] system-health ✓ all good
+[14:14] sidekick-cleanup ✓ active: 1, completed: 0, stale: 1 (cleaned)
