@@ -357,3 +357,8 @@
 [17:54] backup-verify ✓ fresh (14.9h old)
 [18:04] clean-notifications ✓ (empty)
 [18:04] dns-flood-monitor ✓ clear (queries: 21.7k filtered/261k raw-internal, vps: 21%, ftl-db: 14.4M, disk: 13%)
+[18:14] clean-notifications ✓ dirty/ empty
+[18:14] ha-health-check ✓ 200
+[18:14] network-health ✓ dns ok
+[18:14] pihole-health ✓ pass
+[18:14] system-health ✓ disk 26% used, load 1.66, tailscale running
