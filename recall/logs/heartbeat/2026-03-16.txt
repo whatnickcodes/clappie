@@ -135,3 +135,8 @@
 [06:34] ssh-tunnel-monitor ✓ up
 [06:34] sidekick-cleanup ✓ active: 1, completed: 0, stale: 1 (cleaned)
 [06:34] clean-notifications ✓ dirty/ empty, nothing to process | sidekick-cleanup ✓ active: 1, completed: 0, stale: 1 (cleaned) | ssh-tunnel-monitor ✓ up
+[06:44] network-health ✓ dns ok
+[06:44] system-health ✓ all good (disk 23%, load 1.73)
+[06:44] sidekick-cleanup ✓ active: 1, completed: 0, stale: 1 (cleaned: pane dead, abort endpoint unavailable)
+[06:44] build-user-profile ✓ updated (174 lines)
+[06:44] build-user-profile ✓ updated (174 lines) | clean-notifications ✓ dirty/ empty, nothing to process | network-health ✓ dns ok | sidekick-cleanup ✓ active: 1, completed: 0, stale: 1 (cleaned) | system-health ✓ all good (disk 23%, load 1.73)
