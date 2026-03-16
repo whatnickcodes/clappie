@@ -315,3 +315,9 @@
 [15:54] clean-notifications ✓ dirty/ empty
 [15:54] build-user-profile ✓ updated (200 lines)
 [16:04] clean-notifications ✓ dirty/ empty, nothing to process | dns-flood-monitor ✓ clear (queries: 12.4k, vps: n/a api-auth, disk: 13%)
+[16:14] network-health ✓ dns ok
+[16:14] ha-health-check ✓ 200
+[16:14] pihole-health ✓ pass
+[16:14] system-health ✓ all good (disk 74% free, load 2.32, tailscaled running)
+[16:14] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[16:14] clean-notifications ✓ dirty/ empty | ha-health-check ✓ api 200 | network-health ✓ dns ok | pihole-health ✓ all ok (disk 13%) | system-health ✓ disk 74% free, load 2.32 | sidekick-cleanup ✓ no sidekicks
