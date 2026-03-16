@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-16T10:44
+Generated: 2026-03-16T11:14
 ================================================================================
 
 WHO THEY ARE
@@ -123,7 +123,7 @@ PENDING FIXES (requires Marco on Phoebe)
   store subcommand fails noisily, push/fetch still work.
   Fix from Phoebe: `git config credential.helper '!f() { ... }; f'`
 - Pi-hole LXC disk space: recurring issue — Marco flagged it again 2026-03-16T05:06.
-  Disk at 14% as of 10:06. Needs long-term fix (log rotation, volume sizing, or cleanup automation).
+  Disk at 14% as of 11:14. Needs long-term fix (log rotation, volume sizing, or cleanup automation).
   FTL database (pihole-FTL.db) historically grows to 2.4GB+ — primary culprit.
 - Client 100.101.18.71 DNS flood: misbehaving client spamming dhl.com ANY queries with no
   backoff. Saturated dnsmasq 150-concurrent-query limit. Pi-hole container restarted but
@@ -163,9 +163,13 @@ RECENT NOTABLE EVENTS
   clean/. Urgent DNS flood Telegram alert sent to Marco (msg_id 30).
 - 2026-03-16T09:24: dns-flood-monitor chore first appeared — warning: 219k queries
   (threshold 50k), spike at 06:00-07:00 UTC (~123k/hr peak).
+- 2026-03-16T09:29: Sidekick sent DNS flood analysis directly via Telegram API (sidekick
+  send had chat-not-found issue — fallback to direct API worked).
 - 2026-03-16T09:44: dns-flood-monitor clear — flood fully subsided (644 queries, disk 14%).
   Pi-hole disk dropped from ~23% to 14%, suggesting some cleanup occurred.
 - 2026-03-16T09:45: Marco reinstalled Telegram, confirmed comms ("Can you read me here?").
-  Wash confirmed loud and clear.
+  Wash confirmed loud and clear. First react: 👀 (eyes emoji — classic).
 - 2026-03-16T10:14: build-user-profile last ran (178 lines). Memory files still empty.
   All systems nominal — disk 24%, load 1.67, tailscale up, HA 200.
+- 2026-03-16T11:14: All systems nominal. Heartbeat running cleanly. No new events.
+  dns-flood-monitor clear (14k queries, VPS 10%, disk 14%). HA 200. Pi-hole pass.

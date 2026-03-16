@@ -227,3 +227,9 @@
 [12:06] network-health ✓ dns ok
 [11:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
 [11:06] dns-flood-monitor ✓ clear (queries: 14k, vps: 10%, disk: 14%)
+[11:14] pihole-health ✓ pass
+[11:14] clean-notifications ✓ (dirty/ empty, nothing to process)
+[11:14] ssh-tunnel-monitor ✓ up
+[11:14] telegram-miss-you ✓ skipped, active convo
+[11:14] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[11:14] build-user-profile ✓ updated (175 lines)
