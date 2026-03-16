@@ -252,3 +252,6 @@
 [12:04] clean-notifications ✓ dirty/ empty, nothing to process
 [12:04] dns-flood-monitor ✓ clear (queries: 4.2k, vps: n/a privacy-lvl2, ftl-db: 13M, disk: 14%)
 [12:14] build-user-profile ✓ updated (180 lines) | clean-notifications ✓ dirty/ empty | ha-health-check ✓ up | pihole-health ✓ all green | sidekick-cleanup ✓ active: 0, stale: 0 | ssh-tunnel-monitor ✓ up | system-health ✓ disk 24%, load 1.61
+[12:24] clean-notifications ✓ dirty/ empty, 4 clean items stable, no action needed
+[12:24] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[12:24] dns-flood-monitor ✓ clear (queries: 4.3k, vps: n/a, ftl-db: 12.6M, disk: 14%)
