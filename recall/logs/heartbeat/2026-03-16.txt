@@ -21,3 +21,5 @@
 [00:55] network-health ✓ dns ok
 [00:55] ssh-tunnel-monitor ✓ up
 [00:55] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[01:04] clean-notifications ✓ dirty/ empty
+[01:04] system-health ✓ all good
