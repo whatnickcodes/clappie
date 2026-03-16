@@ -40,3 +40,8 @@
 [01:44] build-user-profile ✓ updated (148 lines)
 [01:54] ssh-tunnel-monitor ✓ up
 [01:54] clean-notifications ✓ dirty/ empty, clean/ has 2 unchanged items
+[02:05] network-health ✓ dns ok
+02:05
+[02:05] system-health ✓ disk 22%, load 1.51, tailscale ok
+[02:05] network-health ✓ dns ok
+[02:05] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
