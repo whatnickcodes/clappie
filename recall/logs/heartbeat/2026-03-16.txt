@@ -91,3 +91,8 @@
 [04:34] clean-notifications ✓ dirty/ empty, no notifications to process (2 existing clean items unchanged)
 [04:34] ssh-tunnel-monitor ✓ up
 [04:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[04:44] system-health ✓ disk 23%, load 1.76, tailscaled running
+[04:44] network-health ✓ dns ok (google.com resolved, ads.google.com blocked via gravity)
+[04:44] clean-notifications ✓ dirty/ empty, 2 clean items stable, 0 pending chores
+[04:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[04:44] build-user-profile ✓ updated (155 lines)
