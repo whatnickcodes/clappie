@@ -271,3 +271,4 @@
 [13:14] system-health ✓ all good
 [13:24] tmp-cleanup ✓ deleted: 0 files
 [13:24] dns-flood-monitor ⚠ warning (queries: 237k, vps: 0%, disk: 14%)
+[13:34] ssh-tunnel-monitor ✓ up
