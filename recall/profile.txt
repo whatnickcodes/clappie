@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-16T21:24
+Generated: 2026-03-16T21:54
 ================================================================================
 
 WHO THEY ARE
@@ -43,6 +43,8 @@ Via Telegram:
 - First react after Telegram reinstall: 👀 (eyes emoji — classic)
 - Emoji combos during active ops: 🔥 ⚡ 👨‍💻 (approves bold action), 🫡 (commits to something),
   🤔 (thinking/pending), 👀 (watching, curious)
+- Sent ambiguous "Please do that" — when asked, sent screenshot for context. Patient about
+  clarification but appreciates when Wash can figure things out from context.
 
 In operator/session mode (CLAUDE.md / SOUL.md):
 - Dry wit, casual confidence, zero try-hard energy — Wash-from-Firefly energy
@@ -197,7 +199,7 @@ RECENT NOTABLE EVENTS
   (Pi-hole internal self-queries, not external flood). Monitor updated to filter 0.0.0.0.
 - 2026-03-16T16:14: All systems nominal. Disk 74% free (Zoidberg), Pi-hole LXC disk 13%,
   load 2.32, HA 200, dns-flood clear (14k queries, VPS 24%). No active sidekicks.
-- 2026-03-16T17:24–21:14: All systems nominal. Heartbeat cycling cleanly every 10 min.
-  dns-flood-monitor running but clear (19-28k filtered queries, 0.0.0.0 excluded).
-  Memory files empty — no new user data to integrate. backup-verify ✓ fresh (14.9h old).
+- 2026-03-16T17:24–21:44: All systems nominal. Heartbeat cycling cleanly every 10 min.
+  dns-flood-monitor running but clear (19-30k filtered queries, 0.0.0.0 excluded).
+  Memory files empty — no new user data to integrate. backup-verify fresh (14.9h at 17:54).
   HA 200 ok, network dns ok, pihole pass, disk 27%, load 1.79.
