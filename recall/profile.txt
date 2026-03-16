@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-16T08:44
+Generated: 2026-03-16T09:14
 ================================================================================
 
 WHO THEY ARE
@@ -160,22 +160,13 @@ RECENT NOTABLE EVENTS
   in 60 minutes ("Maximum number of concurrent DNS queries reached (max: 150)").
   Root cause: client 100.101.18.71 flooding dhl.com ANY queries at extreme rate (~20+ per second),
   getting REFUSED, retrying with no backoff — saturating the 150-query limit.
-  Container restarted at 05:50:46; client resumed flood within 4 seconds.
+  Container restarted at 05:50:46; client resumed flood immediately.
   Diagnostic sidekick (haiku model) completed at 05:53 — identified root cause.
 - 2026-03-16T05:54: Notifications processed — disk diagnostics + DNS flood reports moved to
   clean/. Urgent DNS flood Telegram alert sent to Marco (msg_id 30).
 - 2026-03-16T05:40: Marco messaged again via Telegram ("Hey wash") — sidekick failed (exit code 1).
   Sidekick failures at 05:06 and 05:40 suggest telegram-bot sidekick issue around that time.
 - 2026-03-16T06:00: Test sidekick "test-from-wash-debug" ran — likely debugging sidekick failures.
-- 2026-03-16T06:14: Routine profile refresh. Memory files still empty. Heartbeat clean.
-  All systems nominal. No new user data to integrate.
-- 2026-03-16T06:14–07:44: Heartbeat continuing clean. All chores nominal. Disk 23%, load ~1.5-2.1.
-  Sidekick activity winding down (2 active at 06:04, 1 at 06:24-06:44, 0 by 07:06).
-  No new user data to integrate. Memory files still empty.
-- 2026-03-16T07:44–08:14: Heartbeat continuing clean. HA health check 200 at 08:04.
-  No active sidekicks. No notifications to process. All systems nominal (disk 23%, load ~2.1).
-  SSH tunnel up. Memory files still empty. No new user data to integrate.
-- 2026-03-16T08:14–08:44: Heartbeat continuing clean. Network health ok (dns resolving, ads blocked).
-  System health good (disk 24% used, load ~2.0, mem 3.4Gi avail). No active sidekicks.
-  clean/ stable with 4 items (backup root bug, disk diagnostics, dns overload, welcome).
-  Memory files still empty. No new user data to integrate. All systems nominal.
+- 2026-03-16T06:14–09:14: Heartbeat continuing clean. All chores nominal. Disk 23-24%, load ~1.5-2.1.
+  Sidekick activity wound down. No new user data to integrate. Memory files still empty.
+  HA health check 200 throughout. SSH tunnel up. All systems nominal.
