@@ -180,3 +180,15 @@ RECENT NOTABLE EVENTS
   Chores running cleanly. dns-flood-monitor clear. backup fresh.
 - 2026-03-16T13:45: build-user-profile updated. Memory files still empty. No new user data.
   Profile content stable — no changes from prior run.
+- 2026-03-16T13:56–14:13: Marco sent "Please do that" (context from prior session). Wash
+  prompted for clarity. Marco sent screenshot — confirmation to lower Pi-hole privacy level
+  to 0 (catch the flooding device). Wash lowered privacy level immediately, recreated
+  container, waited 10 min, reported findings.
+  TOP CLIENTS: River.lan (iPhone, 571 q), dns-relay VPS (100.101.18.71, 238 q), unknown IPv6
+  device (146 q). No active flood at time of check — previous 237k spike has stopped.
+  VPS share mystery resolved (was 238 q / 5.2%, privacy-level 2 hid it). Unknown IPv6
+  (2001:b07:aa7:9ea1:69fb:...) identified as a watch-target.
+  Wash proposed two options: (1) leave privacy at 0 for 24h to catch next spike, or
+  (2) reset to 2 now that current state is clean. Marco's response pending.
+  Marco reacted 🤔 to initial question, then sent 🫡 after Wash committed to task,
+  followed by 🔥 ⚡ 👨‍💻 combo after privacy level was live — high engagement, approves the approach.
