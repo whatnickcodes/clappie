@@ -255,3 +255,4 @@
 [12:24] clean-notifications ✓ dirty/ empty, 4 clean items stable, no action needed
 [12:24] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [12:24] dns-flood-monitor ✓ clear (queries: 4.3k, vps: n/a, ftl-db: 12.6M, disk: 14%)
+[12:34] clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ active: 0, stale: 0 | ssh-tunnel-monitor ✓ up
