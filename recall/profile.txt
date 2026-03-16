@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-16T11:14
+Generated: 2026-03-16T11:44
 ================================================================================
 
 WHO THEY ARE
@@ -40,6 +40,7 @@ Via Telegram:
 - Reports issues bluntly ("looks like it's out of disk space yet again 🤦🏻‍♂️") — no sugarcoating
 - After a fix, short acknowledgment + warmth closes the loop ("Good to know. Keep up the great job, Wash!")
 - Reinstalled Telegram 2026-03-16 — first message was just confirming comms ("Can you read me here?")
+- First react after Telegram reinstall: 👀 (eyes emoji — classic)
 
 In operator/session mode (CLAUDE.md / SOUL.md):
 - Dry wit, casual confidence, zero try-hard energy — Wash-from-Firefly energy
@@ -123,11 +124,11 @@ PENDING FIXES (requires Marco on Phoebe)
   store subcommand fails noisily, push/fetch still work.
   Fix from Phoebe: `git config credential.helper '!f() { ... }; f'`
 - Pi-hole LXC disk space: recurring issue — Marco flagged it again 2026-03-16T05:06.
-  Disk at 14% as of 11:14. Needs long-term fix (log rotation, volume sizing, or cleanup automation).
+  Disk at 14% as of 11:44. Needs long-term fix (log rotation, volume sizing, or cleanup automation).
   FTL database (pihole-FTL.db) historically grows to 2.4GB+ — primary culprit.
 - Client 100.101.18.71 DNS flood: misbehaving client spamming dhl.com ANY queries with no
   backoff. Saturated dnsmasq 150-concurrent-query limit. Pi-hole container restarted but
-  client resumed flood immediately. Marco alerted 2026-03-16T05:54. Flood subsided by 09:44.
+  client resumed flood immediately. Flood subsided by 09:44. Marco alerted.
   Needs Marco to investigate what's running on 100.101.18.71 (Tailscale network IP).
 
 RECENT NOTABLE EVENTS
@@ -169,7 +170,9 @@ RECENT NOTABLE EVENTS
   Pi-hole disk dropped from ~23% to 14%, suggesting some cleanup occurred.
 - 2026-03-16T09:45: Marco reinstalled Telegram, confirmed comms ("Can you read me here?").
   Wash confirmed loud and clear. First react: 👀 (eyes emoji — classic).
-- 2026-03-16T10:14: build-user-profile last ran (178 lines). Memory files still empty.
-  All systems nominal — disk 24%, load 1.67, tailscale up, HA 200.
-- 2026-03-16T11:14: All systems nominal. Heartbeat running cleanly. No new events.
-  dns-flood-monitor clear (14k queries, VPS 10%, disk 14%). HA 200. Pi-hole pass.
+- 2026-03-16T10:14: All systems nominal. Disk 24%, load 1.67, tailscale up, HA 200.
+- 2026-03-16T11:14: build-user-profile updated (175 lines). All chores nominal.
+  dns-flood-monitor clear (14k queries, VPS 10%, disk 14%). Pi-hole pass.
+  telegram-miss-you skipped (active convo detected).
+- 2026-03-16T11:44: All systems nominal. Heartbeat running cleanly. Active session detected
+  (telegram-miss-you skipped at 11:14). No new events since last update.
