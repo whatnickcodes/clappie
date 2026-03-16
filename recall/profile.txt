@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-16T07:14
+Generated: 2026-03-16T07:44
 ================================================================================
 
 WHO THEY ARE
@@ -172,5 +172,6 @@ RECENT NOTABLE EVENTS
 - 2026-03-16T06:14–06:44: Heartbeat continuing clean. All chores nominal. Disk 23%, load ~1.7.
   Sidekick activity: 2 active at 06:04-06:14, down to 1 at 06:24-06:34.
   No new user data to integrate. Memory files still empty.
-- 2026-03-16T07:04–07:14: Heartbeat continuing clean. HA health check 200. No active sidekicks.
+- 2026-03-16T07:04–07:44: Heartbeat continuing clean. HA health check 200. No active sidekicks.
   No notifications to process. All systems nominal. Memory files still empty.
+  Disk 23%, load ~1.5-2.1. DNS resolving clean (ads.google.com blocked 0.0.0.0).
