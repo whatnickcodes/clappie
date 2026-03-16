@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-16T09:44
+Generated: 2026-03-16T10:14
 ================================================================================
 
 WHO THEY ARE
@@ -91,7 +91,7 @@ COMMON WORKFLOWS / RECURRING REQUESTS
 - Casual check-ins via Telegram ("hey, everything good?") — wants warm + brief, not a wall of text
 - Heartbeat chores (every 600s): network-health, pihole-health, ha-health-check,
   system-health, ssh-tunnel-monitor, sidekick-cleanup, clean-notifications,
-  build-user-profile, backup-verify
+  build-user-profile, backup-verify, dns-flood-monitor
 - Washnotes: write findings to homeops/washnotes/, push to main
 - Sidekick spawning for multi-step async tasks (Sidekick HQ on :7777)
 - Tailscale funnel management (public HTTPS → localhost:7777 for Telegram webhook)
@@ -108,7 +108,7 @@ INFRASTRUCTURE QUICK REF
 - Sidekick HQ: localhost:7777 (exposed via tailscale funnel)
 - Watchdog alert chat ID: 7229110406
 - Watchdog timer: wash-clappie-watchdog.timer (deployed, running)
-- 3 background apps running (watchdog healthy as of 2026-03-15)
+- 3 background apps running (watchdog healthy)
 
 PENDING FIXES (requires Marco on Phoebe)
 -----------------------------------------
@@ -119,11 +119,11 @@ PENDING FIXES (requires Marco on Phoebe)
   store subcommand fails noisily, push/fetch still work.
   Fix from Phoebe: `git config credential.helper '!f() { ... }; f'`
 - Pi-hole LXC disk space: recurring issue — Marco flagged it again 2026-03-16T05:06.
-  Needs investigation and long-term fix (log rotation, volume sizing, or cleanup automation).
+  Disk at 14% as of 10:06. Needs long-term fix (log rotation, volume sizing, or cleanup automation).
 - Client 100.101.18.71 DNS flood: misbehaving client spamming dhl.com ANY queries with no
   backoff. Saturated dnsmasq 150-concurrent-query limit. Pi-hole container restarted but
-  client resumed flood immediately. Marco alerted 2026-03-16T05:54. Needs Marco to investigate
-  what's running on 100.101.18.71 (Tailscale network IP).
+  client resumed flood immediately. Marco alerted 2026-03-16T05:54. Flood subsided by 09:44.
+  Needs Marco to investigate what's running on 100.101.18.71 (Tailscale network IP).
 
 RECENT NOTABLE EVENTS
 ----------------------
@@ -167,6 +167,12 @@ RECENT NOTABLE EVENTS
 - 2026-03-16T05:40: Marco messaged again via Telegram ("Hey wash") — sidekick failed (exit code 1).
   Sidekick failures at 05:06 and 05:40 suggest telegram-bot sidekick issue around that time.
 - 2026-03-16T06:00: Test sidekick "test-from-wash-debug" ran — likely debugging sidekick failures.
-- 2026-03-16T06:14–09:44: Heartbeat continuing clean. All chores nominal. Disk 23-24%, load ~1.5-2.1.
+- 2026-03-16T06:14–09:14: Heartbeat continuing clean. All chores nominal. Disk 23-24%, load ~1.5-2.1.
   Sidekick activity wound down. No new user data to integrate. Memory files still empty.
   HA health check 200 throughout. SSH tunnel up. All systems nominal.
+- 2026-03-16T09:24: dns-flood-monitor chore first appeared in heartbeat — new chore monitoring
+  Pi-hole DNS flood activity. First run showed ⚠ warning (219k queries, spike at 06:00-07:00 UTC,
+  ~123k/hr peak, subsided to ~1.5k/hr by 09:24).
+- 2026-03-16T09:44: dns-flood-monitor ✓ clear — flood fully subsided (644 queries, disk 14%).
+  Pi-hole disk dropped from ~23% to 14%, suggesting some cleanup occurred overnight/morning.
+- 2026-03-16T10:06: dns-flood-monitor ✓ clear (5.7k queries, disk 14%). All systems nominal.

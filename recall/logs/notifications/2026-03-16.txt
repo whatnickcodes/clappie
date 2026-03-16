@@ -13,3 +13,4 @@
 [06:14] clean-notifications run: dirty/ empty, no notifications to process
 [2026-03-16T06:34] clean-notifications run: dirty/ empty, nothing to process.
 [08:24] clean-notifications run: dirty/ empty, nothing to process. clean/ has 4 items (stable — backup root fix from Mar 14, disk diagnostics + DNS flood from Mar 16 morning, welcome). 1 human chore (under threshold).
+[10:14] clean-notifications: dirty/ empty, nothing to process. clean/ has 4 items (stable: backup-root-fix, disk-diagnostics, dns-flood, welcome). 1 human chore (under threshold).
