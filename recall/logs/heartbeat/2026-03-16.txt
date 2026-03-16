@@ -236,3 +236,6 @@
 [11:24] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [11:24] clean-notifications ✓ dirty/ empty, 4 items in clean, no new routing needed
 [11:24] dns-flood-monitor ✓ clear (queries: unknown via api-mismatch, ftl-db: 13M, disk: 14%, saturation: recovered)
+[11:34] clean-notifications ✓ dirty/ empty
+[11:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[11:34] ssh-tunnel-monitor ✓ up
