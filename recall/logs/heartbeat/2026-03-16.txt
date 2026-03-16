@@ -211,3 +211,7 @@
 [10:14] build-user-profile ✓ updated (178 lines)
 [10:24] dns-flood-monitor ✓ clear (queries: 5.9k, vps: n/a, disk: 14%, ftl-db: 11.9M)
 [10:24] sidekick-cleanup ✓ active: 1, completed: 0, stale: 1 (cleaned)
+[10:34] clean-notifications ✓ dirty/ empty
+[10:34] network-health ✓ dns ok
+[10:34] ssh-tunnel-monitor ✓ up
+[10:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
