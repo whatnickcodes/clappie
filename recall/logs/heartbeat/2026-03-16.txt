@@ -297,3 +297,5 @@
 [15:56] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 →[15:56] ssh-tunnel-monitor ✓ funnel up, port 7777 ok
 [14:54] build-user-profile ✓ updated (192 lines)
+[15:04] clean-notifications ✓ (dirty/ empty, no notifications to process)
+[15:04] dns-flood-monitor ⚠ warning (queries: 248k from 0.0.0.0 loopback, vps: 0.6%, ftl: 13.5MB, disk: 13%)
