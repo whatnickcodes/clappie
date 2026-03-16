@@ -406,3 +406,6 @@
 [23:24] build-user-profile ✓ updated (201 lines)
 [23:34] sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 (cleaned)
 [23:34] clean-notifications ✓ dirty/ empty, nothing to process. clean/ has 6 items (stable). 1 human chore (under threshold).
+[23:44] clean-notifications ✓ (dirty/ empty, nothing to process)
+[23:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[23:44] dns-flood-monitor ✓ clear (queries: 36.7k, vps: 30.3%, disk: 13%, ftl-db: 15.3M)
