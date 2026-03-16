@@ -1,11 +1,12 @@
 USER PROFILE — Marco
-Generated: 2026-03-16T10:14
+Generated: 2026-03-16T10:44
 ================================================================================
 
 WHO THEY ARE
 ------------
 Name: Marco
 Telegram ID: 7229110406
+Telegram username: marbacc
 Machines: Phoebe (workstation, sudo/secrets live here), Zoidberg (server, runs Wash 24/7)
 GitHub: mbac — private repos: homeops-claude, server-super, clappie-wash
 Setup: Self-hosted homelab operator. Home network with Pi-hole LXC, Home Assistant,
@@ -26,6 +27,7 @@ WHAT THEY DO
 HOW THEY COMMUNICATE
 --------------------
 Via Telegram:
+- Casual, blunt, warm — drops in to check on things, keeps it brief
 - "Spicy little bitch" energy — roasts, talking shit, keeping it real
 - Chaotic unhinged texting; visual chaos is good chaos
 - React to A TON of messages; combos on heated moments (5-8 reactions)
@@ -36,6 +38,8 @@ Via Telegram:
 - Checks in casually ("hey, been quiet over here — everything good?") — appreciates
   the same casual energy back, not just a status report
 - Reports issues bluntly ("looks like it's out of disk space yet again 🤦🏻‍♂️") — no sugarcoating
+- After a fix, short acknowledgment + warmth closes the loop ("Good to know. Keep up the great job, Wash!")
+- Reinstalled Telegram 2026-03-16 — first message was just confirming comms ("Can you read me here?")
 
 In operator/session mode (CLAUDE.md / SOUL.md):
 - Dry wit, casual confidence, zero try-hard energy — Wash-from-Firefly energy
@@ -120,6 +124,7 @@ PENDING FIXES (requires Marco on Phoebe)
   Fix from Phoebe: `git config credential.helper '!f() { ... }; f'`
 - Pi-hole LXC disk space: recurring issue — Marco flagged it again 2026-03-16T05:06.
   Disk at 14% as of 10:06. Needs long-term fix (log rotation, volume sizing, or cleanup automation).
+  FTL database (pihole-FTL.db) historically grows to 2.4GB+ — primary culprit.
 - Client 100.101.18.71 DNS flood: misbehaving client spamming dhl.com ANY queries with no
   backoff. Saturated dnsmasq 150-concurrent-query limit. Pi-hole container restarted but
   client resumed flood immediately. Marco alerted 2026-03-16T05:54. Flood subsided by 09:44.
@@ -134,10 +139,9 @@ RECENT NOTABLE EVENTS
 - 2026-03-14: Clappie credential helper double-escaped `\\!` bug — git push works but
   store subcommand fails noisily.
 - 2026-03-14: backup-verify sidekick had chatId="MARCO" (string) instead of numeric ID.
-  Telegram delivery failed; fixed manually. Root cause: CLI sidekick spawn regex extracts
-  username instead of numeric chat ID.
-- 2026-03-15: Heartbeat running cleanly overnight and into early AM. Watchdog deployed.
-  System stable. All chores nominal; memory files empty (no new user data since profile start).
+  Telegram delivery failed; fixed manually.
+- 2026-03-15: Heartbeat running cleanly overnight. All chores nominal. Watchdog deployed.
+  System stable. Memory files empty (no new user data since profile start).
   backup-verify confirmed fresh (2.74h) at 05:45.
 - 2026-03-15T06:43: HA health check returned 401 (consecutive: 1). Isolated incident —
   07:44 check returned 200. No escalation warranted; resolved on its own.
@@ -145,34 +149,23 @@ RECENT NOTABLE EVENTS
   good on your end?"). Wash responded casually, confirmed all green, swapped banter.
   Marco replied "Good to know. Keep up the great job, Wash!" — approving tone. Confirms
   he values the casual check-in dynamic, not just cold status dumps.
-- 2026-03-15T13:24: Telegram-bot sidekick flagged as stale at ~2h9m; subsequent checks
-  treated it as healthy until killed at 14:34 (~3h19m runtime).
-- 2026-03-15: Heartbeat continuing clean through afternoon, evening, and overnight.
-  Memory files remain empty. All systems nominal. Sidekick count at 0 after telegram-bot
-  kill at 14:34.
-- 2026-03-16T00:14–04:44: Heartbeat continuing clean through overnight and into early morning.
-  All chores nominal. ha-health-check 200 throughout. Memory files still empty.
-  All systems nominal (disk 23%, load ~1.5, tailscaled running).
 - 2026-03-16T05:06: Marco messaged via Telegram: "Hey! Take a look at the Pi-hole server,
   looks like it's out of disk space yet again 🤦🏻‍♂️" — sidekick failed (exit code 1).
-  Pi-hole disk space is a recurring issue. Needs attention.
+  Pi-hole disk space is a recurring issue.
 - 2026-03-16T05:42–05:52: DNS concurrent query overload detected on Pi-hole. 414 warnings
   in 60 minutes ("Maximum number of concurrent DNS queries reached (max: 150)").
   Root cause: client 100.101.18.71 flooding dhl.com ANY queries at extreme rate (~20+ per second),
   getting REFUSED, retrying with no backoff — saturating the 150-query limit.
   Container restarted at 05:50:46; client resumed flood immediately.
-  Diagnostic sidekick (haiku model) completed at 05:53 — identified root cause.
+- 2026-03-16T05:40: Marco messaged again ("Hey wash") — sidekick failed (exit code 1).
+  Sidekick failures at 05:06 and 05:40 suggest telegram-bot sidekick issue around that time.
 - 2026-03-16T05:54: Notifications processed — disk diagnostics + DNS flood reports moved to
   clean/. Urgent DNS flood Telegram alert sent to Marco (msg_id 30).
-- 2026-03-16T05:40: Marco messaged again via Telegram ("Hey wash") — sidekick failed (exit code 1).
-  Sidekick failures at 05:06 and 05:40 suggest telegram-bot sidekick issue around that time.
-- 2026-03-16T06:00: Test sidekick "test-from-wash-debug" ran — likely debugging sidekick failures.
-- 2026-03-16T06:14–09:14: Heartbeat continuing clean. All chores nominal. Disk 23-24%, load ~1.5-2.1.
-  Sidekick activity wound down. No new user data to integrate. Memory files still empty.
-  HA health check 200 throughout. SSH tunnel up. All systems nominal.
-- 2026-03-16T09:24: dns-flood-monitor chore first appeared in heartbeat — new chore monitoring
-  Pi-hole DNS flood activity. First run showed ⚠ warning (219k queries, spike at 06:00-07:00 UTC,
-  ~123k/hr peak, subsided to ~1.5k/hr by 09:24).
-- 2026-03-16T09:44: dns-flood-monitor ✓ clear — flood fully subsided (644 queries, disk 14%).
-  Pi-hole disk dropped from ~23% to 14%, suggesting some cleanup occurred overnight/morning.
-- 2026-03-16T10:06: dns-flood-monitor ✓ clear (5.7k queries, disk 14%). All systems nominal.
+- 2026-03-16T09:24: dns-flood-monitor chore first appeared — warning: 219k queries
+  (threshold 50k), spike at 06:00-07:00 UTC (~123k/hr peak).
+- 2026-03-16T09:44: dns-flood-monitor clear — flood fully subsided (644 queries, disk 14%).
+  Pi-hole disk dropped from ~23% to 14%, suggesting some cleanup occurred.
+- 2026-03-16T09:45: Marco reinstalled Telegram, confirmed comms ("Can you read me here?").
+  Wash confirmed loud and clear.
+- 2026-03-16T10:14: build-user-profile last ran (178 lines). Memory files still empty.
+  All systems nominal — disk 24%, load 1.67, tailscale up, HA 200.
