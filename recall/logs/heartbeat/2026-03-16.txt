@@ -86,3 +86,5 @@
 [03:54] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
 [04:04] clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ active: 0, stale: 0
 [04:14] build-user-profile ✓ updated (153 lines) | clean-notifications ✓ dirty/ empty | network-health ✓ dns ok | pihole-health ✓ pass | sidekick-cleanup ✓ active: 0, stale: 0 | ssh-tunnel-monitor ✓ up | system-health ✓ all good
+[04:24] clean-notifications ✓ dirty/ empty, nothing to process
+[04:24] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
