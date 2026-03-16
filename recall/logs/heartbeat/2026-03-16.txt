@@ -117,3 +117,8 @@
 [05:44] network-health ✓ dns ok
 [05:44] build-user-profile ✓ updated (159 lines)
 [05:44] build-user-profile ✓ updated (159 lines) | clean-notifications ✓ dirty/ empty, nothing to process | network-health ✓ dns ok | sidekick-cleanup ✓ active: 1, completed: 0, stale: 0 | system-health ✓ all good (disk 23%, load 2.47)
+[05:55] ha-health-check ✓ 200
+[05:54] backup-verify ✓ fresh (2h 55m)
+[05:55] ssh-tunnel-monitor ✓ up
+[05:56] sidekick-cleanup ✓ active: 1, completed: 0, stale: 2 (pre-cleaned)
+[05:54] clean-notifications ✓ 2 dirty files processed (disk diagnostics + DNS flood), both to clean/. Urgent DNS flood alert sent via Telegram.

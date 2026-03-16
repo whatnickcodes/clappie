@@ -4,3 +4,9 @@
 [2026-03-16T01:24] clean-notifications: dirty/ empty, nothing to process
 [01:44] clean-notifications: dirty/ empty, no processing needed. clean/ has 2 items (backup-root-fix-needed-2026-03-14.txt, welcome.txt)
 [02:24] dirty/ empty — nothing to process. clean/ has 2 items (stable). 1 human chore (under threshold).
+
+[03:04] clean-notifications run: dirty/ empty, nothing to process.
+
+[04:14] dirty/ empty — nothing to process.
+[05:44] dirty/ empty — nothing to process. clean/ has 2 items (stable). 1 human chore (under threshold).
+[05:54] Processed 2 dirty files: sidekick-report-0545 (disk diagnostics, Pi-hole LXC) + sidekick-report-0552 (DNS query overload, client 100.101.18.71 flooding dhl.com ANY queries). Both moved to clean/. DNS flood assessed URGENT — Telegram alert sent to Marco (msg_id 30). clean/ now has 4 items.
