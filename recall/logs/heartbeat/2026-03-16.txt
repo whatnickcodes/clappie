@@ -244,3 +244,7 @@
 [12:46] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [11:44] dns-flood-monitor ✓ clear (queries: 230k, vps: 93%, disk: 14%) — vps% above threshold but expected by relay design; db: 12.3M; no flood indicators
 [11:44] build-user-profile ✓ updated (178 lines)
+[11:54] ssh-tunnel-monitor ✓ up
+[11:54] backup-verify ✓ fresh (8h54m)
+[11:54] sidekick-cleanup ✓ active: 0, completed: 6, stale: 0
+[11:54] backup-verify ✓ fresh (8h54m) | clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ active: 0, completed: 6, stale: 0 | ssh-tunnel-monitor ✓ up
