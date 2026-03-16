@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-16T13:45
+Generated: 2026-03-16T14:54
 ================================================================================
 
 WHO THEY ARE
@@ -41,6 +41,8 @@ Via Telegram:
 - After a fix, short acknowledgment + warmth closes the loop ("Good to know. Keep up the great job, Wash!")
 - Reinstalled Telegram 2026-03-16 — first message was just confirming comms ("Can you read me here?")
 - First react after Telegram reinstall: 👀 (eyes emoji — classic)
+- Emoji combos during active ops: 🔥 ⚡ 👨‍💻 (approves bold action), 🫡 (commits to something),
+  🤔 (thinking/pending), 👀 (watching, curious)
 
 In operator/session mode (CLAUDE.md / SOUL.md):
 - Dry wit, casual confidence, zero try-hard energy — Wash-from-Firefly energy
@@ -124,12 +126,15 @@ PENDING FIXES (requires Marco on Phoebe)
   store subcommand fails noisily, push/fetch still work.
   Fix from Phoebe: `git config credential.helper '!f() { ... }; f'`
 - Pi-hole LXC disk space: recurring issue — Marco flagged it again 2026-03-16T05:06.
-  Disk at 14% as of 11:44. Needs long-term fix (log rotation, volume sizing, or cleanup automation).
+  Disk at 13% as of 14:44. Needs long-term fix (log rotation, volume sizing, or cleanup automation).
   FTL database (pihole-FTL.db) historically grows to 2.4GB+ — primary culprit.
 - Client 100.101.18.71 DNS flood: misbehaving client spamming dhl.com ANY queries with no
-  backoff. Saturated dnsmasq 150-concurrent-query limit. Pi-hole container restarted but
-  client resumed flood immediately. Flood subsided by 09:44. Marco alerted.
+  backoff. Saturated dnsmasq 150-concurrent-query limit. Flood subsided by 09:44.
   Needs Marco to investigate what's running on 100.101.18.71 (Tailscale network IP).
+- Pi-hole privacy level: lowered to 0 at Marco's request (2026-03-16T13:56) to expose
+  flooding device. Marco reacted 🤔 then 🫡 then 🔥 ⚡ 👨‍💻 — approves approach.
+  Pending decision: keep at 0 for 24h to catch next spike, or reset to 2 now.
+  Unknown IPv6 2001:b07:aa7:9ea1:69fb:... identified as watch-target (146 queries).
 
 RECENT NOTABLE EVENTS
 ----------------------
@@ -158,28 +163,20 @@ RECENT NOTABLE EVENTS
   Root cause: client 100.101.18.71 flooding dhl.com ANY queries at extreme rate (~20+ per second),
   getting REFUSED, retrying with no backoff — saturating the 150-query limit.
   Container restarted at 05:50:46; client resumed flood immediately.
-- 2026-03-16T05:40: Marco messaged again ("Hey wash") — sidekick failed (exit code 1).
-  Sidekick failures at 05:06 and 05:40 suggest telegram-bot sidekick issue around that time.
 - 2026-03-16T05:54: Notifications processed — disk diagnostics + DNS flood reports moved to
   clean/. Urgent DNS flood Telegram alert sent to Marco (msg_id 30).
 - 2026-03-16T09:24: dns-flood-monitor chore first appeared — warning: 219k queries
   (threshold 50k), spike at 06:00-07:00 UTC (~123k/hr peak).
-- 2026-03-16T09:29: Sidekick sent DNS flood analysis directly via Telegram API (sidekick
-  send had chat-not-found issue — fallback to direct API worked).
+- 2026-03-16T09:29: Sidekick sent DNS flood analysis directly via Telegram API.
 - 2026-03-16T09:44: dns-flood-monitor clear — flood fully subsided (644 queries, disk 14%).
   Pi-hole disk dropped from ~23% to 14%, suggesting some cleanup occurred.
 - 2026-03-16T09:45: Marco reinstalled Telegram, confirmed comms ("Can you read me here?").
   Wash confirmed loud and clear. First react: 👀 (eyes emoji — classic).
-- 2026-03-16T10:14: All systems nominal. Disk 24%, load 1.67, tailscale up, HA 200.
-- 2026-03-16T11:14: build-user-profile updated (175 lines). All chores nominal.
-  dns-flood-monitor clear (14k queries, VPS 10%, disk 14%). Pi-hole pass.
-  telegram-miss-you skipped (active convo detected).
-- 2026-03-16T11:44: All systems nominal. Heartbeat running cleanly. Active session detected
-  (telegram-miss-you skipped at 11:14). No new events since last update.
-- 2026-03-16T12:14: All systems nominal. No new events. Memory files remain empty.
-  Chores running cleanly. dns-flood-monitor clear. backup fresh.
-- 2026-03-16T13:45: build-user-profile updated. Memory files still empty. No new user data.
-  Profile content stable — no changes from prior run.
+- 2026-03-16T11:15: All systems nominal. Heartbeat running cleanly.
+  telegram-miss-you skipped (active convo). No new events.
+- 2026-03-16T13:54: Sidekick DNS flood monitor auto-report processed → clean/.
+  clean/ now has 5 items (backup-root-fix, disk-diagnostics, dns-flood-0552,
+  dns-flood-monitor-1427, welcome). 1 human chore (under threshold).
 - 2026-03-16T13:56–14:13: Marco sent "Please do that" (context from prior session). Wash
   prompted for clarity. Marco sent screenshot — confirmation to lower Pi-hole privacy level
   to 0 (catch the flooding device). Wash lowered privacy level immediately, recreated
@@ -188,7 +185,8 @@ RECENT NOTABLE EVENTS
   device (146 q). No active flood at time of check — previous 237k spike has stopped.
   VPS share mystery resolved (was 238 q / 5.2%, privacy-level 2 hid it). Unknown IPv6
   (2001:b07:aa7:9ea1:69fb:...) identified as a watch-target.
-  Wash proposed two options: (1) leave privacy at 0 for 24h to catch next spike, or
-  (2) reset to 2 now that current state is clean. Marco's response pending.
-  Marco reacted 🤔 to initial question, then sent 🫡 after Wash committed to task,
-  followed by 🔥 ⚡ 👨‍💻 combo after privacy level was live — high engagement, approves the approach.
+  Marco reacted 🤔 to initial question, then 🫡 after Wash committed, then 🔥 ⚡ 👨‍💻 after
+  privacy level went live — high engagement, full approval.
+- 2026-03-16T14:24: All systems nominal. Disk 25%, load 1.81, dns-flood clear, HA 200.
+  clean/ stable at 5 items. Active sidekicks: 2 (at peak), 0 (cleaned by 14:34).
+- 2026-03-16T14:44: All systems nominal. Disk 25%, load 1.81, tailscale up. Profile stable.

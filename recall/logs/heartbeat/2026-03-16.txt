@@ -293,3 +293,7 @@
 [14:24] build-user-profile ✓ updated | clean-notifications ✓ dirty/ empty | dns-flood-monitor ✓ clear (ftl-db 14M, disk 14%) | sidekick-cleanup ✓ active: 2, stale: 2 cleaned
 [14:34] clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 | ssh-tunnel-monitor ✓ up
 [14:44] clean-notifications ✓ dirty/ empty | dns-flood-monitor ✓ clear (queries: 7.4k, vps: 12%, disk: 13%) | network-health ✓ dns ok | sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 | system-health ✓ all good (disk 25%, load 1.81)
+[14:54] clean-notifications ✓ dirty/ empty
+[15:56] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+→[15:56] ssh-tunnel-monitor ✓ funnel up, port 7777 ok
+[14:54] build-user-profile ✓ updated (192 lines)
