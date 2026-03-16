@@ -176,3 +176,5 @@
 [08:55] ssh-tunnel-monitor ✓ up
 [08:55] system-health ✓ disk 23% used, memory 744Mi free, load 1.35, tailscaled running
 [08:55] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[09:04] ha-health-check ✓ 200
+[09:04] clean-notifications ✓ dirty/ empty, nothing to process
