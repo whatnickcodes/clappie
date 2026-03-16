@@ -195,3 +195,6 @@
 [09:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [09:44] dns-flood-monitor ✓ clear (queries: 644, vps: 5%, disk: 14%, ftl-db: 12M) — yesterday's flood subsided
 [09:44] build-user-profile ✓ updated (172 lines)
+[09:54] clean-notifications ✓ dirty/ empty, nothing to process
+[09:54] ssh-tunnel-monitor ✓ up
+[09:54] sidekick-cleanup ✓ active: 1, completed: 0, stale: 0
