@@ -1,0 +1,3 @@
+[00:04] clean-notifications ✓ (dirty/ empty, nothing to process)
+[00:04] system-health ✓ all good
+[00:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
