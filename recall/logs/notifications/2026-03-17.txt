@@ -74,3 +74,5 @@
 [17:25] clean-notifications run — dirty/ empty, no files to process. Clean folder has 3 items (backup-root-fix-needed, dns-flood-investigation, welcome) — within normal range. No urgent items, no chore backlog threshold triggered.
 [2026-03-17 17:55] clean-notifications run: dirty/ empty, nothing to process. clean/ has 3 items, 2 active chores.
 [18:05] clean-notifications: dirty/ empty — nothing to process
+[18:05] clean-notifications run: dirty/ empty — nothing to process. clean/ has 3 items (backup-root-fix-needed, dns-flood-investigation, welcome) — all stable, no new activity.
+[20:05] clean-notifications run: dirty/ empty — nothing to process. clean/ has 3 items (backup-root-fix-needed, dns-flood-investigation, welcome) — all stable.
