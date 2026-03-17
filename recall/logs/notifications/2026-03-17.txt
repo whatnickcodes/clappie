@@ -113,3 +113,4 @@
   Human chores: 2 (sidekick-errors, welcome-to-clappie) — under 5-item alert threshold
   Action: no-op, all nominal
 [23:15] clean-notifications run: dirty/ empty, no new items to process. clean/ has 6 stable items, 2 human chores (under 5-chore threshold). No action needed.
+[23:25] clean-notifications: dirty/ empty, no new items. 6 clean items stable. No action needed.

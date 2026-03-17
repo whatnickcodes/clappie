@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-17T22:55
+Generated: 2026-03-17T23:25
 ================================================================================
 
 WHO THEY ARE
@@ -122,18 +122,18 @@ INFRASTRUCTURE QUICK REF
 - Watchdog alert chat ID: 7229110406
 - Watchdog timer: wash-clappie-watchdog.timer (deployed, running)
 
-CURRENT SYSTEM STATE (as of 22:55 2026-03-17)
+CURRENT SYSTEM STATE (as of 23:15 2026-03-17)
 ----------------------------------------------
 - Disk: 37% used (Zoidberg), Pi-hole disk 14%, FTL DB ~19MB
-- Load: nominal (~3.02 load avg), mem: ~2.7Gi avail
+- Load: nominal (~2.68 load avg), mem: ~3.1Gi avail
 - Tailscaled: running
 - Pi-hole: pass
 - HA: 200
 - DNS queries today: ~65k (above 50k threshold — assessed normal; IoT telemetry + VPS relay)
   Root cause breakdown: Alexa (2.7k), Sensibo (2.7k), OnePlus/OPPO phone heytap (2.4k),
   Hue lights (2.1k), i.paypal.com (2.1k). VPS relay (100.101.18.71) = 40% of traffic.
-- Sidekicks: active 1, stale 1 (cleaned)
-- Clean notifications: 5 items in clean/ (stable), 2 human chores
+- Sidekicks: active 0, completed 0, stale 0 (clean)
+- Clean notifications: 6 items in clean/ (stable), 2 human chores (under threshold)
 - Watchdog state: {} (empty — no tracked failures)
 - staleness-audit: 1 mismatch found (database.maxDBdays live=7, docs say 14), report pushed
 - sidekick-errors-review: 2 patterns — 18x chat-not-found in dns-flood-monitor (chore created),
@@ -210,3 +210,5 @@ RECENT NOTABLE EVENTS
 - 2026-03-17T22:47–22:49: Final DNS flood sidekick completed. Full breakdown: 65,406 queries,
   VPS 40% (25.9k), 192.168.1.111 (10.4k), 192.168.1.210 (7.6k). Smooth hourly distribution,
   no flood. 32% queries blocked normally. All healthy. Telegram still failing (chatId='marco').
+- 2026-03-17T23:15: Heartbeat cycle — all systems nominal. disk 37%, load 2.68, mem 3.1Gi avail,
+  sidekicks clean (0 active, 0 stale), 6 clean items, 2 human chores (under threshold).
