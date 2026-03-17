@@ -38,3 +38,9 @@
 [10:25] clean-notifications: dirty/ empty, nothing to process
 
 [11:56] clean-notifications run — dirty/ was empty, no items to process. Clean folder has 3 items (backup-root-fix-needed, dns-flood-investigation, welcome).
+
+[2026-03-17 11:05] clean-notifications run
+  dirty/: 0 files — nothing to process
+  clean/: 3 items (most recent: dns-flood-investigation-2026-03-16.txt, Mar 17)
+  chores/humans/: 1 item (welcome-to-clappie.txt) — under 5-chore threshold, no alert needed
+  action: no-op, last_run updated

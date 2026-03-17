@@ -188,3 +188,5 @@
 [10:55] system-health ✓ disk 33% free, mem 4.3Gi/7.5Gi, load 2.18, tailscaled up
 [11:56] clean-notifications ✓ (dirty/ empty — nothing to process, 3 clean items on file)
 [10:55] build-user-profile ✓ updated (178 lines)
+[11:05] dns-flood-monitor ✓ clear (queries: 27.5k, vps: 34%, disk: 14%)
+[11:05] clean-notifications ✓ dirty/ empty | dns-flood-monitor ✓ clear (queries: 27.5k, vps: 34%, disk: 14%)
