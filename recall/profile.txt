@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-17T08:25
+Generated: 2026-03-17T08:55
 ================================================================================
 
 WHO THEY ARE
@@ -102,7 +102,7 @@ COMMON WORKFLOWS / RECURRING REQUESTS
 - Casual check-ins via Telegram — warm + brief, not a wall of text
 - Heartbeat chores (every 600s): network-health, pihole-health, ha-health-check,
   system-health, ssh-tunnel-monitor, sidekick-cleanup, clean-notifications,
-  build-user-profile, backup-verify, dns-flood-monitor
+  build-user-profile, backup-verify, dns-flood-monitor, tmp-cleanup
 - Washnotes: write findings to homeops/washnotes/, push to main
 - Sidekick spawning for multi-step async tasks (Sidekick HQ on :7777)
 - Tailscale funnel management (public HTTPS → localhost:7777 for Telegram webhook)
@@ -155,9 +155,12 @@ RECENT NOTABLE EVENTS
   lower Pi-hole privacy level to 0. Done immediately. Marco reacted 🤔 → 🫡 → 🔥 ⚡ 👨‍💻.
 - 2026-03-16T15:04: dns-flood-monitor 248k query false positive (Pi-hole internal self-queries
   from 0.0.0.0). Monitor updated to filter 0.0.0.0.
-- 2026-03-16 overnight – 2026-03-17T07:55: All systems nominal. Heartbeat cycling cleanly.
-  DNS clear, HA 200, pihole pass, system-health good. No new user interactions.
-  clean/ stable at 3 items, 1 human chore pending.
+- 2026-03-17T05:46: dns-flood-monitor false positive (289k raw queries vs 11.6k filtered real).
+  Sidekick spawned (opus), verified false positive, sent analysis to Marco. Resolved by 06:47.
 - 2026-03-17T06:10–06:12: Marco asked for DNS query breakdown, then full device list with
-  probable nature based on MAC origin. Sidekick spawned, completed at 07:47.
-  Marco reacted 👍 then 👨‍💻 — engaged and waiting for results.
+  probable nature based on MAC origin. Sidekick spawned (opus), completed at 07:47.
+  Marco reacted 👍 then 👨‍💻 — engaged and satisfied with results.
+- 2026-03-17T06:25–08:55: All systems nominal. Heartbeat cycling cleanly.
+  DNS clear (~18k queries), HA 200, pihole pass, system disk 32%, load 2.56, mem 57%.
+  3 stable clean notifications (welcome, backup-root-fix, dns-flood-resolved).
+  No new user interactions. Backup verified fresh (proxmox-host-config, 27m old at 05:55).
