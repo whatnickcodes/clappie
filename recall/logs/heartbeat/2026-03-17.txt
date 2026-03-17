@@ -230,3 +230,6 @@
 [13:05] sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 (cleaned)
 [13:05] dns-flood-monitor ✓ clear (queries: 31k, vps: 36%, disk: 14%)
 [13:05] clean-notifications ✓ dirty empty | dns-flood-monitor ✓ clear (queries: 31k, vps: 36%, disk: 14%) | network-health ✓ dns ok | sidekick-cleanup ✓ active: 0, stale: 0
+[13:15] clean-notifications ✓ (dirty/ empty, nothing to process)
+[13:15] pihole-health ✓ pass
+[13:15] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
