@@ -185,3 +185,6 @@
 [10:45] clean-notifications ✓ dirty/ empty, nothing to process
 [10:45] dns-flood-monitor ✓ clear (queries: 23k, vps: 30%, db: 16.7MB, disk: 14%)
 [11:46] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[10:55] system-health ✓ disk 33% free, mem 4.3Gi/7.5Gi, load 2.18, tailscaled up
+[11:56] clean-notifications ✓ (dirty/ empty — nothing to process, 3 clean items on file)
+[10:55] build-user-profile ✓ updated (178 lines)
