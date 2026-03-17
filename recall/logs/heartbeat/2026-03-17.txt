@@ -226,3 +226,7 @@
 [12:55] system-health ✓ all good (disk 34%, mem 3.0Gi avail, load 1.91, tailscale up)
 [13:56] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [12:55] build-user-profile ✓ updated (179 lines)
+[13:05] network-health ✓ dns ok (google.com → 172.217.23.174, ads.google.com → 0.0.0.0 blocked)
+[13:05] sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 (cleaned)
+[13:05] dns-flood-monitor ✓ clear (queries: 31k, vps: 36%, disk: 14%)
+[13:05] clean-notifications ✓ dirty empty | dns-flood-monitor ✓ clear (queries: 31k, vps: 36%, disk: 14%) | network-health ✓ dns ok | sidekick-cleanup ✓ active: 0, stale: 0
