@@ -327,3 +327,8 @@
 [18:25] build-user-profile ✓ updated (182 lines)
 [18:35] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [18:35] clean-notifications ✓ idle (dirty/ empty, nothing to process)
+[19:46] clean-notifications ✓ idle (dirty/ empty)
+[18:45] network-health ✓ dns ok
+[19:47] system-health ✓ all good
+[18:45] sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 (cleaned)
+[19:47] dns-flood-monitor ⚠ warning (queries: 52k — above 50k threshold, vps: 36%, db: 18.3M, disk: 14%)
