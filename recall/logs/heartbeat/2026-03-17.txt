@@ -88,3 +88,6 @@
 [04:55] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (none cleaned)
 [04:55] clean-notifications ✓ dirty/ empty, clean/ stable (3 items), 1 human chore — no action needed
 [04:55] build-user-profile ✓ updated (211 lines)
+[05:05] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[05:05] system-health ✓ all good (disk: 31%, load: 2.06, mem: 56% used, tailscaled running)
+[05:05] dns-flood-monitor ✓ clear (queries: 9.8k, vps: 25%, db: 15.9MB, disk: 14%)
