@@ -278,3 +278,7 @@
 [15:45] dns-flood-monitor ✓ clear (queries: 41k, vps: n/a (api-auth), disk: 14%)
 [15:55] clean-notifications ✓ (dirty/ empty, nothing to process)
 [15:55] build-user-profile ✓ updated (182 lines)
+[16:05] clean-notifications ✓ (dirty/ empty, nothing to process)
+[16:05] network-health ✓ dns ok (google.com → 172.217.23.174, ads.google.com → 0.0.0.0 blocked)
+[17:07] system-health ✓ all good - disk 35% (48G free), load 2.27, mem 3.1GB avail, tailscaled running
+[16:05] dns-flood-monitor ✓ clear (queries: 41.9k, vps: 36.9%, ftl-db: 17.8M, disk: 14%)
