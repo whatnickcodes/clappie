@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-17T02:55
+Generated: 2026-03-17T03:25
 ================================================================================
 
 WHO THEY ARE
@@ -200,6 +200,7 @@ RECENT NOTABLE EVENTS
   running clear (36.7k filtered queries at 23:44, vps: 30.3%, disk: 13%, ftl-db: 15.3M).
   HA 200 ok, network dns ok, pihole pass, disk 29%, load 2.37. No active sidekicks.
   ssh-tunnel-monitor confirmed up. Memory files remain empty.
-- 2026-03-17T00:04–02:55: Overnight heartbeat nominal. DNS clear (queries ranging 0.2k–4.4k,
-  vps: 31–56%), HA 200, pihole pass, disk 30%, load 2.18–2.48, sidekicks clean. Memory files
-  still empty. No new user interactions since 2026-03-16. System stable and quiet.
+- 2026-03-17T00:04–03:25: Overnight and early morning heartbeat nominal. DNS clear (queries
+  ranging 4.4k–6.6k, vps: 26–31%, disk: 14%), HA 200, pihole pass, disk 30%, load 2.18–2.48,
+  sidekicks clean, notifications stable at 6 items + 1 human chore. system-health all good.
+  No new user interactions since 2026-03-16. System stable and quiet.

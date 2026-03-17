@@ -62,3 +62,6 @@
 [03:15] ha-health-check ✓ 200
 [04:17] network-health ✓ dns ok
 [03:15] pihole-health ✓ pass
+[03:25] clean-notifications ✓ dirty/ empty, 6 items in clean/ (within normal range)
+[03:25] dns-flood-monitor ✓ clear (queries: 7k, vps: 22%, disk: 14%)
+[03:25] build-user-profile ✓ updated (206 lines)
