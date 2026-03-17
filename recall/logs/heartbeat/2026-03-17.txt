@@ -306,3 +306,7 @@
 [17:25] dns-flood-monitor ✓ clear (queries: 46.2k, vps: 36.7%, ftl-db: 18M, disk: 14%)
 [17:25] build-user-profile ✓ updated (183 lines)
 [17:35] clean-notifications ✓ dirty/ empty, 3 clean items stable, nothing to process
+[17:45] clean-notifications ✓ idle (dirty/ empty)
+[17:45] network-health ✓ dns ok
+[17:45] system-health ✓ all good
+[17:45] dns-flood-monitor ✓ clear (queries: 47k, vps: 36%, disk: 14%)
