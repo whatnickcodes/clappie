@@ -289,3 +289,5 @@
 [16:25] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [16:25] dns-flood-monitor ✓ clear (queries: 43k, vps: 37%, ftl: 18M, disk: 14%)
 [16:25] build-user-profile ✓ updated (182 lines)
+[16:35] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[16:35] clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ 0 active 0 stale
