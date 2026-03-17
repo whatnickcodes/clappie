@@ -267,3 +267,7 @@
 [15:05] dns-flood-monitor ✗ api-broken (ftl-db: 17.4M, disk: 14%) — cannot retrieve query counts, api routes changed
 [15:15] pihole-health ✓ pass
 [15:15] clean-notifications ✓ dirty/ empty, no new items; 3 clean items stable
+[15:25] clean-notifications ✓ clean
+[15:25] ha-health-check ✓ 200
+[15:25] dns-flood-monitor ✓ clear (queries: 40k, vps: 37%, disk: 14%)
+[15:25] build-user-profile ✓ updated (182 lines)
