@@ -345,3 +345,5 @@
 [20:37] ha-health-check ✓ 200
 [19:45] network-health ✓ dns ok (google.com resolved, ads.google.com blocked)
 [19:45] system-health ✓ disk 36%, mem 40% avail, load 2.41, tailscaled running
+[19:55] clean-notifications ✓ clear (dirty/ empty, 3 clean items stable)
+[19:55] build-user-profile ✓ updated (181 lines)
