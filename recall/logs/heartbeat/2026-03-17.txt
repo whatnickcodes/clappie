@@ -372,3 +372,7 @@
 [21:15] sidekick-cleanup ✓ active: 1, completed: 0, stale: 0
 [21:15] system-health ✓ all good
 [21:15] pihole-health ✓ pass
+[21:25] clean-notifications ✓ nothing to process
+22:27 dns-flood-monitor ⚡ critical — emergency sidekick spawned (queries: 59.8k, vps: 38%, disk: 14%)
+[22:27] sidekick-cleanup ✓ active: 2, completed: 7, stale: 0
+[21:25] build-user-profile ✓ updated (189 lines)

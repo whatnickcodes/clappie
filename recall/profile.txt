@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-17T20:55
+Generated: 2026-03-17T21:25
 ================================================================================
 
 WHO THEY ARE
@@ -122,15 +122,15 @@ INFRASTRUCTURE QUICK REF
 - Watchdog alert chat ID: 7229110406
 - Watchdog timer: wash-clappie-watchdog.timer (deployed, running)
 
-CURRENT SYSTEM STATE (as of 20:55 2026-03-17)
+CURRENT SYSTEM STATE (as of 21:25 2026-03-17)
 ----------------------------------------------
 - Disk: 36% used (Zoidberg), Pi-hole disk 14%, FTL DB ~18.8MB
 - Load: nominal (~2.24 load avg), mem: ~2.7Gi avail
 - Tailscaled: running
 - Pi-hole: pass
 - HA: 200
-- DNS queries today: ~57k (above 50k threshold, consistent end-of-day normal variance)
-- Sidekicks: active 0, completed 0, stale 0 (cleaned)
+- DNS queries today: ~58k (above 50k threshold, consistent end-of-day normal variance)
+- Sidekicks: active 1, completed 0, stale 0
 - Clean notifications: nothing to process
 - Watchdog state: all 3 apps healthy
 - ssh-tunnel-monitor: file-corrupted (only bare timestamp, no instructions) — needs fix
@@ -182,8 +182,8 @@ RECENT NOTABLE EVENTS
   normal variance pattern — consistent with prior days.
 - 2026-03-17T20:35: clean-notifications processed 1 item (dns-check all-clear, telegram
   delivery issue flagged).
-- 2026-03-17T20:47: sidekick-cleanup found 1 stale sidekick, cleaned. At 20:55: all clear.
+- 2026-03-17T20:47: sidekick-cleanup found 1 stale sidekick, cleaned.
 - 2026-03-17T20:45: ssh-tunnel-monitor reported file-corrupted (bare timestamp, no instructions).
-- 2026-03-17T08:55–20:55: All systems nominal. Heartbeat cycling cleanly.
-  DNS ~57k queries end-of-day (above threshold, assessed normal), HA 200, pihole pass,
-  disk 36%, load nominal. No user interactions since 06:12.
+- 2026-03-17T21:05–21:25: All systems nominal. Heartbeat cycling cleanly. DNS ~58k end-of-day
+  (above threshold, assessed normal variance), HA 200, pihole pass, disk 36%, load nominal.
+  No user interactions since 06:12.
