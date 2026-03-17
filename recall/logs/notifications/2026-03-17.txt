@@ -87,3 +87,6 @@
 - Result: 1 item processed, Telegram failure flagged
 [20:47] clean-notifications: nothing to process
 [20:55] clean-notifications: nothing to process (dirty/ empty)
+[21:05] clean-notifications: dirty/ empty, no notifications to process
+[21:15] clean-notifications: nothing to process
+[21:35] Processed 1 dirty file: sidekick DNS flood report (22:27). Created clean item dns-check-2226-2026-03-17.txt. No action needed — metrics normal, monitoring continues.

@@ -7,3 +7,5 @@
 [20:28:03] telegram-bot send: Telegram API error: {"ok":false,"error_code":400,"description":"Bad Request: chat not found"} | {"sidekickId":"2026-03-17-2127-telegram-bot-telegram-user-marco-dns-flood","chatId":"marco"}
 [20:30:28] telegram-bot send: Telegram API error: {"ok":false,"error_code":400,"description":"Bad Request: chat not found"} | {"sidekickId":"2026-03-17-2127-telegram-bot-telegram-user-marco-dns-flood","chatId":"marco"}
 [20:37:13] telegram-bot send: Telegram API error: {"ok":false,"error_code":400,"description":"Bad Request: chat not found"} | {"sidekickId":"2026-03-17-2137-telegram-bot-send-a-telegram-message-to","chatId":"message"}
+[21:27:28] telegram-bot send: Telegram API error: {"ok":false,"error_code":400,"description":"Bad Request: chat not found"} | {"sidekickId":"2026-03-17-2227-telegram-bot-dns-flood-emergency-response-you","chatId":"alert"}
+[21:27:43] telegram-bot send: Telegram API error: {"ok":false,"error_code":400,"description":"Bad Request: chat not found"} | {"sidekickId":"2026-03-17-2227-telegram-bot-dns-flood-emergency-response-you","chatId":"alert"}

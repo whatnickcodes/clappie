@@ -376,3 +376,4 @@
 22:27 dns-flood-monitor ⚡ critical — emergency sidekick spawned (queries: 59.8k, vps: 38%, disk: 14%)
 [22:27] sidekick-cleanup ✓ active: 2, completed: 7, stale: 0
 [21:25] build-user-profile ✓ updated (189 lines)
+[21:35] clean-notifications ✓ (1 dirty file processed: DNS flood follow-up sidekick report → clean, no action needed)
