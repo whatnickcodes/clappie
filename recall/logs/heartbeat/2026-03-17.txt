@@ -209,3 +209,7 @@
 [12:05] clean-notifications ✓ dirty/ empty, clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation), 1 human chore — no action needed
 [12:05] dns-flood-monitor ✓ clear (queries: 28k, vps: 35%, db: 16.9MB, disk: 14%)
 [13:07] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[13:16] ha-health-check ✓ 200
+[12:15] clean-notifications ✓ dirty/ empty, clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation), no action needed
+[12:15] pihole-health ✓ pass
+[13:17] sidekick-cleanup ✓ active: 0, completed: 10, stale: 0
