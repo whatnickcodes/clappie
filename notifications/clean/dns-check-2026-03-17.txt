@@ -1,0 +1,16 @@
+Pi-hole DNS check on 2026-03-17 at 20:30 — all clear, Telegram relay failed.
+
+Sidekick ran DNS flood analysis. Result: **no flood detected** — query count barely tripped the 50k threshold but traffic is normal IoT activity. Top domains: Sensibo, Google, Tesla, Netflix. System metrics healthy: disk 14%, FTL db 19MB, VPS share 38%.
+
+**Telegram delivery failed** during the sidekick run (error: "chat not found"). The analysis result is being surfaced here via clean-notifications instead.
+
+No action needed on DNS. Telegram failure may be worth checking if it persists.
+
+---
+[meta]
+source: sidekick-report
+source_id: sidekick-2026-03-17-2127-telegram-bot-telegram-user-marco-dns-flood
+created: 2026-03-17 20:35
+icon: ✅
+title: DNS check — all clear (Telegram relay failed)
+summary: No DNS flood. Normal IoT traffic. Pi-hole healthy. Sidekick couldn't reach Telegram.
