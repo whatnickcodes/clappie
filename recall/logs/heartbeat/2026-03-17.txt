@@ -75,3 +75,7 @@
 [04:15] ha-health-check ✓ 200
 [04:15] pihole-health ✓ pass
 [04:15] clean-notifications ✓ clear (dirty: 0 new; consolidated 4 DNS items → 1; clean: 3 items)
+[04:25] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[04:25] clean-notifications ✓ (no dirty files; clean/ has 3 items)
+[04:25] dns-flood-monitor ✓ clear (queries: 8k, vps: 26%, disk: 14%)
+[04:25] build-user-profile ✓ updated (208 lines)

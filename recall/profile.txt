@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-17T03:55
+Generated: 2026-03-17T04:25
 ================================================================================
 
 WHO THEY ARE
@@ -204,3 +204,5 @@ RECENT NOTABLE EVENTS
   ranging 0.2k–7.2k, vps: 22–56%, disk: 13–14%), HA 200, pihole pass, disk 30%, load 2.18–2.48,
   sidekicks clean, notifications stable at 6 items + 1 human chore. system-health all good.
   No new user interactions since 2026-03-16. System stable and quiet.
+- 2026-03-17T04:15: Notifications auto-consolidated — 4 DNS items merged into 1; clean/ now
+  at 3 items. HA 200, pihole pass. All chores nominal through 04:25.
