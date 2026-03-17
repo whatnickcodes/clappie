@@ -393,3 +393,9 @@
 [22:25] staleness-audit ⚠ 1 mismatch found — report pushed (database.maxDBdays live=7, docs say 14)
 [22:25] build-user-profile ✓ updated (198 lines)
 [22:35] clean-notifications ✓ (dirty/ empty, 5 clean items stable)
+[22:45] clean-notifications ✓ (dirty/ empty, 5 clean items stable, 2 human chores)
+[22:45] ha-health-check ✓ 200
+[22:45] network-health ✓ dns ok
+[22:45] system-health ✓ all good (disk 37% used, load 3.02, tailscaled running)
+[22:45] dns-flood-monitor ⚠ warning (queries: 65k, vps: 40%, disk: 14%)
+[22:45] sidekick-cleanup ✓ active: 1 completed: 0 stale: 1 (cleaned)
