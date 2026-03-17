@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-17T18:55
+Generated: 2026-03-17T19:25
 ================================================================================
 
 WHO THEY ARE
@@ -122,19 +122,22 @@ INFRASTRUCTURE QUICK REF
 - Watchdog alert chat ID: 7229110406
 - Watchdog timer: wash-clappie-watchdog.timer (deployed, running)
 
-CURRENT SYSTEM STATE (as of 18:55 2026-03-17)
+CURRENT SYSTEM STATE (as of 19:25 2026-03-17)
 ----------------------------------------------
 - Disk: 35% used (Zoidberg), Pi-hole disk 14%, FTL DB ~18.3MB
-- Load: nominal (~3.0 load avg), mem: ~57-60% used, ~3.1-3.2Gi avail
+- Load: nominal (~2-3 load avg), mem: ~57-60% used, ~3.1-3.2Gi avail
 - Tailscaled: running
 - Pi-hole: pass
 - HA: 200
-- DNS queries today: ~50.2k filtered (clear as of 18:25; 19:47 entry shows 52k — above 50k threshold, flagged as warning but normal end-of-day accumulation)
+- DNS queries today: ~52k (above 50k threshold at 19:47, minor crossing — likely normal
+  end-of-day accumulation, all other metrics clear)
 - Sidekicks: active 0, stale 0
 - Clean notifications: 3 stable (welcome, backup-root-fix-needed, dns-flood-investigation)
 - Watchdog state: all 3 apps healthy
-- Backup: fresh (~16h old, 2026-03-17T02:00, confirmed at 17:55)
-- dns-flood-monitor: had transient api-broken at 15:05 (api routes changed), self-recovered at 15:25
+- Backup: fresh (~17h old, 2026-03-17T02:00, confirmed at 17:55)
+- dns-flood-monitor: transient api-broken at 15:05 (api routes changed), self-recovered at 15:25
+- dns-flood-monitor at 18:47: spawned AI sidekick (opus) — assessed as normal variance
+  (51.8k queries, 3.6% over threshold), no action taken; Telegram send failed (system-initiated)
 - No new user interactions since 06:12; all systems nominal, heartbeat cycling cleanly
 
 PENDING FIXES (requires Marco on Phoebe)
@@ -175,9 +178,8 @@ RECENT NOTABLE EVENTS
 - 2026-03-17T06:10–06:12: Marco asked for DNS query breakdown, then full device list with
   probable nature based on MAC origin. Sidekick spawned (opus), completed at 07:47.
   Marco reacted 👍 then 👨‍💻 — engaged and satisfied with results.
-- 2026-03-17T08:55–18:55: All systems nominal. Heartbeat cycling cleanly.
-  DNS clear (~50k+ queries by end of day), HA 200, pihole pass, system disk 35%, load nominal.
-  3 stable clean notifications (welcome, backup-root-fix, dns-flood-investigation).
-  No new user interactions since 06:12. Watchdog all 3 apps healthy.
-  dns-flood-monitor had transient api-broken at 15:05, self-recovered at 15:25.
-  19:47 dns-flood-monitor warning at 52k queries (above 50k threshold — likely end-of-day accumulation, not a real flood).
+- 2026-03-17T18:47: dns-flood-monitor threshold crossed (51.8k, 3.6% over). AI sidekick (opus)
+  spawned, assessed normal variance, no action taken. Telegram send failed — system-initiated.
+- 2026-03-17T08:55–19:25: All systems nominal. Heartbeat cycling cleanly.
+  DNS ~52k queries end-of-day (minor threshold crossing), HA 200, pihole pass, disk 35%,
+  load nominal. 3 stable clean notifications. No user interactions since 06:12.
