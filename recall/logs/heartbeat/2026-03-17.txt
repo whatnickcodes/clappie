@@ -412,3 +412,5 @@
 [23:25] sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 (cleaned)
 [23:25] dns-flood-monitor ⚠ info (queries: 67k, vps: 40%, ftl-db: 19.3M, disk: 14%) — queries above 50k threshold, single metric only, log only
 [23:25] build-user-profile ✓ updated (214 lines)
+[23:57] clean-notifications ✓ dirty/ empty, 6 clean items stable
+[00:37] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
