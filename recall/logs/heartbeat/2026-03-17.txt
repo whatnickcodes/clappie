@@ -160,3 +160,5 @@
 [09:15] clean-notifications ✓ (dirty/ empty, nothing to process)
 [10:16] system-health ✓ all good (disk: 32%, load: 2.06, mem: 57% used, tailscaled running)
 [09:15] pihole-health ✓ pass
+[09:25] clean-notifications ✓ (dirty/ empty, 3 clean items stable, 1 chore, no action needed)
+[09:25] build-user-profile ✓ updated (166 lines)
