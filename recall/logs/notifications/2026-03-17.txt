@@ -86,3 +86,4 @@
 - Deleted dirty file
 - Result: 1 item processed, Telegram failure flagged
 [20:47] clean-notifications: nothing to process
+[20:55] clean-notifications: nothing to process (dirty/ empty)
