@@ -167,3 +167,5 @@
 [10:46] network-health ✓ dns ok
 [09:45] dns-flood-monitor ✓ clear (queries: 21.4k, disk: 14%, ftl-db: 16MB)
 [10:47] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[09:55] clean-notifications: dirty/ empty, no new items to process. clean/ has 3 items (dns-flood resolved, backup-root bug, welcome). 1 human chore pending (welcome-to-clappie).
+[09:55] build-user-profile ✓ updated (166 lines)

@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-17T09:25
+Generated: 2026-03-17T09:55
 ================================================================================
 
 WHO THEY ARE
@@ -160,7 +160,7 @@ RECENT NOTABLE EVENTS
 - 2026-03-17T06:10–06:12: Marco asked for DNS query breakdown, then full device list with
   probable nature based on MAC origin. Sidekick spawned (opus), completed at 07:47.
   Marco reacted 👍 then 👨‍💻 — engaged and satisfied with results.
-- 2026-03-17T08:55–09:25: All systems nominal. Heartbeat cycling cleanly.
-  DNS clear (~18-18.4k queries), HA 200, pihole pass, system disk 32%, load 2.56, mem 57%.
-  3 stable clean notifications (welcome, backup-root-fix, dns-flood-resolved).
+- 2026-03-17T08:55–09:55: All systems nominal. Heartbeat cycling cleanly.
+  DNS clear (~21k queries by 09:45), HA 200, pihole pass, system disk 32%, load 2.06, mem 57%.
+  3 stable clean notifications (welcome, backup-root-fix, dns-flood-investigation).
   No new user interactions since 06:12. Backup verified fresh (proxmox-host-config).
