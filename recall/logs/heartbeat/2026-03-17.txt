@@ -260,3 +260,8 @@
 [14:55] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
 [14:55] clean-notifications ✓ dirty/ empty, no new items; 3 clean items stable
 [14:55] build-user-profile ✓ updated (180 lines)
+[15:05] clean-notifications ✓ dirty/ empty, no new notifications to process (3 items in clean/)
+[15:05] network-health ✓ dns ok
+[15:05] system-health ✓ disk 34% | mem 60% avail | load 2.6 | tailscale ok
+[16:07] sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 (cleaned)
+[15:05] dns-flood-monitor ✗ api-broken (ftl-db: 17.4M, disk: 14%) — cannot retrieve query counts, api routes changed
