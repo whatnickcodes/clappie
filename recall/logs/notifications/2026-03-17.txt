@@ -106,3 +106,9 @@
   Dirty files deleted: 2
   No new chores created (existing sidekick-errors chore already tracks chatId issue)
   Clean items: 6 total (within normal range, no Telegram alert needed)
+
+[23:05] clean-notifications check
+  Dirty files: 0 (nothing to process)
+  Clean items: 6 (backup-root-fix-needed, dns-check x2, dns-flood-investigation, dns-monitoring, welcome)
+  Human chores: 2 (sidekick-errors, welcome-to-clappie) — under 5-item alert threshold
+  Action: no-op, all nominal

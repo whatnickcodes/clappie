@@ -400,3 +400,6 @@
 [22:45] dns-flood-monitor ⚠ warning (queries: 65k, vps: 40%, disk: 14%)
 [22:45] sidekick-cleanup ✓ active: 1 completed: 0 stale: 1 (cleaned)
 [22:55:32] clean-notifications ✓ 2 dirty processed (DNS flood sidekick reports, normal IoT) | sidekick-cleanup ✓ no stale sidekicks | build-user-profile ✓ updated (212 lines)
+[23:05] clean-notifications ✓ dirty/ empty, 6 clean items stable, 2 human chores (under threshold)
+[23:05] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (server healthy, /status not found but health reports 0 active)
+[23:05] dns-flood-monitor ⚠ info (queries: 66k, vps: 40%, ftl-db: 20MB, disk: 14%) — queries above 50k, single metric only, log only
