@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-17T06:25
+Generated: 2026-03-17T06:55
 ================================================================================
 
 WHO THEY ARE
@@ -199,7 +199,7 @@ RECENT NOTABLE EVENTS
   (2001:b07:aa7:9ea1:69fb:...) identified as a watch-target.
   Marco reacted 🤔 to initial question, then 🫡 after Wash committed, then 🔥 ⚡ 👨‍💻 after
   privacy level went live — high engagement, full approval.
-- 2026-03-16T15:04: dns-flood-monitor 248k queries from 0.0.0.0 — confirmed false-positive
+- 2026-03-16T15:04: dns-flood-monitor 248k queries from 0.0.0.0 — confirmed false positive
   (Pi-hole internal self-queries, not external flood). Monitor updated to filter 0.0.0.0.
 - 2026-03-16T16:14–23:54: All systems nominal. Heartbeat cycling cleanly. dns-flood-monitor
   running clear (36.7k filtered queries at 23:44, vps: 30.3%, disk: 13%, ftl-db: 15.3M).
@@ -215,13 +215,14 @@ RECENT NOTABLE EVENTS
   DNS clear (queries: 8–9.8k, vps: 25–26%, disk: 14%). clean/ stable at 3 items.
   system-health all good (disk: 31%, load: 2.06, mem: 56% used, tailscaled running).
   HA 200, pihole pass (05:15). No new user interactions. System stable and quiet.
-- 2026-03-17T05:45: dns-flood-monitor ⚠ warning — spike to 289k queries (threshold 50k),
+- 2026-03-17T05:45: dns-flood-monitor warning — spike to 289k queries (threshold 50k),
   VPS share only 5%. Sidekick spawned at 05:46 to investigate. Confirmed false positive —
   raw 289k but filtered (real external) queries only 11.6k, well within normal.
   Analysis sent to Marco via direct Telegram API.
 - 2026-03-17T06:10–06:12: Marco active on Telegram. Asked for DNS query breakdown, then
   requested full device list with probable nature based on MAC origin, cross-referenced
-  with query breakdown. Active sidekick (snake emoji 🐍) working on this as of 06:14.
+  with query breakdown. Active sidekick (snake emoji) working on this as of 06:14.
   Marco reacted 👍 then 👨‍💻 — engaged and waiting for results.
-- 2026-03-17T06:15–06:25: HA 200, pihole pass, network dns ok. System nominal.
-  Sidekick still active on device identification task.
+- 2026-03-17T06:15–06:55: HA 200, pihole pass, network dns ok. System nominal.
+  Sidekick active on device identification task. Stale sidekick cleaned at 07:47.
+  Heartbeat cycling cleanly. No new user interactions. Memory files remain empty.
