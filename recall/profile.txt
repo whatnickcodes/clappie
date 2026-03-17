@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-17T21:55
+Generated: 2026-03-17T22:25
 ================================================================================
 
 WHO THEY ARE
@@ -122,17 +122,17 @@ INFRASTRUCTURE QUICK REF
 - Watchdog alert chat ID: 7229110406
 - Watchdog timer: wash-clappie-watchdog.timer (deployed, running)
 
-CURRENT SYSTEM STATE (as of 21:55 2026-03-17)
+CURRENT SYSTEM STATE (as of 22:25 2026-03-17)
 ----------------------------------------------
 - Disk: 36% used (Zoidberg), Pi-hole disk 14%, FTL DB ~18.8MB
 - Load: nominal (~2.24 load avg), mem: ~2.7Gi avail
 - Tailscaled: running
 - Pi-hole: pass
 - HA: 200
-- DNS queries today: ~59.8k (above 50k threshold — end-of-day pattern, assessed normal)
-- Sidekicks: active 0, stale 0 (cleaned); emergency DNS sidekick completed at 21:34
+- DNS queries today: ~60k (above 50k threshold — end-of-day pattern, assessed normal)
+- Sidekicks: active 0, stale 0 (cleaned)
 - Clean notifications: 5 items in clean/ (welcome, backup-root-fix, dns-flood-investigation,
-  dns-check x2), 3 chores pending (under 5-chore threshold), dirty/ empty
+  dns-check x2), 0 human chores (under 5-chore threshold), dirty/ empty
 - Watchdog state: all apps healthy
 - ssh-tunnel-monitor: file-corrupted (only bare timestamp, no instructions) — needs fix
 - No user interactions since 06:12; all systems nominal, heartbeat cycling cleanly
@@ -193,6 +193,6 @@ RECENT NOTABLE EVENTS
   completed at 21:34.
 - 2026-03-17T21:35: clean-notifications processed DNS flood emergency sidekick report. Created
   clean item. No action needed.
-- 2026-03-17T21:45–21:55: All systems nominal. DNS ~59.8k end-of-day, HA 200, pihole pass,
-  disk 36%, load nominal. clean/ has 5 items, 3 human chores (under threshold).
+- 2026-03-17T21:45–22:25: All systems nominal. DNS ~60k end-of-day, HA 200, pihole pass,
+  disk 36%, load nominal. clean/ has 5 items, 0 human chores (under threshold).
   No user interactions since 06:12.
