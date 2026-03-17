@@ -364,3 +364,6 @@
 [20:55] clean-notifications ✓ nothing to process
 [20:55] build-user-profile ✓ updated (189 lines)
 [20:55] ssh-tunnel-monitor ✗ file-corrupted (skipped)
+[21:05] clean-notifications ✓ (dirty/ empty, nothing to process)
+[21:05] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[21:05] dns-flood-monitor ⚠ warning (queries: 58k >50k threshold, vps: 37%, db: 18.8M, disk: 14%)
