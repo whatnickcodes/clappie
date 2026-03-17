@@ -222,3 +222,7 @@
 [12:45] clean-notifications ✓ dirty/ empty, 3 clean items (backup-fix, dns-flood-resolved, welcome), no action needed
 [12:45] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
 [12:45] dns-flood-monitor ✓ clear (queries: 30k filtered, vps: 35%, ftl-db: 17.2M, disk: 14%)
+[12:55] clean-notifications ✓ dirty/ empty, nothing to process
+[12:55] system-health ✓ all good (disk 34%, mem 3.0Gi avail, load 1.91, tailscale up)
+[13:56] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[12:55] build-user-profile ✓ updated (179 lines)
