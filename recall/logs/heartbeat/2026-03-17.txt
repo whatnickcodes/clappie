@@ -194,3 +194,5 @@
 [11:15] clean-notifications ✓ dirty/ empty, clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation), 1 human chore — no action needed
 [11:15] pihole-health ✓ pass
 [11:15] telegram-miss-you ✓ skipped, active convo
+[11:25] clean-notifications ✓ clear
+[12:26] network-health ✓ dns ok
