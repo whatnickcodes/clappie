@@ -114,3 +114,7 @@
 2026-03-17T06:15 [clean-notifications] No dirty files to process.
 [06:15] pihole-health ✓ pass
 [06:15] ha-health-check ✓ 200
+[06:25] clean-notifications ✓ (dirty/ empty)
+[07:26] network-health ✓ dns ok (google.com resolved to 142.251.140.110, ads.google.com blocked 0.0.0.0)
+[07:27] dns-flood-monitor ✓ clear (queries: 16k, vps: 35%, disk: 14%)
+[06:25] build-user-profile ✓ updated (227 lines)

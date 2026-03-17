@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-17T05:55
+Generated: 2026-03-17T06:25
 ================================================================================
 
 WHO THEY ARE
@@ -45,6 +45,9 @@ Via Telegram:
   🤔 (thinking/pending), 👀 (watching, curious)
 - Sent ambiguous "Please do that" — when asked, sent screenshot for context. Patient about
   clarification but appreciates when Wash can figure things out from context.
+- Asks for device breakdowns with MAC identification: "Can you give me a list of attached
+  devices and their probable nature (based on MAC origin)?" — wants cross-referenced, opinionated
+  analysis, not just raw data.
 
 In operator/session mode (CLAUDE.md / SOUL.md):
 - Dry wit, casual confidence, zero try-hard energy — Wash-from-Firefly energy
@@ -110,6 +113,8 @@ COMMON WORKFLOWS / RECURRING REQUESTS
 - HA read-only checks (GET /api/, entity states, automation counts)
 - rclone backup verification (gdrive-crypt:/wash-backups/)
 - Multi-agent party games (council, dungeon-crawl, red-vs-blue, startup-sim)
+- Device identification from DNS logs: wants MAC-origin lookup + probable device type cross-referenced
+  with query patterns — opinionated summary, not just raw data dump
 
 INFRASTRUCTURE QUICK REF
 --------------------------
@@ -210,5 +215,13 @@ RECENT NOTABLE EVENTS
   DNS clear (queries: 8–9.8k, vps: 25–26%, disk: 14%). clean/ stable at 3 items.
   system-health all good (disk: 31%, load: 2.06, mem: 56% used, tailscaled running).
   HA 200, pihole pass (05:15). No new user interactions. System stable and quiet.
-- 2026-03-17T05:55: Heartbeat continuing normally. All systems stable. No new user
-  interactions. Memory files empty — no new raw facts to incorporate this cycle.
+- 2026-03-17T05:45: dns-flood-monitor ⚠ warning — spike to 289k queries (threshold 50k),
+  VPS share only 5%. Sidekick spawned at 05:46 to investigate. Confirmed false positive —
+  raw 289k but filtered (real external) queries only 11.6k, well within normal.
+  Analysis sent to Marco via direct Telegram API.
+- 2026-03-17T06:10–06:12: Marco active on Telegram. Asked for DNS query breakdown, then
+  requested full device list with probable nature based on MAC origin, cross-referenced
+  with query breakdown. Active sidekick (snake emoji 🐍) working on this as of 06:14.
+  Marco reacted 👍 then 👨‍💻 — engaged and waiting for results.
+- 2026-03-17T06:15–06:25: HA 200, pihole pass, network dns ok. System nominal.
+  Sidekick still active on device identification task.

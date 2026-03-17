@@ -14,3 +14,4 @@
 [2026-03-17T05:25] clean-notifications run — dirty/ empty (0 files). No new items to process. clean/ has 3 items: welcome (onboarding, stable), backup-root-fix-needed-2026-03-14 (pending sudo fix, open), dns-flood-investigation-2026-03-16 (resolved). 0 human chores pending (under 5-chore threshold). No Telegram alert needed. No action taken.
 [2026-03-17T05:45] dirty/ empty — nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). 1 human chore (under threshold). No action needed.
 [2026-03-17T05:55] dirty/ empty — nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). No action needed.
+[06:25] clean-notifications: dirty/ empty, nothing to process
