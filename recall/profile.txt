@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-17T09:55
+Generated: 2026-03-17T10:25
 ================================================================================
 
 WHO THEY ARE
@@ -129,7 +129,7 @@ PENDING FIXES (requires Marco on Phoebe)
   Manual backup done 2026-03-14. Fix: add `User=wash` + `Group=wash`, then daemon-reload.
 - Git credential helper double-escaped `\\!` in /home/wash/clappie/.git/config —
   store subcommand fails noisily; push/fetch still work.
-- Pi-hole LXC disk space: recurring issue. Disk at 13–14% as of latest checks.
+- Pi-hole LXC disk space: recurring issue. Disk at 14% as of latest checks.
   FTL database (pihole-FTL.db) historically grows to 2.4GB+. Needs long-term fix.
 - Pi-hole privacy level: lowered to 0 at Marco's request (2026-03-16T13:56) to expose
   flooding device. Pending decision: keep at 0 for 24h or reset to 2.
@@ -160,7 +160,7 @@ RECENT NOTABLE EVENTS
 - 2026-03-17T06:10–06:12: Marco asked for DNS query breakdown, then full device list with
   probable nature based on MAC origin. Sidekick spawned (opus), completed at 07:47.
   Marco reacted 👍 then 👨‍💻 — engaged and satisfied with results.
-- 2026-03-17T08:55–09:55: All systems nominal. Heartbeat cycling cleanly.
-  DNS clear (~21k queries by 09:45), HA 200, pihole pass, system disk 32%, load 2.06, mem 57%.
+- 2026-03-17T08:55–10:25: All systems nominal. Heartbeat cycling cleanly.
+  DNS clear (~22k queries by 10:05), HA 200, pihole pass, system disk 32%, load 2.06, mem 57%.
   3 stable clean notifications (welcome, backup-root-fix, dns-flood-investigation).
   No new user interactions since 06:12. Backup verified fresh (proxmox-host-config).
