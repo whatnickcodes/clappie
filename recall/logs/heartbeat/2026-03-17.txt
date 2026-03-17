@@ -108,3 +108,6 @@
 [05:55] clean-notifications ✓ dirty/ empty, clean/ stable (3 items), no action needed
 [05:55] backup-verify ✓ fresh (27m — proxmox-host-config)
 [05:55] build-user-profile ✓ updated (214 lines)
+[06:05] clean-notifications ✓ (dirty/ empty, 3 clean items, no chores pending)
+[06:05] system-health ✓ all good
+[06:05] dns-flood-monitor ✓ clear (queries: 13k, vps: 30%, disk: 14%)
