@@ -111,3 +111,6 @@
 [06:05] clean-notifications ✓ (dirty/ empty, 3 clean items, no chores pending)
 [06:05] system-health ✓ all good
 [06:05] dns-flood-monitor ✓ clear (queries: 13k, vps: 30%, disk: 14%)
+2026-03-17T06:15 [clean-notifications] No dirty files to process.
+[06:15] pihole-health ✓ pass
+[06:15] ha-health-check ✓ 200
