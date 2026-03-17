@@ -95,3 +95,8 @@
 [05:15] pihole-health ✓ pass
 [05:15] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [05:15] clean-notifications ✓ dirty: 0 files, clean: 3 items (welcome, backup-root-fix 03-14 pending sudo, dns-flood 03-16 resolved), no new items
+[06:26] network-health ✓ dns ok (google.com resolved, ads.google.com blocked)
+[05:25] dns-flood-monitor ✓ clear (queries: 10.6k, vps: 28%, db: 15.9MB, disk: 14%)
+[05:25] clean-notifications ✓ dirty: 0 files, clean: 3 items stable (welcome, backup-root-fix 03-14, dns-flood 03-16 resolved), no action needed
+[06:26] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (no action)
+[05:25] build-user-profile ✓ updated (213 lines)

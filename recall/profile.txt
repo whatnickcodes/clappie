@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-17T04:55
+Generated: 2026-03-17T05:25
 ================================================================================
 
 WHO THEY ARE
@@ -206,6 +206,8 @@ RECENT NOTABLE EVENTS
   No new user interactions since 2026-03-16. System stable and quiet.
 - 2026-03-17T04:15: Notifications auto-consolidated — 4 DNS items merged into 1; clean/ now
   at 3 items. HA 200, pihole pass. All chores nominal through 04:25.
-- 2026-03-17T04:25–04:55: Heartbeat continuing normally. sidekick-cleanup clear (0/0/0).
-  DNS clear (queries: 8–8.9k, vps: 26%, disk: 14%). clean/ stable at 3 items.
+- 2026-03-17T04:25–05:25: Heartbeat continuing normally. sidekick-cleanup clear (0/0/0).
+  DNS clear (queries: 8–9.8k, vps: 25–26%, disk: 14%). clean/ stable at 3 items.
+  system-health all good (disk: 31%, load: 2.06, mem: 56% used, tailscaled running).
+  HA 200, pihole pass (05:15). No new user interactions. System stable and quiet.
   No new user interactions. System stable and quiet.
