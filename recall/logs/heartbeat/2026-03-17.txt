@@ -301,3 +301,7 @@
 [17:05] clean-notifications ✓ dirty/ empty, idle | dns-flood-monitor ✓ clear (queries: 44.9k, vps: 37%, db: 18M, disk: 14%)
 [17:15] pihole-health ✓ pass
 [17:15] clean-notifications ✓ dirty/ empty, nothing to process
+[17:25] ha-health-check ✓ 200
+[17:25] clean-notifications ✓ dirty/ empty, 3 clean items stable, nothing to process
+[17:25] dns-flood-monitor ✓ clear (queries: 46.2k, vps: 36.7%, ftl-db: 18M, disk: 14%)
+[17:25] build-user-profile ✓ updated (183 lines)
