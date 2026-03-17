@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-17T22:25
+Generated: 2026-03-17T22:55
 ================================================================================
 
 WHO THEY ARE
@@ -44,7 +44,7 @@ Via Telegram:
 - Sent ambiguous "Please do that" — patient about clarification, but appreciates when
   Wash can figure it out from context
 - Asks for device breakdowns with MAC identification: wants cross-referenced, opinionated
-  analysis, not just raw data
+  analysis, not just raw data dump
 
 In operator/session mode:
 - Dry wit, casual confidence, zero try-hard energy — Wash-from-Firefly energy
@@ -122,19 +122,23 @@ INFRASTRUCTURE QUICK REF
 - Watchdog alert chat ID: 7229110406
 - Watchdog timer: wash-clappie-watchdog.timer (deployed, running)
 
-CURRENT SYSTEM STATE (as of 22:25 2026-03-17)
+CURRENT SYSTEM STATE (as of 22:55 2026-03-17)
 ----------------------------------------------
-- Disk: 36% used (Zoidberg), Pi-hole disk 14%, FTL DB ~18.8MB
-- Load: nominal (~2.24 load avg), mem: ~2.7Gi avail
+- Disk: 37% used (Zoidberg), Pi-hole disk 14%, FTL DB ~19MB
+- Load: nominal (~3.02 load avg), mem: ~2.7Gi avail
 - Tailscaled: running
 - Pi-hole: pass
 - HA: 200
-- DNS queries today: ~60k (above 50k threshold — end-of-day pattern, assessed normal)
-- Sidekicks: active 0, stale 0 (cleaned)
-- Clean notifications: 5 items in clean/ (welcome, backup-root-fix, dns-flood-investigation,
-  dns-check x2), 0 human chores (under 5-chore threshold), dirty/ empty
-- Watchdog state: all apps healthy
-- ssh-tunnel-monitor: file-corrupted (only bare timestamp, no instructions) — needs fix
+- DNS queries today: ~65k (above 50k threshold — assessed normal; IoT telemetry + VPS relay)
+  Root cause breakdown: Alexa (2.7k), Sensibo (2.7k), OnePlus/OPPO phone heytap (2.4k),
+  Hue lights (2.1k), i.paypal.com (2.1k). VPS relay (100.101.18.71) = 40% of traffic.
+- Sidekicks: active 1, stale 1 (cleaned)
+- Clean notifications: 5 items in clean/ (stable), 2 human chores
+- Watchdog state: {} (empty — no tracked failures)
+- staleness-audit: 1 mismatch found (database.maxDBdays live=7, docs say 14), report pushed
+- sidekick-errors-review: 2 patterns — 18x chat-not-found in dns-flood-monitor (chore created),
+  1x react-not-found
+- ssh-tunnel-monitor: file-corrupted (bare timestamp only, no instructions) — needs fix
 - No user interactions since 06:12; all systems nominal, heartbeat cycling cleanly
 
 PENDING FIXES (requires Marco on Phoebe)
@@ -151,6 +155,10 @@ PENDING FIXES (requires Marco on Phoebe)
 - Unknown IPv6 2001:b07:aa7:9ea1:69fb:... flagged as watch-target (146 queries on sample day).
 - ssh-tunnel-monitor chore: state file corrupted (bare timestamp only, no instructions).
   Needs content repopulated or chore skipped gracefully.
+- dns-flood-monitor: chatId routing bug — AI-initiated sidekicks get literal 'marco' or
+  non-numeric IDs instead of 7229110406. 18 failures logged; chore created for fix.
+- staleness-audit doc mismatch: database.maxDBdays live=7, docs say 14 — washnote pushed,
+  needs operator decision on which is correct.
 
 RECENT NOTABLE EVENTS
 ----------------------
@@ -195,4 +203,10 @@ RECENT NOTABLE EVENTS
   clean item. No action needed.
 - 2026-03-17T21:45–22:25: All systems nominal. DNS ~60k end-of-day, HA 200, pihole pass,
   disk 36%, load nominal. clean/ has 5 items, 0 human chores (under threshold).
-  No user interactions since 06:12.
+- 2026-03-17T22:25: staleness-audit found database.maxDBdays mismatch (live=7, docs=14).
+  Washnote pushed. sidekick-errors-review flagged 18x chat-not-found pattern in dns-flood-monitor.
+- 2026-03-17T22:27: dns-flood-monitor critical threshold hit (59.8k). Emergency sidekick spawned
+  (again). Queries now up to 65k by end of day — all assessed normal IoT/VPS traffic.
+- 2026-03-17T22:47–22:49: Final DNS flood sidekick completed. Full breakdown: 65,406 queries,
+  VPS 40% (25.9k), 192.168.1.111 (10.4k), 192.168.1.210 (7.6k). Smooth hourly distribution,
+  no flood. 32% queries blocked normally. All healthy. Telegram still failing (chatId='marco').

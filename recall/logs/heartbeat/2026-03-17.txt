@@ -399,3 +399,4 @@
 [22:45] system-health ✓ all good (disk 37% used, load 3.02, tailscaled running)
 [22:45] dns-flood-monitor ⚠ warning (queries: 65k, vps: 40%, disk: 14%)
 [22:45] sidekick-cleanup ✓ active: 1 completed: 0 stale: 1 (cleaned)
+[22:55:32] clean-notifications ✓ 2 dirty processed (DNS flood sidekick reports, normal IoT) | sidekick-cleanup ✓ no stale sidekicks | build-user-profile ✓ updated (212 lines)

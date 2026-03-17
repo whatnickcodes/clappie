@@ -98,3 +98,11 @@
 [22:25] clean-notifications: dirty/ empty — nothing to process. clean/ has 5 items (welcome, backup-root-fix-needed [3 days old, sudo fix still pending], dns-flood-investigation, dns-check x2 from today). 0 chores (under 5-chore threshold). No Telegram alert needed.
 [22:35] clean-notifications: dirty/ empty — nothing to process. clean/ has 5 items (welcome, backup-root-fix-needed [3 days old, sudo fix still pending], dns-flood-investigation, dns-check x2 from today). 0 chores (under 5-chore threshold). No Telegram alert needed.
 [22:45] clean-notifications: dirty/ empty, no items to process. 5 clean items stable, 2 human chores active.
+
+[2026-03-17T22:55] clean-notifications run
+  Dirty files processed: 2 (sidekick-report-*-dns-flood-22:48 and 22:49)
+  Content: DNS flood investigation sidekick reports — no flood, normal IoT traffic, Telegram chatId error (same recurring issue)
+  Action: Consolidated into clean/dns-monitoring-2347-2026-03-17.txt
+  Dirty files deleted: 2
+  No new chores created (existing sidekick-errors chore already tracks chatId issue)
+  Clean items: 6 total (within normal range, no Telegram alert needed)
