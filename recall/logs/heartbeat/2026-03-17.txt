@@ -217,3 +217,5 @@
 [13:27] system-health ✓ all good
 [12:25] build-user-profile ✓ updated (179 lines)
 [12:25] dns-flood-monitor ✓ clear (queries: 28.5k, vps: 56%, db: 16.9MB, disk: 14%)
+[12:35] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[12:35] clean-notifications ✓ dirty/ empty, 3 clean items, no action needed
