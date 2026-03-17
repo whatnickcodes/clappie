@@ -1,0 +1,45 @@
+source=telegram-bot
+userId=7229110406
+chatId=7229110406
+name=
+emoji=🐲
+colorIndex=7
+squad=
+status=completed
+startedAt=2026-03-16T13:56:16.378Z
+username=marbacc
+promptMode=system
+updatedAt=2026-03-16T14:26:52.055Z
+paneId=%56
+lastActivity=2026-03-16T13:58:41.874Z
+lastUserMessageId=40
+endedAt=2026-03-16T14:26:52.055Z
+---
+13:56:16 ← Please do that
+13:56:53 → Do what exactly? 😅 I checked our last chat and all we did was test Telegram after your reinstall. What's the 'that' you're referring to?
+13:56:56 ⚡ [react] 38 🤔
+13:58:41 ← (attachment)
+13:58:52 → Ah got it! That was from a previous session's DNS flood investigation. On it — lowering Pi-hole privacy level to 0 temporarily to catch the flooding device, then checking back in 10 min.
+13:58:53 ⚡ [react] 40 🫡
+14:00:01 → Done! Privacy level is now 0 — Pi-hole is logging full client IPs and domains.
+Container was recreated (took ~3 seconds, DNS blip was minimal).
+I'll check back in 10 minutes to see who's been hammering DNS. Will report back with the top talkers.
+14:00:07 ⚡ [combo] 40 🔥 ⚡ 👨‍💻
+14:13:29 → Privacy level 0 is live. Here's what I see in the last hour (since container recreate):
+TOTAL: 4,564 queries from 33 clients. Looks normal right now.
+TOP CLIENTS:
+1. River.lan (your iPhone?) — 571 queries
+2. dns-relay VPS (100.101.18.71) — 238
+3. Unknown IPv6 device — 146
+4. localhost — 86
+5. tesla.lan — 71
+6. Andrea's S25 — 59
+7. Home Assistant — 34
+8. Deco X50 router — 29
+9. Samsung.lan — 28
+No single device is flooding right now. The earlier 237k spike (before 07:30) has stopped.
+The 0% VPS share mystery is solved too — VPS relay is showing 238 queries (5.2%), not 0%. Previous monitor couldn't see it because privacy level 2 hid everything.
+14:13:35 → The flood might be intermittent. Want me to:
+1. Leave privacy at 0 for 24h and check periodically to catch the next spike
+2. Set it back to 2 now that we know the current state is clean
+The unknown IPv6 device (2001:b07:aa7:9ea1:69fb:...) at 146 queries is worth watching — no hostname resolved for it. Could be your culprit when it goes wild.

@@ -1,0 +1,20 @@
+source=telegram-bot
+userId=
+chatId=user
+name=
+emoji=🐬
+colorIndex=11
+squad=
+status=completed
+startedAt=2026-03-16T13:27:08.912Z
+aiInitiated=true
+model=opus
+promptMode=system
+updatedAt=2026-03-16T14:26:52.095Z
+paneId=%55
+endedAt=2026-03-16T14:26:52.095Z
+---
+13:27:08 ← telegram user: DNS flood monitor warning. Queries today: 237,300 (threshold: 50k), VPS share (100.101.18.71): 0%, FTL db: 12.6MB, Disk: 14%. Query count is 4.7x the warning threshold — possible DNS flood activity or log accumulation. VPS share is 0% which is unusual (normal is 30-60%); queries may be coming from other sources. Recommend reviewing Pi-hole query log to identify top sources. No emergency action needed (disk is only 14%) but worth investigating the query spike.
+13:27:33 ⚡ auto
+13:29:34 ⚡ [report] auto
+13:31:19 ⚡ auto
