@@ -392,3 +392,4 @@
 [22:25] sidekick-errors-review ✓ (2 patterns, chore created: 18x chat-not-found in dns-flood-monitor, 1x react-not-found)
 [22:25] staleness-audit ⚠ 1 mismatch found — report pushed (database.maxDBdays live=7, docs say 14)
 [22:25] build-user-profile ✓ updated (198 lines)
+[22:35] clean-notifications ✓ (dirty/ empty, 5 clean items stable)
