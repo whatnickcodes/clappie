@@ -55,3 +55,4 @@
 [14:15] clean-notifications: dirty/ empty, nothing to process
 
 [2026-03-17T14:25] clean-notifications run: dirty/ empty, nothing to process. 3 existing clean items unchanged.
+[14:45] clean-notifications: dirty/ empty, no new items, 3 clean items stable
