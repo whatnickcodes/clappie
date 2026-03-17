@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-17T12:55
+Generated: 2026-03-17T13:55
 ================================================================================
 
 WHO THEY ARE
@@ -122,18 +122,19 @@ INFRASTRUCTURE QUICK REF
 - Watchdog alert chat ID: 7229110406
 - Watchdog timer: wash-clappie-watchdog.timer (deployed, running)
 
-CURRENT SYSTEM STATE (as of 13:25 2026-03-17)
+CURRENT SYSTEM STATE (as of 13:55 2026-03-17)
 ----------------------------------------------
 - Disk: 34% used (Zoidberg), Pi-hole disk 14%, FTL DB 17.2MB
-- Load: 1.91 (nominal), mem: nominal
+- Load: nominal, mem: nominal
 - Tailscaled: running
 - Pi-hole: pass
 - HA: 200
-- DNS queries today: ~31k filtered (clear, no flood)
+- DNS queries today: ~34k filtered (clear, no flood)
 - Sidekicks: active 0, stale 0
 - Clean notifications: 3 stable (welcome, backup-root-fix-needed, dns-flood-investigation)
 - 1 human chore pending (welcome-to-clappie, under escalation threshold)
 - Watchdog state: {} (cleared)
+- Backup: fresh (wash-backup ~10h old, 2026-03-17T02:00)
 
 PENDING FIXES (requires Marco on Phoebe)
 -----------------------------------------
@@ -173,7 +174,7 @@ RECENT NOTABLE EVENTS
 - 2026-03-17T06:10–06:12: Marco asked for DNS query breakdown, then full device list with
   probable nature based on MAC origin. Sidekick spawned (opus), completed at 07:47.
   Marco reacted 👍 then 👨‍💻 — engaged and satisfied with results.
-- 2026-03-17T08:55–12:55: All systems nominal. Heartbeat cycling cleanly.
-  DNS clear (~30k queries by 12:55), HA 200, pihole pass, system disk 33%, load nominal, mem nominal.
+- 2026-03-17T08:55–13:55: All systems nominal. Heartbeat cycling cleanly.
+  DNS clear (~34k queries by 13:55), HA 200, pihole pass, system disk 34%, load nominal.
   3 stable clean notifications (welcome, backup-root-fix, dns-flood-investigation).
   No new user interactions since 06:12. Watchdog state cleared to {}.
