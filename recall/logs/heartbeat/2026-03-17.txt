@@ -377,3 +377,7 @@
 [22:27] sidekick-cleanup ✓ active: 2, completed: 7, stale: 0
 [21:25] build-user-profile ✓ updated (189 lines)
 [21:35] clean-notifications ✓ (1 dirty file processed: DNS flood follow-up sidekick report → clean, no action needed)
+[21:45] ha-health-check ✓ 200
+[21:45] network-health ✓ dns ok (google.com → 172.217.23.174, ads.google.com → 0.0.0.0 blocked)
+[21:45] system-health ✓ all good
+[21:45] clean-notifications ✓ (dirty/ empty, 5 clean items, 1 chore — backup-root-fix still pending 3 days)
