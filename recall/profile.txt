@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-17T03:25
+Generated: 2026-03-17T03:55
 ================================================================================
 
 WHO THEY ARE
@@ -130,8 +130,8 @@ PENDING FIXES (requires Marco on Phoebe)
   store subcommand fails noisily, push/fetch still work.
   Fix from Phoebe: `git config credential.helper '!f() { ... }; f'`
 - Pi-hole LXC disk space: recurring issue — Marco flagged it again 2026-03-16T05:06.
-  Disk at 13% (Pi-hole LXC) as of latest check. Needs long-term fix (log rotation, volume
-  sizing, or cleanup automation). FTL database (pihole-FTL.db) historically grows to 2.4GB+.
+  Disk at 13–14% (Pi-hole LXC) as of latest checks. Needs long-term fix (log rotation,
+  volume sizing, or cleanup automation). FTL database (pihole-FTL.db) historically grows to 2.4GB+.
 - Client 100.101.18.71 DNS flood: misbehaving client spamming dhl.com ANY queries with no
   backoff. Saturated dnsmasq 150-concurrent-query limit. Flood subsided by 09:44.
   Needs Marco to investigate what's running on 100.101.18.71 (Tailscale network IP).
@@ -200,7 +200,7 @@ RECENT NOTABLE EVENTS
   running clear (36.7k filtered queries at 23:44, vps: 30.3%, disk: 13%, ftl-db: 15.3M).
   HA 200 ok, network dns ok, pihole pass, disk 29%, load 2.37. No active sidekicks.
   ssh-tunnel-monitor confirmed up. Memory files remain empty.
-- 2026-03-17T00:04–03:25: Overnight and early morning heartbeat nominal. DNS clear (queries
-  ranging 4.4k–6.6k, vps: 26–31%, disk: 14%), HA 200, pihole pass, disk 30%, load 2.18–2.48,
+- 2026-03-17T00:04–03:45: Overnight and early morning heartbeat nominal. DNS clear (queries
+  ranging 0.2k–7.2k, vps: 22–56%, disk: 13–14%), HA 200, pihole pass, disk 30%, load 2.18–2.48,
   sidekicks clean, notifications stable at 6 items + 1 human chore. system-health all good.
   No new user interactions since 2026-03-16. System stable and quiet.
