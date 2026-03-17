@@ -219,3 +219,6 @@
 [12:25] dns-flood-monitor ✓ clear (queries: 28.5k, vps: 56%, db: 16.9MB, disk: 14%)
 [12:35] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
 [12:35] clean-notifications ✓ dirty/ empty, 3 clean items, no action needed
+[12:45] clean-notifications ✓ dirty/ empty, 3 clean items (backup-fix, dns-flood-resolved, welcome), no action needed
+[12:45] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[12:45] dns-flood-monitor ✓ clear (queries: 30k filtered, vps: 35%, ftl-db: 17.2M, disk: 14%)
