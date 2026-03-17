@@ -343,3 +343,5 @@
 [20:26] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [19:25] build-user-profile ✓ updated (185 lines)
 [20:37] ha-health-check ✓ 200
+[19:45] network-health ✓ dns ok (google.com resolved, ads.google.com blocked)
+[19:45] system-health ✓ disk 36%, mem 40% avail, load 2.41, tailscaled running
