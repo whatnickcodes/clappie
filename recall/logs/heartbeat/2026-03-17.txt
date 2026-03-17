@@ -196,3 +196,4 @@
 [11:15] telegram-miss-you ✓ skipped, active convo
 [11:25] clean-notifications ✓ clear
 [12:26] network-health ✓ dns ok
+[11:26] system-health ✓ all good (disk: 33% used, load: 2.64, tailscaled running)
