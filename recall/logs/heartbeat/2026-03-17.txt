@@ -274,3 +274,5 @@
 [15:35] clean-notifications ✓ (no dirty notifications)
 [15:35] network-health ✓ dns ok
 [15:35] system-health ✓ all good
+[15:45] clean-notifications ✓ dirty/ empty
+[15:45] dns-flood-monitor ✓ clear (queries: 41k, vps: n/a (api-auth), disk: 14%)
