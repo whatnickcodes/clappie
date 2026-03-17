@@ -315,3 +315,8 @@
 [17:55] build-user-profile ✓ updated (183 lines)
 [18:05] clean-notifications ✓ idle (dirty/ empty)
 [18:05] dns-flood-monitor ✓ clear (queries: 49k, vps: 37%, disk: 14%)
+[18:15] network-health ✓ pass
+[18:15] clean-notifications ✓ idle
+[18:15] pihole-health ✓ pass
+[18:15] system-health ✓ ok (cpu: 3.03 load avg, mem: 3.2G avail, disk: 35% used)
+[18:15] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
