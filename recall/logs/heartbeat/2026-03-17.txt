@@ -325,3 +325,5 @@
 [18:25] clean-notifications ✓ idle — dirty/ empty, nothing to process. clean/ stable at 3 items.
 [18:25] dns-flood-monitor ⚠ info (queries: 50.2k, vps: 36.7%, ftl: 18.3M, disk: 14%) - single metric at threshold
 [18:25] build-user-profile ✓ updated (182 lines)
+[18:35] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[18:35] clean-notifications ✓ idle (dirty/ empty, nothing to process)
