@@ -384,3 +384,7 @@
 [21:55] clean-notifications ✓ (dirty/ empty, 5 clean items, 3 chores pending — all nominal)
 [21:55] build-user-profile ✓ updated (198 lines)
 [22:05] clean-notifications ✓ dirty/ empty, 5 clean items stable
+[22:15] system-health ✓ all good
+[22:15] network-health ✓ dns ok
+[22:15] pihole-health ✓ pass
+[22:15] clean-notifications ✓ dirty/ empty, clean/ stable at 5 items, 1 human chore
