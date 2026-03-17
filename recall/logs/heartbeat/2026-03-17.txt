@@ -120,3 +120,6 @@
 [06:25] build-user-profile ✓ updated (227 lines)
 [07:36] system-health ✓ all good
 [06:35] clean-notifications ✓ dirty/ empty, nothing to process
+[06:45] clean-notifications ✓ (dirty/ empty, nothing to process)
+[06:45] dns-flood-monitor ✓ clear (queries: 14.7k, vps: 29%, db: 16.1MB, disk: 14%)
+[07:47] sidekick-cleanup ✓ active: 1, completed: 0, stale: 1 (cleaned)
