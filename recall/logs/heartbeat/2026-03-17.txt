@@ -381,3 +381,5 @@
 [21:45] network-health ✓ dns ok (google.com → 172.217.23.174, ads.google.com → 0.0.0.0 blocked)
 [21:45] system-health ✓ all good
 [21:45] clean-notifications ✓ (dirty/ empty, 5 clean items, 1 chore — backup-root-fix still pending 3 days)
+[21:55] clean-notifications ✓ (dirty/ empty, 5 clean items, 3 chores pending — all nominal)
+[21:55] build-user-profile ✓ updated (198 lines)

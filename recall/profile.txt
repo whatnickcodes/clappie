@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-17T21:25
+Generated: 2026-03-17T21:55
 ================================================================================
 
 WHO THEY ARE
@@ -122,17 +122,18 @@ INFRASTRUCTURE QUICK REF
 - Watchdog alert chat ID: 7229110406
 - Watchdog timer: wash-clappie-watchdog.timer (deployed, running)
 
-CURRENT SYSTEM STATE (as of 21:25 2026-03-17)
+CURRENT SYSTEM STATE (as of 21:55 2026-03-17)
 ----------------------------------------------
 - Disk: 36% used (Zoidberg), Pi-hole disk 14%, FTL DB ~18.8MB
 - Load: nominal (~2.24 load avg), mem: ~2.7Gi avail
 - Tailscaled: running
 - Pi-hole: pass
 - HA: 200
-- DNS queries today: ~58k (above 50k threshold, consistent end-of-day normal variance)
-- Sidekicks: active 1, completed 0, stale 0
-- Clean notifications: nothing to process
-- Watchdog state: all 3 apps healthy
+- DNS queries today: ~59.8k (above 50k threshold — end-of-day pattern, assessed normal)
+- Sidekicks: active 0, stale 0 (cleaned); emergency DNS sidekick completed at 21:34
+- Clean notifications: 5 items in clean/ (welcome, backup-root-fix, dns-flood-investigation,
+  dns-check x2), 3 chores pending (under 5-chore threshold), dirty/ empty
+- Watchdog state: all apps healthy
 - ssh-tunnel-monitor: file-corrupted (only bare timestamp, no instructions) — needs fix
 - No user interactions since 06:12; all systems nominal, heartbeat cycling cleanly
 
@@ -180,10 +181,18 @@ RECENT NOTABLE EVENTS
   spawned, assessed normal variance, no action taken. Telegram send failed — system-initiated.
 - 2026-03-17T20:05: dns-flood-monitor warning (55k queries, above 50k threshold). End-of-day
   normal variance pattern — consistent with prior days.
-- 2026-03-17T20:35: clean-notifications processed 1 item (dns-check all-clear, telegram
-  delivery issue flagged).
+- 2026-03-17T20:30: Sidekick spawned for DNS analysis — Telegram send failed with 'chat not found'
+  (chatId was literal string 'marco', not actual ID 7229110406). Fixed via direct API call.
+- 2026-03-17T20:35: clean-notifications processed 1 item (dns-check all-clear, Telegram
+  delivery issue flagged). Secondary haiku sidekick sent fix notification to Marco.
 - 2026-03-17T20:47: sidekick-cleanup found 1 stale sidekick, cleaned.
 - 2026-03-17T20:45: ssh-tunnel-monitor reported file-corrupted (bare timestamp, no instructions).
-- 2026-03-17T21:05–21:25: All systems nominal. Heartbeat cycling cleanly. DNS ~58k end-of-day
-  (above threshold, assessed normal variance), HA 200, pihole pass, disk 36%, load nominal.
+- 2026-03-17T21:27: DNS flood emergency — queries hit 59.8k, VPS share 38%. Emergency opus
+  sidekick spawned. Root cause: i.paypal.com polling from VPS relay device (82 hits/5min).
+  Not a flood — noisy client. Disk 14%, no remediation needed. Alerts sent to Marco. Sidekick
+  completed at 21:34.
+- 2026-03-17T21:35: clean-notifications processed DNS flood emergency sidekick report. Created
+  clean item. No action needed.
+- 2026-03-17T21:45–21:55: All systems nominal. DNS ~59.8k end-of-day, HA 200, pihole pass,
+  disk 36%, load nominal. clean/ has 5 items, 3 human chores (under threshold).
   No user interactions since 06:12.
