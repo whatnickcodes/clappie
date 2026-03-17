@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-17T11:25
+Generated: 2026-03-17T11:55
 ================================================================================
 
 WHO THEY ARE
@@ -122,18 +122,18 @@ INFRASTRUCTURE QUICK REF
 - Watchdog alert chat ID: 7229110406
 - Watchdog timer: wash-clappie-watchdog.timer (deployed, running)
 
-CURRENT SYSTEM STATE (as of 11:25 2026-03-17)
+CURRENT SYSTEM STATE (as of 11:55 2026-03-17)
 ----------------------------------------------
-- Disk: 33% used (Zoidberg), Pi-hole disk 14%, FTL DB 16.7MB
-- Load: 2.18, mem: 4.3Gi/7.5Gi (57%)
+- Disk: 33% used (Zoidberg), Pi-hole disk 14%, FTL DB 16.9MB
+- Load: 2.34, mem: 4.3Gi/7.5Gi (57%)
 - Tailscaled: running
 - Pi-hole: pass
 - HA: 200
-- DNS queries today: ~27.5k (clear, no flood)
+- DNS queries today: ~26.8k (clear, no flood)
 - Sidekicks: active 0, completed 0, stale 0
 - Clean notifications: 3 stable (welcome, backup-root-fix-needed, dns-flood-investigation)
 - 1 human chore pending (welcome-to-clappie, under escalation threshold)
-- Heartbeat: 1 crash recorded in watchdog/state.json (ts: 1773746798558)
+- Watchdog state: {} (cleared)
 
 PENDING FIXES (requires Marco on Phoebe)
 -----------------------------------------
@@ -173,7 +173,7 @@ RECENT NOTABLE EVENTS
 - 2026-03-17T06:10–06:12: Marco asked for DNS query breakdown, then full device list with
   probable nature based on MAC origin. Sidekick spawned (opus), completed at 07:47.
   Marco reacted 👍 then 👨‍💻 — engaged and satisfied with results.
-- 2026-03-17T08:55–11:25: All systems nominal. Heartbeat cycling cleanly.
-  DNS clear (~27.5k queries by 11:25), HA 200, pihole pass, system disk 33%, load 2.18, mem 57%.
+- 2026-03-17T08:55–11:55: All systems nominal. Heartbeat cycling cleanly.
+  DNS clear (~26.8k queries by 11:55), HA 200, pihole pass, system disk 33%, load 2.34, mem 57%.
   3 stable clean notifications (welcome, backup-root-fix, dns-flood-investigation).
-  No new user interactions since 06:12.
+  No new user interactions since 06:12. Watchdog state cleared to {}.

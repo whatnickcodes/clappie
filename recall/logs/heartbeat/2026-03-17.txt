@@ -202,3 +202,7 @@
 [11:35] clean-notifications ✓ dirty/ empty
 [11:45] dns-flood-monitor ✓ clear (queries: 26.8k, vps: 56%, db: 16.9MB, disk: 14%)
 [11:45] clean-notifications ✓ dirty/ empty
+[11:55] system-health ✓ all good
+[11:55] backup-verify ✓ fresh (wash-backup ~10h old, 2026-03-17T02:00)
+[11:55] clean-notifications ✓ dirty/ empty, clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation), no action needed
+[11:55] build-user-profile ✓ updated (179 lines)
