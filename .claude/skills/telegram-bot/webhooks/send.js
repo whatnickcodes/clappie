@@ -32,13 +32,26 @@ function stripMarkdownEscaping(text) {
   return text.replace(/\\([_*\[\]()~`>#+\-=|{}.!\\])/g, '$1');
 }
 
+// Resolve chatId — if not numeric, fall back to TELEGRAM_CHAT_ID env var
+function resolveChatId(chatId) {
+  if (chatId && /^-?\d+$/.test(String(chatId))) return String(chatId);
+  // Non-numeric chatId (e.g. "marco", "user", "alert") — use default
+  const fallback = process.env.TELEGRAM_CHAT_ID;
+  if (fallback) {
+    console.warn(`[telegram] chatId "${chatId}" is not numeric — using TELEGRAM_CHAT_ID default`);
+    return fallback;
+  }
+  throw new Error(`chatId "${chatId}" is not a valid Telegram chat ID (must be numeric). Set TELEGRAM_CHAT_ID env var as fallback.`);
+}
+
 // Main send function - called by Sidekick
 export async function send(chatId, message, options = {}) {
+  const resolvedChatId = resolveChatId(chatId);
   const botToken = options.botToken || getBotToken();
   const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
   const payload = {
-    chat_id: chatId,
+    chat_id: resolvedChatId,
     text: stripMarkdownEscaping(message),
   };
 
@@ -74,6 +87,7 @@ const VALID_REACTIONS = new Set([
 const stripVS = (s) => s.replace(/\uFE0F/g, '');
 
 export async function setReaction(chatId, messageId, emoji, options = {}) {
+  const resolvedChatId = resolveChatId(chatId);
   // Validate emoji against Telegram's whitelist (strip variation selectors for matching)
   if (emoji && !VALID_REACTIONS.has(stripVS(emoji))) {
     throw new Error(`Telegram reaction invalid: ${emoji} is not in Telegram's allowed emoji list`);
@@ -86,7 +100,7 @@ export async function setReaction(chatId, messageId, emoji, options = {}) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      chat_id: chatId,
+      chat_id: resolvedChatId,
       message_id: messageId,
       reaction: emoji ? [{ type: 'emoji', emoji }] : [],
     }),
@@ -100,11 +114,12 @@ export async function setReaction(chatId, messageId, emoji, options = {}) {
 }
 
 export async function sendPhoto(chatId, filePath, caption, options = {}) {
+  const resolvedChatId = resolveChatId(chatId);
   const botToken = options.botToken || getBotToken();
   const url = `https://api.telegram.org/bot${botToken}/sendPhoto`;
 
   const form = new FormData();
-  form.append('chat_id', chatId);
+  form.append('chat_id', resolvedChatId);
   form.append('photo', Bun.file(filePath));
   if (caption) form.append('caption', stripMarkdownEscaping(caption));
   if (options.replyToMessageId) {
@@ -117,11 +132,12 @@ export async function sendPhoto(chatId, filePath, caption, options = {}) {
 }
 
 export async function sendDocument(chatId, filePath, caption, options = {}) {
+  const resolvedChatId = resolveChatId(chatId);
   const botToken = options.botToken || getBotToken();
   const url = `https://api.telegram.org/bot${botToken}/sendDocument`;
 
   const form = new FormData();
-  form.append('chat_id', chatId);
+  form.append('chat_id', resolvedChatId);
   form.append('document', Bun.file(filePath));
   if (caption) form.append('caption', stripMarkdownEscaping(caption));
   if (options.replyToMessageId) {
@@ -134,11 +150,12 @@ export async function sendDocument(chatId, filePath, caption, options = {}) {
 }
 
 export async function sendVoice(chatId, filePath, caption, options = {}) {
+  const resolvedChatId = resolveChatId(chatId);
   const botToken = options.botToken || getBotToken();
   const url = `https://api.telegram.org/bot${botToken}/sendVoice`;
 
   const form = new FormData();
-  form.append('chat_id', chatId);
+  form.append('chat_id', resolvedChatId);
   form.append('voice', Bun.file(filePath));
   if (caption) form.append('caption', stripMarkdownEscaping(caption));
   if (options.replyToMessageId) {
@@ -151,11 +168,12 @@ export async function sendVoice(chatId, filePath, caption, options = {}) {
 }
 
 export async function sendVideo(chatId, filePath, caption, options = {}) {
+  const resolvedChatId = resolveChatId(chatId);
   const botToken = options.botToken || getBotToken();
   const url = `https://api.telegram.org/bot${botToken}/sendVideo`;
 
   const form = new FormData();
-  form.append('chat_id', chatId);
+  form.append('chat_id', resolvedChatId);
   form.append('video', Bun.file(filePath));
   if (caption) form.append('caption', stripMarkdownEscaping(caption));
   if (options.replyToMessageId) {
@@ -168,6 +186,7 @@ export async function sendVideo(chatId, filePath, caption, options = {}) {
 }
 
 export async function sendSticker(chatId, sticker, options = {}) {
+  const resolvedChatId = resolveChatId(chatId);
   const botToken = options.botToken || getBotToken();
   const url = `https://api.telegram.org/bot${botToken}/sendSticker`;
   const isFilePath = sticker.startsWith('/') || sticker.startsWith('./');
@@ -175,14 +194,14 @@ export async function sendSticker(chatId, sticker, options = {}) {
   let response;
   if (isFilePath) {
     const form = new FormData();
-    form.append('chat_id', chatId);
+    form.append('chat_id', resolvedChatId);
     form.append('sticker', Bun.file(sticker));
     response = await fetch(url, { method: 'POST', body: form });
   } else {
     response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, sticker }),
+      body: JSON.stringify({ chat_id: resolvedChatId, sticker }),
     });
   }
 
