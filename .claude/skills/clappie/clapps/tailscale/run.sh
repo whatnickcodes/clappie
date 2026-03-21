@@ -32,14 +32,7 @@ LAST_STATE=""
 cleanup() {
     tput cnorm  # Show cursor
     echo ""
-    # Only disconnect if currently running
-    local STATE=$(tailscale status --json 2>/dev/null | jq -r '.BackendState // "Stopped"')
-    if [ "$STATE" = "Running" ]; then
-        echo -e "${YELLOW}Disconnecting Tailscale...${RESET}"
-        tailscale funnel reset 2>/dev/null
-        tailscale down
-    fi
-    echo -e "${GREEN}Done.${RESET}"
+    echo -e "${GREEN}Dashboard closed. Tailscale remains running.${RESET}"
     exit 0
 }
 trap cleanup SIGINT SIGTERM SIGHUP EXIT
