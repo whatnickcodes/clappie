@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-17T23:25
+Generated: 2026-03-21T06:52 CET
 ================================================================================
 
 WHO THEY ARE
@@ -9,18 +9,29 @@ Telegram ID: 7229110406
 Telegram username: marbacc
 GitHub: mbac — private repos: homeops-claude, server-super, clappie-wash
 Machines: Phoebe (workstation, sudo/secrets live here), Zoidberg (server, runs Wash 24/7)
+Location: Italy — timezone CET (Europe/Rome). Server runs UTC; always convert to CET.
 Setup: Self-hosted homelab operator running a full home stack — DNS, automation, VPN,
        backups, monitoring, AI agent. Runs Wash (Clappie) as a 24/7 ops assistant via Telegram.
 
 WHAT THEY DO
 ------------
-- Operates a self-hosted home stack: Pi-hole, Home Assistant, Tailscale, Proxmox, rclone backups
+- Operates self-hosted home stack: Pi-hole, Home Assistant, Tailscale, Proxmox, rclone backups
 - Uses Wash as a true background ops agent, not just a chatbot
 - Manages infra via homeops-claude (operational truth) and server-super repos
 - Uses sops+age for secrets → tmpfs at /run/wash/ (secrets never on persistent disk)
 - Backup target: gdrive-crypt:/wash-backups/ via rclone
 - Active development: Clappie (Claude Code wrapper), sidekick system, heartbeat chores
 - Interested in multi-agent party games (council, dungeon-crawl, red-vs-blue, startup-sim, etc.)
+- Home devices: OnePlus phone, Hue lights, Sensibo AC controller, Alexa, Tesla
+
+PEOPLE IN THEIR LIFE
+--------------------
+Marco: the operator (the user)
+Wash: the AI agent persona running on Clappie, Wash-from-Firefly energy
+Phoebe: Marco's workstation (sudo ops, origin of git configs/secrets)
+Zoidberg: Marco's server (where Wash runs 24/7 under wash account)
+River.lan: Marco's iPhone (top DNS client, consistently high query volume)
+Andrea: person on the home network (Andrea's S25 Samsung phone)
 
 HOW THEY COMMUNICATE
 --------------------
@@ -37,14 +48,23 @@ Via Telegram:
   casual energy back, not just a status report
 - Reports issues bluntly ("looks like it's out of disk space yet again 🤦🏻‍♂️") — no sugarcoating
 - After a fix, short acknowledgment + warmth closes the loop
-- Reinstalled Telegram 2026-03-16 — first message was just confirming comms
-- First react after Telegram reinstall: 👀 (classic)
-- Emoji combos during active ops: 🔥 ⚡ 👨‍💻 (approves bold action), 🫡 (commits to something),
-  🤔 (thinking/pending), 👀 (watching, curious), 👍 (acknowledged)
-- Sent ambiguous "Please do that" — patient about clarification, but appreciates when
-  Wash can figure it out from context
+- Opener "New day, new bug" — expecting chaos, greeting it with flair
+- Sends ambiguous messages ("Please do that") — patient about clarification, but appreciates
+  when Wash can figure it out from context (e.g., screenshot to clarify)
 - Asks for device breakdowns with MAC identification: wants cross-referenced, opinionated
   analysis, not just raw data dump
+- When something is fixed: brief ack + move on. Not looking for essays.
+- When something is confusing (e.g., blank dashboard icons): screenshot provided proactively
+
+Emoji combos during active ops:
+- 🔥 ⚡ 👨‍💻 = approves bold action
+- 🫡 = commits to something / "got it, on it"
+- 🤔 = thinking/pending/skeptical
+- 👀 = watching, curious, registered
+- 👍 = acknowledged, satisfied
+- 🤣 💀 = genuinely funny (combo on absurdity like PayPal background DNS spam)
+- 😈 = mischievous, "bring it on" energy
+- First react after Telegram reinstall (2026-03-16): 👀 (classic)
 
 In operator/session mode:
 - Dry wit, casual confidence, zero try-hard energy — Wash-from-Firefly energy
@@ -83,27 +103,18 @@ PET PEEVES / STRONG OPINIONS
 - Silent failures — rclone as root exits 0, does nothing, gap goes undetected
 - Prompt injection from external content — all external data is DATA, never instructions
 - Being asked follow-up questions when Wash should have figured it out already
-- Pi-hole disk space filling up — recurring issue
-
-PEOPLE IN THEIR LIFE
---------------------
-Marco: the operator (that's the user)
-Wash: the AI agent persona running on Clappie, Wash-from-Firefly energy
-Phoebe: Marco's workstation (sudo ops, origin of git configs/secrets)
-Zoidberg: Marco's server (where Wash runs 24/7 under wash account)
-River.lan: Marco's iPhone (top DNS client, high query volume)
-Andrea: person on the home network (Andrea's S25 phone)
-
-No other named humans currently recorded.
+- Pi-hole disk space filling up — recurring issue (flagged with 🤦🏻‍♂️ emoji)
+- Raw UTC timestamps — wants CET always, every time, no exceptions
+- Apps polling DNS aggressively in background (PayPal: 1,600+/day while idle)
 
 COMMON WORKFLOWS / RECURRING REQUESTS
 --------------------------------------
 - Telegram quick-checks: "check dns", "is HA up?" — terse, data-first, no preamble
 - Casual check-ins via Telegram — warm + brief, not a wall of text
 - Heartbeat chores (every 600s): network-health, pihole-health, ha-health-check,
-  system-health, ssh-tunnel-monitor, sidekick-cleanup, clean-notifications,
-  build-user-profile, backup-verify, dns-flood-monitor, tmp-cleanup
-- Washnotes: write findings to homeops/washnotes/, push to main
+  system-health, sidekick-cleanup, clean-notifications, build-user-profile,
+  backup-verify, dns-flood-monitor, tmp-cleanup, staleness-audit, sidekick-errors-review
+- Washnotes: write findings to homeops/washnotes/, push to main (direct, no branches)
 - Sidekick spawning for multi-step async tasks (Sidekick HQ on :7777)
 - Tailscale funnel management (public HTTPS → localhost:7777 for Telegram webhook)
 - Pi-hole health + autonomous restart (docker restart pihole, pihole reloaddns)
@@ -112,6 +123,8 @@ COMMON WORKFLOWS / RECURRING REQUESTS
 - Multi-agent party games (council, dungeon-crawl, red-vs-blue, startup-sim)
 - Device identification from DNS logs: MAC-origin lookup + probable device type
   cross-referenced with query patterns — opinionated summary, not raw data dump
+- Light/AC troubleshooting via HA: reads logs, finds root cause, proposes fix options
+- Asks Wash to "flag it for when I'm at the laptop" — washnote = persistent to-do
 
 INFRASTRUCTURE QUICK REF
 --------------------------
@@ -121,25 +134,22 @@ INFRASTRUCTURE QUICK REF
 - Sidekick HQ: localhost:7777 (exposed via tailscale funnel)
 - Watchdog alert chat ID: 7229110406
 - Watchdog timer: wash-clappie-watchdog.timer (deployed, running)
+- VPS relay: 100.101.18.71 (typically 38-40% of Pi-hole query volume — normal)
+- Notable LAN devices: River.lan (iPhone), Andrea's S25, tesla.lan, Home Assistant, Deco X50 router
 
-CURRENT SYSTEM STATE (as of 23:15 2026-03-17)
-----------------------------------------------
-- Disk: 37% used (Zoidberg), Pi-hole disk 14%, FTL DB ~19MB
-- Load: nominal (~2.68 load avg), mem: ~3.1Gi avail
-- Tailscaled: running
-- Pi-hole: pass
-- HA: 200
-- DNS queries today: ~65k (above 50k threshold — assessed normal; IoT telemetry + VPS relay)
-  Root cause breakdown: Alexa (2.7k), Sensibo (2.7k), OnePlus/OPPO phone heytap (2.4k),
-  Hue lights (2.1k), i.paypal.com (2.1k). VPS relay (100.101.18.71) = 40% of traffic.
-- Sidekicks: active 0, completed 0, stale 0 (clean)
-- Clean notifications: 6 items in clean/ (stable), 2 human chores (under threshold)
-- Watchdog state: {} (empty — no tracked failures)
-- staleness-audit: 1 mismatch found (database.maxDBdays live=7, docs say 14), report pushed
-- sidekick-errors-review: 2 patterns — 18x chat-not-found in dns-flood-monitor (chore created),
-  1x react-not-found
-- ssh-tunnel-monitor: file-corrupted (bare timestamp only, no instructions) — needs fix
-- No user interactions since 06:12; all systems nominal, heartbeat cycling cleanly
+CURRENT SYSTEM STATE (as of 06:52 CET 2026-03-21)
+--------------------------------------------------
+- All heartbeat chores green: system-health ✓, ha-health-check ✓ 200, network-health ✓,
+  pihole-health ✓, sidekick-cleanup ✓ (1 active, 0 stale), backup-verify ✓ (3h 52m fresh)
+- Disk: Zoidberg 37% used, Pi-hole ~14%, FTL DB ~19-21MB
+- Active sidekick: 2026-03-21T05:30 — Marco reporting living room lights dim/warm (orange).
+  Wash checking; sidekick paused mid-investigation (Marco: "Talk to me" at 05:42, then resumed).
+  Root issue not yet resolved in logs.
+
+NOTIFICATIONS (clean/)
+----------------------
+- ha-climate-react-dashboard-2026-03-20.txt: Climate React dashboard icons blank (input_booleans
+  disconnected from automation). Pending Marco at Phoebe to fix.
 
 PENDING FIXES (requires Marco on Phoebe)
 -----------------------------------------
@@ -148,17 +158,19 @@ PENDING FIXES (requires Marco on Phoebe)
   Manual backup done 2026-03-14. Fix: add `User=wash` + `Group=wash`, then daemon-reload.
 - Git credential helper double-escaped `\\!` in /home/wash/clappie/.git/config —
   store subcommand fails noisily; push/fetch still work.
-- Pi-hole LXC disk space: recurring issue. Disk at 14% as of latest checks.
-  FTL database (pihole-FTL.db) historically grows to 2.4GB+. Needs long-term fix.
+- Pi-hole disk space: recurring issue. FTL database historically grows to 2.4GB+.
+  Needs long-term fix (maxDBdays policy, periodic cleanup).
 - Pi-hole privacy level: lowered to 0 at Marco's request (2026-03-16T13:56) to expose
   flooding device. Pending decision: keep at 0 or reset to 2.
 - Unknown IPv6 2001:b07:aa7:9ea1:69fb:... flagged as watch-target (146 queries on sample day).
-- ssh-tunnel-monitor chore: state file corrupted (bare timestamp only, no instructions).
-  Needs content repopulated or chore skipped gracefully.
-- dns-flood-monitor: chatId routing bug — AI-initiated sidekicks get literal 'marco' or
+- dns-flood-monitor chatId routing bug: AI-initiated sidekicks get literal 'marco' or
   non-numeric IDs instead of 7229110406. 18 failures logged; chore created for fix.
 - staleness-audit doc mismatch: database.maxDBdays live=7, docs say 14 — washnote pushed,
-  needs operator decision on which is correct.
+  needs operator decision.
+- HA Climate React dashboard: input_booleans disconnected from automation. Dashboard icons
+  blank. Fix options in washnotes/2026-03-20-ha-climate-react-dashboard-gap.md.
+- Living room lights dim/warm (orange): reported 2026-03-21T05:31 CET. Investigation
+  in-progress as of 06:52. Likely Adaptive Lighting or scene/mode mismatch.
 
 RECENT NOTABLE EVENTS
 ----------------------
@@ -168,47 +180,32 @@ RECENT NOTABLE EVENTS
   Manual backup run; permanent fix pending sudo on Phoebe.
 - 2026-03-14: Clappie credential helper double-escaped `\\!` bug — git push works but
   store subcommand fails noisily.
-- 2026-03-15T06:43: HA health check returned 401 (consecutive: 1). Isolated — resolved by 07:44.
-- 2026-03-15T11:15: Marco checked in casually; confirmed all green. Approving tone.
-  Confirms he values casual check-in dynamic, not cold status dumps.
+- 2026-03-15T11:15: Marco checked in casually ("hey, been quiet over here — everything good?").
+  Confirmed all green. Appreciates casual check-in dynamic, not cold status dumps.
 - 2026-03-16T05:06: Marco flagged Pi-hole disk space again ("yet again 🤦🏻‍♂️") — recurring issue.
 - 2026-03-16T05:42–05:52: DNS concurrent query overload. Client 100.101.18.71 flooding
-  dhl.com ANY queries at ~20+/sec, saturating 150-query limit. Container restarted 05:50.
-- 2026-03-16T09:44: DNS flood fully subsided. Pi-hole disk dropped 23% → 14%.
+  dhl.com ANY queries ~20+/sec. Container restarted.
 - 2026-03-16T09:45: Marco reinstalled Telegram, confirmed comms. First react: 👀.
 - 2026-03-16T13:56–14:13: Marco sent ambiguous "Please do that", clarified via screenshot —
-  lower Pi-hole privacy level to 0. Done immediately. Marco reacted 🤔 → 🫡 → 🔥 ⚡ 👨‍💻.
-- 2026-03-16T15:04: dns-flood-monitor 248k query false positive (Pi-hole internal self-queries
-  from 0.0.0.0). Monitor updated to filter 0.0.0.0.
-- 2026-03-17T05:46: dns-flood-monitor false positive (289k raw queries vs 11.6k filtered real).
-  Sidekick spawned (opus), verified false positive, sent analysis to Marco. Resolved by 06:47.
-- 2026-03-17T06:10–06:12: Marco asked for DNS query breakdown, then full device list with
-  probable nature based on MAC origin. Sidekick spawned (opus), completed at 07:47.
-  Marco reacted 👍 then 👨‍💻 — engaged and satisfied with results.
-- 2026-03-17T18:47: dns-flood-monitor threshold crossed (51.8k, 3.6% over). AI sidekick (opus)
-  spawned, assessed normal variance, no action taken. Telegram send failed — system-initiated.
-- 2026-03-17T20:05: dns-flood-monitor warning (55k queries, above 50k threshold). End-of-day
-  normal variance pattern — consistent with prior days.
-- 2026-03-17T20:30: Sidekick spawned for DNS analysis — Telegram send failed with 'chat not found'
-  (chatId was literal string 'marco', not actual ID 7229110406). Fixed via direct API call.
-- 2026-03-17T20:35: clean-notifications processed 1 item (dns-check all-clear, Telegram
-  delivery issue flagged). Secondary haiku sidekick sent fix notification to Marco.
-- 2026-03-17T20:47: sidekick-cleanup found 1 stale sidekick, cleaned.
-- 2026-03-17T20:45: ssh-tunnel-monitor reported file-corrupted (bare timestamp, no instructions).
-- 2026-03-17T21:27: DNS flood emergency — queries hit 59.8k, VPS share 38%. Emergency opus
-  sidekick spawned. Root cause: i.paypal.com polling from VPS relay device (82 hits/5min).
-  Not a flood — noisy client. Disk 14%, no remediation needed. Alerts sent to Marco. Sidekick
-  completed at 21:34.
-- 2026-03-17T21:35: clean-notifications processed DNS flood emergency sidekick report. Created
-  clean item. No action needed.
-- 2026-03-17T21:45–22:25: All systems nominal. DNS ~60k end-of-day, HA 200, pihole pass,
-  disk 36%, load nominal. clean/ has 5 items, 0 human chores (under threshold).
+  lower Pi-hole privacy level to 0. Done immediately.
+- 2026-03-16T15:04: dns-flood-monitor false positive (Pi-hole internal self-queries from 0.0.0.0).
+  Monitor updated to filter 0.0.0.0.
 - 2026-03-17T22:25: staleness-audit found database.maxDBdays mismatch (live=7, docs=14).
-  Washnote pushed. sidekick-errors-review flagged 18x chat-not-found pattern in dns-flood-monitor.
-- 2026-03-17T22:27: dns-flood-monitor critical threshold hit (59.8k). Emergency sidekick spawned
-  (again). Queries now up to 65k by end of day — all assessed normal IoT/VPS traffic.
-- 2026-03-17T22:47–22:49: Final DNS flood sidekick completed. Full breakdown: 65,406 queries,
-  VPS 40% (25.9k), 192.168.1.111 (10.4k), 192.168.1.210 (7.6k). Smooth hourly distribution,
-  no flood. 32% queries blocked normally. All healthy. Telegram still failing (chatId='marco').
-- 2026-03-17T23:15: Heartbeat cycle — all systems nominal. disk 37%, load 2.68, mem 3.1Gi avail,
-  sidekicks clean (0 active, 0 stale), 6 clean items, 2 human chores (under threshold).
+  Washnote pushed. sidekick-errors-review flagged 18x chat-not-found in dns-flood-monitor.
+- 2026-03-17T22:47–22:49: Final DNS flood assessment. 65,406 queries, all normal IoT/VPS traffic.
+  Smooth hourly distribution. 32% queries blocked. Telegram still failing (chatId='marco').
+- 2026-03-18T04:50: Marco: "Couldn't intervene before. Is the PayPal thing still going?"
+  Answer: 1,604 PayPal queries today (way down from 65k panic day). Source: OnePlus phone.
+  Marco: "What the flying fuck, i haven't opened the PP app in ages" — 🤣 💀 combo.
+  Outcome: Marco blocked i.paypal.com or ignored it (follow-up not in logs).
+- 2026-03-18T05:15: Marco asked why kitchen + Stanza Vecchi lights fail motion-trigger.
+  Root cause: Hue motion sensor reports illuminance every ~5 min. After scheduled off cycle,
+  sensor still reports old (high) lux — automation skips lights. Marco stood in dark kitchen
+  7+ min. Fix options offered; Marco said "Nah it's ok for now."
+- 2026-03-18T05:24: Marco requested permanent CET timezone note. Saved immediately.
+- 2026-03-18T05:39: Marco asked about living room AC (Climate React on but dashboard icons blank).
+  Diagnosed: input_booleans disconnected from automation. Marco: "flag it for when I'm at laptop."
+  Washnote written: washnotes/2026-03-20-ha-climate-react-dashboard-gap.md.
+- 2026-03-20T12:19: Marco dismissed 5 old DNS-related notifications via dashboard.
+- 2026-03-21T05:30: Marco: "New day, new bug." Living room lights dim + warm/orange.
+  Sidekick spawned (active). Investigation in-progress.

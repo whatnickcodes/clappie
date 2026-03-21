@@ -570,7 +570,7 @@ export function findLastCompletedSidekick(source, userId) {
   // Find the most recent completed sidekick from this user on this source.
   // Used for Telegram where there's no thread — just "your last conversation".
   const sidekicks = listSidekicks()
-    .filter(m => m.status === 'completed' && m.source === source && m.userId === userId);
+    .filter(m => (m.status === 'completed' || m.status === 'stale') && m.source === source && m.userId === userId);
 
   if (sidekicks.length === 0) return null;
 
