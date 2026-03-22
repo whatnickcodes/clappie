@@ -1,4 +1,0 @@
-interface:
-  display_name: "T2I Prompt Expert"
-  short_description: "Model-specific guidance for SOTA image prompts"
-  default_prompt: "Use $prompting-text-to-image-models to craft and refine a prompt for FLUX.2, Gemini, GPT Image, Recraft V4 Vector, or Imagen 4."

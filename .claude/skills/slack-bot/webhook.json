@@ -1,7 +1,0 @@
-{
-  "signing": {
-    "verify": "webhooks/verify.js",
-    "secretEnvVar": "SLACK_SIGNING_SECRET"
-  },
-  "send": "webhooks/send.js"
-}

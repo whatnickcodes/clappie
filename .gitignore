@@ -2,6 +2,9 @@
 .env
 *._20*
 
+# Skills — deployed via rsync manifests, not git
+.claude/skills/
+
 # OAuth tokens and certs (generated at runtime)
 recall/oauth/*.json
 recall/oauth/*.pem

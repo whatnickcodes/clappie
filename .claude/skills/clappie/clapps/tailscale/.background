@@ -1,5 +1,0 @@
-Tailscale
-status: tailscale status --json 2>/dev/null | grep -q '"BackendState": "Running"'
-start: tailscale up 2>/dev/null
-stop: tailscale down 2>/dev/null
-no-cli-stop: true

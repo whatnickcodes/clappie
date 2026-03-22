@@ -1,4 +1,0 @@
-interface:
-  display_name: "Esselunga Grocery Shopper"
-  short_description: "Run Esselunga shopping from Google Tasks."
-  default_prompt: "Read my dedicated grocery task list including each task's notes, ask for missing delivery slot inputs first, use task-note guidance during product selection, append useful purchase details back into task notes after items are added, and proceed through checkout with payment guardrails only when I approve."
