@@ -1,0 +1,7 @@
+{
+  "signing": {
+    "verify": "webhooks/verify.js",
+    "secretEnvVar": "TELEGRAM_WEBHOOK_SECRET"
+  },
+  "send": "webhooks/send.js"
+}

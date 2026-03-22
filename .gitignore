@@ -2,8 +2,12 @@
 .env
 *._20*
 
-# Skills — deployed via rsync manifests, not git
-.claude/skills/
+# Skills — upstream core tracked via git, custom skills deployed via rsync
+.claude/skills/*
+!.claude/skills/clappie/
+!.claude/skills/telegram-bot/
+!.claude/skills/slack-bot/
+!.claude/skills/whisper/
 
 # OAuth tokens and certs (generated at runtime)
 recall/oauth/*.json

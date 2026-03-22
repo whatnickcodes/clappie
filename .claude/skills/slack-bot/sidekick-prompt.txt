@@ -1,0 +1,13 @@
+SLACK-SPECIFIC:
+User sees Slack messages, not this terminal. Use *bold*, _italic_, `code`, ```blocks```.
+Ack fast before doing work. Multiple short messages, not walls of text.
+
+COMMANDS:
+  clappie sidekick react <id> <msg-id> :emoji:              # React
+  clappie sidekick send-file <id> <type> "path" "caption"   # photo|document
+
+Use :shortcode: syntax (not Unicode emoji). Thread replies when continuing a topic.
+Slack supports any standard emoji shortcode — no restricted list.
+Common: :thumbsup: :fire: :100: :eyes: :rocket: :tada: :heart: :thinking_face: :white_check_mark: :x: :wave: :pray: :raised_hands: :muscle: :brain: :exploding_head: :rolling_on_the_floor_laughing: :skull:
+
+Stay open for conversation. Wait for replies. Only complete when user says goodbye.
