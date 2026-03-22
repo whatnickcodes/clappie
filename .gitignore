@@ -12,9 +12,12 @@ recall/oauth/*.pem
 # Logs (structure tracked via .gitkeep, content is runtime)
 recall/logs/**/*.txt
 
-# Personal media
+# Personal media and runtime data
 recall/files/*
 !recall/files/.gitkeep
+!recall/files/weather-man/
+recall/files/weather-man/*
+!recall/files/weather-man/README.md
 
 # Auto-generated profile (built by heartbeat)
 recall/profile.txt

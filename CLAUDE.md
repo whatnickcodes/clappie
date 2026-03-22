@@ -22,32 +22,18 @@ On session start — execute in this order:
 1. `clappie background start` — see Hard Rule #6. First action, no exceptions.
 2. Read `SOUL.md` for voice and personality.
 3. Load `clappie` skill for anything personal-assistant or clappie related. Don't guess at how these systems work — the skill has the docs.
-4. For any home-ops task, load L1 from the knowledge base (see Knowledge Model below).
+4. For any task, consult L1 trigger index (see Knowledge Model below) to find the right docs/skills.
 
 ## Knowledge Model
 
-Operational truth lives in `/home/wash/homeops`. Follow progressive loading:
+Follow progressive loading. Start from the local trigger index — it routes to homeops, skills, or local docs as needed.
 
-- **L1** (always): `AGENTS.md` + `docs/index/trigger-index.md`
-- **L2** (on trigger): domain/architecture/reference docs for the active problem
-- **L3** (deep context): incident history, audit reports, session logs
+- **L1** (always): `recall/memory/trigger-index.md` — routing table for all domains (personal assistant, home-ops, medical, finance, scheduling, etc.)
+- **L2** (on trigger): domain-specific docs, skill REFERENCE.md files, or homeops docs as directed by L1
+- **L3** (deep context): homeops `docs/log/`, incident history, audit reports, session logs
 
-Do not preload the whole repo. Start from the trigger/task index and open only what's needed.
-
-## Routing
-
-| Topic | Load |
-|-------|------|
-| DNS, Pi-hole, relay, Unbound | `homeops/docs/domains/dns/pihole-operations.md` |
-| Pi-hole health monitoring | `homeops/docs/references/pihole-health-monitoring.md` |
-| Pi-hole backup/restore | `homeops/docs/references/pihole-backup-restore.md` |
-| Home Assistant operations | `homeops/docs/domains/home-assistant/ha-operations.md` |
-| HA access constraints | `homeops/docs/domains/home-assistant/ha-operations.md` section "Wash Access to HA" |
-| SSH/API access, endpoints | `homeops/docs/domains/access/shared-access.md` |
-| Backup/retention/staleness | `homeops/docs/domains/backups/backup-awareness.md` |
-| Security posture | `homeops/docs/domains/security/security-posture.md` |
-| Network topology | `homeops/docs/domains/networking/network-topology.md` |
-| Troubleshooting workflow | `homeops/docs/domains/troubleshooting/triage-workflow.md` |
+Home-ops operational truth lives in `/home/wash/homeops`. The local trigger index redirects there for infrastructure tasks.
+Do not preload the whole homeops repo. Open only what the trigger index directs.
 
 ## Filesystem Access
 
