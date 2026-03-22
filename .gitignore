@@ -22,6 +22,15 @@ recall/files/weather-man/*
 # Auto-generated profile (built by heartbeat)
 recall/profile.txt
 
+# Heartbeat runtime state
+chores/heartbeat-meta.json
+
+# Dirty notifications (transient, consumed and moved to clean/)
+notifications/dirty/*.txt
+
+# Local settings (machine-specific)
+.claude/settings.local.json
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Projects
 # ─────────────────────────────────────────────────────────────────────────────

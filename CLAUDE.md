@@ -73,7 +73,7 @@ Auth: credential helper in `.git/config` reads `$GH_PAT_CLAPPIE_WASH` from the e
 
 All secrets **must** be stored encrypted via sops+age. No plaintext on persistent disk — ever.
 
-**Loading secrets:** `export $(cat /run/wash/env | xargs)` — NOT `source /run/wash/env` (file has no `export` keywords; `source` sets shell vars but doesn't export to subprocesses like `curl` or `git`).
+**Loading secrets:** `export $(sed 's/="\(.*\)"$/=\1/' /run/wash/env | xargs -d '\n')` — NOT `source /run/wash/env` (file has no `export` keywords; `source` sets shell vars but doesn't export to subprocesses like `curl` or `git`). The `sed` strips wrapping double-quotes from values; `-d '\n'` prevents xargs from interpreting quotes.
 
 When you receive or recognize a secret, hold it in session memory only, determine the variable name, then instruct the operator to run `store-clappie-secret.sh` from the workstation. You cannot execute privileged steps yourself (no sudo).
 
