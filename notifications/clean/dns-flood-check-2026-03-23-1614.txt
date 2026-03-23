@@ -1,0 +1,10 @@
+Second DNS flood check of the day came back clear. 55.9k queries — all legitimate IoT traffic (Hue, Sensibo, WhatsApp, Amazon, etc). No anomalies detected. Consistent with the 15:44 check.
+
+---
+[meta]
+source: sidekick
+source_id: 2026-03-23-1614-telegram-bot-telegram-user-marco-dns-flood
+created: 2026-03-23 16:22
+icon: 🔍
+title: DNS flood check — clear (16:14)
+summary: 55.9k queries, all legit IoT traffic, no flood

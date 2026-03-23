@@ -1,0 +1,10 @@
+DNS flood monitor sidekick completed — no flood detected. 52.3k queries slightly above the 50k threshold but all other metrics normal. Top domains are legitimate IoT/app traffic (Hue, Sensibo, WhatsApp, Amazon). Hourly distribution even (~3.3k/hr), VPS share 43% (normal range). Just a busy day.
+
+---
+[meta]
+source: sidekick
+source_id: 2026-03-23-1544-telegram-bot-telegram-user-marco-dns-flood
+created: 2026-03-23 15:52
+icon: 🔍
+title: DNS flood check — clear
+summary: 52.3k queries, normal distribution, no flood

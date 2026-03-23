@@ -4,7 +4,7 @@ Steps:
 1. Read the port from recall/settings/sidekick/port.txt (plain integer, default 7777 if missing)
 2. Check if server is running: GET http://localhost:{port}/health
    If it fails, skip this check entirely.
-3. GET http://localhost:{port}/status to fetch all sidekicks as JSON
+3. GET http://localhost:{port}/list to fetch all sidekicks as JSON
 4. For each sidekick where status === "active":
    a. Extract paneId from the sidekick object
    b. Check if pane is alive:
@@ -33,11 +33,11 @@ Report in log:
 Agent tips:
 - Use simple bash for date math or use `date` command to check timestamp age
 - Curl examples:
-  curl -s http://localhost:7777/status | jq '.sidekicks[] | select(.status=="active")'
+  curl -s http://localhost:7777/list | jq '.[] | select(.status=="active")'
   curl -s -X POST http://localhost:7777/abort -H "Content-Type: application/json" -d '{"sidekickId":"id-here"}'
 - Be defensive: handle missing paneId gracefully (shouldn't happen, but log if seen)
 
 [heartbeat-meta]
 interval: 10m
 model: haiku
-last_run: 2026-03-23T08:21
+last_run: 2026-03-23T16:16

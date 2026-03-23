@@ -4,7 +4,7 @@ Steps:
 1. Read the port from recall/settings/sidekick/port.txt (plain integer, default 7777 if missing)
 2. Check if server is running: GET http://localhost:{port}/health
    If it fails, skip this check entirely.
-3. GET http://localhost:{port}/status to fetch all sidekicks as JSON
+3. GET http://localhost:{port}/list to fetch all sidekicks as JSON
 4. Find recovery candidates: sidekicks where ALL of these are true:
    a. status === "stale" (not "completed" or "active")
    b. source starts with "telegram-bot" or "slack-bot" (user-facing conversations only)
