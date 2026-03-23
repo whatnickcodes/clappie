@@ -98,5 +98,5 @@ Reference: Steadman, R.G. (1994). "Norms of apparent temperature in Australia." 
 
 - `curl` — for API calls
 - `HA_TOKEN` — environment variable (loaded from `/run/wash/env`)
-- Home Assistant accessible at `http://100.64.120.3:8123`
+- Home Assistant accessible at `http://100.116.172.30:8123`
 - Open-Meteo API (no auth required)

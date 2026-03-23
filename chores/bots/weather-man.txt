@@ -8,7 +8,7 @@ You are Weather Man. Your job: fetch outside weather + indoor room conditions, a
 
 Run this FIRST:
 ```
-set -a; source /run/wash/env; set +a
+export $(sed 's/="\(.*\)"$/=\1/' /run/wash/env | xargs -d '\n')
 ```
 This makes HA_TOKEN available via `printenv HA_TOKEN`.
 
@@ -66,7 +66,7 @@ For `outside_sunshine_index`: extract from `hourly.sunshine_duration` array the 
 
 Query HA API:
 ```
-curl -s -H "Authorization: Bearer $(printenv HA_TOKEN)" "http://100.64.120.3:8123/api/states"
+curl -s -H "Authorization: Bearer $(printenv HA_TOKEN)" "http://100.116.172.30:8123/api/states"
 ```
 
 From the JSON array, find ALL entities matching these patterns:
