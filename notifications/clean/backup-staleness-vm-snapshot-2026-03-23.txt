@@ -6,11 +6,14 @@ Other backups are fine:
 
 Next scheduled run: today at 07:00 CET. May self-resolve.
 
+**Update 01:16 CET** — Sidekick investigated further. Other Proxmox backups ran fine on March 22, so cron is healthy. Issue is isolated to vzdump + backup-to-gdrive.sh hook. Can't SSH to Proxmox from Zoidberg — check needed from phoebe. Likely cause: rclone GDrive auth expired or vzdump snapshot failure. Check /var/log/rclone-vm-snapshot.log on Proxmox.
+
 ---
 [meta]
 source: internal-sidekick
 source_id: 2026-03-23-0024-internal-telegram-user-7819438-backup-staleness
 created: 2026-03-23 01:06
+updated: 2026-03-23 01:16
 icon: 🔍
 title: Backup Staleness — VM Snapshot
-summary: VM snapshot backup missed March 22; vzdump or rclone/GDrive hook failed. Proxmox check needed.
+summary: VM snapshot backup missed March 22; vzdump or rclone/GDrive hook failed. Cron healthy. Check from phoebe needed.

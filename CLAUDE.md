@@ -69,6 +69,10 @@ Auth: credential helper in `.git/config` reads `$GH_PAT_CLAPPIE_WASH` from the e
 2. Stage and commit changes.
 3. Push: `git push origin main`
 
+## Home Server Config (non-secret)
+
+See [`recall/settings/README.md`](recall/settings/README.md) for the homeserver config runbook.
+
 ## Secrets — Prime Directive
 
 All secrets **must** be stored encrypted via sops+age. No plaintext on persistent disk — ever.

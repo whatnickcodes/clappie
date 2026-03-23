@@ -1,0 +1,5 @@
+# Home server config — non-secret values only
+# Secrets (tokens, keys) go in sops+age → /run/wash/env
+
+HA_URL=http://100.116.172.30:8123
+# SSH: use ~/.ssh/config aliases (ha-tailscale, pihole-tailscale)

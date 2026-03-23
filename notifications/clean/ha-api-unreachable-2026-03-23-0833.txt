@@ -1,0 +1,10 @@
+Weather Man sidekick escalated: Home Assistant API is unreachable at 100.64.120.3:8123. Multiple connection attempts timed out. Indoor sensor states could not be fetched. HA service should be verified.
+
+---
+[meta]
+source: sidekick
+source_id: sidekick-report-2026-03-23-0828-internal-you-are-weather-man-your
+created: 2026-03-23 08:33
+icon: 🚨
+title: HA API unreachable
+summary: HA at 100.64.120.3:8123 timing out — Weather Man can't fetch sensors

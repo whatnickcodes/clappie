@@ -9,7 +9,7 @@ Use this file first. Open only the docs/skills required by your active symptom o
 | DNS, Pi-hole, DNSSEC, relay queries | `/home/wash/homeops/docs/index/trigger-index.md` | Follow homeops routing |
 | HA infrastructure issues (not config) | `/home/wash/homeops/docs/index/trigger-index.md` | Follow homeops routing |
 | LXC containers, Proxmox, backups, restore | `/home/wash/homeops/docs/index/trigger-index.md` | Follow homeops routing |
-| SSH/API access, Tailscale, security posture | `/home/wash/homeops/docs/index/trigger-index.md` | Follow homeops routing |
+| SSH/API access, Tailscale, security posture | `~/.ssh/config` for hosts/ports/keys, `/home/wash/homeops/docs/index/trigger-index.md` | Follow homeops routing |
 | Zoidberg server ops, status, troubleshooting | `/home/wash/homeops/docs/index/trigger-index.md` | Follow homeops routing |
 | Incident diagnosis, post-mortem | `/home/wash/homeops/docs/index/trigger-index.md` | Follow homeops routing |
 
