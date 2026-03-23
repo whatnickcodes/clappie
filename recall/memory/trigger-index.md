@@ -1,6 +1,19 @@
 # Trigger Index
 
-Use this file first. Open only the docs/skills required by your active symptom or task.
+L1 routing table. Consult this for ANY task to find the right docs/skills.
+Open only what your active task requires — never preload.
+
+## Operations & Infrastructure
+
+| Trigger / Symptom | Open First | Then Open |
+|---|---|---|
+| Secrets, sops+age, env vars, API tokens | `recall/docs/operations.md` § Secrets | — |
+| On-call, health checks, escalation, remediation | `recall/docs/operations.md` § On-Call | Relevant skill (pi-hole, ha-*, etc.) |
+| Washnotes, writing to homeops | `recall/docs/operations.md` § Filesystem | — |
+| Tailscale, funnel, webhooks, public ingress | `recall/docs/operations.md` § Tailscale | — |
+| Clappie runtime, tmux, watchdog | `recall/docs/operations.md` § Clappie Runtime | Load `clappie` skill |
+| Home server config (IPs, ports, URLs) | `recall/settings/homeserver.txt` | `recall/settings/README.md` |
+| Access failures, permission errors | `recall/docs/operations.md` § Access Dead Ends | — |
 
 ## Home Operations (redirect to homeops)
 
@@ -9,7 +22,7 @@ Use this file first. Open only the docs/skills required by your active symptom o
 | DNS, Pi-hole, DNSSEC, relay queries | `/home/wash/homeops/docs/index/trigger-index.md` | Follow homeops routing |
 | HA infrastructure issues (not config) | `/home/wash/homeops/docs/index/trigger-index.md` | Follow homeops routing |
 | LXC containers, Proxmox, backups, restore | `/home/wash/homeops/docs/index/trigger-index.md` | Follow homeops routing |
-| SSH/API access, Tailscale, security posture | `~/.ssh/config` for hosts/ports/keys, `/home/wash/homeops/docs/index/trigger-index.md` | Follow homeops routing |
+| SSH/API access, Tailscale, security posture | `~/.ssh/config` for hosts/ports/keys, homeops trigger-index | Follow homeops routing |
 | Zoidberg server ops, status, troubleshooting | `/home/wash/homeops/docs/index/trigger-index.md` | Follow homeops routing |
 | Incident diagnosis, post-mortem | `/home/wash/homeops/docs/index/trigger-index.md` | Follow homeops routing |
 
@@ -64,4 +77,16 @@ Use this file first. Open only the docs/skills required by your active symptom o
 | Trigger / Symptom | Open First | Then Open |
 |---|---|---|
 | Session wrap-up, commit, push, update docs | Load `finalize` skill | — |
-| Secrets handling, sops+age, env vars | `CLAUDE.md` § Secrets | `OPERATIONS.md` in homeops |
+
+## Recall System — Operational Knowledge
+
+These directories hold accumulated knowledge. Read on demand, not at startup.
+
+| Directory | Contents | When to read |
+|---|---|---|
+| `recall/memory/` | User profile, personal facts, people, preferences | When personal context matters |
+| `recall/settings/` | Runtime config per skill, homeserver config | When configuring or debugging a skill |
+| `recall/docs/` | Operations runbook, reference material | When trigger-index routes here |
+| `recall/files/` | Saved media, data files (weather-man CSVs, etc.) | When working with specific data |
+| `recall/logs/` | Heartbeat logs, watchdog logs, sidekick logs | When investigating issues |
+| `recall/profile.txt` | Synthesized user profile (built by heartbeat) | When tailoring responses to user |

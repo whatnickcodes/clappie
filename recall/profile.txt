@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-23T12:26 CET
+Generated: 2026-03-23T12:56 CET
 ================================================================================
 
 WHO THEY ARE
@@ -98,6 +98,7 @@ TECHNICAL PREFERENCES
 - Reports saved to: projects/backtester/docs/ (not skill's docs/reports/)
 - Upstream skills tracked in git from whatnickcodes/clappie; custom skills deploy via rsync
 - Non-secret config (URLs, IPs) goes in recall/settings/homeserver.txt, not sops
+- Weather Man: Open-Meteo API (no key), 24-column CSV schema, hourly, 4 indoor rooms + outdoor
 
 PET PEEVES / STRONG OPINIONS
 -----------------------------
@@ -154,17 +155,17 @@ INFRASTRUCTURE QUICK REF
 - Notable LAN devices: River.lan (iPhone), Andrea's S25, tesla.lan, Home Assistant, Deco X50 router
 - Weather Man coordinates: Parma, Italy — 44.7824, 10.3373
 
-CURRENT SYSTEM STATE (as of 12:26 CET 2026-03-23)
+CURRENT SYSTEM STATE (as of 12:56 CET 2026-03-23)
 --------------------------------------------------
 - Heartbeat running, all chores operational. Watchdog healthy.
 - Heartbeat crash at 04:07 CET auto-recovered 04:08 CET (1 restart today, resolved).
-- Disk: Zoidberg ~40% used (59% free), Pi-hole 14%
-- Mem: ~3.8Gi available / 7.5G total | Load: ~2.30 | tailscaled running
+- Disk: Zoidberg ~40% used (60% free), Pi-hole 14%
+- Mem: ~46% available / 7.5G total | Load: ~1.81 | tailscaled running
 - backup-verify ✗ vm_snapshot stale (>26h threshold); escalation sent; needs Proxmox admin SSH
-  (haos_internal ✓ fresh 0.7h, proxmox_host ✓ fresh 1.2h — only VM snapshot affected)
-- dns-flood-monitor ✓ clear (queries: ~38k at 12:24, vps: 45%, ftl-db: 45.9M, disk: 14%)
+  (haos_internal ✓ fresh, proxmox_host ✓ fresh — only VM snapshot affected)
+- dns-flood-monitor ✓ clear (queries: ~4k at 12:42, vps: 59%, ftl-db: 45.9M, disk: 14%)
 - sidekick-cleanup ✓ 0 active | sidekick-recovery ✓ 0 candidates
-- clean-notifications ✓ dirty/ empty; clean/ has 4 items: backup-staleness, ha-api-unreachable, ha-dashboard-icons, welcome
+- clean-notifications ✓ nothing pending
 - network-health ✓ dns ok | ha-health-check ✓ 200 | pihole-health ✓ pass
 - staleness-audit ✓ clean — maxDBdays live=7 vs docs=14 is known/tracked issue
 - sidekick-errors-review ✓ 27 errors total; chatId bug top pattern; chore already written
@@ -214,29 +215,22 @@ PENDING FIXES (requires Marco on Phoebe)
 
 RECENT NOTABLE EVENTS
 ----------------------
-- 2026-03-23T12:24: dns-flood-monitor ✓ clear (queries: 38k, vps: 45%, disk: 14%)
-- 2026-03-23T12:13: system-health ✓ disk 59% free, load 2.30, mem 56% avail, tailscaled OK
+- 2026-03-23T12:44: dns-flood-monitor ✓ clear (queries: 4k, vps: 59%, disk: 14%)
+- 2026-03-23T12:44: system-health ✓ disk 40%, mem 46%, load 1.81, tailscaled OK
+- 2026-03-23T12:26: build-user-profile ✓ updated (249 lines)
+- 2026-03-23T12:24: dns-flood-monitor ✓ clear (queries: 38k, vps: 45%, ftl-db: 45.9M, disk: 14%)
 - 2026-03-23T11:56: build-user-profile ✓ updated (246 lines)
-- 2026-03-23T11:44: dns-flood-monitor ✓ clear (queries: 36k, vps: 44%, disk: 14%)
 - 2026-03-23T11:36: weather-man ✓ outside 13.1C/Clear sky, 4 rooms logged (HA fully recovered)
 - 2026-03-23T10:44: dns-flood-monitor ✓ clear (queries: 32k, vps: 43%, disk: 14%)
-- 2026-03-23T10:42: ha-health-check ✓ 200, network-health ✓ dns ok, pihole-health ✓ pass
 - 2026-03-23T09:43: ha-health-check ✓ 200, system-health ✓ all good
-- 2026-03-23T09:36: weather-man ✓ sidekick spawned
 - 2026-03-23T08:44: staleness-audit ✓ clean, backup-verify ✗ vm_snapshot stale 49.5h
 - 2026-03-23T08:33: clean-notifications ✓ processed HA API escalation → Telegram alert sent
-- 2026-03-23T08:38: weather-man ✗ HA still unreachable for indoor (outside 8.0C/Clear sky)
-- 2026-03-23T07:28: weather-man ⚠ outside 5.1C/Mainly clear, HA API failed (relapsed)
 - 2026-03-23T07:16: staleness-audit ✓, sidekick-errors-review ✓ 27 errors, ssh-tunnel-monitor ✓
 - 2026-03-23T07:06: backup-verify ✓ fresh — wash-backup-20260323-020014.tar.gz (3.1h old)
 - 2026-03-23T06:15: weather-man ✓ RESTORED — outside 4.8C/Mainly clear, 5 indoor rooms logged
-- 2026-03-23T05:31: weather-man ⚠ outside 4.5C/Mostly Clear, HA unreachable (rooms: --)
-- 2026-03-23T04:20: weather-man ⚠ HA API timeout (indoor sensors unavailable)
 - 2026-03-23T04:07–04:08: Heartbeat crash + auto-recovery (watchdog restart #1 today)
 - 2026-03-23T01:24: Last known Telegram activity (quiet since overnight)
-- 2026-03-23T01:14: Weather Man — logged 5.9C/Mainly clear outdoor, full indoor room set captured
 - 2026-03-23T01:06: staleness-audit ⚠ 1 mismatch — maxDBdays live=7 vs docs=14. Washnote pushed
-- 2026-03-23T00:25: telegram-miss-you ✓ sent (quiet overnight)
 - 2026-03-22T17:45: Medical research sidekick — ebastine vs cetirizine vs fexofenadine
   for seasonal allergic rhinitis. Implies allergy season approaching.
 - 2026-03-22: Weather Man chore live — logging hourly outdoor + indoor climate data for
