@@ -1,0 +1,72 @@
+CHORE: sidekick-errors-review
+Generated: 2026-03-23 01:06 CET
+Period: 2026-03-16 to 2026-03-23
+Total errors: 24
+
+─────────────────────────────────────────────────────────────
+PATTERN 1: "chat not found" — literal string chatId (21 errors)
+─────────────────────────────────────────────────────────────
+Occurrences: 21 (Mar 16: 8, Mar 17: 13)
+Sidekicks affected: telegram-user-dns-flood-monitor, telegram-user-marco-dns-flood,
+  telegram-user-send-a-telegram-message-to, dns-flood-emergency-response
+
+The chatId is being set to a plain word like "user", "marco", "alert", or "message"
+instead of a numeric Telegram chat ID. This happens when Claude generates the
+telegram-bot sidekick call and resolves the recipient by label/name rather than
+looking up the actual chat ID.
+
+Ideas:
+1. Add a chatId lookup map to telegram-bot settings (e.g., users.json: {"marco": "7229110406"})
+   so sidekicks can resolve names to IDs at runtime. The telegram-bot skill can then
+   translate before calling the API.
+2. Add a validation step in the telegram-bot send handler that catches non-numeric
+   chatId values, logs a descriptive warning, and rejects early rather than hitting
+   the API with a bad value.
+
+─────────────────────────────────────────────────────────────
+PATTERN 2: "chat not found" — numeric chatId (2 errors)
+─────────────────────────────────────────────────────────────
+Occurrences: 2 (Mar 17: chatId "8"; Mar 23: chatId "7819787258")
+Sidekicks affected: telegram-user-8-dns-flood, telegram-user-7819787258-backup-stalenes
+
+Two sub-cases:
+- chatId "8" is clearly a truncated/wrong ID (Mar 17). This looks like Claude emitting a
+  partial number rather than the real user ID.
+- chatId "7819787258" is a plausible numeric ID but Telegram rejected it (Mar 23). Could
+  be a bot-initiated message to a user who never opened the bot, or a wrong/stale user ID.
+
+Ideas:
+1. For the truncated-ID case: same fix as Pattern 1 — a validated lookup map would prevent
+   short/nonsense IDs from reaching the API.
+2. For plausible-but-rejected IDs: add a retry log noting "first contact required" — Telegram
+   requires the user to /start the bot before it can message them. Document this as a known
+   constraint; sidekick should note it gracefully rather than retrying.
+
+─────────────────────────────────────────────────────────────
+PATTERN 3: "message to react not found" (1 error)
+─────────────────────────────────────────────────────────────
+Occurrences: 1 (Mar 16 06:00, sidekick: telegram-bot-test-from-wash-debug)
+Args: messageId "98", reaction "👀"
+
+The bot tried to react to message ID 98, which no longer exists (likely deleted or
+very old). This was a debug/test sidekick so low operational impact.
+
+Ideas:
+1. Wrap react calls in a try/catch that degrades gracefully — log the miss but don't
+   surface as an error if the message age is > N hours.
+2. For future test sidekicks, use a fresh message ID obtained from a recent send rather
+   than a hardcoded one.
+
+─────────────────────────────────────────────────────────────
+SUMMARY / PRIORITY
+─────────────────────────────────────────────────────────────
+High: Pattern 1 + 2 (23/24 errors). Root cause is chatId resolution — Claude generates
+sidekick payloads with label strings instead of real numeric IDs. A name→ID map in
+telegram-bot settings would eliminate the majority of these.
+
+Low: Pattern 3 (1 error, debug sidekick, no recurrence).
+
+ACTION NEEDED FROM MARCO:
+- Decide on chatId resolution approach (settings map vs. Claude prompt fix vs. handler
+  validation). Pattern 1 is recurring and likely to resurface on every dns-flood alert
+  until fixed.

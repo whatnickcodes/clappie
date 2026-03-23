@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-21T06:52 CET
+Generated: 2026-03-23T01:08 CET
 ================================================================================
 
 WHO THEY ARE
@@ -12,6 +12,7 @@ Machines: Phoebe (workstation, sudo/secrets live here), Zoidberg (server, runs W
 Location: Italy — timezone CET (Europe/Rome). Server runs UTC; always convert to CET.
 Setup: Self-hosted homelab operator running a full home stack — DNS, automation, VPN,
        backups, monitoring, AI agent. Runs Wash (Clappie) as a 24/7 ops assistant via Telegram.
+Health note: Has seasonal allergies (researched ebastine vs cetirizine vs fexofenadine, 2026-03-22).
 
 WHAT THEY DO
 ------------
@@ -23,6 +24,8 @@ WHAT THEY DO
 - Active development: Clappie (Claude Code wrapper), sidekick system, heartbeat chores
 - Interested in multi-agent party games (council, dungeon-crawl, red-vs-blue, startup-sim, etc.)
 - Home devices: OnePlus phone, Hue lights, Sensibo AC controller, Alexa, Tesla
+- Uses AI-initiated sidekicks for async research (PubMed medical research, HA investigation, etc.)
+- Parma coordinates: 44.7824, 10.3373 — confirms Italian city location
 
 PEOPLE IN THEIR LIFE
 --------------------
@@ -31,7 +34,8 @@ Wash: the AI agent persona running on Clappie, Wash-from-Firefly energy
 Phoebe: Marco's workstation (sudo ops, origin of git configs/secrets)
 Zoidberg: Marco's server (where Wash runs 24/7 under wash account)
 River.lan: Marco's iPhone (top DNS client, consistently high query volume)
-Andrea: person on the home network (Andrea's S25 Samsung phone)
+Andrea: person on the home network (Andrea's S25 Samsung phone, has own Sensibo room sensor)
+Sensibo rooms: andrea (bedroom), camera_vecchi, cucina (kitchen), sala (living room)
 
 HOW THEY COMMUNICATE
 --------------------
@@ -84,11 +88,13 @@ TECHNICAL PREFERENCES
 - Home automation: Home Assistant (YAML automations, Adaptive Lighting, Sensibo AC)
 - VPN/access: Tailscale (wash has operator rights, funnel for public HTTPS ingress)
 - Git workflow: push directly to main (washnotes and clappie); no feature branches
-- Secrets: always `export $(cat /run/wash/env | xargs)` — NOT `source` (no export keywords)
+- Secrets: always `export $(sed 's/="\(.*\)"$/=\1/' /run/wash/env | xargs -d '\n')` — NOT `source`
 - SSH to Pi-hole: `ssh -i /run/wash/ssh/wash-pihole-tailscale root@100.87.157.76`
 - Web scraping: Brave for clean text, Firecrawl for structure/media, Playwright for SPAs
 - Prefers curl-based skills over MCP servers (fewer long-lived processes, less overhead)
 - Heartbeat model: sonnet | Sidekick tasks: opus | Heartbeat interval: 600s
+- Copy to clipboard: tmux load-buffer (works with iTerm2 tmux -CC control mode)
+- Reports saved to: projects/backtester/docs/ (not skill's docs/reports/)
 
 PET PEEVES / STRONG OPINIONS
 -----------------------------
@@ -113,7 +119,9 @@ COMMON WORKFLOWS / RECURRING REQUESTS
 - Casual check-ins via Telegram — warm + brief, not a wall of text
 - Heartbeat chores (every 600s): network-health, pihole-health, ha-health-check,
   system-health, sidekick-cleanup, clean-notifications, build-user-profile,
-  backup-verify, dns-flood-monitor, tmp-cleanup, staleness-audit, sidekick-errors-review
+  backup-verify, dns-flood-monitor, tmp-cleanup, staleness-audit, sidekick-errors-review,
+  weather-man (hourly climate logging), ssh-tunnel-monitor, sidekick-recovery,
+  telegram-miss-you, weekly-summary-or-so
 - Washnotes: write findings to homeops/washnotes/, push to main (direct, no branches)
 - Sidekick spawning for multi-step async tasks (Sidekick HQ on :7777)
 - Tailscale funnel management (public HTTPS → localhost:7777 for Telegram webhook)
@@ -125,6 +133,9 @@ COMMON WORKFLOWS / RECURRING REQUESTS
   cross-referenced with query patterns — opinionated summary, not raw data dump
 - Light/AC troubleshooting via HA: reads logs, finds root cause, proposes fix options
 - Asks Wash to "flag it for when I'm at the laptop" — washnote = persistent to-do
+- Medical research via PubMed sidekicks (deep 10+ source investigations)
+- Weather + indoor climate logging for Sensibo calibration dataset (Weather Man chore)
+- /researcher Telegram command: evidence-based research sidekick with PubMed support
 
 INFRASTRUCTURE QUICK REF
 --------------------------
@@ -136,20 +147,22 @@ INFRASTRUCTURE QUICK REF
 - Watchdog timer: wash-clappie-watchdog.timer (deployed, running)
 - VPS relay: 100.101.18.71 (typically 38-40% of Pi-hole query volume — normal)
 - Notable LAN devices: River.lan (iPhone), Andrea's S25, tesla.lan, Home Assistant, Deco X50 router
+- Weather Man coordinates: Parma, Italy — 44.7824, 10.3373
 
-CURRENT SYSTEM STATE (as of 06:52 CET 2026-03-21)
+CURRENT SYSTEM STATE (as of 01:08 CET 2026-03-23)
 --------------------------------------------------
-- All heartbeat chores green: system-health ✓, ha-health-check ✓ 200, network-health ✓,
-  pihole-health ✓, sidekick-cleanup ✓ (1 active, 0 stale), backup-verify ✓ (3h 52m fresh)
-- Disk: Zoidberg 37% used, Pi-hole ~14%, FTL DB ~19-21MB
-- Active sidekick: 2026-03-21T05:30 — Marco reporting living room lights dim/warm (orange).
-  Wash checking; sidekick paused mid-investigation (Marco: "Talk to me" at 05:42, then resumed).
-  Root issue not yet resolved in logs.
-
-NOTIFICATIONS (clean/)
-----------------------
-- ha-climate-react-dashboard-2026-03-20.txt: Climate React dashboard icons blank (input_booleans
-  disconnected from automation). Pending Marco at Phoebe to fix.
+- Heartbeat running, all chores operational.
+- Disk: Zoidberg 39%, Pi-hole 14%
+- backup-verify ✗ stale — vm_snapshot 42h+ old (>26h threshold) — persistent today
+- dns-flood-monitor: clear at 01:06 CET (0.74k queries, VPS 47%, FTL DB 43.7M, disk 14%)
+- staleness-audit ⚠ 1 mismatch found at 01:06 — report pushed (likely kernel version drift)
+- sidekick-errors-review: 24 errors reviewed at 01:06 CET
+- Last Telegram activity: 2026-03-22 23:27 CET (active convo, miss-you skipped)
+- telegram-miss-you: sent at 00:25 CET (6 days since last activity, before last night's convo)
+- Active skills: backtesto-agent, google-workspace, ha-automation, ha-dashboard,
+  home-assistant-manager, investigate, medical-presentations, pi-hole, prompting-text-to-image-models,
+  prompt-master, rclone, researcher-investigate, sensibo, shift-scheduler, skill-creator,
+  skill-deployer, skill-porter, finalize, container-management
 
 PENDING FIXES (requires Marco on Phoebe)
 -----------------------------------------
@@ -158,54 +171,37 @@ PENDING FIXES (requires Marco on Phoebe)
   Manual backup done 2026-03-14. Fix: add `User=wash` + `Group=wash`, then daemon-reload.
 - Git credential helper double-escaped `\\!` in /home/wash/clappie/.git/config —
   store subcommand fails noisily; push/fetch still work.
-- Pi-hole disk space: recurring issue. FTL database historically grows to 2.4GB+.
-  Needs long-term fix (maxDBdays policy, periodic cleanup).
+- Pi-hole disk space: recurring issue. FTL database historically grows. Needs long-term
+  maxDBdays policy enforcement.
 - Pi-hole privacy level: lowered to 0 at Marco's request (2026-03-16T13:56) to expose
   flooding device. Pending decision: keep at 0 or reset to 2.
-- Unknown IPv6 2001:b07:aa7:9ea1:69fb:... flagged as watch-target (146 queries on sample day).
-- dns-flood-monitor chatId routing bug: AI-initiated sidekicks get literal 'marco' or
-  non-numeric IDs instead of 7229110406. 18 failures logged; chore created for fix.
-- staleness-audit doc mismatch: database.maxDBdays live=7, docs say 14 — washnote pushed,
-  needs operator decision.
+- Unknown IPv6 2001:b07:aa7:9ea1:69fb:... flagged as watch-target.
+- dns-flood-monitor chatId routing bug: AI-initiated sidekicks get literal 'marco' instead
+  of numeric ID 7229110406. 18 failures logged; chore created for fix.
+- staleness-audit mismatch: database.maxDBdays live=7, docs say 14. Washnote pushed
+  2026-03-23. Needs operator decision on whether to update docs.
 - HA Climate React dashboard: input_booleans disconnected from automation. Dashboard icons
   blank. Fix options in washnotes/2026-03-20-ha-climate-react-dashboard-gap.md.
-- Living room lights dim/warm (orange): reported 2026-03-21T05:31 CET. Investigation
-  in-progress as of 06:52. Likely Adaptive Lighting or scene/mode mismatch.
+- Luce Mobile (living room): gets stuck ON after no-motion. Root cause investigated
+  2026-03-21. Fix not confirmed applied yet.
+- Hue motion sensor illuminance reporting lag: ~5-min update interval causes old lux reading
+  to block motion-triggered lights. Kitchen + Stanza Vecchi affected. Marco deferred fix.
+- VM Snapshot backup: persistently stale (42h+ vs 26h threshold). Needs investigation.
+- network-health false positive: Zoidberg (VPS on Hetzner) uses Hetzner DNS, not Pi-hole.
+  ads.google.com won't be blocked at localhost. Check definition needs rewrite, not a real fail.
 
 RECENT NOTABLE EVENTS
 ----------------------
-- 2026-03-14: Telegram webhook completely dead (wrong funnel port, no webhook registered,
-  missing TELEGRAM_WEBHOOK_SECRET). Fixed funnel, re-registered webhook.
-- 2026-03-14: 41-day backup gap discovered (systemd User= bug, rclone silent failure).
-  Manual backup run; permanent fix pending sudo on Phoebe.
-- 2026-03-14: Clappie credential helper double-escaped `\\!` bug — git push works but
-  store subcommand fails noisily.
-- 2026-03-15T11:15: Marco checked in casually ("hey, been quiet over here — everything good?").
-  Confirmed all green. Appreciates casual check-in dynamic, not cold status dumps.
-- 2026-03-16T05:06: Marco flagged Pi-hole disk space again ("yet again 🤦🏻‍♂️") — recurring issue.
-- 2026-03-16T05:42–05:52: DNS concurrent query overload. Client 100.101.18.71 flooding
-  dhl.com ANY queries ~20+/sec. Container restarted.
-- 2026-03-16T09:45: Marco reinstalled Telegram, confirmed comms. First react: 👀.
-- 2026-03-16T13:56–14:13: Marco sent ambiguous "Please do that", clarified via screenshot —
-  lower Pi-hole privacy level to 0. Done immediately.
-- 2026-03-16T15:04: dns-flood-monitor false positive (Pi-hole internal self-queries from 0.0.0.0).
-  Monitor updated to filter 0.0.0.0.
-- 2026-03-17T22:25: staleness-audit found database.maxDBdays mismatch (live=7, docs=14).
-  Washnote pushed. sidekick-errors-review flagged 18x chat-not-found in dns-flood-monitor.
-- 2026-03-17T22:47–22:49: Final DNS flood assessment. 65,406 queries, all normal IoT/VPS traffic.
-  Smooth hourly distribution. 32% queries blocked. Telegram still failing (chatId='marco').
-- 2026-03-18T04:50: Marco: "Couldn't intervene before. Is the PayPal thing still going?"
-  Answer: 1,604 PayPal queries today (way down from 65k panic day). Source: OnePlus phone.
-  Marco: "What the flying fuck, i haven't opened the PP app in ages" — 🤣 💀 combo.
-  Outcome: Marco blocked i.paypal.com or ignored it (follow-up not in logs).
-- 2026-03-18T05:15: Marco asked why kitchen + Stanza Vecchi lights fail motion-trigger.
-  Root cause: Hue motion sensor reports illuminance every ~5 min. After scheduled off cycle,
-  sensor still reports old (high) lux — automation skips lights. Marco stood in dark kitchen
-  7+ min. Fix options offered; Marco said "Nah it's ok for now."
-- 2026-03-18T05:24: Marco requested permanent CET timezone note. Saved immediately.
-- 2026-03-18T05:39: Marco asked about living room AC (Climate React on but dashboard icons blank).
-  Diagnosed: input_booleans disconnected from automation. Marco: "flag it for when I'm at laptop."
-  Washnote written: washnotes/2026-03-20-ha-climate-react-dashboard-gap.md.
-- 2026-03-20T12:19: Marco dismissed 5 old DNS-related notifications via dashboard.
+- 2026-03-23T01:06: staleness-audit ⚠ 1 mismatch — maxDBdays live=7 vs docs=14. Washnote pushed.
+- 2026-03-22T23:27: Last Telegram activity — active convo.
+- 2026-03-22T17:45: Medical research sidekick — ebastine vs cetirizine vs fexofenadine
+  for seasonal allergic rhinitis. Implies allergy season approaching.
+- 2026-03-22: Weather Man chore live — logging hourly outdoor + indoor climate data for
+  Sensibo calibration. Report: reports/investigate-weather-api-parma-2026-03-22.md
+- 2026-03-22: Workspace-sync showing 109 modified local files drift noted (20:06 CET).
 - 2026-03-21T05:30: Marco: "New day, new bug." Living room lights dim + warm/orange.
-  Sidekick spawned (active). Investigation in-progress.
+  Sidekick spawned; Luce Mobile investigation completed 12:30 CET.
+- 2026-03-18T04:50: PayPal DNS spam on OnePlus — 1,604 queries in a day, zero app usage.
+  Marco: "What the flying fuck" + 🤣💀. Iconic.
+- 2026-03-16T09:45: Marco reinstalled Telegram, first react: 👀 (confirmed comms restored).
+- 2026-03-14: 41-day backup gap + webhook death — both fixed same day.
