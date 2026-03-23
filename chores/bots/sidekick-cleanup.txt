@@ -15,7 +15,7 @@ Steps:
       - If older than 30 minutes from now, mark as stale
 5. For each stale sidekick:
    - Kill the pane if alive: `tmux kill-pane -t {paneId} 2>/dev/null`
-   - POST to http://localhost:{port}/abort
+   - POST to http://localhost:{port}/kill
      Body: {"sidekickId": "{sidekick-id}"}
 6. Log results to recall/logs/heartbeat/YYYY-MM-DD.txt (APPEND to daily file):
    Format: [HH:MM] sidekick-cleanup ✓ active: A completed: C stale: S (cleaned)
@@ -34,7 +34,7 @@ Agent tips:
 - Use simple bash for date math or use `date` command to check timestamp age
 - Curl examples:
   curl -s http://localhost:7777/list | jq '.[] | select(.status=="active")'
-  curl -s -X POST http://localhost:7777/abort -H "Content-Type: application/json" -d '{"sidekickId":"id-here"}'
+  curl -s -X POST http://localhost:7777/kill -H "Content-Type: application/json" -d '{"sidekickId":"id-here"}'
 - Be defensive: handle missing paneId gracefully (shouldn't happen, but log if seen)
 
 [heartbeat-meta]
