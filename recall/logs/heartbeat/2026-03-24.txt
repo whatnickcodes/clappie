@@ -33,3 +33,4 @@
 [06:02] heartbeat ✓ 4 checks (clean-notifications, sidekick-cleanup, sidekick-recovery, tmp-cleanup)
 [06:04] tmp-cleanup ✓ deleted: 0 files
 [06:05] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[06:05] heartbeat ✓ all checks skipped — none due
