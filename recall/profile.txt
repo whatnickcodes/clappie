@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-24T05:15 CET
+Generated: 2026-03-24T05:45 CET
 ================================================================================
 
 WHO THEY ARE
@@ -158,31 +158,36 @@ INFRASTRUCTURE QUICK REF
 - Notable LAN devices: River.lan (iPhone), Andrea's S25, tesla.lan, Home Assistant, Deco X50 router
 - Weather Man coordinates: Parma, Italy — 44.7824, 10.3373
 
-CURRENT SYSTEM STATE (as of 05:15 CET 2026-03-24)
+CURRENT SYSTEM STATE (as of 05:45 CET 2026-03-24)
 --------------------------------------------------
 - Heartbeat running, all chores operational. Watchdog healthy.
 - Disk: Zoidberg ~42% used, Pi-hole 15%
-- Mem: ~1.7/7.5Gi available | Load 1.58 nominal | tailscaled running
-- system-health ✓, network-health ✓, pihole-health ✓ (05:15)
-- ha-health-check ✗ 403 — consecutive: 1 (as of 05:15 — may be transient; watching)
-- dns-flood-monitor ✓ clear (14k queries, VPS 52%) (05:15) — dirty notification created
-- sidekick-cleanup ✓ active: 11, stale: 11 cleaned (05:15)
-- sidekick-recovery ✓ candidates: 0 (05:15)
+- Mem: ~1.7/7.5Gi available | Load nominal | tailscaled running
+- system-health ✓, network-health ✓, pihole-health ✓
+- ha-health-check ✗ 403 — consecutive: 1 (as of 05:15; may be transient, watching)
+- rclone oauth broken — backup-verify unable to verify; last known good: 14:42 Mar 23
+- dns-flood-monitor ✓ clear (15k queries, VPS 52%)
+- sidekick-cleanup ✓ active: 4, stale: 1 cleaned (05:42)
+- sidekick-recovery ✓ candidates: 0 (05:42)
+- sidekick-errors-review: 35 errors, 2 patterns — chatId resolution still unresolved
+- staleness-audit: 1 mismatch found, report committed, push failed (no GitHub SSH key)
 - telegram-miss-you ✓ sent (05:15) — Marco quiet since 01:24 CET 2026-03-23
 
 PENDING FIXES (requires Marco on Phoebe)
 -----------------------------------------
 - backup-wash.service + cleanup-wash-backups.service: missing `User=wash` — runs as root,
   rclone silent failure caused 41-day backup gap. Fix: add `User=wash` + `Group=wash`, daemon-reload.
-- VM snapshot backup: stale on 2026-03-23. Human chore created for Proxmox check.
+- rclone oauth broken — backup-verify failing. Needs reauth on Phoebe.
+- VM snapshot backup: stale. Human chore created for Proxmox check.
 - Missing HA entities: input_datetime.last_backup_pihole and input_datetime.last_backup_wash
   do NOT exist in HA. Need to add to extra_input_datetimes.yaml on HA.
 - Git credential helper double-escaped `\\!` in /home/wash/clappie/.git/config — known, non-blocking.
+- No GitHub SSH key on Zoidberg — staleness-audit push fails. Needs setup.
 - Pi-hole disk space: recurring. maxDBdays live=7 (docs say 14). Washnote pushed 2026-03-23.
 - Pi-hole privacy level: lowered to 0 (2026-03-16) to expose flooding device. Decision pending.
 - Unknown IPv6 2001:b07:aa7:9ea1:69fb:... flagged as watch-target.
 - dns-flood-monitor chatId routing bug: AI sidekicks get literal 'marco' instead of 7229110406.
-  27 failures logged. Chore written. Confirmed still active 2026-03-23.
+  35 failures logged. Chore written. Confirmed still active 2026-03-24.
 - HA Climate React dashboard: input_booleans disconnected from automation. Icons blank.
   Fix options in washnotes/2026-03-20-ha-climate-react-dashboard-gap.md.
 - Luce Mobile (living room): gets stuck ON after no-motion. Fix not confirmed applied.
@@ -193,6 +198,7 @@ PENDING FIXES (requires Marco on Phoebe)
 RECENT NOTABLE EVENTS
 ----------------------
 - 2026-03-24T05:15: HA health-check ✗ 403 — consecutive: 1. Watching.
+- 2026-03-24T05:15: rclone oauth broken — backup-verify degraded.
 - 2026-03-24T05:15: telegram-miss-you sent (Marco quiet since 01:24 CET 2026-03-23)
 - 2026-03-24T05:15: sidekick-cleanup cleaned 11 stale sidekicks
 - 2026-03-23T17:49: Last full heartbeat run — all 8 checks clean (final run of the day)
