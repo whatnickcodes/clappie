@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-24T07:54 CET
+Generated: 2026-03-24T08:27 CET
 ================================================================================
 
 WHO THEY ARE
@@ -60,8 +60,9 @@ Via Telegram:
   but appreciates when Wash can figure it out from context
 - Asks for device breakdowns with MAC identification: cross-referenced, opinionated analysis
 - When something is fixed: brief ack + move on. Not looking for essays.
-- Last Telegram activity: 2026-03-24 05:52 CET (checked living room temps,
-  confirmed DNS threshold bump, questioned secrets fix, stickered his way through it)
+- Addresses Wash as "Mr. Wash" sometimes — warm, familiar
+- Last Telegram activity: 2026-03-24 05:52 CET (living room temps, DNS threshold bump,
+  secrets fix confirmation, "Great, thanks Mr. Wash")
 
 Emoji combos during active ops:
 - 🔥 ⚡ 👨‍💻 = approves bold action
@@ -98,14 +99,13 @@ TECHNICAL PREFERENCES
 - SSH to Pi-hole: `ssh -i /run/wash/ssh/wash-pihole-tailscale root@100.87.157.76`
 - Web scraping: Brave for clean text, Firecrawl for structure/media, Playwright for SPAs
 - Prefers curl-based skills over MCP servers (fewer long-lived processes, less overhead)
-- Heartbeat model: sonnet | Sidekick tasks: opus | Heartbeat interval: 600s
+- Heartbeat model: haiku | Sidekick tasks: opus | Heartbeat interval: 600s (10m)
 - Copy to clipboard: tmux load-buffer (works with iTerm2 tmux -CC control mode)
 - Reports saved to: projects/backtester/docs/ (not skill's docs/reports/)
 - Upstream skills tracked in git from whatnickcodes/clappie; custom skills deploy via rsync
 - Non-secret config (URLs, IPs) goes in recall/settings/homeserver.txt, not sops
-- Weather Man: Open-Meteo API (no key), 38-column CSV schema, hourly, 6 indoor rooms + outdoor
-  Rooms tracked: andrea, camera_vecchi, cucina, ikea_air_sala, sala, andrea_armadio,
-  cucina_frigo, sala_subwoofer (each with temp/humidity/realfeel)
+- Weather Man: Open-Meteo API (no key), 24-column CSV schema, hourly, 4 indoor rooms + outdoor
+  Rooms tracked: andrea, camera_vecchi, cucina, sala (each with temp/humidity/realfeel)
 - CLAUDE.md stays ~65 lines max — reference material lives in recall/docs/ via trigger-index
 
 PET PEEVES / STRONG OPINIONS
@@ -130,7 +130,7 @@ COMMON WORKFLOWS / RECURRING REQUESTS
 --------------------------------------
 - Telegram quick-checks: "check dns", "is HA up?" — terse, data-first, no preamble
 - Casual check-ins via Telegram — warm + brief, not a wall of text
-- Heartbeat chores (every 600s): network-health, pihole-health, ha-health-check,
+- Heartbeat chores (every 10m): network-health, pihole-health, ha-health-check,
   system-health, sidekick-cleanup, clean-notifications, build-user-profile,
   backup-verify, dns-flood-monitor, tmp-cleanup, staleness-audit, sidekick-errors-review,
   weather-man (hourly climate logging), ssh-tunnel-monitor, sidekick-recovery,
@@ -166,20 +166,20 @@ INFRASTRUCTURE QUICK REF
 - Weather Man coordinates: Parma, Italy — 44.7824, 10.3373
 - DNS flood threshold: 60k queries/day (bumped from 50k on 2026-03-24T05:51 by Marco)
 
-CURRENT SYSTEM STATE (as of 07:54 CET 2026-03-24)
+CURRENT SYSTEM STATE (as of 08:27 CET 2026-03-24)
 --------------------------------------------------
 - Heartbeat running, all chores operational. Watchdog healthy.
 - Disk: Zoidberg ~47% used, Pi-hole 15%
-- Mem: ~5.9Gi avail | load moderate (active sidekicks) | tailscaled running
+- Mem: ~4.5Gi avail | load moderate | tailscaled running
 - system-health ✓, network-health ✓ (dns ok, funnel ok), pihole-health ✓
-- ha-health-check ✗ 401 — consecutive: 1 (was 200 at 06:17; flipped to 401 at 07:22; intermittent)
+- ha-health-check ✓ 200 at 08:22 — recovered from 07:22 401 (intermittent HA token issue)
 - rclone oauth broken — backup-verify unable to verify; last known good: 14:42 Mar 23
-- dns-flood-monitor ✓ clear (26k queries, VPS 51%) — threshold now 60k
+- dns-flood-monitor ✓ clear (29.5k queries, VPS 51%) — threshold 60k
 - sidekick-cleanup ✓ active: 0, stale: 0
 - sidekick-recovery ✓ candidates: 0
 - sidekick-errors-review: 35 errors, 2 patterns — chatId resolution still unresolved
 - staleness-audit: 1 mismatch found, report committed, push failed (no GitHub SSH key)
-- weather-man ✓ sidekick spawned 07:22
+- weather-man ✓ recorded: outside 6.6C/Clear sky, 4 rooms logged (08:22)
 - Marco active this morning: 05:49-05:52 CET
 
 PENDING FIXES (requires Marco on Phoebe)
@@ -207,20 +207,19 @@ PENDING FIXES (requires Marco on Phoebe)
 
 RECENT NOTABLE EVENTS
 ----------------------
+- 2026-03-24T08:22: ha-health-check ✓ 200 — recovered from 07:22 401; weather-man logged 6.6C/Clear
 - 2026-03-24T07:22: ha-health-check ✗ 401 — second 4xx this morning (403 at 05:15, recovered, now 401)
-- 2026-03-24T07:22: weather-man ✓ sidekick spawned (second run today)
 - 2026-03-24T05:51: DNS flood alert threshold bumped from 50k to 60k — Marco confirmed live
 - 2026-03-24T05:50: Marco active — living room temps checked (19.4-20.1C, CR off, all normal)
 - 2026-03-24T05:50: Marco confirmed secrets fix: bash chores now use set -a; source — not sed+xargs
+- 2026-03-24T05:50: Marco "Great, thanks Mr. Wash" — warm close after threshold + secrets fix
 - 2026-03-24T05:49: Marco "test from curl" — webhook confirmed live, comms good
-- 2026-03-24T06:17: ha-health-check ✓ 200 — 403 from 05:15 was transient, resolved (briefly)
 - 2026-03-24T05:15: rclone oauth broken — backup-verify degraded.
 - 2026-03-24T05:15: sidekick-cleanup cleaned 11 stale sidekicks
-- 2026-03-23T17:53: ha-health-check ✗ 403 — consecutive: 1 (then recovered overnight)
 - 2026-03-23T17:53: dns-flood-monitor ⚠ warning (queries: 62.7k, vps: 42%, disk: 15%)
-- 2026-03-23T17:09: dns-flood-monitor ⚠ 59k queries (5th warning that day, all legit IoT)
 - 2026-03-23T04:07–04:08: Heartbeat crash + auto-recovery (watchdog restart, resolved)
 - 2026-03-22T17:45: Medical research sidekick — ebastine vs cetirizine vs fexofenadine (allergy season)
+- 2026-03-22T23:24: VM snapshot backup stale (42h) — vzdump or upload hook failure. No Proxmox SSH access.
 - 2026-03-22: Weather Man chore live — logging hourly outdoor + indoor climate data for Sensibo calibration.
 - 2026-03-21T12:25: Luce Mobile stuck ON — root cause found (nanoleaf script race + zero-brightness bug)
 - 2026-03-21T05:30: Marco: "New day, new bug." Living room lights dim/warm. Sidekick spawned.
