@@ -177,3 +177,9 @@
 [10:32] clean-notifications ✓ no dirty files
 [10:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [10:34] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[10:34] heartbeat: all checks skipped, none due
+[10:43] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+2026-03-24T10:43 [clean-notifications] dirty/=0 files — nothing to process; clean/=0 items
+[10:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[10:44] dns-flood-monitor ✓ clear (queries: 40.4k, vps: 55%, disk: 15%)
+[10:44] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
