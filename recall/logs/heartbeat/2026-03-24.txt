@@ -396,3 +396,69 @@
 [16:25] ha-health-check ✓ 200
 [16:25] pihole-health ✓ pass
 [16:25] weather-man ✓ sidekick spawned
+[16:25] build-user-profile ✓ updated (283 lines)
+[16:33] clean-notifications ✓ dirty/ empty
+[16:33] sidekick-recovery ✓ candidates: 0, recovered: 0
+[16:33] sidekick-cleanup ✓ active: 9, completed: 0, stale: 8 (8 dead panes cleaned; server offline mid-cleanup)
+[16:43] clean-notifications ✓ (dirty/ empty, nothing to process)
+[16:43] dns-flood-monitor ⚠ warning (queries: 64.7k >60k threshold, vps: 49%, db: 50M, disk: n/a)
+[16:43] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[16:43] sidekick-cleanup ✓ active: 0, completed: 8, stale: 8 (cleaned)
+[16:45] heartbeat: 0 checks run — all skipped, none due
+[16:54] clean-notifications — dirty/ empty, nothing to process
+[16:54] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[16:55] sidekick-cleanup ✓ active: 6, completed: 0, stale: 6 (cleaned; server crashed after /kill calls — empty reply)
+[16:55] system-health ✓ all good (disk 48% used, mem 5.7Gi avail, load 2.66, tailscaled running)
+[16:55] network-health ✓ dns ok, funnel ok
+[16:55] build-user-profile ✓ updated (287 lines)
+[17:03] clean-notifications ✓ dirty/ empty, nothing to process
+[17:04] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[17:03] dns-flood-monitor ⚠ warning (queries: 66k, vps: 49%, disk: 15%)
+[17:04] sidekick-cleanup ✓ active: 4, completed: 0, stale: 4 (cleaned; server crashed after first /kill — all panes already dead)
+[17:05] heartbeat ✓ all checks skipped, none due
+[17:13] clean-notifications ✓ dirty/ empty, nothing to process
+[17:13] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[17:15] sidekick-cleanup ✓ active: 4, completed: 0, stale: 3 (cleaned; server crashed on /kill after first call)
+[17:23] clean-notifications ✓ (dirty/ empty, nothing to process)
+[17:23] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[17:23] dns-flood-monitor ⚠ warning (queries: 67k, vps: 48%, disk: 15%)
+[17:23] backup-verify ✓ fresh (oldest: pihole 14.4h)
+[17:25] sidekick-cleanup ✓ active: 5, completed: 0, stale: 2 (cleaned)
+[17:27] system-health ✓ all good (disk 48%, load 3.02, tailscale up)
+[17:25] network-health ✓ dns ok, funnel ok
+[17:25] ha-health-check ✓ 200
+[17:25] weather-man ✓ sidekick spawned
+[17:25] pihole-health ✓ pass
+[17:25] build-user-profile ✓ updated (305 lines)
+[17:33] clean-notifications ✓ dirty/ empty | sidekick-recovery ✓ candidates: 0, recovered: 0
+[17:35] sidekick-cleanup ✓ active: 4, completed: 3, stale: 1 (cleaned)
+[17:43] clean-notifications ✓ (nothing to process — dirty/ empty)
+[17:43] dns-flood-monitor ⚠ warning (queries: 69k, vps: 47%, disk: 15%)
+[17:43] sidekick-recovery ✓ candidates: 1, recovered: 0, skipped: 1
+[17:44] dns-flood-monitor ✓ investigated — 69k queries, no flood (normal traffic: whatsapp/sensibo/hue/netflix/spotify), vps: 47%, db: 50M, disk: 15%
+[17:46] sidekick-cleanup ✓ active: 5, completed: 0, stale: 4 (cleaned)
+[17:53] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[17:53] clean-notifications ✓ (2 dirty files → 1 clean item + 1 chore; DNS no-flood result processed; Telegram chat-not-found chore created)
+[17:56] system-health ✓ all good
+[17:56] network-health ✓ dns ok, funnel ok
+[17:56] sidekick-cleanup ✓ active: 4, completed: 0, stale: 4 (cleaned)
+[17:55] build-user-profile ✓ updated (303 lines)
+[18:03] dns-flood-monitor ✓ clear (queries: 73.6k, vps: 44%, disk: 15%)
+[18:03] clean-notifications ✓ (dirty/ empty, nothing to process; clean/ has 2 items)
+[18:03] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[18:05] sidekick-cleanup ✓ active: 3, completed: 0, stale: 3 (cleaned)
+[18:13] clean-notifications ✓ — dirty/ empty, nothing to process; clean/ has 2 items
+[18:13] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[18:15] sidekick-cleanup ✓ active: 0, completed: 0, stale: 2 (cleaned)
+[18:23] clean-notifications ✓ — dirty/ empty, nothing to process; clean/ has 2 items
+[18:23] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[18:23] dns-flood-monitor ⚠ warning (queries: 77.9k, vps: 42%, disk: 15%)
+[18:26] system-health ✓ all good
+[18:26] network-health ✓ dns ok, funnel ok
+[18:27] sidekick-cleanup ✓ active: 1, completed: 0, stale: 1 (cleaned)
+[18:25] ha-health-check ✗ 401 — consecutive: 1
+[18:25] pihole-health ✓ pass
+[18:27] weather-man ✓ outside 16.2C/Clear sky, 4 rooms logged
+[18:25] build-user-profile ✓ updated (302 lines)
+[18:34] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[18:34] clean-notifications ✓ processed: 0 files, created: 0 items
