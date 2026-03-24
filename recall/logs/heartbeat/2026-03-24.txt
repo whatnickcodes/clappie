@@ -127,3 +127,5 @@
 [08:56] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
 [08:56] system-health ✓ all good (disk 47% used, mem 22%, load 2.53, tailscaled running)
 [08:56] build-user-profile ✓ updated (233 lines)
+[09:02] clean-notifications ✓ dirty/ empty, clean/ empty — nothing to process
+[09:02] dns-flood-monitor ✓ clear (queries: 31k, vps: 51%, disk: 15%)
