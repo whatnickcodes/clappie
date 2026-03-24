@@ -79,3 +79,5 @@
 [07:24] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
 [07:24] build-user-profile ✓ updated (228 lines)
 [07:32] clean-notifications ✓ (dirty/ empty, clean/ empty, 0 chores pending)
+[07:34] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[07:34] sidekick-cleanup ✓ active: 3, completed: 0, stale: 3 (cleaned)
