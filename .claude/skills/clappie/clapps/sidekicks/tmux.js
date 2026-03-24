@@ -11,6 +11,7 @@ import { existsSync, readFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import config from './config.js';
+import { getConversationContext } from './state.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -240,20 +241,28 @@ function formatAttachmentsBlock(attachments) {
   return lines.join('\n');
 }
 
-function formatPreviousSidekickBlock(previousSidekickId) {
+function formatPreviousSidekickReference(previousSidekickId) {
   if (!previousSidekickId) return '';
-
   const logPath = `recall/logs/sidekicks/${previousSidekickId}.txt`;
-  const fullPath = join(PROJECT_ROOT, logPath);
+  if (!existsSync(join(PROJECT_ROOT, logPath))) return '';
+  return `\nPrevious session log (for detailed action history): ${logPath}`;
+}
 
-  if (!existsSync(fullPath)) return '';
+function formatConversationContext(sidekick) {
+  // Slack threads already have good continuity via threadTs — skip thread context
+  if (sidekick.threadTs) {
+    return formatPreviousSidekickReference(sidekick.previousSidekickId);
+  }
 
-  return `
-PREVIOUS CONVERSATION:
-There was a previous conversation. Full log:
-  ${logPath}
-Read it if you need context.
-`;
+  // Try inline conversation thread first
+  const context = getConversationContext(sidekick.source, sidekick.chatId);
+  if (context) {
+    const ref = formatPreviousSidekickReference(sidekick.previousSidekickId);
+    return context + ref;
+  }
+
+  // Fallback: no thread file yet (backward compat)
+  return formatPreviousSidekickReference(sidekick.previousSidekickId);
 }
 
 function formatReplyToBlock(replyTo) {
@@ -317,7 +326,7 @@ ${templatedLayers}${contextLayers}`;
  */
 function buildTaskMessage(sidekick) {
   const attachmentsBlock = formatAttachmentsBlock(sidekick.attachments);
-  const previousBlock = formatPreviousSidekickBlock(sidekick.previousSidekickId);
+  const previousBlock = formatConversationContext(sidekick);
   const replyToBlock = formatReplyToBlock(sidekick.replyTo);
   const isAiInitiated = sidekick.aiInitiated || sidekick.source === 'internal';
   const taskLabel = isAiInitiated ? 'Task' : "User's request";

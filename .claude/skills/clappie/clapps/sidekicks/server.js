@@ -445,7 +445,7 @@ async function notifySuperCC(event, message, excludeIds = []) {
 // SIDEKICK LIFECYCLE
 // ─────────────────────────────────────────────────────────────────────────────
 
-async function createSidekick({ source, routeSkill, userId, chatId, text, username, attachments, previousSidekickId, replyTo, messageId }) {
+async function createSidekick({ source, routeSkill, userId, chatId, text, username, attachments, previousSidekickId, replyTo, messageId, threadTs }) {
   const sidekick = state.createSidekick(source, {
     userId,
     chatId,
@@ -478,7 +478,7 @@ async function createSidekick({ source, routeSkill, userId, chatId, text, userna
   log(`New sidekick: ${sidekick.id}${nameLabel}${squadLabel} from ${source}/${username || userId}`);
 
   try {
-    const paneId = await spawnSession({ ...sidekick, id: sidekick.id, attachments, previousSidekickId, replyTo, promptMode });
+    const paneId = await spawnSession({ ...sidekick, id: sidekick.id, attachments, previousSidekickId, replyTo, promptMode, threadTs });
     state.updateSidekick(sidekick.id, { paneId, status: 'active' });
     log(`Sidekick ${sidekick.id} deployed in pane ${paneId}`);
   } catch (err) {
@@ -839,6 +839,7 @@ async function handleWebhook(req, path) {
       previousSidekickId,
       replyTo: result.replyTo,
       messageId: result.messageId,
+      threadTs: result.threadTs,
     });
 
     return new Response('OK', { status: 200 });

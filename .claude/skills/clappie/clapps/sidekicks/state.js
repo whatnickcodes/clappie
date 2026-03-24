@@ -18,7 +18,11 @@ const __dirname = dirname(__filename);
 const PROJECT_ROOT = join(__dirname, '..', '..', '..', '..', '..');
 const RECALL_DIR = join(PROJECT_ROOT, 'recall');
 const SIDEKICKS_DIR = join(RECALL_DIR, 'logs', 'sidekicks');
+const THREADS_DIR = join(RECALL_DIR, 'logs', 'threads');
 const FILES_DIR = join(RECALL_DIR, 'files');
+
+// Only Telegram uses thread context — Slack has native thread continuity via threadTs
+const THREAD_SOURCES = ['telegram-bot'];
 
 // ─────────────────────────────────────────────────────────────────────────────
 // HELPERS
@@ -474,6 +478,9 @@ export function logMessage(sidekickId, direction, message) {
     console.error(`[state] Failed to log message: ${err.message}`);
   }
 
+  // Append to conversation thread (external sources only, guards inside)
+  appendThread(meta.source, meta.chatId, direction, message, sidekickId);
+
   // Live-recompile party grouped log (debounced 3s)
   if (meta.simulationId) {
     _debouncedPartyRecompile(meta.simulationId);
@@ -519,6 +526,119 @@ export function completeSidekick(sidekickId) {
     status: 'completed',
     endedAt: new Date().toISOString(),
   });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CONVERSATION THREADS - Rolling cross-session memory per user/chat
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Append a message to the per-user conversation thread file.
+ * Only records external source messages (telegram-bot, slack-bot).
+ * Thread files are JSONL: one JSON object per line, append-only.
+ */
+export function appendThread(source, chatId, direction, text, sidekickId) {
+  if (!THREAD_SOURCES.includes(source)) return;
+  if (direction === 'action') return;
+  if (!chatId || !text) return;
+
+  // Sanitize chatId to prevent path traversal
+  const safeChatId = String(chatId).replace(/[^a-zA-Z0-9_-]/g, '');
+  if (!safeChatId) return;
+
+  const sourceDir = join(THREADS_DIR, source);
+  if (!existsSync(sourceDir)) {
+    mkdirSync(sourceDir, { recursive: true });
+  }
+
+  const entry = JSON.stringify({
+    ts: new Date().toISOString(),
+    dir: direction === 'in' ? 'in' : 'out',
+    text: text.length > 200 ? text.slice(0, 200) + '...' : text,
+    sk: sidekickId || '',
+  });
+
+  const threadFile = join(sourceDir, `${safeChatId}.jsonl`);
+
+  try {
+    appendFileSync(threadFile, entry + '\n', 'utf8');
+
+    // Compact: if file exceeds 200 lines, keep last 100
+    const content = readFileSync(threadFile, 'utf8');
+    const lines = content.trim().split('\n');
+    if (lines.length > 200) {
+      writeFileSync(threadFile, lines.slice(-100).join('\n') + '\n', 'utf8');
+    }
+  } catch (err) {
+    console.error(`[state] Failed to append thread: ${err.message}`);
+  }
+}
+
+/**
+ * Read recent conversation context for a user/chat, formatted for prompt injection.
+ * Returns a formatted string or null if no relevant entries.
+ */
+export function getConversationContext(source, chatId, opts = {}) {
+  const {
+    maxEntries = 20,
+    maxAgeMs = 6 * 60 * 60 * 1000, // 6 hours
+    maxBytes = 3000,
+  } = opts;
+
+  const safeChatId = String(chatId).replace(/[^a-zA-Z0-9_-]/g, '');
+  if (!safeChatId) return null;
+
+  const threadFile = join(THREADS_DIR, source, `${safeChatId}.jsonl`);
+  if (!existsSync(threadFile)) return null;
+
+  let lines;
+  try {
+    lines = readFileSync(threadFile, 'utf8').trim().split('\n').filter(Boolean);
+  } catch {
+    return null;
+  }
+
+  if (lines.length === 0) return null;
+
+  const now = Date.now();
+  let entries = [];
+
+  for (const line of lines) {
+    try {
+      const entry = JSON.parse(line);
+      const age = now - new Date(entry.ts).getTime();
+      if (age <= maxAgeMs) entries.push(entry);
+    } catch {
+      // Skip malformed lines
+    }
+  }
+
+  if (entries.length === 0) return null;
+
+  // Keep last N entries
+  entries = entries.slice(-maxEntries);
+
+  // Format entries
+  const formatted = entries.map(e => {
+    const time = new Date(e.ts).toLocaleTimeString('en-GB', {
+      hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Rome',
+    });
+    const who = e.dir === 'in' ? 'User' : 'You';
+    return `[${time}] ${who}: ${e.text}`;
+  });
+
+  // Apply byte cap — drop oldest until under limit
+  while (formatted.length > 1 && formatted.join('\n').length > maxBytes) {
+    formatted.shift();
+  }
+
+  return `
+CONVERSATION HISTORY (recent messages with this user):
+
+${formatted.join('\n')}
+
+Continue the conversation naturally. The user's new message is below.
+`;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
