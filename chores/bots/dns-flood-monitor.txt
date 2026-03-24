@@ -6,20 +6,24 @@ SSH: `ssh -i /run/wash/ssh/wash-pihole-tailscale root@100.87.157.76`
 
 SSH to Pi-hole and gather these 4 metrics:
 
-1. **Queries today** — run on Pi-hole:
+1. **Queries today (filtered)** — query FTL database directly from host (Pi-hole v6, BusyBox date):
    ```
-   docker exec pihole pihole-FTL --config dns.queryCount 2>/dev/null || cat /etc/pihole/pihole-FTL.db.info 2>/dev/null
+   sqlite3 /var/lib/docker/volumes/pihole_pihole_data/_data/pihole-FTL.db \
+     "SELECT COUNT(*) FROM queries WHERE timestamp >= $(date -d @$(date -d $(date +%Y-%m-%d) +%s) +%s 2>/dev/null || date -d 'today 00:00:00' +%s 2>/dev/null || echo $(($(date +%s) - $(date +%H)*3600 - $(date +%M)*60 - $(date +%S)))) AND client != '0.0.0.0';"
    ```
-   Fallback: `docker exec pihole pihole -c -e 2>/dev/null | head -5` or query the API:
+   Simpler fallback — let epoch = midnight via truncation:
    ```
-   curl -s http://localhost/admin/api.php?summary | jq -r '.dns_queries_today'
+   ssh -i /run/wash/ssh/wash-pihole-tailscale root@100.87.157.76 \
+     'TODAY=$(date +%Y-%m-%d); EPOCH=$(date -d "$TODAY" +%s 2>/dev/null || date -j -f "%Y-%m-%d" "$TODAY" +%s); sqlite3 /var/lib/docker/volumes/pihole_pihole_data/_data/pihole-FTL.db "SELECT COUNT(*) FROM queries WHERE timestamp >= $EPOCH AND client != '"'"'0.0.0.0'"'"';"'
    ```
 
-2. **VPS query share** — what % of queries come from the VPS relay (100.101.18.71):
+2. **VPS query share** — count queries from VPS relay (100.101.18.71) and divide by total:
    ```
-   curl -s http://localhost/admin/api.php?getQuerySources | jq -r '.top_sources["100.101.18.71"]'
+   ssh -i /run/wash/ssh/wash-pihole-tailscale root@100.87.157.76 \
+     'TODAY=$(date +%Y-%m-%d); EPOCH=$(date -d "$TODAY" +%s 2>/dev/null || date -j -f "%Y-%m-%d" "$TODAY" +%s); sqlite3 /var/lib/docker/volumes/pihole_pihole_data/_data/pihole-FTL.db "SELECT COUNT(*) FROM queries WHERE timestamp >= $EPOCH AND client = '"'"'100.101.18.71'"'"';"'
    ```
-   Divide by total queries to get percentage.
+   Divide by total filtered count to get percentage.
+   Note: Pi-hole v6 deprecated `/admin/api.php` — use sqlite3 directly.
 
 3. **FTL database size**:
    ```
@@ -125,4 +129,4 @@ NEVER create standalone files. ALWAYS append ONE line to the daily file.
 [heartbeat-meta]
 interval: 15m
 model: haiku
-last_run: 2026-03-23T01:10
+last_run: 2026-03-24T05:15

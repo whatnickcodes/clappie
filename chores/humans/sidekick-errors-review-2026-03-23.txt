@@ -70,3 +70,7 @@ ACTION NEEDED FROM MARCO:
 - Decide on chatId resolution approach (settings map vs. Claude prompt fix vs. handler
   validation). Pattern 1 is recurring and likely to resurface on every dns-flood alert
   until fixed.
+
+---
+[meta]
+status: completed

@@ -12,3 +12,4 @@ source_id: 2026-03-23-0024-internal-telegram-user-7819438-backup-staleness
 created: 2026-03-23 01:06
 priority: normal
 title: Check Proxmox VM Snapshot Backup Failure
+status: completed

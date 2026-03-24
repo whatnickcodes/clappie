@@ -6,7 +6,7 @@
 
 import { existsSync, readFileSync, writeFileSync, mkdirSync, appendFileSync } from 'fs';
 import { join, dirname } from 'path';
-import { discoverBackgroundApps, isAppRunning, launchApp } from './tmux.js';
+import { discoverBackgroundApps, isAppRunning, launchApp, stopApp } from './tmux.js';
 import { findAllSockets, pingSocket } from './cli.js';
 
 const PROJECT_ROOT = join(dirname(import.meta.path), '..', '..', '..', '..', '..');
@@ -124,6 +124,12 @@ function shouldRestart(appState) {
 
 async function restartApp(app) {
   log(`Restarting ${app.name} (${app.id})...`);
+
+  // Kill stale session first (prevents alreadyRunning false positive)
+  try {
+    await stopApp(app.id);
+    await new Promise(r => setTimeout(r, 500));
+  } catch {}
 
   // For apps with startCmd, use that directly
   if (app.startCmd) {

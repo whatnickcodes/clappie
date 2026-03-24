@@ -12,9 +12,10 @@ create a chore for your approval instead of acting immediately.
 
 ---
 [chore-meta]
-status: pending
+status: completed
 created: 2026-01-01 00:00
 context: onboarding
 icon: 👋
 title: Welcome to Clappie
 summary: Your first chore - approve this to get started!
+approved: 2026-03-23 13:27
