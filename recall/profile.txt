@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-24T09:24 CET
+Generated: 2026-03-24T09:54 CET
 ================================================================================
 
 WHO THEY ARE
@@ -29,6 +29,7 @@ WHAT THEY DO
 - /researcher Telegram command: evidence-based research sidekick with PubMed + source override routing
 - Has anesthesia shift scheduling + university lecture timetable sync (skills exist for both)
 - Backtesting / portfolio analysis interest (backtesto-agent skill)
+- Likely works in medicine/anesthesia (anesthesia shift scheduler, antihistamine research, Parma university)
 
 PEOPLE IN THEIR LIFE
 --------------------
@@ -166,11 +167,11 @@ INFRASTRUCTURE QUICK REF
 - Weather Man coordinates: Parma, Italy — 44.7824, 10.3373
 - DNS flood threshold: 60k queries/day (bumped from 50k on 2026-03-24T05:51 by Marco)
 
-CURRENT SYSTEM STATE (as of 09:24 CET 2026-03-24)
+CURRENT SYSTEM STATE (as of 09:54 CET 2026-03-24)
 --------------------------------------------------
-- Heartbeat running, all chores operational. Watchdog healthy.
+- Heartbeat running, all chores operational. Watchdog healthy (all 3 apps up).
 - Disk: Zoidberg ~47% used, Pi-hole 15%
-- Mem: ~1.7Gi avail out of 7.5Gi | load 2.59 | tailscaled running
+- Mem: ~1.7Gi avail out of 7.5Gi | load ~2.5 | tailscaled running
 - system-health ✓, network-health ✓ (dns ok, funnel ok), pihole-health ✓
 - ha-health-check ✓ 200 at 09:26 — stable after earlier 401/403 intermittent issues
 - rclone oauth broken — backup-verify unable to verify; last known good: 14:42 Mar 23
@@ -179,7 +180,7 @@ CURRENT SYSTEM STATE (as of 09:24 CET 2026-03-24)
 - sidekick-recovery ✓ candidates: 0
 - sidekick-errors-review: 35 errors, 2 patterns — chatId resolution still unresolved
 - staleness-audit: 1 mismatch found, report committed, push failed (no GitHub SSH key)
-- weather-man ✓ recorded: outside 6.6C/Clear sky, 4 rooms logged (09:24 sidekick spawned)
+- weather-man ✓ recorded: outside 6.6C/Clear sky, 4 rooms logged (sidekick spawned 09:24)
 - Marco active this morning: 05:49-05:52 CET
 
 PENDING FIXES (requires Marco on Phoebe)
@@ -207,24 +208,23 @@ PENDING FIXES (requires Marco on Phoebe)
 
 RECENT NOTABLE EVENTS
 ----------------------
-- 2026-03-24T09:24: build-user-profile ✓ — this run; system nominal
+- 2026-03-24T09:52: clean-notifications ✓ nothing to process; sidekick-recovery ✓ 0 candidates
+- 2026-03-24T09:42: dns-flood-monitor ✓ clear (33k queries, vps 51%, disk 15%)
 - 2026-03-24T09:26: ha-health-check ✓ 200, pihole-health ✓, network-health ✓ dns ok, funnel ok
-- 2026-03-24T09:24: weather-man ✓ sidekick spawned (09:27 outdoor weather scheduled)
+- 2026-03-24T09:24: weather-man ✓ sidekick spawned; build-user-profile ✓ updated (236 lines)
 - 2026-03-24T08:56: system-health ✓ all good (disk 47%, mem 22%, load 2.53, tailscaled running)
 - 2026-03-24T08:28: weather-man ✓ recorded again (outside: 6.6C/Clear sky)
-- 2026-03-24T08:26: ha-health-check ✓ 200 — recovered; network-health ✓ dns ok, funnel ok
-- 2026-03-24T08:22: ha-health-check ✓ 200 — recovered from 07:22 401; weather-man logged 6.6C/Clear
-- 2026-03-24T07:22: ha-health-check ✗ 401 — second 4xx this morning (403 at 05:15, recovered, now 401)
+- 2026-03-24T08:22: ha-health-check ✓ 200 — recovered; weather-man logged 6.6C/Clear sky
+- 2026-03-24T07:22: ha-health-check ✗ 401 — second 4xx this morning (403 at 05:15, recovered)
 - 2026-03-24T05:52: Marco checked living room — CR off, Tado idle (19.4C vs 18.5C setpoint = residual heat),
   CO2 1233ppm, PM2.5 40 (poor air quality). Wash confirmed within normal params. Offered Tado setpoint drop.
 - 2026-03-24T05:51: DNS flood alert threshold bumped from 50k to 60k — Marco confirmed live
 - 2026-03-24T05:50: Marco confirmed secrets fix: bash chores now use set -a; source — not sed+xargs
 - 2026-03-24T05:50: Marco "Great, thanks Mr. Wash" — warm close after threshold + secrets fix
 - 2026-03-24T05:49: Marco "test from curl" — webhook confirmed live, comms good
-- 2026-03-24T05:15: rclone oauth broken — backup-verify degraded.
-- 2026-03-24T05:15: sidekick-cleanup cleaned 11 stale sidekicks
-- 2026-03-23T17:53: dns-flood-monitor ⚠ warning (queries: 62.7k, vps: 42%, disk: 15%)
-- 2026-03-23T04:07–04:08: Heartbeat crash + auto-recovery (watchdog restart, resolved)
+- 2026-03-24T05:15: rclone oauth broken — backup-verify degraded; sidekick-cleanup cleaned 11 stale
+- 2026-03-23T17:53: dns-flood-monitor warning (queries: 62.7k, vps: 42%, disk: 15%)
+- 2026-03-23T04:07: Heartbeat crash + auto-recovery (watchdog restart, resolved)
 - 2026-03-22T17:45: Medical research sidekick — ebastine vs cetirizine vs fexofenadine (allergy season)
 - 2026-03-22T23:24: VM snapshot backup stale (42h) — vzdump or upload hook failure. No Proxmox SSH access.
 - 2026-03-22: Weather Man chore live — logging hourly outdoor + indoor climate data for Sensibo calibration.
