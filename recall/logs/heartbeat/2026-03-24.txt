@@ -67,3 +67,14 @@
 [07:12] clean-notifications ✓ nothing to process — dirty/ empty, clean/ empty
 [07:14] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
 [07:16] sidekick-cleanup ✓ active: 4, completed: 0, stale: 4 (cleaned — server down before /kill, panes already dead)
+[07:22] ha-health-check ✗ 401 — consecutive: 1
+[07:22] pihole-health ✓ pass
+[07:22] dns-flood-monitor ✓ clear (queries: 24k, vps: 50%, disk: 15%)
+
+[07:22] clean-notifications ✓ nothing to process
+[07:22] weather-man ✓ sidekick spawned
+[07:24] sidekick-cleanup ✓ active: 4, completed: 0, stale: 3 (cleaned)
+[07:24] system-health ✓ all good
+[07:24] network-health ✓ dns ok, funnel ok
+[07:24] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[07:24] build-user-profile ✓ updated (228 lines)

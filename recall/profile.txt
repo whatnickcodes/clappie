@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-24T06:54 CET
+Generated: 2026-03-24T07:24 CET
 ================================================================================
 
 WHO THEY ARE
@@ -163,20 +163,20 @@ INFRASTRUCTURE QUICK REF
 - Notable LAN devices: River.lan (iPhone), Andrea's S25, tesla.lan, Home Assistant, Deco X50 router
 - Weather Man coordinates: Parma, Italy — 44.7824, 10.3373
 
-CURRENT SYSTEM STATE (as of 06:54 CET 2026-03-24)
+CURRENT SYSTEM STATE (as of 07:24 CET 2026-03-24)
 --------------------------------------------------
 - Heartbeat running, all chores operational. Watchdog healthy.
 - Disk: Zoidberg ~47% used, Pi-hole 15%
-- Mem: 3.3Gi avail | load 4.46 (active sidekicks) | tailscaled running
+- Mem: ~3Gi avail | load moderate (active sidekicks) | tailscaled running
 - system-health ✓, network-health ✓ (dns ok, funnel ok), pihole-health ✓
-- ha-health-check ✓ 200 — recovered (was 403 at 05:15, cleared by 06:17)
+- ha-health-check ✗ 401 — consecutive: 1 (was 200 at 06:17; flipped again at 07:22)
 - rclone oauth broken — backup-verify unable to verify; last known good: 14:42 Mar 23
-- dns-flood-monitor ✓ clear (20.7k queries, VPS 51%) — threshold now 60k (bumped 2026-03-24T05:51)
-- sidekick-cleanup ✓ active: 6, stale: 0 (last run 06:52)
-- sidekick-recovery ✓ candidates: 0 (06:54)
+- dns-flood-monitor ✓ clear (24k queries, VPS 50%) — threshold now 60k (bumped 2026-03-24T05:51)
+- sidekick-cleanup ✓ active: 4, stale: 3 (cleaned — panes dead, server down before /kill)
+- sidekick-recovery ✓ candidates: 0
 - sidekick-errors-review: 35 errors, 2 patterns — chatId resolution still unresolved
 - staleness-audit: 1 mismatch found, report committed, push failed (no GitHub SSH key)
-- telegram-miss-you ✓ sent (05:15) — Marco replied at 05:49 (all good)
+- weather-man ✓ sidekick spawned 07:22
 - Marco active this morning: 05:49-05:52 CET — checked living room temps, bumped DNS threshold,
   discussed secrets fix, sticker'd and emoji'd his way through it
 
@@ -200,25 +200,29 @@ PENDING FIXES (requires Marco on Phoebe)
 - Luce Mobile (living room): gets stuck ON after no-motion. Fix not confirmed applied.
 - Hue motion sensor illuminance lag: ~5-min updates block motion-triggered lights. Deferred.
 - network-health false positive: Zoidberg uses Hetzner DNS, not Pi-hole. Check needs rewrite.
+- HA token intermittent: ha-health-check returning 401/403 periodically. Not yet diagnosed.
 - Human chores queue: 3 pending items in chores/humans/.
 
 RECENT NOTABLE EVENTS
 ----------------------
+- 2026-03-24T07:22: ha-health-check ✗ 401 — second 4xx this morning (403 at 05:15, recovered, now 401)
+- 2026-03-24T07:22: weather-man ✓ sidekick spawned (second run today)
 - 2026-03-24T05:51: DNS flood alert threshold bumped from 50k to 60k — Marco confirmed live
 - 2026-03-24T05:50: Marco active — living room temps checked (19.4-20.1C, CR off, all normal)
 - 2026-03-24T05:50: Marco confirmed secrets fix: bash chores now use set -a; source — not sed+xargs
 - 2026-03-24T05:49: Marco "test from curl" — webhook confirmed live, comms good
-- 2026-03-24T06:17: ha-health-check ✓ 200 — 403 from 05:15 was transient, resolved
+- 2026-03-24T06:17: ha-health-check ✓ 200 — 403 from 05:15 was transient, resolved (briefly)
 - 2026-03-24T05:15: rclone oauth broken — backup-verify degraded.
 - 2026-03-24T05:15: sidekick-cleanup cleaned 11 stale sidekicks
 - 2026-03-23T17:53: ha-health-check ✗ 403 — consecutive: 1 (then recovered overnight)
 - 2026-03-23T17:53: dns-flood-monitor ⚠ warning (queries: 62.7k, vps: 42%, disk: 15%)
 - 2026-03-23T17:09: dns-flood-monitor ⚠ 59k queries (5th warning that day, all legit IoT)
 - 2026-03-23T04:07–04:08: Heartbeat crash + auto-recovery (watchdog restart, resolved)
-- 2026-03-23T01:24: Previous last known Telegram activity from Marco (before 05:49 today)
 - 2026-03-22T17:45: Medical research sidekick — ebastine vs cetirizine vs fexofenadine (allergy season)
 - 2026-03-22: Weather Man chore live — logging hourly outdoor + indoor climate data for Sensibo calibration.
+- 2026-03-21T12:25: Luce Mobile stuck ON — root cause found (nanoleaf script race + zero-brightness bug)
 - 2026-03-21T05:30: Marco: "New day, new bug." Living room lights dim/warm. Sidekick spawned.
+- 2026-03-20T05:56: HA Climate React dashboard gap diagnosed + washnoted. Deferred to laptop session.
 - 2026-03-18T04:50: PayPal DNS spam on OnePlus — 1,604 queries/day idle. Marco: "What the flying fuck" 🤣💀
 - 2026-03-16T09:45: Marco reinstalled Telegram, first react: 👀 (confirmed comms restored).
 - 2026-03-14: 41-day backup gap + webhook death — both fixed same day.
