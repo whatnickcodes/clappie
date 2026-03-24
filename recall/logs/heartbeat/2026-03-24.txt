@@ -36,3 +36,11 @@
 [06:05] heartbeat ✓ all checks skipped — none due
 [06:13] clean-notifications ✓ no dirty items, 1 clean item, 5 chores
 [06:13] heartbeat ✓ 4 checks (clean-notifications, sidekick-cleanup, sidekick-recovery, dns-flood-monitor)
+[06:14] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[06:13] sidekick-cleanup ✓ active: 10 completed: 0 stale: 0
+[06:14] dns-flood-monitor ✓ clear (queries: 18k, vps: 52%, disk: 15%)
+[06:16] system-health ✓ all good (disk 42% used, load 1.98, mem 6.0/7.5gi, tailscaled running)
+[06:17] ha-health-check ✓ 200 — consecutive: 0
+[06:17] network-health ✓ dns ok (google.com resolved 172.217.168.142, ads.google.com blocked 0.0.0.0), funnel ok
+[06:18] pihole-health ✓ pass
+[06:15] heartbeat ✓ 6 checks (system-health, ha-health-check, network-health, pihole-health, build-user-profile, weather-man)
