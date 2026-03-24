@@ -163,3 +163,4 @@
 [10:12] clean-notifications ✓ (dirty/ empty, nothing to process)
 [10:12] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [10:12] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[10:14] heartbeat: all checks skipped, none due
