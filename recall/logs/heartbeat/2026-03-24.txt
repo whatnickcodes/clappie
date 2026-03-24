@@ -142,3 +142,5 @@
 [09:27] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [09:24] weather-man ✓ sidekick spawned
 [09:24] build-user-profile ✓ updated (236 lines)
+[09:34] clean-notifications ✓ nothing to process
+[09:34] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
