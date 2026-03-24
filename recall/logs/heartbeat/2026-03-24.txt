@@ -159,3 +159,4 @@
 [10:02] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [10:02] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
 [10:02] dns-flood-monitor ✓ clear (queries: 38k, vps: 56%, disk: 15%)
+[10:04] heartbeat ✓ all checks skipped, none due
