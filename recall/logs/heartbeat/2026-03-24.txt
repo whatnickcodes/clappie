@@ -26,3 +26,5 @@
 [05:52] clean-notifications ✓ processed 0 dirty, 1 clean items
 [05:54] sidekick-cleanup ✓ active: 6, completed: 0, stale: 2 (cleaned)
 [05:52] heartbeat ✓ 4 checks (clean-notifications, sidekick-cleanup, sidekick-recovery, dns-flood-monitor)
+[05:55] dns-flood-monitor ✓ clear (queries: 16k, vps: 52%, disk: 15%)
+[05:55] heartbeat ✓ all checks skipped — none due
