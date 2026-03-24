@@ -168,3 +168,9 @@
 [10:22] clean-notifications ✓ nothing to process — dirty/ empty
 [10:22] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
 [10:22] dns-flood-monitor ✓ clear (queries: 39.6k, vps: 55%, disk: 15%)
+[10:24] system-health ✓ all good
+[10:24] network-health ✓ dns ok, funnel ok
+[10:24] ha-health-check ✓ 200
+[10:24] pihole-health ✓ pass
+[10:24] weather-man ✓ sidekick spawned
+[10:24] build-user-profile ✓ updated (240 lines)
