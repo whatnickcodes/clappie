@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-24T06:52 CET
+Generated: 2026-03-24T06:54 CET
 ================================================================================
 
 WHO THEY ARE
@@ -163,17 +163,17 @@ INFRASTRUCTURE QUICK REF
 - Notable LAN devices: River.lan (iPhone), Andrea's S25, tesla.lan, Home Assistant, Deco X50 router
 - Weather Man coordinates: Parma, Italy — 44.7824, 10.3373
 
-CURRENT SYSTEM STATE (as of 06:52 CET 2026-03-24)
+CURRENT SYSTEM STATE (as of 06:54 CET 2026-03-24)
 --------------------------------------------------
 - Heartbeat running, all chores operational. Watchdog healthy.
-- Disk: Zoidberg ~42% used, Pi-hole 15%
-- Mem: ~6.0/7.5Gi in use (load ~1.98) | tailscaled running
-- system-health ✓, network-health ✓, pihole-health ✓
+- Disk: Zoidberg ~47% used, Pi-hole 15%
+- Mem: 3.3Gi avail | load 4.46 (active sidekicks) | tailscaled running
+- system-health ✓, network-health ✓ (dns ok, funnel ok), pihole-health ✓
 - ha-health-check ✓ 200 — recovered (was 403 at 05:15, cleared by 06:17)
 - rclone oauth broken — backup-verify unable to verify; last known good: 14:42 Mar 23
 - dns-flood-monitor ✓ clear (20.7k queries, VPS 51%) — threshold now 60k (bumped 2026-03-24T05:51)
-- sidekick-cleanup ✓ active: 0, stale: 0 (last run 06:42)
-- sidekick-recovery ✓ candidates: 0 (last run 06:42)
+- sidekick-cleanup ✓ active: 6, stale: 0 (last run 06:52)
+- sidekick-recovery ✓ candidates: 0 (06:54)
 - sidekick-errors-review: 35 errors, 2 patterns — chatId resolution still unresolved
 - staleness-audit: 1 mismatch found, report committed, push failed (no GitHub SSH key)
 - telegram-miss-you ✓ sent (05:15) — Marco replied at 05:49 (all good)
