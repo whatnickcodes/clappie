@@ -23,3 +23,6 @@
 [05:45] heartbeat ✓ 3 checks (network-health, system-health, build-user-profile)
 [05:47] network-health ✓ dns ok (google.com resolved 172.217.168.142, ads.google.com blocked 0.0.0.0)
 [05:45] build-user-profile ✓ updated (213 lines)
+[05:52] clean-notifications ✓ processed 0 dirty, 1 clean items
+[05:54] sidekick-cleanup ✓ active: 6, completed: 0, stale: 2 (cleaned)
+[05:52] heartbeat ✓ 4 checks (clean-notifications, sidekick-cleanup, sidekick-recovery, dns-flood-monitor)
