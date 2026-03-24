@@ -592,6 +592,10 @@ async function handleWebhook(req, path) {
       headers,
       path: route.path,
       name: route._fileName,
+      skill: route.skill,
+      projectRoot: PROJECT_ROOT,
+      loadSkillSetting: (name, def) => router.loadSkillSetting(route.skill, name, def),
+      loadSkillSettingList: (name) => router.loadSkillSettingList(route.skill, name),
     };
 
     // ─────────────────────────────────────────────────────────────────────────

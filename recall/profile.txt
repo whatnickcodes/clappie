@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-24T05:45 CET
+Generated: 2026-03-24T06:52 CET
 ================================================================================
 
 WHO THEY ARE
@@ -56,11 +56,12 @@ Via Telegram:
 - Reports issues bluntly ("looks like it's out of disk space yet again 🤦🏻‍♂️") — no sugarcoating
 - After a fix, short acknowledgment + warmth closes the loop
 - Opener "New day, new bug" — expecting chaos, greeting it with flair
-- Sends ambiguous messages ("Please do that") — patient about clarification, but appreciates
-  when Wash can figure it out from context
+- Sends ambiguous messages ("Please do that", "Let's do that") — patient about clarification,
+  but appreciates when Wash can figure it out from context
 - Asks for device breakdowns with MAC identification: cross-referenced, opinionated analysis
 - When something is fixed: brief ack + move on. Not looking for essays.
-- Last Telegram activity: 2026-03-23 01:24 CET (quiet since overnight; telegram-miss-you sent 05:15)
+- Last Telegram activity: 2026-03-24 05:52 CET (active this morning — checked living room temps,
+  confirmed DNS threshold bump, questioned secrets fix)
 
 Emoji combos during active ops:
 - 🔥 ⚡ 👨‍💻 = approves bold action
@@ -70,6 +71,7 @@ Emoji combos during active ops:
 - 👍 = acknowledged, satisfied
 - 🤣 💀 = genuinely funny (combo on absurdity like PayPal background DNS spam)
 - 😈 = mischievous, "bring it on" energy
+- 🤓 = nerd acknowledgment
 - First react after Telegram reinstall (2026-03-16): 👀 (classic)
 
 In operator/session mode:
@@ -90,7 +92,9 @@ TECHNICAL PREFERENCES
 - Home automation: Home Assistant (YAML automations, Adaptive Lighting, Sensibo AC)
 - VPN/access: Tailscale (wash has operator rights, funnel for public HTTPS ingress)
 - Git workflow: push directly to main (washnotes and clappie); no feature branches
-- Secrets: always `export $(sed 's/="\(.*\)"$/=\1/' /run/wash/env | xargs -d '\n')` — NOT `source`
+- Secrets loading (context-dependent):
+  - Bun shell (telegram bot, etc): `export $(sed 's/="\(.*\)"$/=\1/' /run/wash/env | xargs -d '\n')` — NOT source
+  - Bash sidekicks/chores: `set -a; source /run/wash/env; set +a` — source is fine + cleaner
 - SSH to Pi-hole: `ssh -i /run/wash/ssh/wash-pihole-tailscale root@100.87.157.76`
 - Web scraping: Brave for clean text, Firecrawl for structure/media, Playwright for SPAs
 - Prefers curl-based skills over MCP servers (fewer long-lived processes, less overhead)
@@ -143,6 +147,7 @@ COMMON WORKFLOWS / RECURRING REQUESTS
 - Medical research via PubMed sidekicks (deep 10+ source investigations)
 - Weather + indoor climate logging for Sensibo calibration dataset (Weather Man chore)
 - /researcher Telegram command: evidence-based research sidekick with PubMed support
+- Climate React status checks: confirms CR mode + multi-sensor temp breakdown in living room
 
 INFRASTRUCTURE QUICK REF
 --------------------------
@@ -154,24 +159,26 @@ INFRASTRUCTURE QUICK REF
 - Sidekick HQ: localhost:7777 (exposed via tailscale funnel)
 - Watchdog alert chat ID: 7229110406
 - Watchdog timer: wash-clappie-watchdog.timer (deployed, running)
-- VPS relay: 100.101.18.71 (typically 38-46% of Pi-hole query volume — normal)
+- VPS relay: 100.101.18.71 (typically 38-60% of Pi-hole query volume — normal)
 - Notable LAN devices: River.lan (iPhone), Andrea's S25, tesla.lan, Home Assistant, Deco X50 router
 - Weather Man coordinates: Parma, Italy — 44.7824, 10.3373
 
-CURRENT SYSTEM STATE (as of 05:45 CET 2026-03-24)
+CURRENT SYSTEM STATE (as of 06:52 CET 2026-03-24)
 --------------------------------------------------
 - Heartbeat running, all chores operational. Watchdog healthy.
 - Disk: Zoidberg ~42% used, Pi-hole 15%
-- Mem: ~1.7/7.5Gi available | Load nominal | tailscaled running
+- Mem: ~6.0/7.5Gi in use (load ~1.98) | tailscaled running
 - system-health ✓, network-health ✓, pihole-health ✓
-- ha-health-check ✗ 403 — consecutive: 1 (as of 05:15; may be transient, watching)
+- ha-health-check ✓ 200 — recovered (was 403 at 05:15, cleared by 06:17)
 - rclone oauth broken — backup-verify unable to verify; last known good: 14:42 Mar 23
-- dns-flood-monitor ✓ clear (15k queries, VPS 52%)
-- sidekick-cleanup ✓ active: 4, stale: 1 cleaned (05:42)
-- sidekick-recovery ✓ candidates: 0 (05:42)
+- dns-flood-monitor ✓ clear (20.7k queries, VPS 51%) — threshold now 60k (bumped 2026-03-24T05:51)
+- sidekick-cleanup ✓ active: 0, stale: 0 (last run 06:42)
+- sidekick-recovery ✓ candidates: 0 (last run 06:42)
 - sidekick-errors-review: 35 errors, 2 patterns — chatId resolution still unresolved
 - staleness-audit: 1 mismatch found, report committed, push failed (no GitHub SSH key)
-- telegram-miss-you ✓ sent (05:15) — Marco quiet since 01:24 CET 2026-03-23
+- telegram-miss-you ✓ sent (05:15) — Marco replied at 05:49 (all good)
+- Marco active this morning: 05:49-05:52 CET — checked living room temps, bumped DNS threshold,
+  discussed secrets fix, sticker'd and emoji'd his way through it
 
 PENDING FIXES (requires Marco on Phoebe)
 -----------------------------------------
@@ -197,15 +204,19 @@ PENDING FIXES (requires Marco on Phoebe)
 
 RECENT NOTABLE EVENTS
 ----------------------
-- 2026-03-24T05:15: HA health-check ✗ 403 — consecutive: 1. Watching.
+- 2026-03-24T05:51: DNS flood alert threshold bumped from 50k to 60k — Marco confirmed live
+- 2026-03-24T05:50: Marco active — living room temps checked (19.4-20.1C, CR off, all normal)
+- 2026-03-24T05:50: Marco confirmed secrets fix: bash chores now use set -a; source — not sed+xargs
+- 2026-03-24T05:49: Marco "test from curl" — webhook confirmed live, comms good
+- 2026-03-24T06:17: ha-health-check ✓ 200 — 403 from 05:15 was transient, resolved
 - 2026-03-24T05:15: rclone oauth broken — backup-verify degraded.
-- 2026-03-24T05:15: telegram-miss-you sent (Marco quiet since 01:24 CET 2026-03-23)
 - 2026-03-24T05:15: sidekick-cleanup cleaned 11 stale sidekicks
-- 2026-03-23T17:49: Last full heartbeat run — all 8 checks clean (final run of the day)
+- 2026-03-23T17:53: ha-health-check ✗ 403 — consecutive: 1 (then recovered overnight)
+- 2026-03-23T17:53: dns-flood-monitor ⚠ warning (queries: 62.7k, vps: 42%, disk: 15%)
 - 2026-03-23T17:09: dns-flood-monitor ⚠ 59k queries (5th warning that day, all legit IoT)
 - 2026-03-23T04:07–04:08: Heartbeat crash + auto-recovery (watchdog restart, resolved)
-- 2026-03-23T01:24: Last known Telegram activity from Marco
-- 2026-03-22T17:45: Medical research sidekick — ebastine vs cetirizine vs fexofenadine (allergy season approaching)
+- 2026-03-23T01:24: Previous last known Telegram activity from Marco (before 05:49 today)
+- 2026-03-22T17:45: Medical research sidekick — ebastine vs cetirizine vs fexofenadine (allergy season)
 - 2026-03-22: Weather Man chore live — logging hourly outdoor + indoor climate data for Sensibo calibration.
 - 2026-03-21T05:30: Marco: "New day, new bug." Living room lights dim/warm. Sidekick spawned.
 - 2026-03-18T04:50: PayPal DNS spam on OnePlus — 1,604 queries/day idle. Marco: "What the flying fuck" 🤣💀

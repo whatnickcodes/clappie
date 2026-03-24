@@ -44,3 +44,17 @@
 [06:17] network-health ✓ dns ok (google.com resolved 172.217.168.142, ads.google.com blocked 0.0.0.0), funnel ok
 [06:18] pihole-health ✓ pass
 [06:15] heartbeat ✓ 6 checks (system-health, ha-health-check, network-health, pihole-health, build-user-profile, weather-man)
+[06:42] clean-notifications ✓ (no dirty files, clean/ has 1 item)
+[06:42] sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 (cleaned)
+[06:42] dns-flood-monitor ✓ clear (queries: 20.7k, vps: 51%, disk: 15%)
+[06:42] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[06:52] network-health ✓ dns ok, funnel ok
+[06:52] clean-notifications ✓ (no dirty files, clean/ empty — all clear)
+[06:52] sidekick-cleanup ✓ active: 6 completed: 0 stale: 0
+[06:52] system-health ✓ all good (disk 53% free, mem 3.3Gi avail, load 3.33, tailscaled up)
+[06:52] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[06:54] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[06:54] network-health — dns ok, funnel ok
+[06:54] system-health ✓ all good (disk 47%, load 4.46, tailscaled running)
+[06:54] sidekick-cleanup ✓ active: 6, completed: 0, stale: 0
+[06:52] build-user-profile ✓ updated (224 lines)
