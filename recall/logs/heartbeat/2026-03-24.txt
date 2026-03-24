@@ -64,3 +64,4 @@
 [07:04] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
 [07:04] clean-notifications ✓ nothing to process
 [07:04] sidekick-cleanup ✓ active: 6, completed: 0, stale: 6 (cleaned)
+[07:12] clean-notifications ✓ nothing to process — dirty/ empty, clean/ empty
