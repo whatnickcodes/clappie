@@ -34,3 +34,5 @@
 [06:04] tmp-cleanup ✓ deleted: 0 files
 [06:05] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
 [06:05] heartbeat ✓ all checks skipped — none due
+[06:13] clean-notifications ✓ no dirty items, 1 clean item, 5 chores
+[06:13] heartbeat ✓ 4 checks (clean-notifications, sidekick-cleanup, sidekick-recovery, dns-flood-monitor)
