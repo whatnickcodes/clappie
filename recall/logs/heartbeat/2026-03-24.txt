@@ -155,3 +155,7 @@
 [09:56] network-health ✓ dns ok, funnel ok
 [09:56] system-health ✓ all good
 [09:54] build-user-profile ✓ updated (236 lines)
+[10:02] clean-notifications ✓
+[10:02] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[10:02] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[10:02] dns-flood-monitor ✓ clear (queries: 38k, vps: 56%, disk: 15%)
