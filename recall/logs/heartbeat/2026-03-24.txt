@@ -121,3 +121,4 @@
 [08:42] dns-flood-monitor ✓ clear (queries: 30k, vps: 51%, disk: 15%)
 [08:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [08:44] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[08:54] clean-notifications ✓ dirty/ empty, nothing to process
