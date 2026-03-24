@@ -1,0 +1,17 @@
+[05:15] system-health ✓ all good (disk 42% used, load 1.58, mem 1.7/7.5Gi, tailscaled running)
+[05:15] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[05:15] ha-health-check ✗ 403 — consecutive: 1
+[05:15] network-health ✓ dns ok
+[05:15] pihole-health ✓ pass
+[05:15] sidekick-cleanup ✓ active: 11 completed: 0 stale: 11 (cleaned)
+[05:15] dns-flood-monitor ✓ clear (queries: 14k, vps: 52%, disk: 15%)
+[05:15] telegram-miss-you ✓ sent
+[05:15] clean-notifications ✓ processed 1 dirty, 1 clean items
+[05:15] weather-man ✓ sidekick spawned
+[05:15] backup-verify ✗ unable to verify — HA 403 (token issue); last known good: 14:42 Mar 23 (pihole 14h42m old then); rclone oauth also broken
+[05:15] build-user-profile ✓ updated
+[05:27] sidekick-cleanup ✓ active: 1 completed: 0 stale: 0 (cleaned)
+[05:27] clean-notifications ✓ processed 0 dirty, 1 clean items
+[05:27] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[05:26] sidekick-errors-review ✓ 2 patterns found (35 errors, chatId resolution still unresolved)
+[05:26] staleness-audit ⚠ 1 mismatch found — report committed (push failed: no GitHub SSH key)

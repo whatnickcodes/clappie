@@ -1,0 +1,72 @@
+Review sidekick errors from the past week.
+
+Period: 2026-03-17 to 2026-03-24
+Total errors: 35 (14 on Mar 17, 21 on Mar 23)
+Error files: recall/logs/sidekicks/errors/2026-03-17.txt, 2026-03-23.txt
+
+─────────────────────────────────────────────────────────────
+PATTERN 1: "chat not found" — literal string chatId (32 errors)
+─────────────────────────────────────────────────────────────
+Occurrences: ~32 across both days
+ChatIds seen: "user", "marco", "Marco", "message", "alert", "ping"
+Sidekicks affected: dns-flood-monitor (dominant — multiple runs on both days),
+  backup-staleness, ha-warning-home, generic send-a-telegram-message-to sidekicks
+
+This is the SAME pattern flagged in last week's review (Mar 23 chore) — still
+unresolved. Claude generates sidekick payloads with name labels instead of
+numeric Telegram chat IDs. Every dns-flood alert cycle triggers a fresh batch
+of these failures.
+
+Root cause: no chatId resolution layer exists. Claude picks a human-readable
+name ("marco", "alert") and passes it directly as chatId.
+
+Ideas (repeated from last week — action still needed):
+1. Add a name→ID map to telegram-bot settings (e.g., users.json: {"marco": "7229110406"})
+   so the telegram-bot skill resolves labels at send time.
+2. Add early validation in the telegram-bot send handler: reject non-numeric chatId
+   with a descriptive log before hitting the Telegram API.
+3. Update system prompt / dns-flood-monitor chore to always use numeric IDs
+   rather than name labels when spawning telegram sidekicks.
+
+─────────────────────────────────────────────────────────────
+PATTERN 2: "chat not found" — numeric chatId (3 errors)
+─────────────────────────────────────────────────────────────
+Occurrences: 3 (Mar 23: chatId "7819787258" x2, "ping" sidekick x1 — wait, "ping" is Pattern 1)
+Corrected: 2 errors with chatId "7819787258" on Mar 23 (backup-staleness sidekick)
+
+Numeric ID "7819787258" was rejected by Telegram. Either stale/wrong ID or user
+never initiated /start with the bot (Telegram requires user-initiated contact first).
+
+Ideas:
+1. Same name→ID map fix as Pattern 1 prevents wrong IDs reaching the API.
+2. Telegram first-contact constraint: document that the bot cannot message users who
+   haven't /start-ed it. Sidekick should note this gracefully and not retry.
+
+─────────────────────────────────────────────────────────────
+TREND NOTE
+─────────────────────────────────────────────────────────────
+Error volume increased from ~21 errors (Mar 16-17) to 21 errors in a single day
+(Mar 23), driven by multiple dns-flood alert cycles each spawning 3-4 failing
+retries. Pattern 1 is accelerating — the dns-flood monitor is being triggered
+more frequently and each trigger produces a cluster of chatId failures.
+
+─────────────────────────────────────────────────────────────
+SUMMARY / PRIORITY
+─────────────────────────────────────────────────────────────
+High (2nd week): Pattern 1 — chatId name resolution. 32/35 errors this week.
+  Root cause unchanged from last review. This will keep generating noise on
+  every dns-flood alert cycle until fixed.
+
+Low: Pattern 2 — numeric but rejected ID. 2 errors, low frequency.
+
+ACTION NEEDED FROM MARCO:
+- Pick a fix for Pattern 1: settings map, handler validation, or prompt update.
+  This has been open since at least Mar 16 and is generating significant log noise.
+
+---
+[chore-meta]
+status: pending
+created: 2026-03-24 05:26
+icon: 🤖
+title: Sidekick errors review — 2026-03-24
+summary: Weekly error pattern review
