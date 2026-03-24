@@ -15,3 +15,5 @@
 [05:27] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
 [05:26] sidekick-errors-review ✓ 2 patterns found (35 errors, chatId resolution still unresolved)
 [05:26] staleness-audit ⚠ 1 mismatch found — report committed (push failed: no GitHub SSH key)
+[05:33] clean-notifications ✓ processed 0 dirty, 1 clean items
+[05:33] dns-flood-monitor ✓ clear (queries: 15k, vps: 52%, disk: 15%)
