@@ -117,3 +117,5 @@
 [08:32] clean-notifications ✓ (dirty/ empty, nothing to process)
 [08:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [08:34] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[08:42] clean-notifications: dirty/ empty, clean/ empty — nothing to process
+[08:42] dns-flood-monitor ✓ clear (queries: 30k, vps: 51%, disk: 15%)
