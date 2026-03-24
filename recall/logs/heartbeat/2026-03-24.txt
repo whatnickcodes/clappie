@@ -32,3 +32,4 @@
 [06:02] sidekick-cleanup ✓ active: 6, completed: 0, stale: 1 (cleaned)
 [06:02] heartbeat ✓ 4 checks (clean-notifications, sidekick-cleanup, sidekick-recovery, tmp-cleanup)
 [06:04] tmp-cleanup ✓ deleted: 0 files
+[06:05] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0

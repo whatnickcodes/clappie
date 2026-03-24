@@ -1,18 +1,40 @@
-DNS probe: verify Pi-hole is resolving and blocking via Tailscale.
+Two checks: DNS probe + webhook funnel health.
 
-Steps:
+## Check 1: DNS Probe
+
+Verify Pi-hole is resolving and blocking via Tailscale.
+
 1. Run: `dig google.com @100.87.157.76 +time=3 +tries=1`
    - Expect: an answer section with resolved IPs
 2. Run: `dig ads.google.com @100.87.157.76 +time=3 +tries=1`
    - Expect: `0.0.0.0` (blocked by Pi-hole)
 3. If either fails:
    - Trigger pihole-health chore immediately (don't wait for its next cycle)
-   - Send alert: `clappie sidekick spawn "telegram user YOUR_ID: DNS probe failed — [which query] timed out or returned unexpected result. Triggering Pi-hole health check."`
+   - Send alert: `clappie sidekick spawn "telegram user 7229110406: DNS probe failed — [which query] timed out or returned unexpected result. Triggering Pi-hole health check."`
 4. If Pi-hole is unreachable via Tailscale entirely:
    - Escalate immediately — Pi-hole down = all Tailnet DNS broken
 
-Logging: append one line to recall/logs/heartbeat/YYYY-MM-DD.txt
-Format: [HH:MM] network-health ✓ dns ok (or brief failure description)
+## Check 2: Webhook Funnel
+
+Verify Tailscale funnel is public and pointing to the sidekick server.
+
+1. Run: `tailscale funnel status 2>&1`
+2. Verify output contains BOTH:
+   - `Funnel on` (not "tailnet only")
+   - `proxy http://127.0.0.1:7777`
+3. If either is wrong, auto-repair:
+   ```
+   tailscale funnel reset 2>/dev/null
+   tailscale funnel --bg 7777 2>/dev/null
+   ```
+   Then re-check. If still broken after repair, alert:
+   `clappie sidekick spawn "telegram user 7229110406: Webhook funnel broken and auto-repair failed. Telegram webhooks are down."`
+
+## Logging
+
+Append one line to recall/logs/heartbeat/YYYY-MM-DD.txt
+Format: `[HH:MM] network-health ✓ dns ok` or `[HH:MM] network-health ✓ dns ok, funnel ok` or brief failure description
+Include funnel status in the log line (e.g., `funnel repaired`, `funnel broken`).
 NEVER create standalone files. ALWAYS append ONE line to the daily file.
 
 For detailed remediation procedures, see:
@@ -23,4 +45,4 @@ For detailed remediation procedures, see:
 [heartbeat-meta]
 last_run: 2026-03-24T05:45
 interval: 30m
-model: haiku
+model: sonnet
