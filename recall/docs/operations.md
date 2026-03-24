@@ -53,9 +53,11 @@ When you receive or recognize a secret (API tokens, PATs, bearer/JWT, passwords,
 
 All secrets: sops bootstrap → `/run/wash/env` → env var. No special cases.
 
+**GitHub credential hierarchy:** Scoped PATs (`GH_PAT_*`) are the default for all git operations — minimum permissions per repo. `GH_OAUTH_TOKEN` is a broad OAuth token (`repo`, `workflow`, `gist`, `read:org`) stored separately from `GH_TOKEN` to prevent accidental use. Requires explicit operator approval per use. See `/home/wash/CLAUDE.md` (immutable, operator-controlled).
+
 | Secret | Read | If missing |
 |--------|------|------------|
-| Any env var (`ANTHROPIC_API_KEY`, `TELEGRAM_BOT_TOKEN`, `GH_PAT_*`, `HA_TOKEN`, `TELEGRAM_WEBHOOK_SECRET`) | `printenv VAR_NAME` | `store-clappie-secret.sh VAR_NAME` |
+| Any env var (`ANTHROPIC_API_KEY`, `TELEGRAM_BOT_TOKEN`, `GH_PAT_*`, `GH_OAUTH_TOKEN`, `HA_TOKEN`, `TELEGRAM_WEBHOOK_SECRET`) | `printenv VAR_NAME` | `store-clappie-secret.sh VAR_NAME` |
 | SSH keys (`wash-ha-tailscale`, `wash-pihole-tailscale`) | `ls /run/wash/ssh/<key-name>` | `inject-clappie-key.sh --restart` |
 
 ## On-Call Operations

@@ -21,13 +21,18 @@ Reference tables and procedures for Wash's operational role. Load this file when
 
 All secrets: sops bootstrap → `/run/wash/env` → env var. No special cases.
 
+**GitHub credential hierarchy:** Scoped PATs (`GH_PAT_*`) are the default. `GH_OAUTH_TOKEN` (broad OAuth) requires explicit operator approval — see `/home/wash/CLAUDE.md`.
+
 | Secret | How to read | If missing |
 |--------|-------------|------------|
 | `ANTHROPIC_API_KEY` | `printenv ANTHROPIC_API_KEY` | Ask operator: `store-clappie-secret.sh ANTHROPIC_API_KEY` |
 | `TELEGRAM_BOT_TOKEN` | `printenv TELEGRAM_BOT_TOKEN` | Ask operator: `store-clappie-secret.sh TELEGRAM_BOT_TOKEN` |
 | `GH_PAT_HOMEOPS_CLAUDE` | `printenv GH_PAT_HOMEOPS_CLAUDE` | Ask operator: `store-clappie-secret.sh GH_PAT_HOMEOPS_CLAUDE` |
+| `GH_PAT_CLAPPIE_WASH` | `printenv GH_PAT_CLAPPIE_WASH` | Ask operator: `store-clappie-secret.sh GH_PAT_CLAPPIE_WASH` |
 | `GH_PAT_PIHOLE_MANAGEMENT` | `printenv GH_PAT_PIHOLE_MANAGEMENT` | Ask operator: `store-clappie-secret.sh GH_PAT_PIHOLE_MANAGEMENT` |
+| `GH_OAUTH_TOKEN` | `printenv GH_OAUTH_TOKEN` | Ask operator: `store-clappie-secret.sh GH_OAUTH_TOKEN` |
 | `HA_TOKEN` | `printenv HA_TOKEN` | Ask operator: `store-clappie-secret.sh HA_TOKEN` |
+| `TELEGRAM_WEBHOOK_SECRET` | `printenv TELEGRAM_WEBHOOK_SECRET` | Ask operator: `store-clappie-secret.sh TELEGRAM_WEBHOOK_SECRET` |
 | `SSH_KEY_WASH_HA_TAILSCALE` | `ls /run/wash/ssh/wash-ha-tailscale` | Ask operator: restart service (`inject-clappie-key.sh --restart`) |
 | `SSH_KEY_WASH_PIHOLE_TAILSCALE` | `ls /run/wash/ssh/wash-pihole-tailscale` | Ask operator: restart service (`inject-clappie-key.sh --restart`) |
 
