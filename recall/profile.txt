@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-24T08:56 CET
+Generated: 2026-03-24T09:24 CET
 ================================================================================
 
 WHO THEY ARE
@@ -166,20 +166,20 @@ INFRASTRUCTURE QUICK REF
 - Weather Man coordinates: Parma, Italy — 44.7824, 10.3373
 - DNS flood threshold: 60k queries/day (bumped from 50k on 2026-03-24T05:51 by Marco)
 
-CURRENT SYSTEM STATE (as of 08:56 CET 2026-03-24)
+CURRENT SYSTEM STATE (as of 09:24 CET 2026-03-24)
 --------------------------------------------------
 - Heartbeat running, all chores operational. Watchdog healthy.
 - Disk: Zoidberg ~47% used, Pi-hole 15%
-- Mem: ~22% used (5.9Gi avail out of 7.5Gi) | load 2.53 | tailscaled running
+- Mem: ~1.7Gi avail out of 7.5Gi | load 2.59 | tailscaled running
 - system-health ✓, network-health ✓ (dns ok, funnel ok), pihole-health ✓
-- ha-health-check ✓ 200 at 08:26 — recovered from 07:22 401 (intermittent HA token issue)
+- ha-health-check ✓ 200 at 09:26 — stable after earlier 401/403 intermittent issues
 - rclone oauth broken — backup-verify unable to verify; last known good: 14:42 Mar 23
-- dns-flood-monitor ✓ clear (30k queries, VPS 51%) — threshold 60k
-- sidekick-cleanup ✓ active: 0, stale: 0
+- dns-flood-monitor ✓ clear (33k queries today, VPS 51%, disk 15%) — threshold 60k
+- sidekick-cleanup ✓ active: 0, stale: 0 — clean
 - sidekick-recovery ✓ candidates: 0
 - sidekick-errors-review: 35 errors, 2 patterns — chatId resolution still unresolved
 - staleness-audit: 1 mismatch found, report committed, push failed (no GitHub SSH key)
-- weather-man ✓ recorded: outside 6.6C/Clear sky, 4 rooms logged (08:22 + 08:28)
+- weather-man ✓ recorded: outside 6.6C/Clear sky, 4 rooms logged (09:24 sidekick spawned)
 - Marco active this morning: 05:49-05:52 CET
 
 PENDING FIXES (requires Marco on Phoebe)
@@ -207,14 +207,17 @@ PENDING FIXES (requires Marco on Phoebe)
 
 RECENT NOTABLE EVENTS
 ----------------------
-- 2026-03-24T08:56: build-user-profile ✓ — this run; system fully nominal
+- 2026-03-24T09:24: build-user-profile ✓ — this run; system nominal
+- 2026-03-24T09:26: ha-health-check ✓ 200, pihole-health ✓, network-health ✓ dns ok, funnel ok
+- 2026-03-24T09:24: weather-man ✓ sidekick spawned (09:27 outdoor weather scheduled)
 - 2026-03-24T08:56: system-health ✓ all good (disk 47%, mem 22%, load 2.53, tailscaled running)
 - 2026-03-24T08:28: weather-man ✓ recorded again (outside: 6.6C/Clear sky)
 - 2026-03-24T08:26: ha-health-check ✓ 200 — recovered; network-health ✓ dns ok, funnel ok
 - 2026-03-24T08:22: ha-health-check ✓ 200 — recovered from 07:22 401; weather-man logged 6.6C/Clear
 - 2026-03-24T07:22: ha-health-check ✗ 401 — second 4xx this morning (403 at 05:15, recovered, now 401)
+- 2026-03-24T05:52: Marco checked living room — CR off, Tado idle (19.4C vs 18.5C setpoint = residual heat),
+  CO2 1233ppm, PM2.5 40 (poor air quality). Wash confirmed within normal params. Offered Tado setpoint drop.
 - 2026-03-24T05:51: DNS flood alert threshold bumped from 50k to 60k — Marco confirmed live
-- 2026-03-24T05:50: Marco active — living room temps checked (19.4-20.1C, CR off, all normal)
 - 2026-03-24T05:50: Marco confirmed secrets fix: bash chores now use set -a; source — not sed+xargs
 - 2026-03-24T05:50: Marco "Great, thanks Mr. Wash" — warm close after threshold + secrets fix
 - 2026-03-24T05:49: Marco "test from curl" — webhook confirmed live, comms good
