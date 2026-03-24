@@ -122,3 +122,8 @@
 [08:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
 [08:44] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
 [08:54] clean-notifications ✓ dirty/ empty, nothing to process
+[08:56] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[08:56] network-health ✓ dns ok, funnel ok
+[08:56] sidekick-recovery ✓ candidates: 0, recovered: 0, skipped: 0
+[08:56] system-health ✓ all good (disk 47% used, mem 22%, load 2.53, tailscaled running)
+[08:56] build-user-profile ✓ updated (233 lines)
