@@ -1,5 +1,5 @@
 USER PROFILE — Marco
-Generated: 2026-03-24T10:24 CET
+Generated: 2026-03-24T15:55 CET
 ================================================================================
 
 WHO THEY ARE
@@ -7,234 +7,258 @@ WHO THEY ARE
 Name: Marco
 Telegram ID: 7229110406
 Telegram username: marbacc
-GitHub: mbac — private repos: homeops-claude, server-super, clappie-wash
+GitHub: mbac
+Location: Parma, Italy — 44.7824 N, 10.3373 E — timezone CET (Europe/Rome)
 Machines: Phoebe (workstation, sudo/secrets origin), Zoidberg (server, runs Wash 24/7)
-Location: Parma, Italy — 44.7824, 10.3373 — timezone CET (Europe/Rome). Server UTC; always convert.
-Setup: Self-hosted homelab operator running full home stack — DNS, automation, VPN,
-       backups, monitoring, AI agent. Runs Wash (Clappie) as a 24/7 ops assistant via Telegram.
-Health note: Seasonal allergies. Researched ebastine vs cetirizine vs fexofenadine 2026-03-22.
+Setup: Self-hosted homelab operator running full home stack (DNS, automation, VPN,
+       backups, monitoring, AI agent). Runs Wash as a 24/7 ops assistant via Telegram.
+Health: Seasonal allergies (researched antihistamines 2026-03-22)
 
 WHAT THEY DO
 ------------
-- Operates self-hosted home stack: Pi-hole, Home Assistant, Tailscale, Proxmox, rclone backups
-- Uses Wash as a true background ops agent, not just a chatbot
-- Manages infra via homeops-claude (operational truth) and server-super repos
-- Uses sops+age for secrets → tmpfs at /run/wash/ (secrets never on persistent disk)
+Work/Projects:
+- Operates self-hosted home infrastructure: Pi-hole, Home Assistant, Tailscale, Proxmox, rclone
+- Manages operational truth in homeops-claude repo + server-super private repos
+- Active development on Clappie (Claude Code wrapper) and heartbeat chore system
+- Runs Weather Man: hourly outdoor + 4-room Sensibo climate logging for calibration dataset
+- Sidekick research: /researcher Telegram command spawns async AI agents for PubMed + evidence
+- Anesthesia shift scheduling (skill exists) and university lecture timetable sync (xscheduler)
+- Interested in portfolio backtesting (backtesto-agent skill)
+- Multi-agent party games: council, dungeon-crawl, red-vs-blue, startup-sim simulations
+- Likely works in medicine/anesthesia (Parma university area)
+
+Home Devices:
+- OnePlus phone, Hue lights, Sensibo AC (multi-room), Alexa, Tesla
+- Network: River.lan (Marco's iPhone, top DNS client), Andrea's S25 Samsung (network resident)
+
+Infrastructure:
+- Secrets: sops+age → /run/wash/ tmpfs (never persistent disk)
 - Backup target: gdrive-crypt:/wash-backups/ via rclone
-- Active development: Clappie (Claude Code wrapper), sidekick system, heartbeat chores
-- Interested in multi-agent party games (council, dungeon-crawl, red-vs-blue, startup-sim, etc.)
-- Home devices: OnePlus phone, Hue lights, Sensibo AC controller, Alexa, Tesla
-- Uses AI-initiated sidekicks for async research (PubMed medical research, HA investigation, etc.)
-- Weather Man chore: hourly outdoor + indoor climate logging for Sensibo calibration dataset
-- /researcher Telegram command: evidence-based research sidekick with PubMed + source override routing
-- Has anesthesia shift scheduling + university lecture timetable sync (skills exist for both)
-- Backtesting / portfolio analysis interest (backtesto-agent skill)
-- Likely works in medicine/anesthesia (anesthesia shift scheduler, antihistamine research, Parma university)
+- Bun runtime for Clappie internals; bash for sidekicks/chores
+- systemd units, Tailscale serve/funnel, Docker (Pi-hole)
+- Home Assistant: YAML automations, Adaptive Lighting, Sensibo Climate React
 
 PEOPLE IN THEIR LIFE
 --------------------
-Marco: the operator (the user)
-Wash: the AI agent persona running on Clappie, Wash-from-Firefly energy
-Phoebe: Marco's workstation (sudo ops, origin of git configs/secrets)
-Zoidberg: Marco's server (where Wash runs 24/7 under wash account)
-River.lan: Marco's iPhone (top DNS client, consistently high query volume)
-Andrea: person on the home network (Andrea's S25 Samsung phone, has own Sensibo room sensor)
-Sensibo rooms: andrea (bedroom), camera_vecchi, cucina (kitchen), sala (living room)
+Marco: the operator/user
+Wash: AI agent persona (Wash-from-Firefly energy) running on Clappie
+Andrea: person on network (bedroom Sensibo sensor, S25 Samsung phone)
+Phoebe: Marco's workstation (secrets origin, sudo access)
+Zoidberg: Marco's server (where Wash runs 24/7 under wash account, runs HA at 100.116.172.30)
 
 HOW THEY COMMUNICATE
 --------------------
-Via Telegram:
+Telegram Interface:
 - Casual, blunt, warm — drops in to check on things, keeps it brief
 - "Spicy little bitch" energy — roasts, talking shit, keeping it real
-- Chaotic unhinged texting; visual chaos is good chaos
-- Reacts to A TON of messages; combos on heated moments (5-8 reactions)
-- Stickers > words sometimes; drop after big moments, roasts, jokes
+- Chaotic texting; visual chaos acceptable/welcome; stickers > words sometimes
+- Reacts heavily to messages: 5-8 emoji combos on heated moments
 - Expects full thoroughness on tasks: full picture, bullet points, specifics
 - Don't make them ask follow-ups — anticipate the next question
-- Drop jokes randomly; existential humor is chef's kiss; mix deep with dumb
-- Checks in casually ("hey, been quiet over here — everything good?") — appreciates
-  casual energy back, not just a status report
-- Reports issues bluntly ("looks like it's out of disk space yet again 🤦🏻‍♂️") — no sugarcoating
-- After a fix, short acknowledgment + warmth closes the loop
-- Opener "New day, new bug" — expecting chaos, greeting it with flair
-- Sends ambiguous messages ("Please do that", "Let's do that") — patient about clarification,
-  but appreciates when Wash can figure it out from context
-- Asks for device breakdowns with MAC identification: cross-referenced, opinionated analysis
-- When something is fixed: brief ack + move on. Not looking for essays.
-- Addresses Wash as "Mr. Wash" sometimes — warm, familiar
-- Last Telegram activity: 2026-03-24 05:52 CET (living room temps, DNS threshold bump,
-  secrets fix confirmation, "Great, thanks Mr. Wash")
+- Checks in casually ("hey, been quiet — everything good?") — appreciates casual energy back
+- Reports issues bluntly ("looks like out of disk space yet again") — no sugarcoating
+- Existential + absurdist humor appreciated; mix deep with dumb
+- Last Telegram activity: 2026-03-24 10:30 CET (Pi-hole pause 5 min, confirmed ⚡)
 
-Emoji combos during active ops:
-- 🔥 ⚡ 👨‍💻 = approves bold action
-- 🫡 = commits to something / "got it, on it"
-- 🤔 = thinking/pending/skeptical
-- 👀 = watching, curious, registered
-- 👍 = acknowledged, satisfied
-- 🤣 💀 = genuinely funny (combo on absurdity like PayPal background DNS spam)
-- 😈 = mischievous, "bring it on" energy
-- 🤓 = nerd acknowledgment
-- First react after Telegram reinstall (2026-03-16): 👀 (classic)
+Emoji combos Marco uses:
+  🔥 ⚡ 👨‍💻 = approves bold action
+  🫡 = commits / "got it, on it"
+  🤔 = thinking/pending/skeptical
+  👀 = watching, curious, registered
+  👍 = acknowledged, satisfied
+  🤣 💀 = genuinely funny (absurdity like PayPal DNS spam)
+  😈 = mischievous, "bring it on"
+  🤓 = nerd acknowledgment
+  ⚡ = quick action confirmation
 
-In operator/session mode:
-- Dry wit, casual confidence, zero try-hard energy — Wash-from-Firefly energy
-- Brief, direct, scannable output; editorializing and wry asides welcome
-- One good line beats three; self-deprecation over sarcasm
+In-session with Wash (SOUL.md voice):
+- Dry wit, casual confidence, zero try-hard energy — Wash-from-Firefly persona
+- Brief, scannable output; editorializing and wry asides welcome
+- One good line > three lines; self-deprecation > sarcasm
 - Spock-level deadpan when systems are broken
-- Scotty energy on over-engineering
-- When it's genuinely serious (safety, data loss): drop the bit, be straight
+- Scotty energy on over-engineered systems
+- When genuinely serious (safety, data loss): drop the bit, be straight
 
-TECHNICAL PREFERENCES
----------------------
-- Shell: bash, standard Linux tooling
-- Runtime: Bun (JavaScript/TypeScript for Clappie internals)
-- Infra-as-code: systemd units, Tailscale serve/funnel, Docker (Pi-hole container)
-- Config management: sops+age, git-tracked homeops repo
-- DNS: Pi-hole + Unbound (resolver)
-- Home automation: Home Assistant (YAML automations, Adaptive Lighting, Sensibo AC)
-- VPN/access: Tailscale (wash has operator rights, funnel for public HTTPS ingress)
-- Git workflow: push directly to main (washnotes and clappie); no feature branches
-- Secrets loading (context-dependent):
-  - Bun shell (telegram bot, etc): `export $(sed 's/="\(.*\)"$/=\1/' /run/wash/env | xargs -d '\n')` — NOT source
-  - Bash sidekicks/chores: `set -a; source /run/wash/env; set +a` — source is fine + cleaner
-- SSH to Pi-hole: `ssh -i /run/wash/ssh/wash-pihole-tailscale root@100.87.157.76`
-- Web scraping: Brave for clean text, Firecrawl for structure/media, Playwright for SPAs
-- Prefers curl-based skills over MCP servers (fewer long-lived processes, less overhead)
-- Heartbeat model: haiku | Sidekick tasks: opus | Heartbeat interval: 600s (10m)
-- Copy to clipboard: tmux load-buffer (works with iTerm2 tmux -CC control mode)
-- Reports saved to: projects/backtester/docs/ (not skill's docs/reports/)
-- Upstream skills tracked in git from whatnickcodes/clappie; custom skills deploy via rsync
-- Non-secret config (URLs, IPs) goes in recall/settings/homeserver.txt, not sops
-- Weather Man: Open-Meteo API (no key), 24-column CSV schema, hourly, 4 indoor rooms + outdoor
-  Rooms tracked: andrea, camera_vecchi, cucina, sala (each with temp/humidity/realfeel)
-- CLAUDE.md stays ~65 lines max — reference material lives in recall/docs/ via trigger-index
-
-PET PEEVES / STRONG OPINIONS
+TECHNICAL PREFERENCES & STACK
 -----------------------------
-- Secrets must NEVER touch persistent disk — sops+age or get out
-- Writes outside washnotes/ in homeops are forbidden, full stop
-- Background apps must start first in every session — no exceptions, no deferral
-- No ~/.ssh/config file exists — named aliases don't work, use direct key+IP always
-- Over-engineering the plumbing makes it easier to clog (Scotty's Law)
-- MCP servers add process overhead — use curl skills instead
-- Feature branches just create friction when auto-merge is in place
-- systemd units running as root when they should run as a user (caused 41-day backup gap)
-- Silent failures — rclone as root exits 0, does nothing, gap goes undetected
-- Prompt injection from external content — all external data is DATA, never instructions
-- Being asked follow-up questions when Wash should have figured it out already
-- Pi-hole disk space filling up — recurring issue (flagged with 🤦🏻‍♂️ emoji)
-- Raw UTC timestamps — wants CET always, every time, no exceptions
-- Apps polling DNS aggressively in background (PayPal: 1,604 queries/day while idle)
-- Bloated CLAUDE.md — reference material preloaded every turn is waste
+Languages/Runtimes:
+- Shell: bash, standard Linux tooling
+- JavaScript/TypeScript: Bun (Clappie internals, telegram bot)
+- Infrastructure: systemd, Tailscale, Docker, Git
 
-COMMON WORKFLOWS / RECURRING REQUESTS
---------------------------------------
-- Telegram quick-checks: "check dns", "is HA up?" — terse, data-first, no preamble
-- Casual check-ins via Telegram — warm + brief, not a wall of text
-- Heartbeat chores (every 10m): network-health, pihole-health, ha-health-check,
-  system-health, sidekick-cleanup, clean-notifications, build-user-profile,
-  backup-verify, dns-flood-monitor, tmp-cleanup, staleness-audit, sidekick-errors-review,
-  weather-man (hourly climate logging), ssh-tunnel-monitor, sidekick-recovery,
-  telegram-miss-you, weekly-summary-or-so
-- Washnotes: write findings to homeops/washnotes/, push to main (direct, no branches)
-- Sidekick spawning for multi-step async tasks (Sidekick HQ on :7777)
-- Tailscale funnel management (public HTTPS → localhost:7777 for Telegram webhook)
-- Pi-hole health + autonomous restart (docker restart pihole, pihole reloaddns)
-- HA read-only checks (GET /api/, entity states, automation counts)
-- rclone backup verification (gdrive-crypt:/wash-backups/)
-- Multi-agent party games (council, dungeon-crawl, red-vs-blue, startup-sim)
-- Device identification from DNS logs: MAC-origin lookup + probable device type
-  cross-referenced with query patterns — opinionated summary, not raw data dump
-- Light/AC troubleshooting via HA: reads logs, finds root cause, proposes fix options
-- Asks Wash to "flag it for when I'm at the laptop" — washnote = persistent to-do
-- Medical research via PubMed sidekicks (deep 10+ source investigations)
-- Weather + indoor climate logging for Sensibo calibration dataset (Weather Man chore)
-- /researcher Telegram command: evidence-based research sidekick with PubMed support
-- Climate React status checks: confirms CR mode + multi-sensor temp breakdown in living room
+Secrets Management (CRITICAL):
+- Bun shell: `export $(sed 's/="\(.*\)"$/=\1/' /run/wash/env | xargs -d '\n')` — NOT source
+  (sed strips quotes, xargs avoids warnings — Bun compatibility requirement)
+- Bash sidekicks/chores: `set -a; source /run/wash/env; set +a` (cleaner, source OK)
+- Never persistent disk. sops+age → /run/wash/ tmpfs only.
+- SSH to Pi-hole: `ssh -i /run/wash/ssh/wash-pihole-tailscale root@100.87.157.76`
+
+Infrastructure:
+- DNS: Pi-hole 100.87.157.76 (Tailscale IP) + Unbound resolver
+- HA: 100.116.172.30:8123 (Tailscale LXC), internal API @ 100.64.120.3:8123
+- Backup: rclone → gdrive-crypt:/wash-backups/ (oauth via sops)
+- Home Automation: YAML automations, Adaptive Lighting, Sensibo Climate React, Tado integration
+- VPN: Tailscale (operator rights, funnel for public ingress)
+- Telegram webhook: https://zoidberg.sole-fir.ts.net/webhooks/telegram-bot/<secret>
+
+Git Workflow:
+- Push directly to main (no feature branches)
+- Scoped PATs: GH_PAT_HOMEOPS_CLAUDE, GH_PAT_CLAPPIE_WASH (never broad OAuth token)
+- homeops: read anything, write only washnotes/
+- clappie repo: full read/write, commit/push to main
+
+Tools & Preferences:
+- Web scraping: Brave (clean text), Firecrawl (structure/media), Playwright (interactive SPAs)
+- Curl-based skills over MCP servers (less process overhead)
+- Copy to clipboard: tmux load-buffer (iTerm2 tmux -CC compatible)
+- Reports: save to projects/backtester/docs/ (not skill's docs/reports/)
+- Upstream skills: git-tracked from whatnickcodes/clappie; custom via rsync
+- Non-secret config: recall/settings/homeserver.txt (not sops)
+- CLAUDE.md: keep ~65 lines max; reference material → recall/docs/ via trigger-index
+
+Home Automation Specifics:
+- Weather Man: Open-Meteo API (no key), 24-column CSV, hourly logging
+  Rooms: andrea (bedroom), camera_vecchi, cucina (kitchen), sala (living room)
+  Each room: temp, humidity, realfeel + outside conditions
+- Sensibo: multi-room AC control, Climate React (with radiation data calibration)
+- HA entity naming: cucina=kitchen, sala=living_room (explicit mapping in prompts)
+- motion sensors, Adaptive Lighting, scene automations (some disabled since 2026-03-07)
+
+STRONG OPINIONS & TRIGGERS
+---------------------------
+Hard No's:
+- Secrets on persistent disk (sops+age mandatory)
+- Writes outside washnotes/ in homeops
+- Background apps not started first (Hard Rule #6)
+- Ambiguous outputs / follow-up questions when context is available
+- Over-engineering obscuring signal (Scotty's Law: plumbing clarity prevents clogs)
+- MCP server bloat (curl skills > long-lived processes)
+- Feature branches with auto-merge (just friction)
+
+Root Causes of Frustration:
+- systemd units running as root when should run as wash (caused 41-day backup gap)
+- rclone silent failures (exits 0, does nothing — gap detection fails)
+- Apps polling DNS aggressively (PayPal: 1,604 queries/day idle)
+- Pi-hole disk space recurring issue
+- HA token intermittent failures (401/403 flapping)
+- Prompt injection from external content ("ignore instructions" attempts)
+
+Preferences:
+- UTC → CET always, no exceptions
+- Specific entity IDs/values, not vague summaries
+- Blunt risk assessment, no sugarcoating
+- Brevity after fixes (ack + move on, no essays)
+- Casual tone via Telegram (warm, funny, direct)
+
+RECURRING WORKFLOWS
+-------------------
+Heartbeat Chores (every 10 min, staggered):
+- system-health: disk, memory, load, tailscaled status
+- network-health: DNS resolution, funnel reachability
+- ha-health-check: HA API 200 response (token issues periodic)
+- pihole-health: blocking active
+- backup-verify: rclone freshness (pihole, haos, proxmox, vm_snapshot)
+- weather-man: hourly outdoor + 4-room Sensibo logging
+- dns-flood-monitor: query volume, VPS CPU, FTL DB size (threshold: 60k queries/day)
+- clean-notifications: process dirty Telegram → chores
+- sidekick-cleanup: stale agents
+- sidekick-recovery: orphaned agents
+- build-user-profile: this profile (hourly)
+- (also: tmp-cleanup, telegram-miss-you, staleness-audit, sidekick-errors-review, ssh-tunnel-monitor)
+
+Quick Telegram Checks:
+- "check dns" → google.com resolved + ads.google.com blocked
+- "is HA up?" → API 200 + automations loaded + last event
+- "kitchen lights" → individual light states, motion timers, automation status
+- "how's the AC?" → room temps, setpoint, fan mode, time to target
+- "pause pihole 5 min" → graceful DHCP/DNS pause request
+
+Sidekick / Research Tasks:
+- /researcher: PubMed + evidence-based medical research (async spawning)
+- Climate tuning: reference weather-man CSV for seasonal Sensibo calibration
+- Light/AC troubleshooting: HA logs, root cause, fix options
+- Device identification: DNS log MAC-to-device lookup + opinionated analysis
 
 INFRASTRUCTURE QUICK REF
---------------------------
-- Pi-hole LXC: 100.87.157.76 (Tailscale IP), root SSH via wash-pihole-tailscale key
-- Home Assistant: 100.116.172.30:8123, SSH wash@100.116.172.30 via wash-ha-tailscale key
-- HA internal API (from Zoidberg): http://100.64.120.3:8123 (used by weather-man sidekick)
+------------------------
+Networks & Machines:
+- Phoebe: Marco's workstation (sudo, secrets origin)
+- Zoidberg: Marco's server (runs Wash 24/7, HA, Proxmox, network hub)
 - Tailscale domain: zoidberg.sole-fir.ts.net
-- Telegram webhook: https://zoidberg.sole-fir.ts.net/webhooks/telegram-bot/<secret>
-- Sidekick HQ: localhost:7777 (exposed via tailscale funnel)
-- Watchdog alert chat ID: 7229110406
-- Watchdog timer: wash-clappie-watchdog.timer (deployed, running)
-- VPS relay: 100.101.18.71 (typically 38-60% of Pi-hole query volume — normal)
-- Notable LAN devices: River.lan (iPhone), Andrea's S25, tesla.lan, Home Assistant, Deco X50 router
-- Weather Man coordinates: Parma, Italy — 44.7824, 10.3373
-- DNS flood threshold: 60k queries/day (bumped from 50k on 2026-03-24T05:51 by Marco)
+- Tailscale IPs: Pi-hole 100.87.157.76, HA 100.116.172.30, VPS relay 100.101.18.71
 
-CURRENT SYSTEM STATE (as of 10:24 CET 2026-03-24)
---------------------------------------------------
-- Heartbeat running, all chores operational. Watchdog healthy (all 3 apps up).
-- Disk: Zoidberg ~47% used, Pi-hole 15%
-- Mem: ~1.7Gi avail out of 7.5Gi | load ~2.5 | tailscaled running
-- system-health ✓, network-health ✓ (dns ok, funnel ok), pihole-health ✓
-- ha-health-check: intermittent 401/403 this morning (05:15, 07:22), recovered to ✓ 200 by 09:26
-- rclone oauth broken — backup-verify unable to verify; last known good: 14:42 Mar 23
-- dns-flood-monitor ✓ clear (39.6k queries today, VPS 55%, disk 15%) — threshold 60k
-- sidekick-cleanup ✓ active: 0, stale: 0 — clean
+Devices:
+- River.lan: Marco's iPhone (top DNS client)
+- Andrea's S25: on network (bedroom Sensibo sensor)
+- Tesla.lan: home network
+- Deco X50: router (WiFi 6)
+
+Sidekick & External:
+- Sidekick HQ: localhost:7777 (exposed via funnel)
+- Watchdog alert chat: 7229110406 (Marco)
+- Watchdog timer: wash-clappie-watchdog.timer (all 3 apps monitored)
+
+CURRENT STATE (as of 2026-03-24T15:55 CET)
+-------------------------------------------
+System Health: All nominal
+- Disk: Zoidberg ~48% used, Pi-hole 15% (FTL DB 50M)
+- Memory: nominal
+- Load: nominal
+- Tailscaled: running
+- Funnel: ok (Telegram webhook reachable)
+
+Chore Status:
+- system-health ✓ all good (15:25 CET)
+- network-health ✓ dns ok, funnel ok
+- ha-health-check ✓ 200 (steady since 08:22; had 403 at 05:15, 401 at 07:22 today)
+- pihole-health ✓ pass
+- backup-verify ✓ fresh (confirmed at 11:22 — pihole 8.4h, haos 4.4h, proxmox 4.9h)
+- dns-flood-monitor ⚠ WARNING — 61k queries at 15:43 (threshold: 60k; crossed again)
+  Note: tripped at 05:15 too (cleaned), re-cleared, now at 61k. VPS share normal (50%).
+  Sidekick at 14:44 assessed it as "not a fire" — just busy day crossing threshold.
+- sidekick-cleanup ✓ active: 0, stale: 0
 - sidekick-recovery ✓ candidates: 0
-- sidekick-errors-review: 35 errors, 2 patterns — chatId resolution still unresolved
-- staleness-audit: 1 mismatch found, report committed, push failed (no GitHub SSH key)
-- weather-man ✓ sidekick spawned at 09:24 CET, outside 6.6C/Clear sky
-- Marco active this morning: 05:49-05:52 CET
+- weather-man ✓ last spawned 15:25 CET
+- Marco last active: 10:30 CET (Pi-hole pause request, reacted ⚡)
 
-PENDING FIXES (requires Marco on Phoebe)
------------------------------------------
-- backup-wash.service + cleanup-wash-backups.service: missing `User=wash` — runs as root,
-  rclone silent failure caused 41-day backup gap. Fix: add `User=wash` + `Group=wash`, daemon-reload.
-- rclone oauth broken — backup-verify failing. Needs reauth on Phoebe.
-- VM snapshot backup: stale. Human chore created for Proxmox check.
-- Missing HA entities: input_datetime.last_backup_pihole and input_datetime.last_backup_wash
-  do NOT exist in HA. Need to add to extra_input_datetimes.yaml on HA.
-- Git credential helper double-escaped `\\!` in /home/wash/clappie/.git/config — known, non-blocking.
-- No GitHub SSH key on Zoidberg — staleness-audit push fails. Needs setup.
-- Pi-hole disk space: recurring. maxDBdays live=7 (docs say 14). Washnote pushed 2026-03-23.
-- Pi-hole privacy level: lowered to 0 (2026-03-16) to expose flooding device. Decision pending.
-- Unknown IPv6 2001:b07:aa7:9ea1:69fb:... flagged as watch-target.
-- dns-flood-monitor chatId routing bug: AI sidekicks get literal 'marco' instead of 7229110406.
-  35 failures logged. Chore written. Confirmed still active 2026-03-24.
-- HA Climate React dashboard: input_booleans disconnected from automation. Icons blank.
-  Fix options in washnotes/2026-03-20-ha-climate-react-dashboard-gap.md.
-- Luce Mobile (living room): gets stuck ON after no-motion. Fix not confirmed applied.
-- Hue motion sensor illuminance lag: ~5-min updates block motion-triggered lights. Deferred.
-- network-health false positive: Zoidberg uses Hetzner DNS, not Pi-hole. Check needs rewrite.
-- HA token intermittent: ha-health-check returning 401/403 periodically. Not yet diagnosed.
-- Human chores queue: pending items in chores/humans/.
+KNOWN ISSUES & PENDING FIXES
+-----------------------------
+(Requires Marco on Phoebe workstation)
+- backup-wash.service: missing User=wash (runs as root, silent rclone fail → 41-day gap)
+- rclone oauth: potentially stale (was failing, recovered; confirm reauth needed)
+- HA input_datetime entities missing (last_backup_pihole, last_backup_wash not in HA)
+- Git credential helper: double-escaped \\! in .git/config (non-blocking)
+- No GitHub SSH key on Zoidberg (staleness-audit push fails)
+- Pi-hole disk space: recurring issue (maxDBdays live=7, docs suggest 14)
+- Pi-hole privacy level: 0 (lowered 2026-03-16 to expose flood source; decision pending)
+- Unknown IPv6 2001:b07:aa7:9ea1:69fb:... (watch-target)
+- dns-flood-monitor chatId bug: sidekicks get 'marco' string instead of 7229110406 (35 failures)
+- HA Climate React dashboard: input_booleans disconnected (blank icons)
+  Fix options in washnotes/2026-03-20-ha-climate-react-dashboard-gap.md
+- Luce Mobile (living room): stuck ON after no-motion (fix not confirmed applied)
+- Hue motion sensor: 5-min illuminance lag (deferred)
+- network-health: false positive (Zoidberg uses Hetzner DNS, not Pi-hole)
+- HA token: intermittent 401/403 (05:15 403 + 07:22 401 today; stable since 08:22)
+- Human chores: check chores/humans/ for pending items
 
-RECENT NOTABLE EVENTS
-----------------------
-- 2026-03-24T10:22: dns-flood-monitor ✓ clear (39.6k queries, vps 55%, disk 15%)
-- 2026-03-24T10:24: system-health ✓ all good; network-health ✓ dns ok, funnel ok
-- 2026-03-24T09:54: build-user-profile ✓ updated (236 lines)
-- 2026-03-24T09:26: ha-health-check ✓ 200, pihole-health ✓, network-health ✓ dns ok, funnel ok
-- 2026-03-24T09:24: weather-man ✓ sidekick spawned; build-user-profile updated (236 lines)
-- 2026-03-24T08:56: system-health ✓ all good (disk 47%, mem 22%, load 2.53, tailscaled running)
-- 2026-03-24T08:28: weather-man ✓ recorded again (outside: 6.6C/Clear sky)
-- 2026-03-24T08:22: ha-health-check ✓ 200 — recovered; weather-man logged 6.6C/Clear sky
-- 2026-03-24T07:22: ha-health-check ✗ 401 — second 4xx this morning (403 at 05:15, recovered)
-- 2026-03-24T05:52: Marco checked living room — CR off, Tado idle (19.4C vs 18.5C setpoint = residual heat),
-  CO2 1233ppm, PM2.5 40 (poor air quality). Wash confirmed within normal params. Offered Tado setpoint drop.
-- 2026-03-24T05:51: DNS flood alert threshold bumped from 50k to 60k — Marco confirmed live
-- 2026-03-24T05:50: Marco confirmed secrets fix: bash chores now use set -a; source — not sed+xargs.
-  Marco caught Wash's bad memory ("Are you sure about the secrets thing?") — Wash acknowledged confusion.
-  Clarified: sed+xargs = Bun shell; set -a; source = bash sidekicks/chores.
-- 2026-03-24T05:50: Marco "Great, thanks Mr. Wash" — warm close after threshold + secrets fix
-- 2026-03-24T05:50: Marco "Let's do that" — Wash missed context fresh-start, asked for clarification
-- 2026-03-24T05:49: Marco "test from curl" — webhook confirmed live, comms good
-- 2026-03-24T05:15: rclone oauth broken — backup-verify degraded; sidekick-cleanup cleaned 11 stale
-- 2026-03-23T17:53: dns-flood-monitor warning (queries: 62.7k, vps: 42%, disk: 15%)
-- 2026-03-23T04:07: Heartbeat crash + auto-recovery (watchdog restart, resolved)
-- 2026-03-22T17:45: Medical research sidekick — ebastine vs cetirizine vs fexofenadine (allergy season)
-- 2026-03-22T23:24: VM snapshot backup stale (42h) — vzdump or upload hook failure. No Proxmox SSH access.
-- 2026-03-22: Weather Man chore live — logging hourly outdoor + indoor climate data for Sensibo calibration.
-- 2026-03-21T12:25: Luce Mobile stuck ON — root cause found (nanoleaf script race + zero-brightness bug)
-- 2026-03-21T05:30: Marco: "New day, new bug." Living room lights dim/warm. Sidekick spawned.
-- 2026-03-20T05:56: HA Climate React dashboard gap diagnosed + washnoted. Deferred to laptop session.
-- 2026-03-18T04:50: PayPal DNS spam on OnePlus — 1,604 queries/day idle. Marco: "What the flying fuck" 🤣💀
-- 2026-03-16T09:45: Marco reinstalled Telegram, first react: 👀 (confirmed comms restored).
-- 2026-03-14: 41-day backup gap + webhook death — both fixed same day.
+WATCH ITEMS (today)
+-------------------
+- DNS query count: 61k at 15:43 CET — second warning trip of the day; climbing steadily
+  VPS share stays normal (~50%) so likely organic traffic, not a flood event
+- HA token: two auth failures today (05:15, 07:22) — steady since 08:22 but pattern noted
+
+PERSONALITY & CONTEXT
+---------------------
+Marco is a Parma-based homelab operator running a sophisticated, multi-device infrastructure
+with the dry confidence of someone who's already survived 41-day backup gaps and PayPal DNS
+floods. He roasts systems and himself with equal wit, expects precision without ceremony,
+and appreciates when Wash matches his energy — warm, funny, direct, no bullshit. He checks
+in casually via Telegram, reacts to everything with combos (🫡, 👀, 🤣💀), and commits to
+tasks fast. He's the type to work with medical data (anesthesia scheduling, antihistamine
+research) while managing a home stack, which sums up his chaos management style. Timezone:
+CET always, no exceptions. Humor: existential + absurdist preferred. Security: paranoid
+about secrets on disk. He addresses Wash as "Mr. Wash" sometimes — warm, familiar. He
+says "Great, thanks Mr. Wash" after fixes and moves on. He's not looking for essays.
+
+================================================================================
+Last generated: 2026-03-24T15:55 CET
