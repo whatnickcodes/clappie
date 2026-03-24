@@ -44,11 +44,17 @@ Parse the `current` object:
 
 ## Step 3: Fetch indoor sensors from Home Assistant
 
+First, verify the token loaded correctly:
+```
+[ -z "$HA_TOKEN" ] && echo "HA_TOKEN empty" && exit 0
+```
+If HA_TOKEN is empty, skip indoor sensors entirely (use empty strings for all indoor columns). Do NOT send any request to HA without a valid token.
+
 Fetch these 12 specific entities (NOT /api/states — use per-entity endpoint):
 
 ```
 HA=http://100.116.172.30:8123
-AUTH="Authorization: Bearer $(printenv HA_TOKEN)"
+AUTH="Authorization: Bearer $HA_TOKEN"
 
 curl -s -H "$AUTH" "$HA/api/states/sensor.andrea_temperature"
 curl -s -H "$AUTH" "$HA/api/states/sensor.andrea_humidity"
