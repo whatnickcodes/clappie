@@ -1,0 +1,20 @@
+source=telegram-bot
+userId=
+chatId=user
+name=
+emoji=🐙
+colorIndex=2
+squad=
+status=completed
+startedAt=2026-03-16T09:28:01.727Z
+aiInitiated=true
+model=opus
+promptMode=system
+updatedAt=2026-03-16T09:29:32.192Z
+paneId=%49
+endedAt=2026-03-16T09:29:32.192Z
+---
+09:28:01 ← telegram user: DNS flood monitor warning. Queries today: 219k (threshold: 50k). VPS query share: unknown (Pi-hole privacy level 2 hides client IPs). FTL db: 11.6MB. Disk: 15%. Spike was concentrated 06:00-07:00 UTC (123k queries in that hour alone). Currently subsided — rate is back to normal (~1.5k/hr at 09:24 UTC). No action needed now, but worth noting the spike pattern. Single metric elevated (query count).
+09:28:18 ⚡ Chat not found on send — checking sidekick details
+09:29:18 ⚡ Received DNS flood monitor alert: 219k queries (threshold 50k), spike concentrated 06:00-07:00 UTC (123k queries). Currently subsided. Sent analysis to Marco via direct Telegram API (sidekick send had chat-not-found issue). No remediation needed.
+09:29:31 ⚡ Sidekick complete.

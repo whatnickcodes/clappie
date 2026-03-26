@@ -1,0 +1,58 @@
+source=internal
+userId=
+chatId=
+name=
+emoji=🐝
+colorIndex=9
+squad=
+status=completed
+startedAt=2026-03-16T05:52:15.514Z
+aiInitiated=true
+model=haiku
+promptMode=system
+updatedAt=2026-03-16T06:27:04.530Z
+paneId=%42
+endedAt=2026-03-16T06:27:04.530Z
+---
+05:52:15 ← Investigate DNS query overload on Pi-hole LXC. DIAGNOSTICS ONLY — do not change anything.
+SSH: ssh -i /run/wash/ssh/wash-pihole-tailscale root@100.87.157.76
+The sidekick that ran before you found repeated 'Maximum number of concurrent DNS queries reached (max: 150)' warnings in docker logs around 05:42-05:45 UTC.
+Your job:
+1. Check docker logs pihole --since 1h for more of these warnings — how frequent, still happening?
+2. Run: docker exec pihole pihole -c -e (real-time stats briefly) or check the API: curl -s http://localhost/admin/api.php?summary
+3. Check top clients: curl -s 'http://localhost/admin/api.php?topClients&auth=<get from setupVars or skip if no auth needed>'
+4. Check /var/lib/docker/volumes/pihole_pihole_data/_data/pihole.toml for dns.maxConcurrent or similar setting
+5. Look at recent query log if available: docker exec pihole pihole -t (tail live log for 10-15 seconds then ctrl-c)
+6. Check if any single client IP dominates queries
+Report findings with clappie sidekick report. Include: which client(s) are responsible, query volume, whether it's still happening, and whether max:150 is just too low for normal traffic or if something is misbehaving.
+05:53:28 ⚡ [report] DIAGNOSTIC REPORT: DNS Concurrent Query Overload — 100.101.18.71
+**FINDINGS:**
+1. **Frequency & Duration:**
+   - 414 warnings in the last 60 minutes (04:52:33 to 05:52:31 UTC)
+   - Warnings still actively occurring as of 05:52 UTC — this is ONGOING
+   - Average: ~7 warnings per minute
+2. **Root Cause — Client 100.101.18.71:**
+   - Responsible for 432/437 queries (98.8%) in recent query log
+   - 368/432 queries (85%) are for dhl.com with query type ANY
+   - Queries are getting 'config error is REFUSED' response
+   - Client is NOT backing off — immediately retrying same failed query
+   - All 368 dhl.com queries happen within single seconds (e.g., Mar 16 05:53:14, 20+ queries in that one second)
+3. **Configuration:**
+   - dnsmasq max concurrent limit: 150 (default, not explicitly configured)
+   - No custom maxConcurrent setting in pihole.toml
+   - Limit is reasonable for normal traffic but INSUFFICIENT for this client's flood
+4. **Container Status:**
+   - Container restarted at 05:50:46 UTC
+   - Client immediately resumed flood within 4 seconds (first warning at 05:50:50)
+   - FTL log shows upstream DNS timeout at 05:52:53 (Unbound probably overloaded too)
+5. **Other Clients:**
+   - 192.168.1.186: 2 queries (Amazon domain queries)
+   - 127.0.0.1: 2 queries (localhost)
+   - 192.168.1.97: 1 query
+   - All other traffic is negligible
+**PATTERN ASSESSMENT:**
+This is a classic retry loop. Client 100.101.18.71 is attempting 'ANY' record queries for dhl.com, receiving REFUSED, and immediately retrying without backoff. This floods the 150-concurrent-query window and causes legitimate DNS requests to be dropped.
+**Root Cause NOT the 150-query limit itself** — the limit is appropriate. The root cause is: **misbehaving client application on 100.101.18.71 stuck in infinite retry loop, or compromised/misconfigured to deliberately spam dhl.com queries.**
+**Recommendation for Marco:**
+Check what's running on 100.101.18.71 (IP is on the Tailscale network). This client needs to be investigated or isolated.
+05:53:31 ⚡ Diagnostics complete. Found root cause: client 100.101.18.71 flooding dhl.com ANY queries with no backoff, saturating dnsmasq's 150-concurrent-query limit. Container restart at 05:50:46 shows client resumes immediately (first warning 05:50:50). Pattern indicates misbehaving app or compromise on that client IP.

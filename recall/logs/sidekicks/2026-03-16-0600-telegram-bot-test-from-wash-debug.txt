@@ -1,0 +1,17 @@
+source=telegram-bot
+userId=7229110406
+chatId=7229110406
+name=
+emoji=🐲
+colorIndex=7
+squad=
+status=completed
+startedAt=2026-03-16T06:00:44.221Z
+username=marco
+promptMode=system
+updatedAt=2026-03-16T06:56:26.767Z
+paneId=%43
+endedAt=2026-03-16T06:56:26.766Z
+---
+06:00:44 ← test from wash debug
+06:01:00 → yo i'm alive and kicking. background apps all running. what's good?

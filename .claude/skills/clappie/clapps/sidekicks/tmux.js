@@ -11,6 +11,7 @@ import { existsSync, readFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import config from './config.js';
+import { getConversationContext } from './state.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -240,20 +241,28 @@ function formatAttachmentsBlock(attachments) {
   return lines.join('\n');
 }
 
-function formatPreviousSidekickBlock(previousSidekickId) {
+function formatPreviousSidekickReference(previousSidekickId) {
   if (!previousSidekickId) return '';
-
   const logPath = `recall/logs/sidekicks/${previousSidekickId}.txt`;
-  const fullPath = join(PROJECT_ROOT, logPath);
+  if (!existsSync(join(PROJECT_ROOT, logPath))) return '';
+  return `\nPrevious session log (for detailed action history): ${logPath}`;
+}
 
-  if (!existsSync(fullPath)) return '';
+function formatConversationContext(sidekick) {
+  // Slack threads already have good continuity via threadTs — skip thread context
+  if (sidekick.threadTs) {
+    return formatPreviousSidekickReference(sidekick.previousSidekickId);
+  }
 
-  return `
-PREVIOUS CONVERSATION:
-There was a previous conversation. Full log:
-  ${logPath}
-Read it if you need context.
-`;
+  // Try inline conversation thread first
+  const context = getConversationContext(sidekick.source, sidekick.chatId);
+  if (context) {
+    const ref = formatPreviousSidekickReference(sidekick.previousSidekickId);
+    return context + ref;
+  }
+
+  // Fallback: no thread file yet (backward compat)
+  return formatPreviousSidekickReference(sidekick.previousSidekickId);
 }
 
 function formatReplyToBlock(replyTo) {
@@ -317,7 +326,7 @@ ${templatedLayers}${contextLayers}`;
  */
 function buildTaskMessage(sidekick) {
   const attachmentsBlock = formatAttachmentsBlock(sidekick.attachments);
-  const previousBlock = formatPreviousSidekickBlock(sidekick.previousSidekickId);
+  const previousBlock = formatConversationContext(sidekick);
   const replyToBlock = formatReplyToBlock(sidekick.replyTo);
   const isAiInitiated = sidekick.aiInitiated || sidekick.source === 'internal';
   const taskLabel = isAiInitiated ? 'Task' : "User's request";
@@ -506,11 +515,13 @@ export async function spawnSession(sidekick) {
     await Bun.write(sysFile, systemPrompt);
 
     const modelArg = sidekick.model ? ` --model ${sidekick.model}` : '';
-    const bashScript = `SYSPROMPT=$(cat '${sysFile}') && exec claude${modelArg} --append-system-prompt "$SYSPROMPT"`;
+    const stderrFile = `/tmp/sidekick-stderr-${sidekick.id}.txt`;
+    const exitFile = `/tmp/sidekick-exit-${sidekick.id}.txt`;
+    const bashScript = `SYSPROMPT=$(cat '${sysFile}') && claude --enable-auto-mode${modelArg} --append-system-prompt "$SYSPROMPT" 2>'${stderrFile}'; EXIT=$?; if [ $EXIT -ne 0 ]; then echo "EXIT:$EXIT" > '${exitFile}'; sleep 10; fi`;
 
     // Use spawnSync for full control over argument passing
     const tmuxArgs = [
-      'split-window', '-t', target, '-h', '-p', '50', '-P', '-F', '#{pane_id}',
+      'split-window', '-t', target, '-h', '-l', '50%', '-P', '-F', '#{pane_id}',
       ...envFlagArr,
       'bash', '-c', bashScript,
     ];
@@ -519,8 +530,11 @@ export async function spawnSession(sidekick) {
   } else {
     // ── MESSAGE MODE (default/legacy) ───────────────────────────────────
     // Everything goes as the first user message (current behavior)
-    const claudeCmd = sidekick.model ? ['claude', '--model', sidekick.model] : ['claude'];
-    const result = await $`tmux split-window -t ${target} -h -p 50 -P -F "#{pane_id}" ${envFlagArr} ${claudeCmd}`.text();
+    const stderrFile = `/tmp/sidekick-stderr-${sidekick.id}.txt`;
+    const exitFile = `/tmp/sidekick-exit-${sidekick.id}.txt`;
+    const modelArg = sidekick.model ? ` --model ${sidekick.model}` : '';
+    const bashScript = `claude --enable-auto-mode${modelArg} 2>'${stderrFile}'; EXIT=$?; if [ $EXIT -ne 0 ]; then echo "EXIT:$EXIT" > '${exitFile}'; sleep 10; fi`;
+    const result = await $`tmux split-window -t ${target} -h -l 50% -P -F "#{pane_id}" ${envFlagArr} bash -c ${bashScript}`.text();
     paneId = result.trim();
   }
 
@@ -537,6 +551,19 @@ export async function spawnSession(sidekick) {
   while (waited < maxWait) {
     await new Promise(resolve => setTimeout(resolve, pollInterval));
     waited += pollInterval;
+
+    // Check if pane is still alive — if Claude crashed, detect it early
+    const aliveCheck = spawnSync('tmux', ['display-message', '-t', paneId, '-p', '#{pane_id}'], { encoding: 'utf8' });
+    if (aliveCheck.status !== 0) {
+      // Pane died — try to read captured stderr for diagnostics
+      const stderrFile = `/tmp/sidekick-stderr-${sidekick.id}.txt`;
+      const exitFile = `/tmp/sidekick-exit-${sidekick.id}.txt`;
+      let detail = '';
+      try { detail = await Bun.file(stderrFile).text(); } catch {}
+      try { await $`rm -f ${stderrFile} ${exitFile}`; } catch {}
+      throw new Error(`Claude exited before ready${detail ? ': ' + detail.trim().slice(-500) : ''}`);
+    }
+
     const capture = spawnSync('tmux', ['capture-pane', '-t', paneId, '-p'], { encoding: 'utf8' });
     if (capture.stdout && capture.stdout.includes('~/')) break;
   }
@@ -564,6 +591,8 @@ export async function spawnSession(sidekick) {
     if (useSystemPrompt) {
       await $`rm /tmp/sidekick-sysprompt-${sidekick.id}.txt`;
     }
+    // Clean up error capture files (unused on success)
+    await $`rm -f /tmp/sidekick-stderr-${sidekick.id}.txt /tmp/sidekick-exit-${sidekick.id}.txt`;
   } catch {
     // Ignore cleanup errors
   }

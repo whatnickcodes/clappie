@@ -1,2 +1,3 @@
 Heartbeat
 -d autoEnable=true
+status: tmux list-panes -t background-heartbeat -F '#{pane_current_command}' 2>/dev/null | grep -qE 'claude|bun|node|npm'

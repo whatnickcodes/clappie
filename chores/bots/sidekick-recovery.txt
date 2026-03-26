@@ -1,0 +1,42 @@
+Recover orphaned sidekick conversations that died mid-task.
+
+Steps:
+1. Read the port from recall/settings/sidekick/port.txt (plain integer, default 7777 if missing)
+2. Check if server is running: GET http://localhost:{port}/health
+   If it fails, skip this check entirely.
+3. GET http://localhost:{port}/list to fetch all sidekicks as JSON
+4. Find recovery candidates: sidekicks where ALL of these are true:
+   a. status === "stale" (not "completed" or "active")
+   b. source starts with "telegram-bot" or "slack-bot" (user-facing conversations only)
+   c. The log file has a user message (← line) AFTER the last bot message (→ line)
+      — meaning the user sent something that never got a reply
+   d. lastActivity (or startedAt) is less than 2 hours old
+      — don't resurrect ancient conversations
+   e. No currently active sidekick exists with the same source AND userId
+      — avoid spawning duplicates if already recovered
+5. For each candidate:
+   a. Read the full log file: recall/logs/sidekicks/{id}.txt
+   b. Extract from metadata section (before ---): source, userId, chatId, username
+   c. Extract last unanswered user message from history (after ---)
+   d. Spawn a recovery sidekick with source routing:
+      For telegram-bot source with userId 12345:
+      clappie sidekick spawn "telegram user {userId} — Continue a dropped conversation. Read recall/logs/sidekicks/{id}.txt for full context. The previous sidekick died mid-task. The user's last unanswered message was: '{last_message}'. Pick up where you left off — acknowledge the gap briefly and continue helping."
+      The "telegram user {userId}" prefix auto-routes replies to the correct Telegram chat.
+      For slack-bot, use "slack channel {chatId}" prefix instead.
+6. Log to recall/logs/heartbeat/YYYY-MM-DD.txt (APPEND to daily file):
+   [HH:MM] sidekick-recovery ✓ candidates: N, recovered: M, skipped: S
+
+   NEVER create standalone files. ALWAYS append ONE line to the daily heartbeat file.
+
+Agent tips:
+- Parse sidekick log format: metadata key=value lines before ---, history lines after ---
+- History format: "HH:MM:SS ← user message" (incoming) and "HH:MM:SS → bot message" (outgoing)
+- To check unanswered: find all ← and → lines, check if last ← comes after last →
+- Use curl for HTTP calls, jq for JSON parsing
+- Be conservative: only recover conversations where the user clearly got no reply
+- If zero candidates found, still log the result (recovered: 0)
+
+[heartbeat-meta]
+interval: 10m
+model: haiku
+last_run: 2026-03-24T18:33

@@ -1,7 +1,7 @@
 // Background CLI commands - extracted from clappie.js
 // All background-related operations (start/stop background apps, session management)
 
-import { existsSync, readdirSync, unlinkSync } from 'fs';
+import { existsSync, readdirSync, unlinkSync, readFileSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 
 const BACKGROUND_TMUX_PATH = join(dirname(import.meta.path), 'tmux.js');
@@ -280,6 +280,93 @@ export async function command(args) {
     return;
   }
 
+  // clappie background watchdog <status|run|reset|log>
+  if (subCmd === 'watchdog') {
+    const wdCmd = args[2] || 'status';
+    const PROJECT_ROOT = join(dirname(import.meta.path), '..', '..', '..', '..', '..');
+    const STATE_DIR = join(PROJECT_ROOT, 'recall', 'logs', 'watchdog');
+    const STATE_FILE = join(STATE_DIR, 'state.json');
+
+    if (wdCmd === 'run') {
+      // Run watchdog inline
+      await import('./watchdog.js');
+      return;
+    }
+
+    if (wdCmd === 'status') {
+      // Show crash state per app
+      let state = {};
+      try {
+        if (existsSync(STATE_FILE)) {
+          state = JSON.parse(readFileSync(STATE_FILE, 'utf8'));
+        }
+      } catch {}
+
+      const entries = Object.entries(state);
+      if (entries.length === 0) {
+        console.log('Watchdog: no crash history (all clean)');
+        return;
+      }
+
+      console.log('Watchdog crash state:\n');
+      for (const [appId, appState] of entries) {
+        const crashes = appState.crashes || [];
+        const recent = crashes.filter(ts => ts > Date.now() - 60 * 60 * 1000);
+        const last = crashes.length > 0
+          ? new Date(crashes[crashes.length - 1]).toISOString().slice(11, 19)
+          : 'n/a';
+        console.log(`  ${appId}: ${recent.length} crash(es) in last hour (last: ${last})`);
+      }
+      console.log('');
+      return;
+    }
+
+    if (wdCmd === 'reset') {
+      const appId = args[3];
+      try {
+        if (!existsSync(STATE_FILE)) {
+          console.log('No watchdog state to reset');
+          return;
+        }
+        const state = JSON.parse(readFileSync(STATE_FILE, 'utf8'));
+        if (appId) {
+          if (state[appId]) {
+            delete state[appId];
+            writeFileSync(STATE_FILE, JSON.stringify(state, null, 2));
+            console.log(`Reset crash history for ${appId}`);
+          } else {
+            console.log(`No crash history for ${appId}`);
+          }
+        } else {
+          writeFileSync(STATE_FILE, '{}');
+          console.log('Reset all watchdog crash history');
+        }
+      } catch (err) {
+        console.error(`Failed to reset: ${err.message}`);
+      }
+      return;
+    }
+
+    if (wdCmd === 'log') {
+      const date = new Date().toISOString().slice(0, 10);
+      const logPath = join(STATE_DIR, `${date}.txt`);
+      if (!existsSync(logPath)) {
+        console.log(`No watchdog log for today (${date})`);
+        return;
+      }
+      const content = readFileSync(logPath, 'utf8');
+      // Show last 30 lines
+      const lines = content.trim().split('\n');
+      const tail = lines.slice(-30);
+      if (lines.length > 30) console.log(`... (showing last 30 of ${lines.length} lines)\n`);
+      console.log(tail.join('\n'));
+      return;
+    }
+
+    console.error('Usage: clappie background watchdog <status|run|reset [appId]|log>');
+    process.exit(1);
+  }
+
   const { discoverBackgroundApps, launchApp, stopApp, isAppRunning } = await import(BACKGROUND_TMUX_PATH);
   const apps = discoverBackgroundApps();
 
@@ -441,6 +528,6 @@ export async function command(args) {
   }
 
   // No valid subcommand
-  console.error('Usage: clappie background <start|stop|list|kill> [app]');
+  console.error('Usage: clappie background <start|stop|list|kill|watchdog> [app]');
   process.exit(1);
 }

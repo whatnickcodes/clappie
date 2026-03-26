@@ -1,5 +1,13 @@
 .DS_Store
 .env
+*._20*
+
+# Skills — upstream core tracked via git, custom skills deployed via rsync
+.claude/skills/*
+!.claude/skills/clappie/
+!.claude/skills/telegram-bot/
+!.claude/skills/slack-bot/
+!.claude/skills/whisper/
 
 # OAuth tokens and certs (generated at runtime)
 recall/oauth/*.json
@@ -8,12 +16,24 @@ recall/oauth/*.pem
 # Logs (structure tracked via .gitkeep, content is runtime)
 recall/logs/**/*.txt
 
-# Personal media
+# Personal media and runtime data
 recall/files/*
 !recall/files/.gitkeep
+!recall/files/weather-man/
+recall/files/weather-man/*
+!recall/files/weather-man/README.md
 
 # Auto-generated profile (built by heartbeat)
 recall/profile.txt
+
+# Heartbeat runtime state
+chores/heartbeat-meta.json
+
+# Dirty notifications (transient, consumed and moved to clean/)
+notifications/dirty/*.txt
+
+# Local settings (machine-specific)
+.claude/settings.local.json
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Projects

@@ -1,0 +1,66 @@
+source=internal
+userId=
+chatId=
+name=
+emoji=🦊
+colorIndex=1
+squad=
+status=completed
+startedAt=2026-03-16T05:45:23.489Z
+aiInitiated=true
+model=haiku
+promptMode=system
+updatedAt=2026-03-16T05:56:15.168Z
+paneId=%36
+endedAt=2026-03-16T05:56:15.168Z
+---
+05:45:23 ← DIAGNOSTICS ONLY — do NOT delete, fix, or change anything.
+You're investigating a disk-full condition on the Pi-hole LXC (CTID 101, Alpine Linux, 8 GB disk).
+SSH access: ssh -i /run/wash/ssh/wash-pihole-tailscale root@100.87.157.76
+Run these diagnostics and report findings:
+1. df -h — overall disk usage
+2. du -sh /opt/pihole/etc-pihole/* — Pi-hole data directories
+3. du -sh /var/lib/docker/* — Docker storage
+4. docker system df — Docker disk breakdown
+5. find /opt/pihole -name '*.db' -exec ls -lh {} \; — database file sizes
+6. ls -lah /opt/pihole/etc-pihole/pihole-FTL.db — FTL database specifically
+7. docker logs pihole --tail 30 — recent logs for errors
+8. Check /var/log/ sizes: du -sh /var/log/*
+Report back with a clear summary of what's consuming disk and recommendations (but do NOT act on them). Use 'clappie sidekick report' to send findings back.
+05:46:02 ⚡ [report] DISK DIAGNOSTICS — Pi-hole LXC CTID 101
+**Disk Usage Summary:**
+- Filesystem: 7.8GB total, 4.5GB used (61%), 2.9GB free
+- Status: Moderate usage, no immediate full condition
+**Culprit: FTL Database Growth**
+The pihole-FTL.db (DNS query history) is consuming 2.4GB:
+  - pihole-FTL.db: 2.4GB (main query log database)
+  - pihole-FTL.db-wal: 424MB (write-ahead log)
+  - pihole-FTL.db-shm: 864KB (shared memory)
+  - Subtotal: ~2.8GB
+Docker volumes breakdown:
+  - pihole_pihole_data/_data: 3.0GB total
+    - gravity.db: 70.2MB (config)
+    - gravity_old.db: 71.9MB (old config backup)
+    - listsCache: 24.3MB (adlist cache)
+    - config_backups: 1.0MB
+    - gravity_backups: 900KB
+**Secondary Issue: Query Overload**
+Docker logs show recurring warnings: 'dnsmasq: Maximum number of concurrent DNS queries reached (max: 150)'
+- Logged continuously from 05:42 UTC through 05:45 UTC
+- Indicates either: sustained high traffic, misbehaving client(s), or potential attack pattern
+- This high query rate likely driving FTL.db growth
+**Filesystem Breakdown:**
+- /var/lib/docker: 537.6MB
+  - volumes: 3.0GB (pihole data + dnsmasq)
+  - containerd: 371.6MB
+  - rootfs: 162.6MB
+  - containers: 10.1MB
+- /var/log: ~600KB (manageable)
+**Current Status:** NOT in disk-full condition yet, but trajectory concerning given query overload.
+**Recommendations (NOT IMPLEMENTED):**
+1. Investigate query overload: identify if legitimate spike or rogue client
+2. Check pihole query retention settings (FTL.db auto-rotation policy)
+3. Monitor gravity.db/gravity_old.db — both backups consuming 142MB combined
+4. Consider temporary FTL.db rotation if query volume continues
+5. Re-run 'docker system df' to confirm volume reclaimability
+No errors, no cascade failures detected.

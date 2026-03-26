@@ -1,0 +1,494 @@
+[00:03] network-health ✓ dns ok
+[00:03] ssh-tunnel-monitor ✓ Tailscale up, funnel operational
+[00:03] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[00:03] clean-notifications ✓ dirty/ empty, 2 existing clean items, no action
+[01:15] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[01:15] system-health ✓ disk 19%, mem 4.4Gi avail, load 1.53, tailscaled up
+[01:13] ssh-tunnel-monitor ✓ up
+[01:15] network-health ✓ dns ok (google.com resolved, ads.google.com blocked)
+[01:15] ha-health-check ✓ 200
+[01:13] pihole-health ✓ pass
+[01:13] clean-notifications ✓ dirty/ empty
+[01:13] build-user-profile ✓ updated (126 lines)
+[01:23] clean-notifications ✓ dirty/ empty
+[01:33] clean-notifications ✓ no dirty files
+[01:33] ssh-tunnel-monitor ✓ up
+[01:33] sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 (cleaned)
+[01:43:50] clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 | build-user-profile ✓ updated (128 lines)
+[01:53:50] clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 | ssh-tunnel-monitor ✓ up | system-health ✓ disk 19% load 1.54 | network-health ✓ dns ok
+[02:03] clean-notifications: dirty/ empty, nothing to process
+[02:03] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[02:13] clean-notifications ✓ (dirty/ empty, nothing to process)
+[02:13] ssh-tunnel-monitor ✓ up
+[02:13] pihole-health ✓ pass
+[02:13] build-user-profile ✓ (128 lines, no new memory data)
+[02:15] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[02:23] ha-health-check ✓ 200
+[02:23] network-health ✓ dns ok
+[02:23] system-health ✓ all good
+[02:33] clean-notifications ✓ dirty/ empty, nothing to process
+[02:33] ssh-tunnel-monitor ✓ up
+[02:33] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[02:43] clean-notifications ✓ no dirty files
+[02:43] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[02:43] build-user-profile ✓ updated (129 lines)
+[02:54] network-health ✓ dns ok
+[02:54] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[02:55] system-health ✓ all good
+[02:53] ssh-tunnel-monitor ✓ up
+[03:03] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[03:03] clean-notifications ✓ dirty/ empty
+[03:13] ssh-tunnel-monitor ✓ up
+[03:13] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[03:13] pihole-health ✓ pass
+[03:13] build-user-profile ✓ updated (129 lines)
+[03:13] clean-notifications ✓ dirty/ empty | ssh-tunnel-monitor ✓ running | sidekick-cleanup ✓ 0 active | pihole-health ✓ all ok | build-user-profile ✓ refreshed
+[03:23] ha-health-check ✓ 200
+[03:23] ha-health-check ✓ reachable | network-health ✓ dns ok | system-health ✓ all good | clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ 0 active, 0 stale
+[03:33] clean-notifications ✓ dirty/ empty, nothing to process
+[03:33] ssh-tunnel-monitor ✓ up
+[03:33] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[03:43] clean-notifications ✓ (dirty/ empty, 2 clean items unchanged)
+[03:45] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[03:43] build-user-profile ✓ updated (129 lines)
+[03:53] network-health ✓ dns ok
+[03:53] ssh-tunnel-monitor ✓ up
+[03:53] system-health ✓ all good (disk 19%, mem 44%, load 1.28, tailscaled running)
+2026-03-15T03:53 [clean-notifications] No dirty files found. 0 processed, 0 created, 0 cleaned up.
+[04:03] clean-notifications ✓ dirty/ empty, nothing to process
+[04:03] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[04:13] clean-notifications ✓ dirty/ empty, nothing to process
+[04:13] pihole-health ✓ pass
+[04:13] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[04:13] ssh-tunnel-monitor ✓ up
+[04:13] build-user-profile ✓ updated (129 lines)
+[04:23] ha-health-check ✓ 200
+[04:23] network-health ✓ dns ok
+[04:23] system-health ✓ all good
+[04:23] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[04:23] clean-notifications ✓ dirty/ empty, nothing to process
+[04:33] clean-notifications ✓ (no dirty files)
+[04:33] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[04:33] ssh-tunnel-monitor ✓ up
+[04:43] clean-notifications ✓ (dirty/ empty, nothing to process)
+[04:43] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[04:43] build-user-profile ✓ updated (129 lines)
+[04:53] clean-notifications ✓ nothing to process
+[04:53] ssh-tunnel-monitor ✓ up
+[04:53] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[04:53] network-health ✓ dns ok
+[04:55] system-health ✓ all good
+[05:03] clean-notifications ✓ dirty: 0
+[05:03] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[05:13] clean-notifications ✓ nothing to process
+[05:15] ssh-tunnel-monitor ✓ up
+[05:15] sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 (cleaned)
+[05:13] pihole-health ✓ pass
+[05:13] build-user-profile ✓ updated (129 lines)
+[05:23] network-health ✓ dns ok
+[05:23] ha-health-check ✓ 200
+[05:23] clean-notifications ✓ (dirty/ empty, 2 clean items unchanged)
+[05:33] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[05:33] clean-notifications ✓
+[05:33] ssh-tunnel-monitor ✓ up
+[05:33] system-health ✓ all good
+[05:45] backup-verify ✓ fresh (2.74h)
+[05:44] clean-notifications ✓ (dirty/ empty)
+[05:45] sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 (none)
+[05:43] build-user-profile ✓ updated (130 lines)
+[05:54] clean-notifications ✓ nothing to process
+[05:54] ssh-tunnel-monitor ✓ up
+[05:54] network-health ✓ dns ok
+[06:03] clean-notifications ✓ dirty: 0 processed, clean: 0 created
+[06:03] system-health ✓ all good
+[06:03] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[06:14] ssh-tunnel-monitor ✓ up
+[06:13] clean-notifications ✓ dirty: 0 processed, clean: 0 created
+[06:13] pihole-health ✓ all checks passed
+[06:15] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[06:13] build-user-profile ✓ updated (132 lines)
+[06:23] ha-health-check ✓ 200
+[06:23] clean-notifications ✓ nothing to process
+[06:25] network-health ✓ dns ok (google.com resolved, ads.google.com blocked)
+[06:33] ssh-tunnel-monitor ✓ up
+[06:33] clean-notifications ✓ (dirty/ empty, 2 clean items stable, no action needed)
+[06:33] system-health ✓ all good
+[06:33] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[06:43] clean-notifications ✓ dirty/ empty, 2 clean items stable, no action needed
+[06:45] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[06:43] ha-health-check ✗ 401 — consecutive: 1
+[06:43] build-user-profile ✓ updated (132 lines)
+[06:53] clean-notifications ✓ dirty/ empty, nothing to process
+[06:55] network-health ✓ dns ok (google.com resolved, ads.google.com blocked)
+[06:53] ssh-tunnel-monitor ✓ up
+[06:53] tmp-cleanup ✓ deleted: 0 files
+[07:03] clean-notifications ✓ dirty: 0, clean: 2 stable, no action needed
+[07:03] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[07:03] system-health ✓ all good (disk 19% used, mem 4.3Gi avail, load 2.04, tailscaled running)
+[07:13] clean-notifications ✓ (no dirty files, nothing to process)
+[07:13] ssh-tunnel-monitor ✓ up
+[07:13] pihole-health ✓ all checks passed
+[07:13] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[07:13] build-user-profile ✓ updated (134 lines)
+[07:24] clean-notifications ✓ dirty: 0
+[07:24] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[07:34] clean-notifications ✓ (dirty/ empty)
+[07:34] network-health ✓ dns ok
+[07:35] ssh-tunnel-monitor ✓ up
+[07:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+07:35
+ system-health ✓ disk 19% | mem 4.3Gi avail | load 1.91
+[07:44] ha-health-check ✓ 200
+[07:44] clean-notifications ✓ dirty: 0
+[07:44] build-user-profile ✓ updated (134 lines)
+[07:53] clean-notifications ✓ dirty: 0
+[07:53] ssh-tunnel-monitor ✓ up
+[07:53] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[08:03] clean-notifications ✓ (dirty/ empty, nothing to process)
+[08:03] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[08:13] network-health ✓ dns ok (google.com resolved, ads.google.com blocked)
+[08:14] system-health ✓ disk 19%, mem 4.3Gi avail, load 1.29, tailscaled up
+[08:13] ssh-tunnel-monitor ✓ up
+[08:13] clean-notifications ✓ (dirty/ empty, nothing to process)
+[08:13] pihole-health ✓ pass
+[08:13] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[08:13] build-user-profile ✓ updated (136 lines)
+[08:23] clean-notifications ✓ dirty: 0 processed, clean: 0 created
+[08:25] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[08:33] ssh-tunnel-monitor ✓ up
+[08:33] clean-notifications ✓ dirty/ empty, 2 clean items, 1 chore pending — nothing to process
+[08:33] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[08:43] clean-notifications ✓ dirty: 0, created: 0 clean items
+[08:45] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[08:43] ha-health-check ✓ 200
+[08:45] network-health ✓ dns ok
+[08:45] system-health ✓ disk 20%, mem 234Mi free, load 1.59, tailscaled running
+[08:43] build-user-profile ✓ updated (138 lines)
+[08:53] ssh-tunnel-monitor ✓ up
+[08:53] clean-notifications ✓ dirty/ empty, 2 clean items and 2 human chores unchanged — nothing to process
+[09:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[09:04] clean-notifications ✓ dirty/ empty, no new items to process
+[09:14] ssh-tunnel-monitor ✓ up
+[09:14] pihole-health ✓ pass
+[09:15] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[09:14] build-user-profile ✓ updated (141 lines)
+[09:24] network-health ✓ dns ok (google.com resolved, ads.google.com blocked 0.0.0.0)
+[09:24] system-health ✓ disk 20% used, load 1.24, mem ok, tailscaled running
+[09:24] clean-notifications ✓ dirty/ empty, 2 clean items unchanged — nothing to process
+[09:24] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[09:34] ssh-tunnel-monitor ✓ up
+[09:34] clean-notifications ✓ (no dirty files; 2 clean items exist, no new items to process)
+[09:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[09:44] ha-health-check ✓ 200
+[09:44] clean-notifications ✓ dirty/ empty, 2 clean items stable, no action
+[09:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[09:44] build-user-profile ✓ updated (143 lines)
+[09:54] ssh-tunnel-monitor ✓ up
+[09:54] network-health ✓ dns ok (google.com resolved, ads.google.com blocked 0.0.0.0)
+[09:54] system-health ✓ all good
+[09:54] clean-notifications ✓ dirty/ empty, 2 clean items stable, no action
+[09:54] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[10:04] clean-notifications ✓ dirty/ empty, nothing to process
+[10:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[10:14] clean-notifications ✓ dirty: 0, processed: 0
+[10:14] ssh-tunnel-monitor ✓ up
+[10:14] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[10:14] pihole-health ✓ pass
+[10:14] build-user-profile ✓ updated (136 lines)
+[10:25] network-health ✓ dns ok
+[10:24] clean-notifications ✓ dirty/ empty, 2 clean items stable, no action
+[10:24] system-health ✓ all good
+[10:24] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[10:34] clean-notifications ✓ nothing to process
+[10:34] ssh-tunnel-monitor ✓ up
+[10:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[10:44] ha-health-check ✓ 200
+[10:44] clean-notifications ✓ nothing to process
+[10:45] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (none cleaned)
+[10:44] build-user-profile ✓ updated (138 lines)
+[10:54] ssh-tunnel-monitor ✓ tailscale running
+[10:54] system-health ✓ disk 20% cpu 1.39 tailscaled ok
+[10:54] clean-notifications ✓ no dirty files; nothing to process
+[11:04] clean-notifications ✓ (dirty/ empty, no chores created)
+[11:04] sidekick-cleanup ✓ active: 0
+[11:05] network-health ✓ dns ok (google.com resolved 142.251.140.110, ads.google.com blocked 0.0.0.0)
+[11:14] clean-notifications ✓ nothing to process
+[11:14] pihole-health ✓ pass
+[11:14] sidekick-cleanup ✓ nothing to clean
+[11:14] ssh-tunnel-monitor ✓ up
+[11:14] telegram-miss-you ✓ sent
+[11:14] build-user-profile ✓ updated (139 lines)
+[11:24] clean-notifications ✓ nothing to process
+[11:24] sidekick-cleanup ✓ 1 active
+[11:24] system-health ✓ all good
+[11:34] clean-notifications ✓ nothing to process
+[11:34] ssh-tunnel-monitor ✓ up
+[11:34] sidekick-cleanup ✓ 1 active (telegram-bot, 19m, healthy)
+[11:44] clean-notifications ✓ nothing to process
+[11:44] ha-health-check ✓ api ok[11:45] network-health ✓ dns ok (google.com resolved 142.251.140.110, ads.google.com blocked 0.0.0.0)
+[11:44] sidekick-cleanup ✓ 1 active, all healthy
+[11:44] build-user-profile ✓ updated (142 lines)
+[11:54] clean-notifications ✓ empty
+[11:54] sidekick-cleanup ✓ 1 active, all healthy
+[11:54] ssh-tunnel-monitor ✓ up
+[11:54] system-health ✓ all good
+[11:54] backup-verify ✓ fresh (8h54m old)
+[12:04] clean-notifications ✓ empty | sidekick-cleanup ✓ 1 active (telegram-bot), healthy
+[12:15] network-health ✓ dns ok
+[12:14] pihole-health ✓ pass
+[12:14] clean-notifications ✓ empty
+[12:15] ssh-tunnel-monitor ✓ up
+[12:14] sidekick-cleanup ✓ 1 active (telegram-bot), no zombies
+[12:14] build-user-profile ✓ updated (144 lines)
+[12:25] system-health ✓ all good
+[12:24:04] clean-notifications ✓ empty | sidekick-cleanup ✓ 1 active, 49 stale tmp cleaned | system-health ✓ all good
+[12:34] ssh-tunnel-monitor ✓ up
+[12:34] clean-notifications ✓ dirty/ empty, clean/ stable at 2 items, no action needed
+[12:34] sidekick-cleanup ✓ 1 active (telegram-bot), healthy; 4 stale tmp files deleted (screenshots + jpg from Mar 13)
+[12:46] sidekick-cleanup ✓ 1 active (telegram-bot 1h30m); deleted 6 stale test tmp files
+[12:44] ha-health-check ✓ api ok
+[12:44] build-user-profile ✓ updated (146 lines)
+[12:54] clean-notifications ✓ dirty/ empty, nothing to process
+[12:55] network-health ✓ dns ok (google.com resolved 142.251.140.110, ads.google.com blocked 0.0.0.0)
+[12:55] ssh-tunnel-monitor ✓ up
+[12:54] sidekick-cleanup ✓ 1 active sidekick (telegram-bot, 1h39m old), tmp/ clean, all good
+[12:55] system-health ✓ disk 20% used (58G free), load 1.54, tailscaled running
+[13:04] sidekick-cleanup ✓ 1 active (telegram-bot, 1h49m), tmp/ empty, no stale sidekicks
+[13:04] clean-notifications ✓ dirty/ empty, nothing to process
+[13:14] pihole-health ✓ pass
+[13:14] sidekick-cleanup ✓ (1 active telegram-bot sidekick at ~2h, not yet stale; tmp/ empty)
+[13:14] ssh-tunnel-monitor ✓ up
+[13:14] clean-notifications ✓ (dirty/ empty, nothing to process)
+[13:14] build-user-profile ✓ updated (149 lines)
+[13:24] clean-notifications ✓ dirty/ empty, nothing to process
+[13:24] sidekick-cleanup ✓ 1 active (telegram-bot, 2h9m — WARN: stale threshold exceeded); tmp/ empty, no cleanup needed
+[13:34] network-health ✓ dns ok
+[13:34] clean-notifications ✓ (dirty/ empty, nothing to process)
+[13:34] sidekick-cleanup ✓ 1 active (telegram-bot, 2h19m, healthy); tmp/ empty, no stale sidekicks
+[13:34] system-health ✓ disk 20% used (58G free), load 1.71, mem 218Mi free (3.8Gi avail), tailscaled running
+[13:34] ssh-tunnel-monitor ✓ up
+[13:44] clean-notifications ✓ dirty/ empty, nothing to process
+[13:44] sidekick-cleanup ✓ 1 active (telegram-bot 2h29m), tmp/ clean
+[13:44] ha-health-check ✓ reachable
+[13:44] build-user-profile ✓ updated (151 lines)
+[13:54] sidekick-cleanup ✓ 1 active, tmp/ ok (61 files)
+[13:54] ssh-tunnel-monitor ✓ up
+[13:54] clean-notifications ✓ dirty/ empty, nothing to process
+[14:04] network-health ✓ dns ok
+[14:04] sidekick-cleanup ✓ 1 sidekick (telegram-bot, 2h49m, not stale); /tmp 61 items, disk 20% used
+[14:04] clean-notifications ✓ dirty/ empty, nothing to process
+[14:04] system-health ✓ all good
+[14:14] clean-notifications ✓ dirty/ empty, nothing to process
+[14:14] pihole-health ✓ pass
+[14:14] sidekick-cleanup ✓ 1 active (telegram-bot, 2h59m, healthy); /tmp 61 files, no stale sidekicks
+[14:14] ssh-tunnel-monitor ✓ up
+[14:14] build-user-profile ✓ updated (153 lines)
+[14:24] clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ 1 active (telegram-bot 3h9m), /tmp normal
+[14:34] clean-notifications ✓ (dirty/ empty, nothing to process)
+[14:34] network-health ✓ dns ok
+[14:34] ssh-tunnel-monitor ✓ up
+[14:34] system-health ✓ all good
+[14:34] sidekick-cleanup ✓ (killed 1 stale telegram-bot sidekick running 3h19m; /tmp had 61 files, no cleanup needed)
+[14:44] sidekick-cleanup ✓ 0 stale killed, /tmp 61 files ok
+[14:44] ha-health-check ✓ api ok
+[14:44] clean-notifications ✓ dirty/ empty, nothing to process
+[14:44] build-user-profile ✓ updated (147 lines)
+[14:54] clean-notifications ✓ dirty/ empty | sidekick-cleanup ✓ 0 stale, /tmp 61 ok | ssh-tunnel-monitor ✓ up
+[15:04] clean-notifications ✓ dirty/ empty | network-health ✓ dns ok | sidekick-cleanup ✓ 0 stale, /tmp 61 ok | system-health ✓ all good (disk 58G free, load 1.47, tailscaled up)
+[15:14] pihole-health ✓ pass
+[15:14] sidekick-cleanup ✓ 0 stale, /tmp ok (66 files, 364M), tmux clean
+[15:14] clean-notifications ✓ dirty/ empty, clean/ stable at 2 items
+[15:14] ssh-tunnel-monitor ✓ up
+[15:14] build-user-profile ✓ updated (144 lines)
+[15:24] clean-notifications ✓ dirty/ empty, clean/ stable at 2 items | sidekick-cleanup ✓ /tmp 61 entries, disk 20% ok
+[15:34] ssh-tunnel-monitor ✓ up
+[15:34] system-health ✓ all good (disk 20%, mem 4.3G avail, load 1.10, tailscaled running)
+[15:34] clean-notifications ✓ dirty/ empty | network-health ✓ dns ok | sidekick-cleanup ✓ /tmp 61 files, disk 20% | ssh-tunnel-monitor ✓ up | system-health ✓ all good (disk 20%, mem 4.3G free, load 1.10)
+[15:44] ha-health-check ✓ 200
+[15:44] clean-notifications ✓ dirty/ empty
+[15:44] sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 (cleaned)
+[15:44] build-user-profile ✓ updated (146 lines)
+[15:55] ssh-tunnel-monitor ✓ up
+[15:55] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[15:54] clean-notifications ✓ dirty/ empty
+[16:04] clean-notifications ✓ dirty/ empty
+[16:04] network-health ✓ dns ok
+[16:04] system-health ✓ all good
+[16:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[16:14] clean-notifications ✓ dirty/ empty
+[16:14] ssh-tunnel-monitor ✓ up
+[16:14] pihole-health ✓ pass
+[16:14] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[16:14] build-user-profile ✓ updated (148 lines)
+[16:24] clean-notifications ✓ no dirty files
+[16:24] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[16:35] network-health ✓ dns ok
+[16:34] clean-notifications ✓ no dirty files
+[16:34] ssh-tunnel-monitor ✓ up
+[16:35] system-health ✓ all good
+[16:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[16:44] clean-notifications ✓ no dirty files
+[16:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[16:44] ha-health-check ✓ 200
+[16:44] build-user-profile ✓ updated (150 lines)
+[16:54] clean-notifications ✓ no dirty files
+[16:54] ssh-tunnel-monitor ✓ up
+[16:55] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[17:04] network-health ✓ dns ok
+[17:04] clean-notifications ✓ (no dirty files)
+[17:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[17:04] system-health ✓ all good
+[17:14] clean-notifications ✓ no dirty files
+[17:14] pihole-health ✓ pass
+[17:14] ssh-tunnel-monitor ✓ up
+[17:14] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[17:14] build-user-profile ✓ updated (152 lines)
+[17:24] clean-notifications ✓ no dirty files
+[17:24] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[17:34] clean-notifications ✓ (dirty/ empty, nothing to process)
+[17:34] network-health ✓ dns ok
+[17:34] ssh-tunnel-monitor ✓ up
+[17:34] system-health ✓ all good
+[17:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[17:44] clean-notifications ✓ no dirty files
+[17:44] ha-health-check ✓ 200
+[17:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[17:44] build-user-profile ✓ updated (154 lines)
+[17:54] clean-notifications ✓ no dirty files
+[17:54] backup-verify ✓ fresh (14h54m old)
+[17:54] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[17:54] ssh-tunnel-monitor ✓ up
+[18:04] clean-notifications ✓ no dirty files
+[18:04] network-health ✓ dns ok
+[18:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[18:04] system-health ✓ all good
+[18:14] clean-notifications ✓ no dirty files
+[18:14] pihole-health ✓ pass
+[18:15] ssh-tunnel-monitor ✓ up
+[18:15] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[18:14] build-user-profile ✓ updated (156 lines)
+[18:24] clean-notifications ✓ no dirty files
+[18:34] clean-notifications ✓ dirty/ empty, nothing processed
+[18:34] network-health ✓ dns ok
+[18:34] system-health ✓ all good
+[18:34] ssh-tunnel-monitor ✓ up
+[18:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[18:44] clean-notifications ✓ no dirty files
+[18:44] ha-health-check ✓ 200
+[18:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[18:44] build-user-profile ✓ updated (151 lines)
+[18:54] clean-notifications ✓ no dirty files, nothing processed
+[18:54] ssh-tunnel-monitor ✓ up
+[18:54] sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 (cleaned)
+[19:04] network-health ✓ dns ok
+[19:04] system-health ✓ all good
+[19:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[19:14] clean-notifications ✓ no dirty files
+[19:14] pihole-health ✓ up
+[19:15] ssh-tunnel-monitor ✓ up
+[19:16] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[19:14] build-user-profile ✓ updated (146 lines)
+[19:24] clean-notifications ✓ dirty/ empty, nothing to process
+[19:34] clean-notifications ✓ (dirty/ empty, nothing to process)
+[19:34] network-health ✓ dns ok
+[19:34] ssh-tunnel-monitor ✓ up
+[19:34] system-health ✓ all good
+[19:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[19:44] clean-notifications ✓ dirty/ empty, nothing to process
+[19:44] ha-health-check ✓ 200
+[19:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[19:44] build-user-profile ✓ updated (148 lines)
+[19:54] ssh-tunnel-monitor ✓ up
+[19:54] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[19:54] clean-notifications ✓ dirty/ empty, nothing to process
+[20:04] network-health ✓ dns ok
+[20:04] clean-notifications ✓ dirty/ empty, 2 clean items, 1 chore — nothing to process
+[20:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[20:04] system-health ✓ disk 21%, mem 4.2Gi avail, load 1.40, tailscaled running
+[20:15] pihole-health ✓ pass
+[20:14] clean-notifications ✓ dirty/ empty, nothing to process
+[20:15] ssh-tunnel-monitor ✓ up
+[20:15] sidekick-cleanup ✓ active: 0 completed: 0 stale: 0 (no cleanup needed)
+[20:14] build-user-profile ✓ updated (150 lines)
+[20:24] clean-notifications ✓ dirty/ empty
+[20:24] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[20:34] network-health ✓ dns ok
+[20:34] clean-notifications ✓ (dirty/ empty, nothing to process)
+[20:35] ssh-tunnel-monitor ✓ up
+[20:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[20:35] system-health ✓ disk 21% (57G free), load 1.37, tailscaled running
+[20:44] clean-notifications ✓ dirty/ empty, nothing to process
+[20:44] ha-health-check ✓ 200
+[20:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[20:44] build-user-profile ✓ updated (152 lines)
+[20:54] ssh-tunnel-monitor ✓ up
+[20:54] clean-notifications ✓ (dirty/ empty, no new notifications)
+[20:55] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[21:04] clean-notifications ✓ (dirty/ empty, nothing to process)
+[21:04] network-health ✓ dns ok
+[21:04] system-health ✓ all good
+[21:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[21:14] ssh-tunnel-monitor ✓ up
+[21:14] pihole-health ✓ pass
+[21:14] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[21:14] clean-notifications ✓ (dirty/ empty, nothing to process)
+[21:14] build-user-profile ✓ updated (154 lines)
+[21:25] clean-notifications ✓ dirty/ empty, nothing to process
+[21:25] sidekick-cleanup ✓ active: 0, completed: 1, stale: 0
+[21:35] network-health ✓ dns ok
+[21:34] clean-notifications ✓ dirty/ empty, nothing to process
+[21:34] ssh-tunnel-monitor ✓ up
+[21:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[21:34] system-health ✓ all good
+[21:44] ha-health-check ✓ 200
+[21:45] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[21:44] clean-notifications ✓ dirty/ empty, nothing to process
+[21:44] build-user-profile ✓ updated (156 lines)
+[21:54] clean-notifications ✓ dirty/ empty, nothing to process
+[21:54] ssh-tunnel-monitor ✓ up
+[21:54] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[22:04] system-health ✓ disk 21% used, load 1.45, tailscale up, mem 4.3Gi free
+[22:04] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[22:04] clean-notifications ✓ dirty/ empty, 2 clean items, 1 chore — nothing to process
+[22:15] network-health ✓ dns ok (google.com resolved 142.251.140.110, ads.google.com blocked 0.0.0.0)
+[22:14] clean-notifications ✓ nothing new
+[22:14] ssh-tunnel-monitor ✓ up
+[22:14] pihole-health ✓ pass
+[22:15] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[22:14] build-user-profile ✓ updated (158 lines)
+[22:24] clean-notifications ✓ nothing new
+[22:34] clean-notifications ✓ nothing new
+[22:34] ssh-tunnel-monitor ✓ up
+[22:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[22:34] system-health ✓ all good
+[22:44] clean-notifications ✓ nothing to process
+[22:44] ha-health-check ✓ 200
+[22:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[22:44] build-user-profile ✓ updated (152 lines)
+[22:54] clean-notifications ✓ (nothing to process)
+[22:55] network-health ✓ dns ok
+[22:55] ssh-tunnel-monitor ✓ up
+[22:56] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[23:04] system-health ✓ all good
+[23:04] clean-notifications ✓ dirty/ empty, nothing to process (2 clean items, 1 chore)
+[23:14] clean-notifications ✓ (dirty/ empty, nothing to process)
+[23:14] pihole-health ✓ pass
+[23:14] ssh-tunnel-monitor ✓ up
+[23:14] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[23:14] build-user-profile ✓ updated (154 lines)
+[23:24] clean-notifications ✓ dirty/ empty, nothing to process
+[23:24] network-health ✓ dns ok (google.com resolved 142.251.140.110, ads.google.com blocked 0.0.0.0)
+[23:24] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[23:34] ssh-tunnel-monitor ✓ Tailscale running
+[23:34] system-health ✓ disk 22% used, load 1.70, mem 4.2G avail, tailscaled running
+[23:34] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[23:34] clean-notifications ✓ no dirty files; 2 clean items, 1 chore — nothing to process
+[23:44] clean-notifications ✓ nothing to process
+[23:44] ha-health-check ✓ 200
+[23:44] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0 (cleaned)
+[23:44] build-user-profile ✓ updated (156 lines)
+[23:54] network-health ✓ dns ok (google.com resolved, ads.google.com blocked 0.0.0.0)
+[23:54] ssh-tunnel-monitor ✓ up
+[23:54] clean-notifications ✓ dirty/ empty, 2 clean items present, no chores pending
+[23:54] sidekick-cleanup ✓ active: 0, completed: 0, stale: 0
+[23:54] backup-verify ✓ fresh (20.9h old — wash-backup-20260315-030018.tar.gz)

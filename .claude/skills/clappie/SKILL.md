@@ -98,7 +98,7 @@ When the user says "open notifications", "show me my emails", "view the dashboar
 | "sidekicks", "active sidekicks" | `sidekicks` |
 | "notifications", "inbox" | `notifications` |
 | "chores", "todo", "approval queue" | `chores` |
-| "heartbeat", "dashboard", "status" | `heartbeat` or `heartbeat/dashboard` |
+| "heartbeat", "dashboard", "status" | `heartbeat` |
 | "projects", "scratch pad" | `projects` |
 
 Displays are often nested (e.g., `example-demo-screens/hello-world`). Skill displays use `/skill/view` format. When in doubt, check first.
@@ -211,8 +211,7 @@ clappie kill                            # Displays + background
 ## View Naming
 
 ```bash
-heartbeat                         # clapps/heartbeat/displays/index.js
-heartbeat/dashboard               # clapps/heartbeat/displays/dashboard.js
+heartbeat                         # clapps/heartbeat/displays/index.js (this is the dashboard)
 example-demo-screens/hello-world  # clapps/example-demo-screens/displays/hello-world.js
 /email/inbox                      # .claude/skills/email/displays/inbox.js (external skill)
 ```
@@ -394,7 +393,7 @@ Users can add this to `~/.zshrc` or `~/.bashrc`:
 ```bash
 clappie() {
   if [[ $# -eq 0 ]]; then
-    cd ~/clappie && tmux new-session -s "clappie-$(date +%s)" "claude --model opus"
+    cd ~/clappie && tmux new-session -s "clappie-$(date +%s)" "claude --enable-auto-mode --model opus"
   elif [[ -z "$TMUX" ]]; then
     echo "Start clappie first: clappie"
   else

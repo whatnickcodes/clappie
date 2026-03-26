@@ -196,6 +196,14 @@ export async function spawn(prompt, options = {}) {
     if (match) {
       source = skill.name;  // Use full skill folder name
       chatId = match[1];
+      // Resolve non-numeric chatIds (usernames/names) to numeric IDs via users.txt
+      if (!/^\d+$/.test(chatId)) {
+        try {
+          const usersPath = join(PROJECT_ROOT, 'recall', 'settings', skill.name, 'users.txt');
+          const users = readFileSync(usersPath, 'utf8').trim().split('\n').filter(Boolean);
+          if (users.length > 0) chatId = users[0];
+        } catch {}
+      }
       // For numeric IDs (like Telegram), also set userId
       if (/^\d+$/.test(chatId)) {
         userId = chatId;

@@ -1,0 +1,15 @@
+source=telegram-bot
+userId=7229110406
+chatId=7229110406
+name=
+emoji=🐝
+colorIndex=9
+squad=
+status=failed
+startedAt=2026-03-16T05:06:23.884Z
+username=marbacc
+promptMode=system
+updatedAt=2026-03-16T05:06:24.905Z
+error=Failed with exit code 1
+---
+05:06:23 ← Hey! Take a look at the Pi-hole server, looks like it's out of disk space yet again 🤦🏻‍♂️

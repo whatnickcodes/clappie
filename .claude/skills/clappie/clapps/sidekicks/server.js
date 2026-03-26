@@ -445,7 +445,7 @@ async function notifySuperCC(event, message, excludeIds = []) {
 // SIDEKICK LIFECYCLE
 // ─────────────────────────────────────────────────────────────────────────────
 
-async function createSidekick({ source, userId, chatId, text, username, attachments, previousSidekickId, replyTo, messageId }) {
+async function createSidekick({ source, routeSkill, userId, chatId, text, username, attachments, previousSidekickId, replyTo, messageId, threadTs }) {
   const sidekick = state.createSidekick(source, {
     userId,
     chatId,
@@ -463,7 +463,7 @@ async function createSidekick({ source, userId, chatId, text, username, attachme
     }
   } catch {}
 
-  state.updateSidekick(sidekick.id, { username, ...(promptMode !== 'message' ? { promptMode } : {}) });
+  state.updateSidekick(sidekick.id, { username, ...(routeSkill ? { routeSkill } : {}), ...(promptMode !== 'message' ? { promptMode } : {}) });
 
   // Cache emoji for tail display
   if (sidekick.name && sidekick.emoji) emojiCache.set(sidekick.name, sidekick.emoji);
@@ -478,7 +478,7 @@ async function createSidekick({ source, userId, chatId, text, username, attachme
   log(`New sidekick: ${sidekick.id}${nameLabel}${squadLabel} from ${source}/${username || userId}`);
 
   try {
-    const paneId = await spawnSession({ ...sidekick, id: sidekick.id, attachments, previousSidekickId, replyTo, promptMode });
+    const paneId = await spawnSession({ ...sidekick, id: sidekick.id, attachments, previousSidekickId, replyTo, promptMode, threadTs });
     state.updateSidekick(sidekick.id, { paneId, status: 'active' });
     log(`Sidekick ${sidekick.id} deployed in pane ${paneId}`);
   } catch (err) {
@@ -592,6 +592,10 @@ async function handleWebhook(req, path) {
       headers,
       path: route.path,
       name: route._fileName,
+      skill: route.skill,
+      projectRoot: PROJECT_ROOT,
+      loadSkillSetting: (name, def) => router.loadSkillSetting(route.skill, name, def),
+      loadSkillSettingList: (name) => router.loadSkillSettingList(route.skill, name),
     };
 
     // ─────────────────────────────────────────────────────────────────────────
@@ -657,13 +661,17 @@ async function handleWebhook(req, path) {
 
         if (result?.sidekick) {
           const content = result.content || JSON.stringify(body, null, 2);
+          const effectiveSource = result.source || (route.extension ? route.skill : 'custom-webhook');
           await createSidekick({
-            source: 'custom-webhook',
+            source: effectiveSource,
+            routeSkill: route.skill || null,
             userId: result.userId || 'webhook',
             chatId: result.conversationId || route._fileName,
             text: content,
             username: result.username || route._fileName,
             attachments: result.attachments,
+            messageId: result.messageId,
+            replyTo: result.replyTo,
           });
           return new Response('OK', { status: 200 });
         }
@@ -768,7 +776,8 @@ async function handleWebhook(req, path) {
 
   // Handler returns sidekick input
   if (result.sidekick) {
-    const source = route.skill;
+    const source = result.source || route.skill;
+    const routeSkill = result.source ? route.skill : null;  // preserve original skill for reply routing
 
     // Check for existing sidekick
     const existingSidekick = state.findSidekickByScope(result.scope);
@@ -821,6 +830,7 @@ async function handleWebhook(req, path) {
 
     await createSidekick({
       source,
+      routeSkill,
       userId: result.userId,
       chatId: result.conversationId,
       text: result.content,
@@ -829,6 +839,7 @@ async function handleWebhook(req, path) {
       previousSidekickId,
       replyTo: result.replyTo,
       messageId: result.messageId,
+      threadTs: result.threadTs,
     });
 
     return new Response('OK', { status: 200 });
@@ -851,10 +862,11 @@ async function handleOutbox(req) {
   const sidekick = state.getSidekick(sidekickId);
   if (!sidekick) return Response.json({ ok: false, error: 'Sidekick not found' }, { status: 404 });
 
-  // Find route to get sender
+  // Find route to get sender (routeSkill preserves original skill when source is overridden)
+  const routeSource = sidekick.routeSkill || sidekick.source;
   const routes = await router.buildRouteTable();
-  const route = routes.find(r => r.skill === sidekick.source);
-  if (!route) return Response.json({ ok: false, error: 'No route for source' }, { status: 500 });
+  const route = routes.find(r => r.skill === routeSource);
+  if (!route) return Response.json({ ok: false, error: `No route for source: ${routeSource}` }, { status: 500 });
 
   const sender = await router.loadSender(route);
   if (!sender?.send) return Response.json({ ok: false, error: 'No send function' }, { status: 500 });
@@ -1023,9 +1035,10 @@ async function executeSkillCommand(sidekickId, command, args) {
   const sidekick = state.getSidekick(sidekickId);
   if (!sidekick) return Response.json({ ok: false, error: 'Sidekick not found' }, { status: 404 });
 
-  const commands = await loadSkillCommands(sidekick.source);
-  if (!commands) return Response.json({ ok: false, error: `${sidekick.source} has no sidekick extensions` }, { status: 400 });
-  if (!commands[command]) return Response.json({ ok: false, error: `${sidekick.source} doesn't support '${command}'` }, { status: 400 });
+  const cmdSource = sidekick.routeSkill || sidekick.source;
+  const commands = await loadSkillCommands(cmdSource);
+  if (!commands) return Response.json({ ok: false, error: `${cmdSource} has no sidekick extensions` }, { status: 400 });
+  if (!commands[command]) return Response.json({ ok: false, error: `${cmdSource} doesn't support '${command}'` }, { status: 400 });
 
   // Security: file path validation for send-file
   if (command === 'send-file') {

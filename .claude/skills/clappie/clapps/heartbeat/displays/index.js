@@ -271,12 +271,6 @@ export function create(ctx) {
   }
 
   function execute() {
-    // Only send tmux commands if inside background session
-    if (!inBackground) {
-      ctx.toast('Only runs in Background');
-      return;
-    }
-
     const enabled = getEnabledChecks();
     if (!enabled.length) {
       ctx.toast('No vitals to check');
@@ -294,10 +288,12 @@ export function create(ctx) {
     const date = `${year}-${month}-${day}`;
     const ts = `${date} ${hours}:${minutes}:${seconds}`;
 
-    if (isEnabled) schedule();
+    if (inBackground && isEnabled) schedule();
 
     focusPane(claudePane);
-    sendToChat('/compact heartbeat cycle complete - no need to preserve history', claudePane);
+    if (inBackground) {
+      sendToChat('/compact heartbeat cycle complete - no need to preserve history', claudePane);
+    }
 
     setTimeout(() => {
       const checkNames = enabled.map(name => `  ${name}`).join('\n');
@@ -342,9 +338,11 @@ Execute each check listed above (files are in chores/bots/). Check [heartbeat-me
     view.space();
 
     // Status line
-    const status = isEnabled
-      ? `Next beat in ${Math.max(0, Math.ceil((nextRun - Date.now()) / 1000))}s`
-      : 'Flatlined';
+    const status = !isEnabled
+      ? 'Flatlined'
+      : nextRun
+        ? `Next beat in ${Math.max(0, Math.ceil((nextRun - Date.now()) / 1000))}s`
+        : 'Beating in background';
     view.add(Label({ text: status, dim: true }));
     view.space();
 

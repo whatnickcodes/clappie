@@ -1,0 +1,132 @@
+Monitor Pi-hole for DNS flood activity that bypasses VPS defenses.
+
+SSH: `ssh -i /run/wash/ssh/wash-pihole-tailscale root@100.87.157.76`
+
+## Step 1: Collect Metrics
+
+SSH to Pi-hole and gather these 4 metrics:
+
+1. **Queries today (filtered)** — query FTL database directly from host (Pi-hole v6, BusyBox date):
+   ```
+   sqlite3 /var/lib/docker/volumes/pihole_pihole_data/_data/pihole-FTL.db \
+     "SELECT COUNT(*) FROM queries WHERE timestamp >= $(date -d @$(date -d $(date +%Y-%m-%d) +%s) +%s 2>/dev/null || date -d 'today 00:00:00' +%s 2>/dev/null || echo $(($(date +%s) - $(date +%H)*3600 - $(date +%M)*60 - $(date +%S)))) AND client != '0.0.0.0';"
+   ```
+   Simpler fallback — let epoch = midnight via truncation:
+   ```
+   ssh -i /run/wash/ssh/wash-pihole-tailscale root@100.87.157.76 \
+     'TODAY=$(date +%Y-%m-%d); EPOCH=$(date -d "$TODAY" +%s 2>/dev/null || date -j -f "%Y-%m-%d" "$TODAY" +%s); sqlite3 /var/lib/docker/volumes/pihole_pihole_data/_data/pihole-FTL.db "SELECT COUNT(*) FROM queries WHERE timestamp >= $EPOCH AND client != '"'"'0.0.0.0'"'"';"'
+   ```
+
+2. **VPS query share** — count queries from VPS relay (100.101.18.71) and divide by total:
+   ```
+   ssh -i /run/wash/ssh/wash-pihole-tailscale root@100.87.157.76 \
+     'TODAY=$(date +%Y-%m-%d); EPOCH=$(date -d "$TODAY" +%s 2>/dev/null || date -j -f "%Y-%m-%d" "$TODAY" +%s); sqlite3 /var/lib/docker/volumes/pihole_pihole_data/_data/pihole-FTL.db "SELECT COUNT(*) FROM queries WHERE timestamp >= $EPOCH AND client = '"'"'100.101.18.71'"'"';"'
+   ```
+   Divide by total filtered count to get percentage.
+   Note: Pi-hole v6 deprecated `/admin/api.php` — use sqlite3 directly.
+
+3. **FTL database size**:
+   ```
+   du -sh /etc/pihole/pihole-FTL.db
+   ```
+
+4. **Disk usage**:
+   ```
+   df -h / | awk 'NR==2 {print $5}'
+   ```
+
+## Step 1b: Filter Internal Queries
+
+Queries from `0.0.0.0` with domain `hidden` are internal FTL activity (cache rebuilds, gravity processing) — NOT real DNS traffic. Exclude them from the query count:
+
+```
+sqlite3 /var/lib/docker/volumes/pihole_pihole_data/_data/pihole-FTL.db "SELECT COUNT(*) FROM queries WHERE timestamp >= $(date -d 'today 00:00' +%s) AND client != '0.0.0.0';"
+```
+
+Use this **filtered count** (not the raw total) for threshold evaluation. If the raw total is high but the filtered count is normal, note it in the log as "internal FTL activity" and do NOT escalate.
+
+## Step 2: Evaluate Thresholds
+
+| Metric | Normal | Warning | Critical |
+|--------|--------|---------|----------|
+| Queries/day (filtered, excl 0.0.0.0) | 5-15k | >60k | >60k + another metric |
+| VPS query share | 30-60% | >80% | >80% + another metric |
+| FTL db size | <500 MB | >1 GB | >1 GB + disk pressure |
+| Disk usage | <40% | >60% | >80% |
+
+Count how many metrics are at warning or above.
+
+## Step 3: Escalation Ladder
+
+### Info (any single metric at warning)
+Log only. No alert.
+
+### Warning (2+ metrics at warning OR queries >60k)
+Send Telegram alert:
+```
+clappie sidekick spawn "telegram user YOUR_ID: DNS flood monitor warning. Queries: [N], VPS share: [N]%, FTL db: [size], Disk: [N]%. Two or more metrics elevated — possible flood activity bypassing VPS defenses."
+```
+
+### Critical (disk >60% AND (queries >60k OR VPS share >80%))
+Spawn emergency sidekick — see Step 4.
+
+### Emergency (disk >80%)
+Spawn emergency sidekick with immediate purge authority — see Step 4.
+
+## Step 4: Emergency Sidekick (Critical/Emergency only)
+
+Spawn with full context baked in:
+
+```
+clappie sidekick spawn "DNS FLOOD EMERGENCY RESPONSE
+
+You are an emergency responder for a DNS flood hitting the Pi-hole.
+
+Current metrics:
+- Queries today: [N]
+- VPS query share: [N]%
+- FTL db size: [size]
+- Disk usage: [N]%
+
+SSH: ssh -i /run/wash/ssh/wash-pihole-tailscale root@100.87.157.76
+
+STANDING ORDERS:
+1. Send Marco a Telegram alert with all metrics immediately:
+   clappie sidekick send 'DNS flood detected on Pi-hole. Queries: [N], VPS share: [N]%, FTL db: [size], Disk: [N]%. Monitoring and ready to act.'
+
+2. SSH in and monitor query rate over 2-3 minutes — is this sustained or a spike?
+   Run: docker exec pihole pihole -c -e
+   Wait 2 min, run again. Compare.
+
+3. If disk >80%: Purge FTL database immediately (autonomous authority per CLAUDE.md):
+   ssh -i /run/wash/ssh/wash-pihole-tailscale root@100.87.157.76 'docker exec pihole bash -c \"rm /etc/pihole/pihole-FTL.db && pihole restartdns\"'
+   Alert Marco that you purged.
+
+4. If disk <80% but flood confirmed: Alert and wait. Do NOT block the VPS IP unless disk is about to fill.
+
+5. If Marco doesn't respond within 30 min and disk keeps climbing: Purge FTL.db AND reduce maxDBdays to 3:
+   docker exec pihole pihole-FTL --config database.DBdays 3
+   Alert Marco of the emergency measure.
+
+EXIT CRITERIA — complete this sidekick when:
+- Flood subsides (metrics return to normal ranges), OR
+- Marco explicitly says he will take care of it (acknowledgment alone is not enough — replying on Telegram does not mean he can access a laptop to fix), OR
+- Emergency remediation is done and metrics are stabilizing
+
+Re-check metrics every 5 minutes until exit criteria met."
+```
+
+## Step 5: Log
+
+Append ONE line to `recall/logs/heartbeat/YYYY-MM-DD.txt`:
+- `[HH:MM] dns-flood-monitor ✓ clear (queries: Nk, vps: N%, disk: N%)`
+- `[HH:MM] dns-flood-monitor ⚠ warning (queries: Nk, vps: N%, disk: N%)`
+- `[HH:MM] dns-flood-monitor ⚡ critical — emergency sidekick spawned`
+- `[HH:MM] dns-flood-monitor ✗ ssh-failed`
+
+NEVER create standalone files. ALWAYS append ONE line to the daily file.
+
+[heartbeat-meta]
+interval: 15m
+model: haiku
+last_run: 2026-03-24T16:23

@@ -1,0 +1,31 @@
+Process notifications from dirty/ to clean/
+
+This is the main notification triage heartbeat. It:
+1. Reads all files in notifications/dirty/
+2. Parses them (any format - raw dumps, JSON, plain text)
+3. Figures out what's new vs what's been read/handled
+4. Creates clean items in clean/ (with aggressive grouping)
+5. Creates chores for things needing human approval
+6. Sends telegram for urgent items
+7. Cleans up clean items/chores for items marked as read
+8. Deletes processed dirty files
+
+Rules (from notifications/instructions.txt):
+- Newsletters → try to unsubscribe
+- Work emails → draft reply, create chore
+- Calendar invites → auto-accept if no conflict, else create chore
+- Urgent items → clean item + telegram ping
+- Group aggressively: 20 items should become 4-6 clean items
+
+Logging:
+- Append summary line to recall/logs/heartbeat/YYYY-MM-DD.txt
+- Write detailed report to recall/logs/notifications/YYYY-MM-DD.txt
+
+Format for heartbeat log:
+[HH:MM] clean-notifications ✓ X dirty → Y clean, Z chores, N telegram
+
+NEVER create standalone log files. ALWAYS append to the daily files.
+
+[heartbeat-meta]
+interval: 15m
+model: sonnet

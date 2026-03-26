@@ -1,0 +1,1 @@
+User is in Italy, timezone CET (Europe/Rome). Always convert UTC timestamps to CET before showing. Server runs UTC but user wants CET.

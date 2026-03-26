@@ -1,0 +1,23 @@
+Verify backup freshness by checking rclone remote for latest backup timestamp.
+
+Steps:
+1. Check the most recent backup timestamp on the rclone remote:
+   - Load procedure from homeops backup-awareness doc (see pointers below)
+   - List remote backups, find the most recent, compare against current time
+2. If latest backup is >26 hours old:
+   - Escalate: `clappie sidekick spawn "telegram user YOUR_ID: Backup staleness alert — latest backup is [age] old (threshold: 26h). Check backup automation."`
+3. If backups are fresh → silent, no alert
+
+Logging: append one line to recall/logs/heartbeat/YYYY-MM-DD.txt
+Format: [HH:MM] backup-verify ✓ fresh ([age]) (or: ✗ stale — [age] old)
+NEVER create standalone files. ALWAYS append ONE line to the daily file.
+
+For detailed remediation procedures, see:
+- CLAUDE.md Routing → homeops/docs/domains/backups/backup-awareness.md
+- homeops trigger-index → "Backup staleness, retention, restore"
+- homeops/docs/references/pihole-backup-restore.md for Pi-hole-specific restore
+
+[heartbeat-meta]
+interval: 6h
+model: haiku
+last_run: 2026-03-24T11:22

@@ -1,0 +1,40 @@
+Check Home Assistant API reachability via Tailscale.
+
+Steps:
+1. Load secrets (MANDATORY — do NOT skip or improvise):
+   ```
+   set -a; source /run/wash/env; set +a
+   ```
+   Then verify the token is non-empty:
+   ```
+   [ -z "$HA_TOKEN" ] && echo "HA_TOKEN empty — skipping check" && exit 0
+   ```
+   If HA_TOKEN is empty, log `[HH:MM] ha-health-check ⚠ skipped — HA_TOKEN not loaded` and stop.
+2. Run:
+   ```
+   curl -sf -o /dev/null -w "%{http_code}" \
+     -H "Authorization: Bearer $HA_TOKEN" \
+     http://100.116.172.30:8123/api/
+   ```
+   Expected: 200
+3. On non-200:
+   - Log the failure
+   - Check previous heartbeat log entries for consecutive failures
+   - If 3+ consecutive non-200 results → escalate:
+     `clappie sidekick spawn "telegram user YOUR_ID: HA API unreachable for 3+ checks (status: [code]). Tailscale path may be down. Manual investigation required."`
+   - Single failure → log, retry next cycle
+4. On 200 → silent, no noise for healthy state
+
+Logging: append one line to recall/logs/heartbeat/YYYY-MM-DD.txt
+Format: [HH:MM] ha-health-check ✓ 200 (or: ✗ [status_code] — consecutive: N)
+NEVER create standalone files. ALWAYS append ONE line to the daily file.
+
+For detailed remediation procedures, see:
+- CLAUDE.md Routing → homeops/docs/domains/home-assistant/ha-operations.md
+- homeops trigger-index → "HA automation behavior unexpectedly changed"
+- homeops/docs/domains/access/shared-access.md for endpoint details
+
+[heartbeat-meta]
+interval: 1h
+model: haiku
+last_run: 2026-03-24T16:25

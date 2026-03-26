@@ -1,0 +1,117 @@
+[2026-03-17T00:04:57] dirty/ empty — nothing to process
+[2026-03-17T00:34] clean-notifications: dirty/ empty, nothing to process. clean/ has 6 items (stable since 2026-03-16 16:16). 1 human chore (under threshold).
+[2026-03-17T00:54] dirty/ empty — nothing to process. clean/ stable at 6 items. 2 human chores (under 5-chore threshold). No action needed.
+[2026-03-17T01:24] dirty/ empty — nothing to process. clean/ stable at 6 items. 1 human chore (under threshold). No action needed.
+[2026-03-17T02:35] dirty/ empty — nothing to process. clean/ stable at 6 items (last updated 2026-03-16 16:16). 1 human chore (under threshold). No action needed.
+[2026-03-17T03:35] dirty/ empty — nothing to process. clean/ stable at 6 items (last updated 2026-03-16 16:16). 1 human chore (under threshold). No action needed.
+[2026-03-17T03:45] dirty/ empty — nothing to process. clean/ stable at 6 items (last updated 2026-03-16 16:16). 1 human chore (under threshold). No action needed.
+[2026-03-17T03:55] dirty/ empty — nothing to process. clean/ stable at 6 items (last updated 2026-03-16 16:16). 1 human chore (under threshold). No action needed.
+[2026-03-17T04:05] dirty/ empty — nothing to process. clean/ stable at 6 items (last updated 2026-03-16 16:16). 1 human chore (under threshold). No action needed.
+[04:25] clean-notifications: no dirty files found. clean/ has 3 items (backup-root-fix-needed, dns-flood-investigation, welcome). Nothing to process.
+[2026-03-17T04:35] dirty/ empty — nothing to process. clean/ stable at 3 items (backup-root-fix-needed, dns-flood-investigation, welcome). No action needed.
+[2026-03-17T04:55] dirty/ empty — nothing to process. clean/ stable at 3 items (backup-root-fix-needed, dns-flood-investigation, welcome). 1 human chore (under threshold). No action needed.
+[2026-03-17T05:05] dirty/ empty — nothing to process. clean/ stable at 3 items (backup-root-fix-needed, dns-flood-investigation, welcome). No action needed.
+[2026-03-17T05:25] clean-notifications run — dirty/ empty (0 files). No new items to process. clean/ has 3 items: welcome (onboarding, stable), backup-root-fix-needed-2026-03-14 (pending sudo fix, open), dns-flood-investigation-2026-03-16 (resolved). 0 human chores pending (under 5-chore threshold). No Telegram alert needed. No action taken.
+[2026-03-17T05:45] dirty/ empty — nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). 1 human chore (under threshold). No action needed.
+[2026-03-17T05:55] dirty/ empty — nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). No action needed.
+[06:25] clean-notifications: dirty/ empty, nothing to process
+[2026-03-17T06:35] dirty/ empty — nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). No action needed.
+
+[06:45] clean-notifications: dirty/ is empty — nothing to process.
+[06:55] clean-notifications: dirty/ empty, nothing to process
+[2026-03-17T07:05] dirty/ empty — nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). No action needed.
+[07:15] clean-notifications: dirty/ empty, nothing to process. clean/ stable at 3 items. 1 human chore (under threshold). No action needed.
+[2026-03-17T07:25] dirty/ empty — nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). No action needed.
+[2026-03-17T07:35] dirty/ empty — nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). No action needed.
+[07:45] clean-notifications: dirty/ empty, nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). 1 human chore (under threshold). No action needed.
+[07:55] clean-notifications: dirty/ empty, nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). 1 human chore (under threshold). No action needed.
+[08:05] clean-notifications: dirty/ empty, nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). 1 human chore (under threshold). No action needed.
+[08:25] dirty/ empty — nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). 1 human chore (under threshold). No action needed.
+[2026-03-17T08:45] dirty/ empty — nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). 1 human chore (under 5-chore threshold). No action needed.
+[08:55] clean-notifications: dirty/ empty, nothing to process
+[09:25] clean-notifications: dirty/ empty, nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). 1 human chore (under threshold). No action needed.
+[09:35] clean-notifications: dirty/ empty, nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). 1 human chore (under threshold). No action needed.
+[2026-03-17T09:45] dirty/ empty — nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). 1 human chore (under 5-chore threshold). No action needed.
+[2026-03-17T09:55] dirty/=empty (no new notifications). clean/=3 items (dns-flood-investigation resolved, backup-root-fix, welcome). chores/humans/=1 pending (welcome-to-clappie). No items processed, no cleanup needed.
+[10:05] clean-notifications: dirty/ empty, nothing to process
+[10:15] clean-notifications: dirty/ empty, nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). 1 human chore (under threshold). No action needed.
+[10:25] clean-notifications: dirty/ empty, nothing to process
+
+[11:56] clean-notifications run — dirty/ was empty, no items to process. Clean folder has 3 items (backup-root-fix-needed, dns-flood-investigation, welcome).
+
+[2026-03-17 11:05] clean-notifications run
+  dirty/: 0 files — nothing to process
+  clean/: 3 items (most recent: dns-flood-investigation-2026-03-16.txt, Mar 17)
+  chores/humans/: 1 item (welcome-to-clappie.txt) — under 5-chore threshold, no alert needed
+  action: no-op, last_run updated
+[2026-03-17 12:25] clean-notifications run
+  dirty/: 0 files — nothing to process
+  clean/: 3 items (backup-root-fix-needed, dns-flood-investigation, welcome) — stable
+  chores/humans/: under 5-chore threshold, no alert needed
+  action: no-op, last_run updated
+[12:55] dirty/ empty — nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). No action needed.
+[13:55] dirty/ empty, 0 notifications processed
+[14:05] dirty/ empty — no notifications to process
+[14:15] clean-notifications: dirty/ empty, nothing to process
+
+[2026-03-17T14:25] clean-notifications run: dirty/ empty, nothing to process. 3 existing clean items unchanged.
+[14:45] clean-notifications: dirty/ empty, no new items, 3 clean items stable
+[15:15] clean-notifications: dirty/ empty, nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). 1 human chore (under threshold). No action needed.
+[15:25] clean-notifications: nothing to process (dirty/ empty)
+[15:35] clean-notifications ✓ (no dirty notifications to process)
+[15:45] clean-notifications: dirty/ empty — nothing to process
+[15:55] clean-notifications — dirty: empty
+[16:05] dirty/ empty — nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). No action needed.
+[16:25] clean-notifications: dirty/ empty, nothing to process. clean/ stable at 3 items (welcome, backup-root-fix-needed, dns-flood-investigation). No action needed.
+[16:35] clean-notifications ✓ dirty/ empty
+[16:45] clean-notifications ✓ (dirty/ empty, nothing to process)
+
+[2026-03-17T17:05] clean-notifications run
+- dirty/: 0 files (nothing to process)
+- clean/: 3 items (welcome.txt, backup-root-fix-needed-2026-03-14.txt, dns-flood-investigation-2026-03-16.txt)
+- No new items created, no cleanups performed
+- Result: idle pass, no action needed
+[17:25] clean-notifications run — dirty/ empty, no files to process. Clean folder has 3 items (backup-root-fix-needed, dns-flood-investigation, welcome) — within normal range. No urgent items, no chore backlog threshold triggered.
+[2026-03-17 17:55] clean-notifications run: dirty/ empty, nothing to process. clean/ has 3 items, 2 active chores.
+[18:05] clean-notifications: dirty/ empty — nothing to process
+[18:05] clean-notifications run: dirty/ empty — nothing to process. clean/ has 3 items (backup-root-fix-needed, dns-flood-investigation, welcome) — all stable, no new activity.
+[20:05] clean-notifications run: dirty/ empty — nothing to process. clean/ has 3 items (backup-root-fix-needed, dns-flood-investigation, welcome) — all stable.
+2026-03-17T20:25 clean-notifications: dirty/ empty, nothing to process
+
+2026-03-17T20:35 clean-notifications run
+- dirty/: 1 file processed (sidekick-report dns-flood 20:30)
+- Analysis: no DNS flood, normal IoT traffic, Pi-hole healthy
+- Telegram delivery had failed in sidekick — flagged via new sidekick ping to Marco
+- Created clean/dns-check-2026-03-17.txt
+- Deleted dirty file
+- Result: 1 item processed, Telegram failure flagged
+[20:47] clean-notifications: nothing to process
+[20:55] clean-notifications: nothing to process (dirty/ empty)
+[21:05] clean-notifications: dirty/ empty, no notifications to process
+[21:15] clean-notifications: nothing to process
+[21:35] Processed 1 dirty file: sidekick DNS flood report (22:27). Created clean item dns-check-2226-2026-03-17.txt. No action needed — metrics normal, monitoring continues.
+[2026-03-17T21:45] clean-notifications: dirty/ empty — nothing to process. clean/ has 5 items (welcome, backup-root-fix-needed [3 days old, sudo fix still pending], dns-flood-investigation, dns-check x2). 1 human chore (under 5-chore threshold). No Telegram alert needed.
+[2026-03-17T21:55] clean-notifications: dirty/ empty — nothing to process. clean/ has 5 items (welcome, backup-root-fix-needed [3 days old, sudo fix still pending], dns-flood-investigation, dns-check x2). 3 chores pending (under 5-chore threshold). No Telegram alert needed.
+
+[2026-03-17T22:05] clean-notifications: dirty/ empty — nothing to process. clean/ has 5 items (welcome, backup-root-fix-needed [3 days old, sudo fix still pending], dns-flood-investigation, dns-check x2 from today). 1 human chore (under 5-chore threshold). No Telegram alert needed.
+[22:15] clean-notifications: dirty/ empty — nothing to process. clean/ has 5 items (welcome, backup-root-fix-needed [3 days old, sudo fix still pending], dns-flood-investigation, dns-check x2 from today). 1 human chore (under 5-chore threshold). No Telegram alert needed.
+[22:25] clean-notifications: dirty/ empty — nothing to process. clean/ has 5 items (welcome, backup-root-fix-needed [3 days old, sudo fix still pending], dns-flood-investigation, dns-check x2 from today). 0 chores (under 5-chore threshold). No Telegram alert needed.
+[22:35] clean-notifications: dirty/ empty — nothing to process. clean/ has 5 items (welcome, backup-root-fix-needed [3 days old, sudo fix still pending], dns-flood-investigation, dns-check x2 from today). 0 chores (under 5-chore threshold). No Telegram alert needed.
+[22:45] clean-notifications: dirty/ empty, no items to process. 5 clean items stable, 2 human chores active.
+
+[2026-03-17T22:55] clean-notifications run
+  Dirty files processed: 2 (sidekick-report-*-dns-flood-22:48 and 22:49)
+  Content: DNS flood investigation sidekick reports — no flood, normal IoT traffic, Telegram chatId error (same recurring issue)
+  Action: Consolidated into clean/dns-monitoring-2347-2026-03-17.txt
+  Dirty files deleted: 2
+  No new chores created (existing sidekick-errors chore already tracks chatId issue)
+  Clean items: 6 total (within normal range, no Telegram alert needed)
+
+[23:05] clean-notifications check
+  Dirty files: 0 (nothing to process)
+  Clean items: 6 (backup-root-fix-needed, dns-check x2, dns-flood-investigation, dns-monitoring, welcome)
+  Human chores: 2 (sidekick-errors, welcome-to-clappie) — under 5-item alert threshold
+  Action: no-op, all nominal
+[23:15] clean-notifications run: dirty/ empty, no new items to process. clean/ has 6 stable items, 2 human chores (under 5-chore threshold). No action needed.
+[23:25] clean-notifications: dirty/ empty, no new items. 6 clean items stable. No action needed.
+[23:57] clean-notifications: dirty/ was empty, nothing to process. 6 clean items present (stable).
